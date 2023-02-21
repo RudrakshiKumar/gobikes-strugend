@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import logo from "../assets/logo.png";
+import star from "../assets/star.png";
 import loginPopup from "../assets/loginPopup.webp";
 import googleLogo from "../assets/googleLogo.png";
 import { useTheme } from '@mui/material/styles';
@@ -20,6 +21,8 @@ import MuiPhoneNumber from 'material-ui-phone-number-2'
 import PhoneInput from 'react-phone-number-input'
 import TextField from '@mui/material/TextField';
 import 'react-phone-number-input/style.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Card from '@mui/material/Card';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -33,8 +36,8 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '60%',
-  height: '50%',
+  width: '65%',
+  height: '60%',
   bgcolor: 'background.paper',
   boxShadow: 24,
   // p: 4,
@@ -89,39 +92,77 @@ export default function ButtonAppBar() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-  
-      <Box sx={style} >
-      <Grid container columns={16}>
+     
+      <Box sx={style} className=''>
+      <Grid container columns={16} className=''>
       
-      <Grid xs={6}>
-        <Grid item sx={{bgcolor: "#EFEFEF",  borderRadius: 2,  }}
-    textAlign="center"
+      <Grid xs={7} className='bg-gray-100 rounded-l-md'>
+
+
+      
+        <Grid className="rounded-l-md " item sx={{bgcolor: "",    }}
+    textAlign="center" 
     
                  >
+               
         <Box
+        className="m-auto "
             component="img"
             sx={{
-            height: 50, py: 1,
+             
+            height: 70, pt:2, px: 5,
             }}
             alt="Your logo."
             src={logo}
         /> <br/>
           <Box
+          className="m-auto"
             component="img"
             sx={{
-            height: 200,
+            height: 230,
             }}
             alt="Your logo."
             src={loginPopup}
         />
-        <Typography id="modal-modal-description" sx={{ mt: 2, pb:0, }}>
-        <span>15+</span> <br /> <span>Cities</span>
+        <Typography id="modal-modal-description" sx={{ mt: 2, pb:1, }}>
+        <div className='grid grid-cols-4 px-5 mx-auto'>
+        <div>
+        <span className='text-sm'>15+</span> <br /> <span className='text-[11px] text-gray-500'>Cities</span>
+        </div>
+        <div>
+        <span className='text-sm'>50000+</span> <br /> <span className='text-[11px] text-gray-500'>Happy Customers</span>
+        </div>
+        <div>
+        <span className='text-sm'>6000+</span> <br /> <span className='text-[11px] text-gray-500'>Bikes</span>
+        </div>
+        <div>
+        <Box>
+        <span className='text-sm'>4.8/5
+        <Box className='inline-block'
+            component="img"
+            sx={{
+            height: 15,
+            px: 1, mb: 0.5,
+            }}
+            alt="Your logo."
+            src={star}
+        /> </span> <br /> <span className='text-[11px] text-gray-500'>1200+ reviews</span>
+        </Box>
+        
+        </div>
+
+        </div>
+       
+        
+        
+      
+        
            
           </Typography>             
         </Grid>
         
       </Grid>
-      <Grid xs={10}>
+      <Grid xs={9}>
       <Grid item sx={{ borderRadius: 2, p: 2,  }}
     textAlign="center"
     
@@ -155,7 +196,7 @@ export default function ButtonAppBar() {
           <Button variant="contained" sx={{textTransform: "none", mb: 2, width: '90% '}}>Send OTP</Button> <br/>
           <Divider>OR</Divider>
          
-      <Button variant="outlined" sx={{textTransform: "none", mt: 1,}}>
+      <Button className="" variant="outlined" sx={{textTransform: "none", mt: 1,}}>
       <Box
             component="img"
             sx={{
