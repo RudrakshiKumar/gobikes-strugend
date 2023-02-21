@@ -30,6 +30,7 @@ import Leh from "../assets/Leh.jpg";
 import Noida from "../assets/Noida.jpg";
 import Udaipur from "../assets/Udaipur.jpg";
 import RightSection from "./RightSection";
+import BookOnlineIcon from "@mui/icons-material/BookOnline";
 
 const style = {
   position: "absolute",
@@ -397,6 +398,18 @@ export default function ChatBot() {
                   endAdornment: (
                     <InputAdornment position="end" sx={{ color: "red" }}>
                       <CalendarMonthIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <TextField
+                fullWidth
+                label="Book Now"
+                sx={{ marginTop: "2%" }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end" sx={{ color: "blue" }}>
+                      <BookOnlineIcon />
                     </InputAdornment>
                   ),
                 }}
