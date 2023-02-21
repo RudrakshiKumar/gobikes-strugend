@@ -1,13 +1,16 @@
+import "./App.css";
+import MobileLogin from "./components/MobileLogin";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 
-import './App.css';
-import Navbar from './components/Navbar';
-
-const App=()=>  {
+function App() {
   return (
-  
-<Navbar/>  
+    <>
+      <Navbar />
+      {/* <MobileLogin /> */}
+      <Home />
+    </>
   );
 }
-
 
 export default App;
