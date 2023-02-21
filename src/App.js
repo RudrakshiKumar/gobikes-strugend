@@ -1,17 +1,13 @@
-// import whois from 'whois-api';
-import "./App.css";
-import MobileLogin from "./components/MobileLogin";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
 
-function App() {
+import './App.css';
+import Navbar from './components/Navbar';
+
+const App=()=>  {
   return (
-    <>
-      <Navbar />
-      {/* <MobileLogin /> */}
-      <Home />
-    </>
+  
+<Navbar/>  
   );
 }
+
 
 export default App;
