@@ -1,8 +1,8 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import goImage from "../assets/goImage.png";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// import Carousel from "react-multi-carousel";
+// import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
   desktop: {
@@ -27,7 +27,7 @@ export default function Offer() {
           Offers for you
         </Typography>
         <div style={{ marginTop: "5%", marginLeft: "5%" }}>
-          <Carousel responsive={responsive}>
+          {/* <Carousel responsive={responsive}>
             <div>
               <Grid item xs={12} sm={4}>
                 <Box
@@ -242,7 +242,7 @@ export default function Offer() {
                 </Box>
               </Grid>
             </div>
-          </Carousel>
+          </Carousel> */}
         </div>
       </Container>
     </>
