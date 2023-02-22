@@ -33,7 +33,7 @@ import RightSection from "./RightSection";
 import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import MobileHeader from "./MobileHeader";
+import MobileHome from "./MobileHome";
 
 const style = {
   position: "absolute",
@@ -61,7 +61,7 @@ export default function ChatBot() {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             {isMatch ? (
-              <MobileHeader />
+              <MobileHome />
             ) : (
               <Box
                 sx={{
@@ -409,6 +409,18 @@ export default function ChatBot() {
                     endAdornment: (
                       <InputAdornment position="end" sx={{ color: "red" }}>
                         <CalendarMonthIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  fullWidth
+                  label="Book Now"
+                  sx={{ marginTop: "2%" }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end" sx={{ color: "blue" }}>
+                        <BookOnlineIcon />
                       </InputAdornment>
                     ),
                   }}
