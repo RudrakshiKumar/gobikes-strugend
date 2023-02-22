@@ -95,7 +95,7 @@ export default function Offer() {
               </div>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={12}>
+          {/* <Grid item xs={12} sm={12}>
             <Box
               sx={{
                 margin: "3%",
@@ -232,7 +232,7 @@ export default function Offer() {
                 </Typography>
               </div>
             </Box>
-          </Grid>
+          </Grid> */}
         </Grid>
         <div style={{ marginTop: "5%", marginLeft: "5%" }}>
           {/* <Carousel responsive={responsive}>

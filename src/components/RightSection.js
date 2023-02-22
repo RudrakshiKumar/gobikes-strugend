@@ -37,22 +37,5 @@ export default function RightSection() {
         </Box>
       )}
     </Box>
-    {/* <>
-      <img
-        src={rightSection}
-        alt="Right Section"
-        style={{
-          width: "49.1vw",
-          height: "85vh",
-        }}
-      />
-      <Offer />
-      <Video />
-      <Features />
-      <BookRide />
-      <Faq />
-      <Statistics />
-      <KnowMore />
-    </> */}
   );
 }
