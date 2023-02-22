@@ -1,6 +1,7 @@
 import { Box } from "@mui/system";
 import React from "react";
 import rightSection from "../assets/rightSection.jpeg";
+import Home from "./Home";
 
 const MobileHome = () => {
   return (
@@ -13,6 +14,7 @@ const MobileHome = () => {
           height: "60vh",
         }}
       />
+      <Home />
     </Box>
   );
 };
