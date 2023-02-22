@@ -15,7 +15,7 @@ export default function RightSection() {
         src={rightSection}
         alt="Right Section"
         style={{
-          width: "50vw",
+          width: "49.1vw",
           height: "85vh",
         }}
       />
