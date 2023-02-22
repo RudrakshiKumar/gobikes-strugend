@@ -5,17 +5,19 @@ import Home from "./Home";
 
 const MobileHome = () => {
   return (
-    <Box>
-      <img
-        src={rightSection}
-        alt="Header"
-        style={{
-          width: "1000vw",
-          height: "60vh",
-        }}
-      />
+    <>
+      <Box>
+        <img
+          src={rightSection}
+          alt="Header"
+          style={{
+            width: "1000vw",
+            height: "60vh",
+          }}
+        />
+      </Box>
       <Home />
-    </Box>
+    </>
   );
 };
 
