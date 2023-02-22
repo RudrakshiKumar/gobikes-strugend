@@ -30,6 +30,7 @@ import Leh from "../assets/Leh.jpg";
 import Noida from "../assets/Noida.jpg";
 import Udaipur from "../assets/Udaipur.jpg";
 import RightSection from "./RightSection";
+import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileHeader from "./MobileHeader";
