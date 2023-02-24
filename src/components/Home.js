@@ -79,7 +79,7 @@ export default function ChatBot() {
               </Typography>
               <TextField
                 fullWidth
-                label="Search City"
+                placeholder="Search City"
                 sx={{ marginTop: "5%" }}
                 InputProps={{
                   endAdornment: (
@@ -380,7 +380,7 @@ export default function ChatBot() {
               </Modal>
               <TextField
                 fullWidth
-                label="Start Date"
+                placeholder="Start Date"
                 sx={{ marginTop: "2%" }}
                 InputProps={{
                   endAdornment: (
@@ -392,7 +392,7 @@ export default function ChatBot() {
               />
               <TextField
                 fullWidth
-                label="End Date"
+                placeholder="End Date"
                 sx={{ marginTop: "2%" }}
                 InputProps={{
                   endAdornment: (
@@ -404,7 +404,7 @@ export default function ChatBot() {
               />
               <TextField
                 fullWidth
-                label="Book Now"
+                placeholder="Book Now"
                 sx={{ marginTop: "2%" }}
                 InputProps={{
                   endAdornment: (
