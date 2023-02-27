@@ -4,9 +4,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import PrivacyPolicy from "./components/PrivacyPolicy";
-import TermsCondition from "./components/TC/TermsCondition";
-
-import "./App.css";
+import TermsCondition from "./components/TermsCondition";
 import ListYourVehicle from "./components/ListYourVehicle";
 import ContactUs from "./components/ContactUs";
 import FAQs from "./components/FAQs";
@@ -25,9 +23,9 @@ function App() {
       {/* <OffersForYou /> */}
       {/* <AboutUs /> */}
       {/* <PrivacyPolicy /> */}
-      {/* <TermsCondition /> */}
+      <TermsCondition />
       {/* <DashBoard /> */}
-      <BookingFlow />
+      {/* <BookingFlow /> */}
       <Footer />
     </>
   );
