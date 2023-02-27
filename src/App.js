@@ -23,9 +23,10 @@ function App() {
       {/* <OffersForYou /> */}
       {/* <AboutUs /> */}
       {/* <PrivacyPolicy /> */}
-      <TermsCondition />
+      {/* <TermsCondition /> */}
       {/* <DashBoard /> */}
-      {/* <BookingFlow /> */}
+      <BookingFlow />
+
       <Footer />
     </>
   );

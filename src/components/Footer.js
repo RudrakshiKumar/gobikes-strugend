@@ -12,6 +12,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import uparrow from "../assets/uparrow.svg";
 
 export default function App() {
   return (
@@ -20,9 +21,9 @@ export default function App() {
       className="text-center text-lg-start text-muted position-relative mt-32"
     >
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <div className="me-5 d-none d-lg-block">
+        {/* <div className="me-5 d-none d-lg-block">
           <span>Get connected with us on social networks:</span>
-        </div>
+        </div> */}
 
         <div>
           <a href="" className="me-4 text-reset">
@@ -40,6 +41,10 @@ export default function App() {
           <a href="" className="me-4 text-reset">
             <GitHubIcon fab icon="github" />
           </a>
+        </div>
+        <div>
+          {" "}
+          <img src={uparrow} alt="" />
         </div>
       </section>
 
