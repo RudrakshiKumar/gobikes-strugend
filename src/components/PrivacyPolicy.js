@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
     <>
     <Box sx={{px:'50px'}}>
         <Typography variant='h3' sx={{px:'5px'}}>Privacy Policy</Typography>
-        <Box sx={{padding:'25px', bgcolor:'#C9F5D9', borderRadius:'15px', marginBottom:'24px'}}>
+        <Box sx={{padding:'25px', bgcolor:'#f1f8ed', borderRadius:'15px', marginBottom:'24px'}}>
             <Typography variant='p' >
         GoBikes ("us", "we", or "our") operates the gobikes.co.in website and the GoBikes mobile application (the "Service").<br/>
 GoBikes Automotive Pvt. Ltd. is a company duly registered and incorporated under the companies Act,2008. It is registered whose address is at no. Top floor, C-78, E-3, Jvts Garden Chattarpur New Delhi, DELHI, South West Delhi, Delhi, 110074.
@@ -19,7 +19,7 @@ Please read this Privacy Policy carefully by using the Website, you indicate tha
 By providing us your Information or by making use of the facilities provided by the Website, You hereby consent to the collection, storage, processing and transfer of any or all of Your Personal Information and Non-Personal Information by us as specified under this Privacy Policy. You further agree that such collection, use, storage and transfer of Your Information shall not cause any loss or wrongful gain to you or any other person.
         </Typography>
         </Box>
-        <Box sx={{padding:'25px', bgcolor:'#C9F5D9', borderRadius:'15px', marginBottom:'24px'}}>
+        <Box sx={{padding:'25px', bgcolor:'#f1f8ed', borderRadius:'15px', marginBottom:'24px'}}>
             <Typography variant='p'>
             By registering at Gobikes you agree to following terms and conditions:<br/><br/>
                 <Typography sx={{px:'25px'}}>
@@ -64,7 +64,7 @@ By providing us your Information or by making use of the facilities provided by 
                 </Typography>
             </Typography>
         </Box>
-        <Box sx={{padding:'25px', bgcolor:'#C9F5D9', borderRadius:'15px', marginBottom:'24px'}}>
+        <Box sx={{padding:'25px', bgcolor:'#f1f8ed', borderRadius:'15px', marginBottom:'24px'}}>
             <Typography variant='h6'>User Information</Typography>
             <Typography variant='p'>
                 To avail certain services on our Websites, users are required to provide certain information for the registration process namely:<br/>
@@ -84,7 +84,7 @@ By providing us your Information or by making use of the facilities provided by 
                 The Information as supplied by the users enables us to improve our sites and provide you the most user-friendly experience. All required information is service dependent and we may use the above said user information to, maintain, protect, and improve its services (including advertising services) and for developing new services Such information will not be considered as sensitive if it is freely available and accessible in the public domain or is furnished under the Right to Information Act, 2005 or any other law for the time being in force.
             </Typography>
         </Box>
-        <Box sx={{padding:'25px', bgcolor:'#C9F5D9', borderRadius:'15px', marginBottom:'24px'}}>
+        <Box sx={{padding:'25px', bgcolor:'#f1f8ed', borderRadius:'15px', marginBottom:'24px'}}>
             <Typography variant='h6'>Cookies</Typography>
             <Typography variant='p' sx={{px:'20px'}}>
                 
@@ -94,13 +94,13 @@ By providing us your Information or by making use of the facilities provided by 
             
             </Typography>
         </Box>
-        <Box sx={{padding:'25px', bgcolor:'#C9F5D9', borderRadius:'15px', marginBottom:'24px'}}>
+        <Box sx={{padding:'25px', bgcolor:'#f1f8ed', borderRadius:'15px', marginBottom:'24px'}}>
             <Typography variant='h6'>Links to the other sites</Typography>
             <Typography variant='p' sx={{px:'20px'}}>
             Our policy discloses the privacy practices for our own web site only. Our site provides links to other websites also that are beyond our control. We shall in no way be responsible in way for your use of such sites.
             </Typography>
         </Box>
-        <Box sx={{padding:'25px', bgcolor:'#C9F5D9', borderRadius:'15px', marginBottom:'24px'}}>
+        <Box sx={{padding:'25px', bgcolor:'#f1f8ed', borderRadius:'15px', marginBottom:'24px'}}>
             <Typography variant='h6'>Information Sharing</Typography>
             <Typography variant='p'>
             We shares the sensitive personal information to any third party without obtaining the prior consent of the user in the following limited circumstances:<br/>
@@ -111,7 +111,7 @@ By providing us your Information or by making use of the facilities provided by 
             </Typography>
             </Typography>
         </Box>
-        <Box sx={{padding:'25px', bgcolor:'#C9F5D9', borderRadius:'15px', marginBottom:'24px'}}>
+        <Box sx={{padding:'25px', bgcolor:'#f1f8ed', borderRadius:'15px', marginBottom:'24px'}}>
             <Typography variant='h6'>
             Information Security<br/>
             </Typography>

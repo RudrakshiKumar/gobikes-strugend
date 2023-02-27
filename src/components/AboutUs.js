@@ -10,7 +10,7 @@ const AboutUs = () => {
     
     <Box sx={{ px:'15px', position:'relative',}}>
         <Typography variant='h4'>About Us</Typography>
-        <Box sx={{padding:'15px 15px 10px', bgcolor:'#C9F5D9', borderRadius:'10px', textAlign:'left'}}>
+        <Box sx={{padding:'15px 15px 10px', bgcolor:'#f1f8ed', borderRadius:'10px', textAlign:'left'}}>
           <Typography variant='p' sx={{px:'15px'}}>GoBikes is a bike rental platform which aims to fill the void in the transportation sector. The platform is designed primarily for daily commuters who rely on public transportation. It allows users to choose from a variety of bikes and scooters available at affordable prices and promises to deliver quality service.
 
 GoBikes aims to solve the absence of last and first-mile connectivity that exists in most of the major cities in India. GoBikes provides the users with the experience of a personalised ride where the process of renting a bike/scooter is made easy and hassle-free.
@@ -25,7 +25,7 @@ Want to GO to your favourite places? Want to GO to your office or college? Want 
     </Box>
     <Box sx={{ px:'15px', position:'relative'}}>
         <Typography variant='h4'>Our Mission</Typography>
-        <Box sx={{padding:'15px 15px 10px', bgcolor:'#C9F5D9', borderRadius:'10px', textAlign:'center'}}>
+        <Box sx={{padding:'15px 15px 10px', bgcolor:'#f1f8ed', borderRadius:'10px', textAlign:'center'}}>
           <Typography variant='p' textAlign={'center'} sx={{px:'15px'}}>Our mission is to make our fleet available to everyone out there with a combination of good service and affordable prices. Your satisfaction will make us grow. We will be coming soon to your cities so that you can Get On your wheels and GO!
           </Typography>
         </Box>
