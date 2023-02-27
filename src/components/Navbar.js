@@ -25,7 +25,7 @@ import { MuiTelInput } from "mui-tel-input";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import Login from "./Login";
+import Login from "./LoginModal";
 
 // const Item = styled(Paper)(({ theme }) => ({}));
 
