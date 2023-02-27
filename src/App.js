@@ -11,24 +11,23 @@ import ListYourVehicle from "./components/ListYourVehicle";
 import ContactUs from "./components/ContactUs";
 import FAQs from "./components/FAQs";
 import OffersForYou from "./components/OffersForYou";
+import DashBoard from "./components/Dashboard";
+import BookingFlow from "./components/BookingFlow";
 
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <MobileLogin /> */}
-      {/* <Home /> */}
-      {/* <AboutUs /> */}
-      {/* <PrivacyPolicy /> */}
-      <TermsCondition />
-      {/* <Footer /> */}
-
       <Navbar />
-      <Home />
+      {/* <Home /> */}
       {/* <ListYourVehicle /> */}
       {/* <ContactUs /> */}
       {/* <FAQs /> */}
       {/* <OffersForYou /> */}
+      {/* <AboutUs /> */}
+      {/* <PrivacyPolicy /> */}
+      {/* <TermsCondition /> */}
+      {/* <DashBoard /> */}
+      <BookingFlow />
       <Footer />
     </>
   );

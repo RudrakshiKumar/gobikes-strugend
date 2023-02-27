@@ -17,7 +17,7 @@ export default function App() {
   return (
     <MDBFooter
       bgColor="light"
-      className="text-center text-lg-start text-muted position-relative"
+      className="text-center text-lg-start text-muted position-relative mt-32"
     >
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <div className="me-5 d-none d-lg-block">
@@ -104,10 +104,10 @@ export default function App() {
         className="text-center p-4"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        © 2021 Copyright:
         <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-          Strugend
+          © Strugend.{" "}
         </a>
+        All rights reserved.
       </div>
     </MDBFooter>
   );
