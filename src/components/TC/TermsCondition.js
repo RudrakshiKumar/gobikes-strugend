@@ -14,49 +14,49 @@ const TermsCondition = () => {
             <li className='tc_list1'>
               <Typography variant='span' fontFamily={'Poppins, sans-serif'}>1. A general guide for use</Typography>
               </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>2. Use of the vehicle</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>3. Prohibited Uses</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>4. Maintenance/Vehicle Condition/Return/Stolen Vehicles</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>5. Trip Extension</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>6. Fee Policy</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>7. No Agency</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>8. Offers and Promotions</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>9. Traffic Law/Applicable Law Violations</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>10. Insurance/Liability</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>11. Acceptable Website Use</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>12. Disclaimer of Consequential Damages</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>13. Intellectual Property Rights</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>14. Dispute Resolution/Arbitration</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>15. Governing Law and Jurisdiction</Typography>
             </li>
-            <li>
+            <li className='tc_list1'>
             <Typography variant='span' fontFamily={'Poppins, sans-serif'}>16. Entire Agreement</Typography>
             </li>
           </ol>
