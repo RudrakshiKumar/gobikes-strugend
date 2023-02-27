@@ -11,6 +11,7 @@ import FAQs from "./components/FAQs";
 import OffersForYou from "./components/OffersForYou";
 import DashBoard from "./components/Dashboard";
 import BookingFlow from "./components/BookingFlow";
+import NoBikesAvailable from "./components/NoBikesAvailable";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
       {/* <PrivacyPolicy /> */}
       {/* <TermsCondition /> */}
       {/* <DashBoard /> */}
-      <BookingFlow />
+      {/* <BookingFlow /> */}
+      <NoBikesAvailable />
 
       <Footer />
     </>
