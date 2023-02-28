@@ -17,13 +17,8 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { useState } from "react";
 import { Divider } from "@mui/material";
-import TextField from "@mui/material/TextField";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Card from "@mui/material/Card";
-import { bgcolor } from "@mui/system";
 import { MuiTelInput } from "mui-tel-input";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import MobileLogin from "./MobileLogin";
 
