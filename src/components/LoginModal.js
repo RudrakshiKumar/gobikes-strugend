@@ -36,7 +36,7 @@ const style = {
   flexWrap: "wrap",
 };
 
-const Login = () => {
+const LoginModal = () => {
   const [open, setOpen] = React.useState(true);
   const handleDrawerClose = () => {
     setOpen(false);
@@ -181,32 +181,6 @@ const Login = () => {
                   <span className="text-[#4CBB17]">Affordable </span>
                   and <span className="text-[#4CBB17]">Quick</span>
                 </Typography>
-                {/* <Box
-                            className=""
-                            component="form"
-                            textAlign="center"
-                            sx={{
-                              display: "flex",
-                              justifyContent: "center",
-                              "& > :not(style)": {
-                                // ml: 4,
-                                width: "86%",
-                                height: "90%",
-                              },
-
-                              my: 2,
-                              py: 2,
-                            }}
-                            // noValidate
-                            autoComplete="off"
-                          >
-                            <PhoneInput
-                              international
-                              defaultCountry="IN"
-                              value={value}
-                              onChange={setValue}
-                            />
-                          </Box> */}
                 <MuiTelInput
                   sx={{
                     my: 2,
@@ -269,4 +243,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginModal;

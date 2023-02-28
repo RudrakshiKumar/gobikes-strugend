@@ -25,7 +25,8 @@ import { MuiTelInput } from "mui-tel-input";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import Login from "./LoginModal";
+import PersonalDetails from "./PersonalDetails";
+import LoginModal from "./LoginModal";
 
 // const Item = styled(Paper)(({ theme }) => ({}));
 
@@ -106,7 +107,8 @@ export default function ButtonAppBar() {
                   aria-labelledby="modal-modal-title"
                   aria-describedby="modal-modal-description"
                 >
-                  <Login />
+                  {/* <LoginModal /> */}
+                  <PersonalDetails />
                 </Modal>
               </Typography>
             </Box>

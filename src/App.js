@@ -14,18 +14,19 @@ import BookingFlow from "./components/BookingFlow";
 import NoBikesAvailable from "./components/NoBikesAvailable";
 import PostLoginNavbar from "./components/PostLoginNavbar";
 import PersonalDetails from "./components/PersonalDetails";
-import Trial from "./components/Trial";
+import Dialog from "./components/Dialog";
 import OTP from "./components/OTP";
 import OTPVerified from "./components/OTPVerified";
 import BookingConfirmation from "./components/BookingConfirmation";
 import RideCompletion from "./components/RideCompletion";
+import { Modal } from "@mui/material";
 
 function App() {
   return (
     <>
       {/* <Navbar /> */}
       <PostLoginNavbar />
-      {/* <Trial /> */}
+
       {/* <Home /> */}
       {/* <ListYourVehicle /> */}
       {/* <ContactUs /> */}
@@ -35,13 +36,15 @@ function App() {
       {/* <PrivacyPolicy /> */}
       {/* <TermsCondition /> */}
       {/* <DashBoard /> */}
-      {/* <BookingFlow /> */}
+      <BookingFlow />
+      <Dialog />
       {/* <NoBikesAvailable /> */}
-      <PersonalDetails />
+
+      {/* <PersonalDetails />
       <OTP />
       <OTPVerified />
       <BookingConfirmation />
-      <RideCompletion />
+      <RideCompletion /> */}
 
       <Footer />
     </>

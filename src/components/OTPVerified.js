@@ -27,12 +27,12 @@ const OTPVerified = () => {
             className="m-auto"
             component="img"
             sx={{
-              height: 230,
+              height: 200,
             }}
             alt="Your logo."
             src={loginPopup}
           />
-          <Typography id="modal-modal-description" sx={{ mt: 5, pb: 2.5 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2, pb: 1 }}>
             <div className="grid grid-cols-4 px-5 mx-auto">
               <div>
                 <span className="text-sm">15+</span> <br />{" "}
@@ -73,7 +73,7 @@ const OTPVerified = () => {
             </div>
           </Typography>
         </Box>
-        <Box sx={{ width: "50%", my: "auto", p: 10 }}>
+        <Box sx={{ width: "50%", my: "auto", pl: 15 }}>
           <CheckCircleIcon sx={{ fontSize: 200, color: "#59CE8F" }} />
           <Typography sx={{ color: "#59CE8F", pt: 4 }}>
             OTP Verified Successfully!

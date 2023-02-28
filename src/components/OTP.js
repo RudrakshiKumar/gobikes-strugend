@@ -7,7 +7,7 @@ import loginPopup from "../assets/loginPopup.webp";
 
 const OTP = () => {
   return (
-    <div className="text-center m-5">
+    <div className="text-center">
       <Box sx={{ display: "inline-flex" }}>
         <Box sx={{ bgcolor: "#f3f4f6" }}>
           <Box
@@ -31,7 +31,7 @@ const OTP = () => {
             alt="Your logo."
             src={loginPopup}
           />
-          <Typography id="modal-modal-description" sx={{ mt: 5, pb: 2.5 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 3, pb: 1 }}>
             <div className="grid grid-cols-4 px-5 mx-auto">
               <div>
                 <span className="text-sm">15+</span> <br />{" "}

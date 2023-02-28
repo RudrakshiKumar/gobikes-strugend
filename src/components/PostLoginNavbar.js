@@ -175,6 +175,10 @@ const PostLoginNavbar = () => {
                     <MenuItem onClick={handleClose} disableRipple>
                       Orders
                     </MenuItem>
+                    <Divider sx={{ my: 0.5 }} />
+                    <MenuItem onClick={handleClose} disableRipple>
+                      Dashboard
+                    </MenuItem>
 
                     <Divider sx={{ my: 0.5 }} />
                     <MenuItem onClick={handleClose} disableRipple>
