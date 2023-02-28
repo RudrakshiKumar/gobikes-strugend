@@ -7,7 +7,7 @@ import loginPopup from "../assets/loginPopup.webp";
 
 const PersonalDetails = () => {
   return (
-    <div className="text-center">
+    <div className="text-center m-10">
       <Box sx={{ display: "inline-flex" }}>
         <Box sx={{ bgcolor: "#f3f4f6" }}>
           <Box
@@ -72,12 +72,15 @@ const PersonalDetails = () => {
             </div>
           </Typography>
         </Box>
-        <Box sx={{}}>
-          <Typography>Personal Deatils</Typography>
+        <Box sx={{ pl: 4, textAlign: "left" }}>
+          <Typography variant="h5" sx={{ py: 2 }}>
+            Personal Details
+          </Typography>
           <Box
             component="form"
             sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
+              "& > :not(style)": { m: 1, width: "50ch" },
+              mb: 2,
             }}
             noValidate
             autoComplete="off"
@@ -106,7 +109,23 @@ const PersonalDetails = () => {
               variant="outlined"
             />
           </Box>
-          <Button> Submit </Button>
+
+          <Button
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+
+              p: 2,
+              width: "97%",
+              color: "#ffffff",
+              bgcolor: "#59CE8F",
+              textAlign: "center",
+              m: "auto",
+            }}
+          >
+            {" "}
+            Submit{" "}
+          </Button>
         </Box>
       </Box>
     </div>

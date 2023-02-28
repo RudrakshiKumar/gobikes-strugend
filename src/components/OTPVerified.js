@@ -73,9 +73,9 @@ const OTPVerified = () => {
             </div>
           </Typography>
         </Box>
-        <Box>
+        <Box sx={{ width: "50%", my: "auto", p: 10 }}>
           <CheckCircleIcon sx={{ fontSize: 200, color: "#59CE8F" }} />
-          <Typography sx={{ color: "#59CE8F" }}>
+          <Typography sx={{ color: "#59CE8F", pt: 4 }}>
             OTP Verified Successfully!
           </Typography>
         </Box>

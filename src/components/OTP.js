@@ -7,7 +7,7 @@ import loginPopup from "../assets/loginPopup.webp";
 
 const OTP = () => {
   return (
-    <div className="text-center">
+    <div className="text-center m-5">
       <Box sx={{ display: "inline-flex" }}>
         <Box sx={{ bgcolor: "#f3f4f6" }}>
           <Box
@@ -72,41 +72,61 @@ const OTP = () => {
             </div>
           </Typography>
         </Box>
-        <Box sx={{}}>
-          <Typography>Enter OTP sent to (Mobile Number) (Change)</Typography>
-          <Typography>
-            Verification of your number is required so that we can contact you
-            about any information
+        <Box sx={{ pl: 3, m: "auto" }}>
+          <Typography variant="h5" sx={{ m: 3 }}>
+            Enter OTP sent to{" "}
+            <span className="text-[#59CE8F]">(Mobile Number) (Change) </span>{" "}
           </Typography>
-          <TextField
-            id="outlined-basic"
-            size="small"
-            sx={{ width: 45, my: 3, mx: 1 }}
-            variant="outlined"
-          />
-          <TextField
-            id="outlined-basic"
-            size="small"
-            sx={{ width: 45, my: 3, mx: 1 }}
-            variant="outlined"
-          />
-          <TextField
-            id="outlined-basic"
-            size="small"
-            sx={{ width: 45, my: 3, mx: 1 }}
-            variant="outlined"
-          />
-          <TextField
-            id="outlined-basic"
-            size="small"
-            sx={{ width: 45, my: 3, mx: 1 }}
-            variant="outlined"
-          />
-
-          <Typography>Didn't receive the OTP?</Typography>
-          <Button>Resend OTP</Button>
-
-          <Button> Submit </Button>
+          <Typography variant="p">
+            Verification of your number is required so that we can <br />{" "}
+            contact you about any information
+          </Typography>
+          <Box>
+            <TextField
+              id="outlined-basic"
+              size="small"
+              sx={{ width: 45, my: 3, mx: 1 }}
+              variant="outlined"
+            />
+            <TextField
+              id="outlined-basic"
+              size="small"
+              sx={{ width: 45, my: 3, mx: 1 }}
+              variant="outlined"
+            />
+            <TextField
+              id="outlined-basic"
+              size="small"
+              sx={{ width: 45, my: 3, mx: 1 }}
+              variant="outlined"
+            />
+            <TextField
+              id="outlined-basic"
+              size="small"
+              sx={{ width: 45, my: 3, mx: 1 }}
+              variant="outlined"
+            />
+          </Box>
+          <Box sx={{ display: "inline-flex" }}>
+            <Typography>Didn't receive the OTP?</Typography>
+            <Typography sx={{ color: "#59CE8F", ml: 2 }}>Resend OTP</Typography>
+          </Box>
+          <Button
+            sx={{
+              //   display: "flex",
+              //   justifyContent: "center",
+              p: 2,
+              width: "97%",
+              color: "#ffffff",
+              bgcolor: "#59CE8F",
+              //   textAlign: "center",
+              my: 3,
+              mx: "auto",
+            }}
+          >
+            {" "}
+            Submit{" "}
+          </Button>
         </Box>
       </Box>
     </div>
