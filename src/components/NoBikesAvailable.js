@@ -22,7 +22,7 @@ const NoBikesAvailable = () => {
             className="pb-2"
             sx={{
               fontSize: 150,
-              color: "#A4F069",
+              color: "#59CE8F",
             }}
           />
           <Typography variant="h4" sx={{}}>

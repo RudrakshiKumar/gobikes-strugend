@@ -17,6 +17,7 @@ import React, { useState } from "react";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import HeroDestini from "../assets/HeroDestini.png";
 import HondaSP from "../assets/HondaSP.png";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -30,7 +31,7 @@ export default function BookingFlow() {
       >
         <Container>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={5}>
+            <Grid item xs={12} sm={4}>
               <TextField
                 fullWidth
                 label="Pickup Date & Time"
@@ -46,7 +47,7 @@ export default function BookingFlow() {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={5}>
+            <Grid item xs={12} sm={4}>
               <TextField
                 fullWidth
                 label="Dropoff Date & Time"
@@ -61,6 +62,12 @@ export default function BookingFlow() {
                   ),
                 }}
               />
+            </Grid>
+            <Grid item xs={12} sm={2}>
+              <Button>
+                <LocationOnIcon sx={{}} />
+                <Typography sx={{}}>Location</Typography>
+              </Button>
             </Grid>
             <Grid item xs={12} sm={2}>
               <Button

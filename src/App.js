@@ -12,11 +12,15 @@ import OffersForYou from "./components/OffersForYou";
 import DashBoard from "./components/Dashboard";
 import BookingFlow from "./components/BookingFlow";
 import NoBikesAvailable from "./components/NoBikesAvailable";
+import PostLoginNavbar from "./components/PostLoginNavbar";
+import Trial from "./components/Trial";
 
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <PostLoginNavbar />
+      {/* <Trial /> */}
       {/* <Home /> */}
       {/* <ListYourVehicle /> */}
       {/* <ContactUs /> */}
@@ -26,8 +30,8 @@ function App() {
       {/* <PrivacyPolicy /> */}
       {/* <TermsCondition /> */}
       {/* <DashBoard /> */}
-      {/* <BookingFlow /> */}
-      <NoBikesAvailable />
+      <BookingFlow />
+      {/* <NoBikesAvailable /> */}
 
       <Footer />
     </>
