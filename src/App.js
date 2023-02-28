@@ -13,7 +13,12 @@ import DashBoard from "./components/Dashboard";
 import BookingFlow from "./components/BookingFlow";
 import NoBikesAvailable from "./components/NoBikesAvailable";
 import PostLoginNavbar from "./components/PostLoginNavbar";
+import PersonalDetails from "./components/PersonalDetails";
 import Trial from "./components/Trial";
+import OTP from "./components/OTP";
+import OTPVerified from "./components/OTPVerified";
+import BookingConfirmation from "./components/BookingConfirmation";
+import RideCompletion from "./components/RideCompletion";
 
 function App() {
   return (
@@ -30,8 +35,13 @@ function App() {
       {/* <PrivacyPolicy /> */}
       {/* <TermsCondition /> */}
       {/* <DashBoard /> */}
-      <BookingFlow />
+      {/* <BookingFlow /> */}
       {/* <NoBikesAvailable /> */}
+      <PersonalDetails />
+      <OTP />
+      <OTPVerified />
+      <BookingConfirmation />
+      <RideCompletion />
 
       <Footer />
     </>
