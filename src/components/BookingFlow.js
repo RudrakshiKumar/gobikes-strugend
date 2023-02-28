@@ -65,8 +65,8 @@ export default function BookingFlow() {
             </Grid>
             <Grid item xs={12} sm={2}>
               <Button>
-                <LocationOnIcon sx={{}} />
-                <Typography sx={{}}>Location</Typography>
+                <LocationOnIcon sx={{ color: "#59CE8F", fontSize: 30 }} />
+                <Typography sx={{ color: "#000000" }}>Location</Typography>
               </Button>
             </Grid>
             <Grid item xs={12} sm={2}>
