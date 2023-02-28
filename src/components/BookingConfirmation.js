@@ -7,8 +7,8 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 const BookingConfirmation = () => {
   return (
-    <div>
-      <Box className="m-auto">
+    <div className="text-center">
+      <Box>
         {/* <Box
           component="img"
           sx={{

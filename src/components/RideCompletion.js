@@ -7,7 +7,7 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 const RideCompletion = () => {
   return (
-    <div>
+    <div className="text-center">
       <Box className="m-auto">
         {/* <Box
           component="img"

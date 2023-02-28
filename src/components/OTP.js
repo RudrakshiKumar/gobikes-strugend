@@ -7,7 +7,7 @@ import loginPopup from "../assets/loginPopup.webp";
 
 const OTP = () => {
   return (
-    <div>
+    <div className="text-center">
       <Box sx={{ display: "inline-flex" }}>
         <Box sx={{ bgcolor: "#f3f4f6" }}>
           <Box
