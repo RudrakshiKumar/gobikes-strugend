@@ -17,12 +17,12 @@ export default function RightSection() {
   return (
     <Box>
       {isMatch && (
-        <Box>
+        <Box sx={{ mt: 10 }}>
           <img
             src={rightSection}
             alt="Right Section"
             style={{
-              width: "50vw",
+              width: "100vw",
               height: "85vh",
             }}
           />

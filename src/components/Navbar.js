@@ -31,6 +31,7 @@ import { NavLink } from "react-router-dom";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
+import { Link, Outlet } from "react-router-dom";
 
 // const Item = styled(Paper)(({ theme }) => ({}));
 
@@ -70,21 +71,24 @@ export default function ButtonAppBar() {
         <MobileNavbar />
       ) : (
         <AppBar
-          position="sticky"
+          position="fixed"
           sx={{
             bgcolor: "background.paper",
           }}
         >
           <Toolbar sx={{ justifyContent: "space-between" }}>
-            <Box
-              component="img"
-              sx={{
-                height: 50,
-                ml: 10,
-              }}
-              alt="Your logo."
-              src={logo}
-            />
+            <Link to="/">
+              <Box
+                component="img"
+                sx={{
+                  height: 50,
+                  ml: 10,
+                }}
+                alt="Your logo."
+                src={logo}
+              />
+            </Link>
+
             <Box
               sx={{
                 mr: 10,
@@ -150,6 +154,7 @@ export default function ButtonAppBar() {
           </Toolbar>
         </AppBar>
       )}
+      <Outlet />
     </Box>
   );
 }

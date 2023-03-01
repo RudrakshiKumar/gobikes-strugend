@@ -22,32 +22,30 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MobileLogin from "./MobileLogin";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "65%",
-  height: "60%",
-  bgcolor: "background.paper",
-  boxShadow: 24,
-  // p: 4,
-  borderRadius: 2,
-  flexWrap: "wrap",
-};
+// const style = {
+//   position: "absolute",
+//   top: "50%",
+//   left: "50%",
+//   transform: "translate(-50%, -50%)",
+//   width: "65%",
+//   height: "60%",
+//   bgcolor: "background.paper",
+//   boxShadow: 24,
+//   // p: 4,
+//   borderRadius: 2,
+//   flexWrap: "wrap",
+// };
 
 const LoginModal = () => {
-  const [open, setOpen] = React.useState(true);
-  const handleDrawerClose = () => {
-    setOpen(false);
-    // document.getElementById("logo").classList.remove("makeDisappear");
-  };
+  // const [open, setOpen] = React.useState(true);
+  // const handleDrawerClose = () => {
+  //   setOpen(false);
+  //   // document.getElementById("logo").classList.remove("makeDisappear");
+  // };
 
   //   const [open, setOpen] = React.useState(false);
   //   const handleOpen = () => setOpen(true);
   //   const handleClose = () => setOpen(false);
-
-  const theme = useTheme();
 
   //   const [value, setValue] = useState();
 
@@ -56,6 +54,7 @@ const LoginModal = () => {
   const handleChange = (newPhone) => {
     setPhone(newPhone);
   };
+  const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div>
@@ -63,7 +62,7 @@ const LoginModal = () => {
         <MobileLogin />
       ) : (
         <Box sx={{ display: "inline-flex" }}>
-          <Box sx={{ bgcolor: "#f3f4f6" }}>
+          <Box sx={{ bgcolor: "#f3f4f6", width: "50%" }}>
             <Box
               className="m-auto "
               component="img"
@@ -76,16 +75,17 @@ const LoginModal = () => {
               src={logo}
             />
             <br />
+
             <Box
               className="m-auto"
               component="img"
               sx={{
-                height: 230,
+                height: 200,
               }}
               alt="Your logo."
               src={loginPopup}
             />
-            <Typography id="modal-modal-description" sx={{ mt: 3, pb: 1 }}>
+            <Typography id="modal-modal-description" sx={{ mt: 2, pb: 1 }}>
               <div className="grid grid-cols-4 px-5 mx-auto">
                 <div>
                   <span className="text-sm">15+</span> <br />{" "}
@@ -126,102 +126,6 @@ const LoginModal = () => {
               </div>
             </Typography>
           </Box>
-          {/* <Grid container columns={16} className="" sx={{ flexWrap: "wrap" }}>
-            <Grid
-              xs={7}
-              className="bg-gray-100 rounded-l-md"
-              sx={{ flexWrap: "wrap" }}
-            >
-              <Grid
-                className="rounded-l-md "
-                item
-                sx={{ flexWrap: "wrap" }}
-                textAlign="center"
-              >
-                <Box
-                  className="m-auto "
-                  component="img"
-                  sx={{
-                    height: 70,
-                    pt: 2,
-                    px: 5,
-                  }}
-                  alt="Your logo."
-                  src={logo}
-                />
-                <br />
-                <Box
-                  className="m-auto"
-                  component="img"
-                  sx={{
-                    height: 230,
-                  }}
-                  alt="Your logo."
-                  src={loginPopup}
-                />
-                <Typography
-                  id="modal-modal-description"
-                  sx={{ mt: 5, pb: 2.5 }}
-                >
-                  <div className="grid grid-cols-4 px-5 mx-auto">
-                    <div>
-                      <span className="text-sm">15+</span> <br />{" "}
-                      <span className="text-[11px] text-gray-500">Cities</span>
-                    </div>
-                    <div>
-                      <span className="text-sm">50000+</span> <br />{" "}
-                      <span className="text-[11px] text-gray-500">
-                        Happy Customers
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-sm">6000+</span> <br />{" "}
-                      <span className="text-[11px] text-gray-500">Bikes</span>
-                    </div>
-                    <div>
-                      <Box>
-                        <span className="text-sm">
-                          4.8/5
-                          <Box
-                            className="inline-block"
-                            component="img"
-                            sx={{
-                              height: 15,
-                              px: 1,
-                              mb: 0.5,
-                            }}
-                            alt="Your logo."
-                            src={star}
-                          />{" "}
-                        </span>{" "}
-                        <br />{" "}
-                        <span className="text-[11px] text-gray-500">
-                          1200+ reviews
-                        </span>
-                      </Box>
-                    </div>
-                  </div>
-                </Typography>
-              </Grid>
-            </Grid>
-
-            <Grid xs={9}>
-              <Grid
-                item
-                sx={{ borderRadius: 2, p: 2, flexWrap: "wrap" }}
-                textAlign="center"
-                // flexWrap={"wrap"}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "flex-end",
-                  }}
-                >
-                  <IconButton onClick={handleDrawerClose} open={open}>
-                    <CloseIcon />
-                  </IconButton>
-                </Box> */}
           <Box sx={{ textAlign: "center", pl: 2 }}>
             <Typography
               id="modal-modal-description"
