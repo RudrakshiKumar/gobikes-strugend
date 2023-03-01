@@ -55,9 +55,9 @@ export default function ResponsiveDialog() {
 
         <DialogContent sx={{}}>
           {/* <BookingConfirmation /> */}
-          {/* <RideCompletion /> */}
+          <RideCompletion />
           {/* <PersonalDetails /> */}
-          <OTP />
+          {/* <OTP /> */}
           {/* <OTPVerified /> */}
         </DialogContent>
       </Dialog>

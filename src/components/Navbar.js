@@ -27,6 +27,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import PersonalDetails from "./PersonalDetails";
 import LoginModal from "./LoginModal";
+import { NavLink } from "react-router-dom";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
 
 // const Item = styled(Paper)(({ theme }) => ({}));
 
@@ -87,12 +91,14 @@ export default function ButtonAppBar() {
               }}
             >
               <Typography variant="h6" component="div" sx={{ color: "black" }}>
-                <Button
-                  sx={{ color: "black", marginLeft: "auto" }}
-                  color="primary"
-                >
-                  List your Vehicle
-                </Button>
+                <NavLink to="/ListYourVehicle">
+                  <Button
+                    sx={{ color: "black", marginLeft: "auto" }}
+                    color="primary"
+                  >
+                    List your Vehicle
+                  </Button>
+                </NavLink>
 
                 <Button
                   onClick={handleOpen}
@@ -101,15 +107,44 @@ export default function ButtonAppBar() {
                 >
                   Login
                 </Button>
-                <Modal
+                <Dialog
+                  sx={{}}
+                  PaperProps={{ sx: { width: "70%", height: "80%" } }}
+                  // fullScreen={fullScreen}
+                  maxWidth="lg"
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="responsive-dialog-title"
+                >
+                  <DialogActions>
+                    <Button
+                      size="small"
+                      autoFocus
+                      onClick={handleClose}
+                      sx={{ color: "#36b671" }}
+                    >
+                      <CloseIcon />
+                    </Button>
+                  </DialogActions>
+
+                  <DialogContent sx={{}}>
+                    {/* <BookingConfirmation /> */}
+                    {/* <RideCompletion /> */}
+                    {/* <PersonalDetails /> */}
+                    {/* <OTP /> */}
+                    {/* <OTPVerified /> */}
+                    <LoginModal />
+                  </DialogContent>
+                </Dialog>
+                {/* <Modal
                   open={open}
                   onClose={handleClose}
                   aria-labelledby="modal-modal-title"
                   aria-describedby="modal-modal-description"
                 >
-                  {/* <LoginModal /> */}
+                  <LoginModal />
                   <PersonalDetails />
-                </Modal>
+                </Modal> */}
               </Typography>
             </Box>
           </Toolbar>
