@@ -19,6 +19,7 @@ import MobileListYourVehicle from "./MobileListYourVehicle";
 import listyourvehiclegraphic from "../assets/listyourvehiclegraphic.jpg";
 import extraincome from "../assets/extraincome.svg";
 import nomoney from "../assets/nomoney.svg";
+import ridesharing from "../assets/ridesharing.jpg";
 import listvehiclesupport from "../assets/listvehiclesupport.svg";
 import listvehicleflexibility from "../assets/listvehicleflexibility.svg";
 import Faq from "./Faq";
@@ -28,6 +29,15 @@ import listvehiclestep2image from "../assets/listvehiclestep2image.jpg";
 import listvehiclestep3image from "../assets/listvehiclestep3image.jpg";
 import listvehiclestep4image from "../assets/listvehiclestep4image.jpg";
 import listvehiclestep1icon from "../assets/listvehiclestep1icon.svg";
+import listvehiclestep2icon from "../assets/listvehiclestep2icon.svg";
+import listvehiclestep3icon from "../assets/listvehiclestep3icon.svg";
+import listvehiclestep4icon from "../assets/listvehiclestep4icon.svg";
+
+const styles = {
+  paperContainer: {
+    backgroundImage: `url(${ridesharing})`,
+  },
+};
 
 const ListYourVehicle = () => {
   const theme = useTheme();
@@ -44,7 +54,20 @@ const ListYourVehicle = () => {
                 Did you know you can now make money out of your unused
                 two-wheeler?
               </Typography>
-              <Button variant="contained">Start Earning with GoBikes</Button>
+              <Button
+                sx={{
+                  width: "50%",
+                  color: "#ffffff",
+                  bgcolor: "#59CE8F",
+                  textAlign: "center",
+                  m: "auto",
+                  ":hover": { bgcolor: "#36b671" },
+                  mt: 4,
+                }}
+              >
+                {" "}
+                Start Earning With Gobikes
+              </Button>{" "}
             </Box>
 
             <Box
@@ -72,21 +95,28 @@ const ListYourVehicle = () => {
               src={listvehiclestep1image}
             />
             <Box sx={{ mr: "15%" }}>
-              <Typography variant="h4">Process</Typography>
+              <Typography variant="h4" sx={{ my: 5 }}>
+                Process
+              </Typography>
               <Box sx={{}}>
                 <Box
                   sx={{
+                    display: "flex",
                     bgcolor: "#E2f0c680",
+                    p: 3,
                   }}
                 >
                   <img src={listvehiclestep1icon} alt="" />
-                  <Box sx={{}}>
-                    <Typography>STEP 1</Typography>
+                  <Box sx={{ pl: 3 }}>
+                    <Typography variant="h6" sx={{ pb: 2 }}>
+                      STEP 1
+                    </Typography>
                     <Typography>
-                      Sign up as a Partner - Enroll yourself as a partner and
-                      list your two-wheeler(s) <br /> on GoBikes’s platform by
-                      submitting the required description. <br /> This should
-                      not take more than 2 minutes.
+                      <span className="font-bold">Sign up as a Partner</span> -
+                      Enroll yourself as a partner and list your <br />{" "}
+                      two-wheeler(s) on GoBikes’s platform by submitting the
+                      required <br /> description. This should not take more
+                      than 2 minutes.
                     </Typography>
                   </Box>
                 </Box>
@@ -94,14 +124,21 @@ const ListYourVehicle = () => {
               <Box sx={{}}>
                 <Box
                   sx={{
+                    display: "flex",
                     bgcolor: "#E2f0c680",
+                    p: 3,
                   }}
                 >
-                  <img src={listvehiclestep1icon} alt="" />
-                  <Box sx={{}}>
-                    <Typography>STEP 2</Typography>
+                  <img src={listvehiclestep2icon} alt="" />
+                  <Box sx={{ pl: 3 }}>
+                    <Typography variant="h6" sx={{ pb: 2 }}>
+                      STEP 2
+                    </Typography>
                     <Typography>
-                      Get bookings on your dashboard - Manage your vehicles{" "}
+                      <span className="font-bold">
+                        Get bookings on your dashboard
+                      </span>{" "}
+                      - Manage your vehicles
                       <br /> and bookings from our platform through your
                       dashboard.
                     </Typography>
@@ -111,16 +148,21 @@ const ListYourVehicle = () => {
               <Box sx={{}}>
                 <Box
                   sx={{
+                    display: "flex",
                     bgcolor: "#E2f0c680",
+                    p: 3,
                   }}
                 >
-                  <img src={listvehiclestep1icon} alt="" />
-                  <Box sx={{}}>
-                    <Typography>STEP 3</Typography>
+                  <img src={listvehiclestep3icon} alt="" />
+                  <Box sx={{ pl: 3 }}>
+                    <Typography variant="h6" sx={{ pb: 2 }}>
+                      STEP 3
+                    </Typography>
                     <Typography>
-                      Complete the booking - Customers would rent your vehicle
-                      at a price defined by you <br /> and come to your
-                      preferred location for pickup and drop of your vehicle.
+                      <span className="font-bold">Complete the booking</span> -
+                      Customers would rent your vehicle at a <br /> price
+                      defined by you and come to your preferred location for{" "}
+                      <br /> pickup and drop of your vehicle.
                     </Typography>
                   </Box>
                 </Box>
@@ -128,15 +170,20 @@ const ListYourVehicle = () => {
               <Box sx={{}}>
                 <Box
                   sx={{
+                    display: "flex",
                     bgcolor: "#E2f0c680",
+                    p: 3,
                   }}
                 >
-                  <img src={listvehiclestep1icon} alt="" />
-                  <Box sx={{}}>
-                    <Typography>STEP 4</Typography>
+                  <img src={listvehiclestep4icon} alt="" />
+                  <Box sx={{ pl: 3 }}>
+                    <Typography variant="h6" sx={{ pb: 2 }}>
+                      STEP 4
+                    </Typography>
                     <Typography>
-                      Receive Payments - We will transfer <br /> your payment
-                      directly to your bank account within 2 working days.
+                      <span className="font-bold">Receive Payments</span> - We
+                      will transfer your payment directly <br /> to your bank
+                      account within 2 working days.
                     </Typography>
                   </Box>
                 </Box>
@@ -145,11 +192,11 @@ const ListYourVehicle = () => {
           </Box>
 
           <Box>
-            <Typography variant="h4" textAlign={"center"}>
+            <Typography variant="h4" textAlign={"center"} sx={{ mt: 10 }}>
               Why list your bike on GoBikes?
             </Typography>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Box sx={{ px: 3 }}>
+            <Box sx={{ display: "flex", justifyContent: "center", my: 10 }}>
+              <Box sx={{}}>
                 <img className="" src={extraincome} alt="Extra Income" />
                 <Typography variant="h6" sx={{ pb: 2 }}>
                   Earn extra income
@@ -158,7 +205,7 @@ const ListYourVehicle = () => {
                   Make your vehicle an earning <br /> member of the family
                 </Typography>
               </Box>
-              <Box>
+              <Box sx={{ ml: 15 }}>
                 <img className="" src={nomoney} alt="Extra Income" />
                 <Typography variant="h6" sx={{ pb: 2 }}>
                   Zero listing fee
@@ -167,7 +214,7 @@ const ListYourVehicle = () => {
                   No upfront payment to yourself <br /> as a vendor
                 </Typography>
               </Box>
-              <Box>
+              <Box sx={{ ml: 15 }}>
                 <img className="" src={listvehiclesupport} alt="Extra Income" />
                 <Typography variant="h6" sx={{ pb: 2 }}>
                   ESupport
@@ -176,7 +223,7 @@ const ListYourVehicle = () => {
                   24*7 support from the <br /> GoBikes Team
                 </Typography>
               </Box>
-              <Box>
+              <Box sx={{ ml: 15 }}>
                 <img
                   className=""
                   src={listvehicleflexibility}
@@ -192,7 +239,15 @@ const ListYourVehicle = () => {
             </Box>
           </Box>
           <Faq />
-          <Box sx={{ bgcolor: "#EAEAEA" }}>
+
+          <Box
+            style={styles.paperContainer}
+            sx={{
+              bgcolor: "#EAEAEA",
+              mt: 4,
+              // backgroundImage: `url(${styles})`,
+            }}
+          >
             <Box
               sx={{
                 py: 5,
@@ -231,13 +286,19 @@ const ListYourVehicle = () => {
                 </Typography>
                 <br />
                 <Button
-                  variant="contained"
-                  // color="success"
-                  bgcolor="#E2f0c680"
-                  sx={{ marginTop: "10%" }}
+                  sx={{
+                    width: "50%",
+                    color: "#ffffff",
+                    bgcolor: "#59CE8F",
+                    textAlign: "center",
+                    m: "auto",
+                    ":hover": { bgcolor: "#36b671" },
+                    mt: 4,
+                  }}
                 >
+                  {" "}
                   Start Earning With Gobikes
-                </Button>
+                </Button>{" "}
               </Box>
             </Box>
           </Box>
