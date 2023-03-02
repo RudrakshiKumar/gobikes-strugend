@@ -20,6 +20,7 @@ import FAQs from "./components/FAQs";
 import OffersForYou from "./components/OffersForYou";
 import DashBoard from "./components/Dashboard";
 import BookingFlow from "./components/BookingFlow";
+import BookNowPage from "./components/BookNowPage";
 import NoBikesAvailable from "./components/NoBikesAvailable";
 import PostLoginNavbar from "./components/PostLoginNavbar";
 import PersonalDetails from "./components/PersonalDetails";
@@ -48,6 +49,7 @@ function App() {
           <Route path="/TermsCondition" element={<TermsCondition />} />
           <Route path="/DashBoard" element={<DashBoard />} />
           <Route path="/BookingFlow" element={<BookingFlow />} />
+          <Route path="/BookNowPage" element={<BookNowPage />} />
         </Routes>
         <Footer />
       </Router>
