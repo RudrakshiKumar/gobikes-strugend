@@ -34,6 +34,7 @@ import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileHome from "./MobileHome";
+import GoToTop from "./ScrollToTop";
 
 const style = {
   position: "absolute",
@@ -816,6 +817,7 @@ export default function ChatBot() {
           </Grid>
         </Grid>
       </Container>
+      {/* <GoToTop /> */}
     </>
   );
 }
