@@ -9,6 +9,7 @@ import {
   Link,
   Navigate,
   withRouter,
+  ScrollRestoration,
 } from "react-router-dom";
 import AboutUs from "./components/AboutUs";
 import PrivacyPolicy from "./components/PrivacyPolicy";
@@ -33,8 +34,8 @@ import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <>
-      {/* <ScrollToTop /> */}
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -48,6 +49,7 @@ function App() {
           <Route path="/DashBoard" element={<DashBoard />} />
           <Route path="/BookingFlow" element={<BookingFlow />} />
         </Routes>
+        <Footer />
       </Router>
       {/* <PostLoginNavbar /> */}
       {/* <DashBoard /> */}
@@ -59,7 +61,6 @@ function App() {
       <OTPVerified />
       <BookingConfirmation />
       <RideCompletion /> */}
-      <Footer />
     </>
   );
 }

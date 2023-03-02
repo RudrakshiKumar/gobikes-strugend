@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {
@@ -32,6 +32,7 @@ import listvehiclestep1icon from "../assets/listvehiclestep1icon.svg";
 import listvehiclestep2icon from "../assets/listvehiclestep2icon.svg";
 import listvehiclestep3icon from "../assets/listvehiclestep3icon.svg";
 import listvehiclestep4icon from "../assets/listvehiclestep4icon.svg";
+import GoToTop from "./ScrollToTop";
 
 const styles = {
   paperContainer: {
@@ -42,6 +43,7 @@ const styles = {
 const ListYourVehicle = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const [active, setActive] = useState("step1");
   return (
     <div>
       {isMatch ? (
@@ -107,7 +109,7 @@ const ListYourVehicle = () => {
                   }}
                 >
                   <img src={listvehiclestep1icon} alt="" />
-                  <Box sx={{ pl: 3 }}>
+                  <Box sx={{ pl: 3 }} onClick={() => setActive("step1")}>
                     <Typography variant="h6" sx={{ pb: 2 }}>
                       STEP 1
                     </Typography>
@@ -130,7 +132,7 @@ const ListYourVehicle = () => {
                   }}
                 >
                   <img src={listvehiclestep2icon} alt="" />
-                  <Box sx={{ pl: 3 }}>
+                  <Box sx={{ pl: 3 }} onClick={() => setActive("step2")}>
                     <Typography variant="h6" sx={{ pb: 2 }}>
                       STEP 2
                     </Typography>
@@ -152,6 +154,7 @@ const ListYourVehicle = () => {
                     bgcolor: "#E2f0c680",
                     p: 3,
                   }}
+                  onClick={() => setActive("step3")}
                 >
                   <img src={listvehiclestep3icon} alt="" />
                   <Box sx={{ pl: 3 }}>
@@ -176,7 +179,7 @@ const ListYourVehicle = () => {
                   }}
                 >
                   <img src={listvehiclestep4icon} alt="" />
-                  <Box sx={{ pl: 3 }}>
+                  <Box sx={{ pl: 3 }} onClick={() => setActive("step4")}>
                     <Typography variant="h6" sx={{ pb: 2 }}>
                       STEP 4
                     </Typography>
@@ -304,6 +307,7 @@ const ListYourVehicle = () => {
           </Box>
         </Box>
       )}
+      {/* <GoToTop /> */}
     </div>
   );
 };

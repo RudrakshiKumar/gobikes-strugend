@@ -131,7 +131,7 @@ export default function ButtonAppBar() {
                     </Button>
                   </DialogActions>
 
-                  <DialogContent sx={{}}>
+                  <DialogContent sx={{ textAlign: "center" }}>
                     {/* <BookingConfirmation /> */}
                     {/* <RideCompletion /> */}
                     {/* <PersonalDetails /> */}
@@ -154,7 +154,7 @@ export default function ButtonAppBar() {
           </Toolbar>
         </AppBar>
       )}
-      <Outlet />
+      {/* <Outlet /> */}
     </Box>
   );
 }
