@@ -1,6 +1,7 @@
 import { Box, Button, Container, IconButton, Typography } from "@mui/material";
 import React from "react";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { Link } from "react-router-dom";
 
 export default function KnowMore() {
   return (
@@ -31,9 +32,16 @@ export default function KnowMore() {
             of your family.
           </Typography>
           <br />
-          <Button variant="contained" color="success" sx={{ marginTop: "3%" }}>
-            Know More
-          </Button>
+
+          <Link to="/ListYourVehicle">
+            <Button
+              variant="contained"
+              color="success"
+              sx={{ marginTop: "3%" }}
+            >
+              Know More
+            </Button>
+          </Link>
         </Box>
       </Container>
     </>
