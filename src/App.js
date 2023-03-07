@@ -41,20 +41,20 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ListYourVehicle" element={<ListYourVehicle />} />
-          <Route path="/ContactUs " element={<ContactUs />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/OffersForYou" element={<OffersForYou />} />
-          <Route path="PrivacyPolicy " element={<PrivacyPolicy />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/TermsCondition" element={<TermsCondition />} />
           <Route path="/DashBoard" element={<DashBoard />} />
           <Route path="/BookingFlow" element={<BookingFlow />} />
           <Route path="/BookNowPage" element={<BookNowPage />} />
         </Routes>
+
         <Footer />
       </Router>
-      {/* <PostLoginNavbar /> */}
-      {/* <DashBoard /> */}
+
       {/* <BookingFlow /> */}
       {/* <Dialog /> */}
       {/* <NoBikesAvailable /> */}
