@@ -33,6 +33,7 @@ import listvehiclestep2icon from "../assets/listvehiclestep2icon.svg";
 import listvehiclestep3icon from "../assets/listvehiclestep3icon.svg";
 import listvehiclestep4icon from "../assets/listvehiclestep4icon.svg";
 import GoToTop from "./ScrollToTop";
+import StartEarning from "./StartEarning";
 
 const styles = {
   paperContainer: {
@@ -56,20 +57,7 @@ const ListYourVehicle = () => {
                 Did you know you can now make money out of your unused
                 two-wheeler?
               </Typography>
-              <Button
-                sx={{
-                  width: "50%",
-                  color: "#ffffff",
-                  bgcolor: "#59CE8F",
-                  textAlign: "center",
-                  m: "auto",
-                  ":hover": { bgcolor: "#36b671" },
-                  mt: 4,
-                }}
-              >
-                {" "}
-                Start Earning With Gobikes
-              </Button>{" "}
+              <StartEarning />
             </Box>
 
             <Box
@@ -288,20 +276,7 @@ const ListYourVehicle = () => {
                   process for both the renters and the vehicle owners.
                 </Typography>
                 <br />
-                <Button
-                  sx={{
-                    width: "50%",
-                    color: "#ffffff",
-                    bgcolor: "#59CE8F",
-                    textAlign: "center",
-                    m: "auto",
-                    ":hover": { bgcolor: "#36b671" },
-                    mt: 4,
-                  }}
-                >
-                  {" "}
-                  Start Earning With Gobikes
-                </Button>{" "}
+                <StartEarning />
               </Box>
             </Box>
           </Box>
