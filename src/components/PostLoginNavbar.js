@@ -21,6 +21,7 @@ import ArchiveIcon from "@mui/icons-material/Archive";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Link } from "react-router-dom";
 
 //Navbar
 const style = {
@@ -133,19 +134,24 @@ const PostLoginNavbar = () => {
                   component="div"
                   sx={{ color: "black" }}
                 >
-                  <Button
-                    sx={{ color: "black", marginLeft: "auto" }}
-                    color="primary"
-                  >
-                    List your Vehicle
-                  </Button>
+                  <Link to="/ListYourVehicle">
+                    <Button
+                      sx={{ color: "black", marginLeft: "auto" }}
+                      color="primary"
+                    >
+                      List your Vehicle
+                    </Button>
+                  </Link>
 
-                  <Button sx={{ color: "black" }} color="primary">
-                    <TwoWheelerIcon
-                      sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40 }}
-                    />
-                    Rides
-                  </Button>
+                  <Link to="/MyRides">
+                    <Button sx={{ color: "black" }} color="primary">
+                      <TwoWheelerIcon
+                        sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40 }}
+                      />
+                      Rides
+                    </Button>
+                  </Link>
+
                   <Button
                     id="demo-customized-button"
                     aria-controls={open ? "demo-customized-menu" : undefined}
@@ -172,16 +178,26 @@ const PostLoginNavbar = () => {
                     open={open}
                     onClose={handleClose}
                   >
-                    <MenuItem onClick={handleClose} disableRipple>
+                    {/* <MenuItem onClick={handleClose} disableRipple>
                       Orders
-                    </MenuItem>
-                    <Divider sx={{ my: 0.5 }} />
-                    <MenuItem onClick={handleClose} disableRipple>
-                      Dashboard
-                    </MenuItem>
+                    </MenuItem> */}
+                    {/* <Divider sx={{ my: 0.5 }} /> */}
+                    <Link to="/DashBoard">
+                      <MenuItem
+                        onClick={handleClose}
+                        disableRipple
+                        sx={{ color: "#000000" }}
+                      >
+                        Dashboard
+                      </MenuItem>
+                    </Link>
 
                     <Divider sx={{ my: 0.5 }} />
-                    <MenuItem onClick={handleClose} disableRipple>
+                    <MenuItem
+                      onClick={handleClose}
+                      disableRipple
+                      sx={{ color: "#000000" }}
+                    >
                       Sign Out
                     </MenuItem>
                   </StyledMenu>

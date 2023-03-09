@@ -22,6 +22,7 @@ import HondaSP from "../assets/HondaSP.png";
 import { Link } from "react-router-dom";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PostLoginNavbar from "./PostLoginNavbar";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -47,6 +48,7 @@ export default function BookingFlow() {
 
   return (
     <>
+      <PostLoginNavbar />
       <AppBar
         position="sticky"
         sx={{ backgroundColor: "white", padding: "20px" }}
