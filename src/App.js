@@ -18,7 +18,7 @@ import ListYourVehicle from "./components/ListYourVehicle";
 import ContactUs from "./components/ContactUs";
 import FAQs from "./components/FAQs";
 import OffersForYou from "./components/OffersForYou";
-import DashBoard from "./components/Dashboard";
+import DashBoard from "./components/DashBoard";
 import BookingFlow from "./components/BookingFlow";
 import BookNowPage from "./components/BookNowPage";
 import NoBikesAvailable from "./components/NoBikesAvailable";
@@ -31,6 +31,7 @@ import BookingConfirmation from "./components/BookingConfirmation";
 import RideCompletion from "./components/RideCompletion";
 import { Modal } from "@mui/material";
 import ScrollToTop from "./components/ScrollToTop";
+import MyRides from "./components/MyRides";
 
 function App() {
   return (
@@ -41,20 +42,21 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ListYourVehicle" element={<ListYourVehicle />} />
-          <Route path="/ContactUs " element={<ContactUs />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/OffersForYou" element={<OffersForYou />} />
-          <Route path="PrivacyPolicy " element={<PrivacyPolicy />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/TermsCondition" element={<TermsCondition />} />
           <Route path="/DashBoard" element={<DashBoard />} />
+          <Route path="/MyRides" element={<MyRides />} />
           <Route path="/BookingFlow" element={<BookingFlow />} />
           <Route path="/BookNowPage" element={<BookNowPage />} />
         </Routes>
+
         <Footer />
       </Router>
-      {/* <PostLoginNavbar /> */}
-      {/* <DashBoard /> */}
+
       {/* <BookingFlow /> */}
       {/* <Dialog /> */}
       {/* <NoBikesAvailable /> */}

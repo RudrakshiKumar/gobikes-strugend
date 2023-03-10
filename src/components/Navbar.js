@@ -70,77 +70,82 @@ export default function ButtonAppBar() {
       {isMatch ? (
         <MobileNavbar />
       ) : (
-        <AppBar
-          position="fixed"
-          sx={{
-            bgcolor: "background.paper",
-          }}
-        >
-          <Toolbar sx={{ justifyContent: "space-between" }}>
-            <Link to="/">
-              <Box
-                component="img"
-                sx={{
-                  height: 50,
-                  ml: 10,
-                }}
-                alt="Your logo."
-                src={logo}
-              />
-            </Link>
+        <Box>
+          <AppBar
+            position="fixed"
+            sx={{
+              bgcolor: "background.paper",
+            }}
+          >
+            <Toolbar sx={{ justifyContent: "space-between" }}>
+              <Link to="/">
+                <Box
+                  component="img"
+                  sx={{
+                    height: 50,
+                    ml: 10,
+                  }}
+                  alt="Your logo."
+                  src={logo}
+                />
+              </Link>
 
-            <Box
-              sx={{
-                mr: 10,
-              }}
-            >
-              <Typography variant="h6" component="div" sx={{ color: "black" }}>
-                <NavLink to="/ListYourVehicle">
+              <Box
+                sx={{
+                  mr: 10,
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{ color: "black" }}
+                >
+                  <NavLink to="/ListYourVehicle">
+                    <Button
+                      sx={{ color: "black", marginLeft: "auto" }}
+                      color="primary"
+                    >
+                      List your Vehicle
+                    </Button>
+                  </NavLink>
+
                   <Button
-                    sx={{ color: "black", marginLeft: "auto" }}
+                    onClick={handleOpen}
+                    sx={{ color: "black" }}
                     color="primary"
                   >
-                    List your Vehicle
+                    Login
                   </Button>
-                </NavLink>
+                  <Dialog
+                    sx={{}}
+                    PaperProps={{ sx: { width: "70%", height: "80%" } }}
+                    // fullScreen={fullScreen}
+                    maxWidth="lg"
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="responsive-dialog-title"
+                  >
+                    <DialogActions>
+                      <Button
+                        size="small"
+                        autoFocus
+                        onClick={handleClose}
+                        sx={{ color: "#36b671" }}
+                      >
+                        <CloseIcon />
+                      </Button>
+                    </DialogActions>
 
-                <Button
-                  onClick={handleOpen}
-                  sx={{ color: "black" }}
-                  color="primary"
-                >
-                  Login
-                </Button>
-                <Dialog
-                  sx={{}}
-                  PaperProps={{ sx: { width: "70%", height: "80%" } }}
-                  // fullScreen={fullScreen}
-                  maxWidth="lg"
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="responsive-dialog-title"
-                >
-                  <DialogActions>
-                    <Button
-                      size="small"
-                      autoFocus
-                      onClick={handleClose}
-                      sx={{ color: "#36b671" }}
-                    >
-                      <CloseIcon />
-                    </Button>
-                  </DialogActions>
-
-                  <DialogContent sx={{ textAlign: "center" }}>
-                    {/* <BookingConfirmation /> */}
-                    {/* <RideCompletion /> */}
-                    {/* <PersonalDetails /> */}
-                    {/* <OTP /> */}
-                    {/* <OTPVerified /> */}
-                    <LoginModal />
-                  </DialogContent>
-                </Dialog>
-                {/* <Modal
+                    <DialogContent sx={{ textAlign: "center" }}>
+                      {/* <BookingConfirmation /> */}
+                      {/* <RideCompletion /> */}
+                      {/* <PersonalDetails /> */}
+                      {/* <OTP /> */}
+                      {/* <OTPVerified /> */}
+                      <LoginModal />
+                    </DialogContent>
+                  </Dialog>
+                  {/* <Modal
                   open={open}
                   onClose={handleClose}
                   aria-labelledby="modal-modal-title"
@@ -149,10 +154,12 @@ export default function ButtonAppBar() {
                   <LoginModal />
                   <PersonalDetails />
                 </Modal> */}
-              </Typography>
-            </Box>
-          </Toolbar>
-        </AppBar>
+                </Typography>
+              </Box>
+            </Toolbar>
+          </AppBar>
+          <Toolbar />
+        </Box>
       )}
       {/* <Outlet /> */}
     </Box>
