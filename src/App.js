@@ -1,4 +1,10 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+<<<<<<< HEAD
+=======
+import BookingFlow from "./components/BookingFlow";
+import Home from "./components/Home";
+>>>>>>> 92a7545 (added features)
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
@@ -36,6 +42,7 @@ import MyRides from "./components/MyRides";
 function App() {
   return (
     <>
+<<<<<<< HEAD
       <Router>
         <ScrollToTop />
         <Navbar />
@@ -65,6 +72,15 @@ function App() {
       <OTPVerified />
       <BookingConfirmation />
       <RideCompletion /> */}
+=======
+      <Navbar />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/bookingFlow" element={<BookingFlow />} />
+        </Routes>
+      </BrowserRouter>
+>>>>>>> 92a7545 (added features)
     </>
   );
 }
