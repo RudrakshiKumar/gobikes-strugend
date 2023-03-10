@@ -30,13 +30,6 @@ import Leh from "../assets/Leh.jpg";
 import Noida from "../assets/Noida.jpg";
 import Udaipur from "../assets/Udaipur.jpg";
 import RightSection from "./RightSection";
-<<<<<<< HEAD
-import BookOnlineIcon from "@mui/icons-material/BookOnline";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import MobileHome from "./MobileHome";
-import GoToTop from "./ScrollToTop";
-=======
 import rightSection from "../assets/rightSection.jpeg";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
@@ -44,7 +37,6 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Link } from "react-router-dom";
 // import BookOnlineIcon from "@mui/icons-material/BookOnline";
->>>>>>> 576d3a7 (added functionality)
 
 const style = {
   position: "absolute",
@@ -63,16 +55,11 @@ export default function Home() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-<<<<<<< HEAD
-  const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-=======
   const [image, setImage] = useState("");
   const [name, setName] = useState("Bangalore");
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
->>>>>>> 576d3a7 (added functionality)
 
   return (
     <>

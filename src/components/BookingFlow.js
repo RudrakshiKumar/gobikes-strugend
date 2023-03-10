@@ -21,12 +21,7 @@ import HeroDestini from "../assets/HeroDestini.png";
 import HondaSP from "../assets/HondaSP.png";
 import { Link } from "react-router-dom";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
-<<<<<<< HEAD
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PostLoginNavbar from "./PostLoginNavbar";
-=======
 import CloseIcon from "@mui/icons-material/Close";
->>>>>>> 72fae9d (added popup)
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
