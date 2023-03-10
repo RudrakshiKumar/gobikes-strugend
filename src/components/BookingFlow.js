@@ -21,8 +21,12 @@ import HeroDestini from "../assets/HeroDestini.png";
 import HondaSP from "../assets/HondaSP.png";
 import { Link } from "react-router-dom";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
+<<<<<<< HEAD
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PostLoginNavbar from "./PostLoginNavbar";
+=======
+import CloseIcon from "@mui/icons-material/Close";
+>>>>>>> 72fae9d (added popup)
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -97,6 +101,7 @@ export default function BookingFlow() {
               <Button
                 variant="contained"
                 sx={{ backgroundColor: "#4cbb17", padding: "7px" }}
+                onClick={handlePopup}
               >
                 Search
               </Button>
@@ -1390,6 +1395,18 @@ export default function BookingFlow() {
       >
         <Box sx={style}>
           <div style={{ display: "flex" }}>
+            <IconButton
+              aria-label="close"
+              onClick={() => setOpen(false)}
+              sx={{
+                position: "absolute",
+                right: 8,
+                top: 8,
+                color: (theme) => theme.palette.grey[800],
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
             <IconButton>
               <TaskAltOutlinedIcon sx={{ color: "white" }} />
             </IconButton>
