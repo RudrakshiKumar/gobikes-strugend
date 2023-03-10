@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState, NavLink } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {
@@ -34,6 +34,7 @@ import listvehiclestep3icon from "../assets/listvehiclestep3icon.svg";
 import listvehiclestep4icon from "../assets/listvehiclestep4icon.svg";
 import GoToTop from "./ScrollToTop";
 import StartEarning from "./StartEarning";
+import { bgcolor } from "@mui/system";
 
 const styles = {
   paperContainer: {
@@ -42,9 +43,61 @@ const styles = {
 };
 
 const ListYourVehicle = () => {
+  // const handleClick = (e) => {
+  //   console.log("this is:", this);
+  // };
+
+  // const changeBgcolor = (e) => {
+  //   console.log(e.target.id);
+  //   document.getElementById("step1box").classList.add("highlight");
+  //   // if (active === "step1") {
+
+  //   //   document.getElementById("step2box").classList.remove("highlight");
+  //   //   document.getElementById("step3box").classList.remove("highlight");
+  //   //   document.getElementById("step4box").classList.remove("highlight");
+  //   // } else if (active === "step2") {
+  //   //   document.getElementById("step2box").classList.add("highlight");
+  //   //   document.getElementById("step1box").classList.remove("highlight");
+  //   //   document.getElementById("step4box").classList.remove("highlight");
+  //   //   document.getElementById("step3box").classList.remove("highlight");
+  //   // } else if (active === "step3") {
+  //   //   document.getElementById("step3box").classList.add("highlight");
+  //   //   document.getElementById("step4box").classList.remove("highlight");
+  //   //   document.getElementById("step2box").classList.remove("highlight");
+  //   //   document.getElementById("step1box").classList.remove("highlight");
+  //   // } else {
+  //   //   document.getElementById("step4box").classList.add("highlight");
+  //   //   document.getElementById("step3box").classList.remove("highlight");
+  //   //   document.getElementById("step2box").classList.remove("highlight");
+  //   //   document.getElementById("step1box").classList.remove("highlight");
+  //   // }
+  // };
+
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const [active, setActive] = useState("step1");
+  const element = useRef("");
+  // const [appState, changeState] = useState({
+  //   activeObject: null,
+  //   objects: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
+  // });
+
+  // const handleClick = (name) => {
+  //   console.log(name);
+  //   const e = document.getElementById(name);
+  //   document.getElementById(e).classList.add("highlight");
+  //   if (name !== "step1box") {
+  //     document.getElementById().classList.remove("highlight");
+  //   } else {
+  //     document.getElementById(name).classList.add("highlight");
+  //   }
+  // };
+
+  const handleClick = () => {
+    // const e = element.current.id();
+    element.current.classList.addClass("highlight");
+  };
+
   return (
     <div>
       {isMatch ? (
@@ -73,22 +126,44 @@ const ListYourVehicle = () => {
           </Box>
 
           <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Box
-              className="m-auto "
-              component="img"
-              sx={{
-                width: "15%",
-                ml: 1,
-                py: 4,
-              }}
-              alt="Your logo."
-              src={listvehiclestep1image}
-            />
             <Box sx={{ mr: "15%" }}>
+              {active === "step1" && (
+                <Box sx={{ mt: "40%" }}>
+                  <img src={listvehiclestep1image} alt="" />
+                </Box>
+              )}
+              {active === "step2" && (
+                <Box sx={{ mt: "40%" }}>
+                  <img src={listvehiclestep2image} alt="" />
+                </Box>
+              )}
+
+              {active === "step3" && (
+                <Box sx={{ mt: "40%" }}>
+                  <img src={listvehiclestep3image} alt="" />
+                </Box>
+              )}
+              {active === "step4" && (
+                <Box sx={{ mt: "40%" }}>
+                  <img src={listvehiclestep4image} alt="" />
+                </Box>
+              )}
+            </Box>
+
+            <Box sx={{}}>
               <Typography variant="h4" sx={{ my: 5 }}>
                 Process
               </Typography>
-              <Box sx={{}}>
+
+              <Box
+                ref={element}
+                id="step1box"
+                // className="highlight"
+                onClick={() => {
+                  setActive("step1");
+                  handleClick();
+                }}
+              >
                 <Box
                   sx={{
                     display: "flex",
@@ -97,7 +172,7 @@ const ListYourVehicle = () => {
                   }}
                 >
                   <img src={listvehiclestep1icon} alt="" />
-                  <Box sx={{ pl: 3 }} onClick={() => setActive("step1")}>
+                  <Box sx={{ pl: 3 }}>
                     <Typography variant="h6" sx={{ pb: 2 }}>
                       STEP 1
                     </Typography>
@@ -109,9 +184,18 @@ const ListYourVehicle = () => {
                       than 2 minutes.
                     </Typography>
                   </Box>
+                  ;
                 </Box>
               </Box>
-              <Box sx={{}}>
+
+              <Box
+                ref={element}
+                id="step2box"
+                onClick={() => {
+                  setActive("step2");
+                  handleClick();
+                }}
+              >
                 <Box
                   sx={{
                     display: "flex",
@@ -120,7 +204,7 @@ const ListYourVehicle = () => {
                   }}
                 >
                   <img src={listvehiclestep2icon} alt="" />
-                  <Box sx={{ pl: 3 }} onClick={() => setActive("step2")}>
+                  <Box sx={{ pl: 3 }}>
                     <Typography variant="h6" sx={{ pb: 2 }}>
                       STEP 2
                     </Typography>
@@ -135,17 +219,21 @@ const ListYourVehicle = () => {
                   </Box>
                 </Box>
               </Box>
-              <Box sx={{}}>
+              <Box
+                id="step3box"
+                onClick={() => {
+                  setActive("step3");
+                }}
+              >
                 <Box
                   sx={{
                     display: "flex",
                     bgcolor: "#E2f0c680",
                     p: 3,
                   }}
-                  onClick={() => setActive("step3")}
                 >
                   <img src={listvehiclestep3icon} alt="" />
-                  <Box sx={{ pl: 3 }}>
+                  <Box sx={{ pl: 3 }} onClick={() => setActive("step3")}>
                     <Typography variant="h6" sx={{ pb: 2 }}>
                       STEP 3
                     </Typography>
@@ -158,7 +246,12 @@ const ListYourVehicle = () => {
                   </Box>
                 </Box>
               </Box>
-              <Box sx={{}}>
+              <Box
+                id="step4box"
+                onClick={() => {
+                  setActive("step4");
+                }}
+              >
                 <Box
                   sx={{
                     display: "flex",
@@ -167,7 +260,7 @@ const ListYourVehicle = () => {
                   }}
                 >
                   <img src={listvehiclestep4icon} alt="" />
-                  <Box sx={{ pl: 3 }} onClick={() => setActive("step4")}>
+                  <Box sx={{ pl: 3 }}>
                     <Typography variant="h6" sx={{ pb: 2 }}>
                       STEP 4
                     </Typography>
