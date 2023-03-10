@@ -35,6 +35,7 @@ import listvehiclestep4icon from "../assets/listvehiclestep4icon.svg";
 import GoToTop from "./ScrollToTop";
 import StartEarning from "./StartEarning";
 import { bgcolor } from "@mui/system";
+import Navbar from "./Navbar";
 
 const styles = {
   paperContainer: {
@@ -104,6 +105,7 @@ const ListYourVehicle = () => {
         <MobileListYourVehicle />
       ) : (
         <Box>
+          <Navbar />
           <Box display={"inline-flex"} sx={{ p: 10 }}>
             <Box>
               <Typography variant="h5" sx={{ py: 4 }}>

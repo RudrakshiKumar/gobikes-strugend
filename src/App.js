@@ -38,7 +38,7 @@ function App() {
     <>
       <Router>
         <ScrollToTop />
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ListYourVehicle" element={<ListYourVehicle />} />

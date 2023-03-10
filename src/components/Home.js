@@ -35,6 +35,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileHome from "./MobileHome";
 import GoToTop from "./ScrollToTop";
+import Navbar from "./Navbar";
 
 const style = {
   position: "absolute",
@@ -58,6 +59,7 @@ export default function ChatBot() {
 
   return (
     <>
+      <Navbar />
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>

@@ -114,15 +114,17 @@ const PostLoginNavbar = () => {
             }}
           >
             <Toolbar sx={{ justifyContent: "space-between" }}>
-              <Box
-                component="img"
-                sx={{
-                  height: 50,
-                  ml: 10,
-                }}
-                alt="Your logo."
-                src={logo}
-              />
+              <Link to="/">
+                <Box
+                  component="img"
+                  sx={{
+                    height: 50,
+                    ml: 10,
+                  }}
+                  alt="Your logo."
+                  src={logo}
+                />
+              </Link>
 
               <Box
                 sx={{
@@ -193,13 +195,15 @@ const PostLoginNavbar = () => {
                     </Link>
 
                     <Divider sx={{ my: 0.5 }} />
-                    <MenuItem
-                      onClick={handleClose}
-                      disableRipple
-                      sx={{ color: "#000000" }}
-                    >
-                      Sign Out
-                    </MenuItem>
+                    <Link to="/">
+                      <MenuItem
+                        onClick={handleClose}
+                        disableRipple
+                        sx={{ color: "#000000" }}
+                      >
+                        Sign Out
+                      </MenuItem>
+                    </Link>
                   </StyledMenu>
                   {/* <Modal
                     open={open}
