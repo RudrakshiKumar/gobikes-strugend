@@ -30,11 +30,21 @@ import Leh from "../assets/Leh.jpg";
 import Noida from "../assets/Noida.jpg";
 import Udaipur from "../assets/Udaipur.jpg";
 import RightSection from "./RightSection";
+<<<<<<< HEAD
 import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileHome from "./MobileHome";
 import GoToTop from "./ScrollToTop";
+=======
+import rightSection from "../assets/rightSection.jpeg";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { Link } from "react-router-dom";
+// import BookOnlineIcon from "@mui/icons-material/BookOnline";
+>>>>>>> 576d3a7 (added functionality)
 
 const style = {
   position: "absolute",
@@ -48,13 +58,21 @@ const style = {
   p: 4,
 };
 
-export default function ChatBot() {
+export default function Home() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+<<<<<<< HEAD
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+=======
+  const [image, setImage] = useState("");
+  const [name, setName] = useState("Bangalore");
+
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+>>>>>>> 576d3a7 (added functionality)
 
   return (
     <>
@@ -454,12 +472,12 @@ export default function ChatBot() {
               }}
             >
               <Typography variant="h4">
-                Commuting Made <span style={{ color: "#aeea00" }}>Easy</span>,
+                Commuting Made <span style={{ color: "#59CE8F" }}>Easy</span>,
                 <br />
               </Typography>
               <Typography variant="h4" sx={{ marginTop: "5px" }}>
-                <span style={{ color: "#aeea00" }}>Affordable</span> and{" "}
-                <span style={{ color: "#aeea00" }}>Quick</span>
+                <span style={{ color: "#59CE8F" }}>Affordable</span> and{" "}
+                <span style={{ color: "#59CE8F" }}>Quick</span>
               </Typography>
               <Typography variant="h6" sx={{ marginTop: "2px" }}>
                 Scooter/Scooty/Bike on Rent in Delhi
@@ -467,10 +485,12 @@ export default function ChatBot() {
               <TextField
                 fullWidth
                 placeholder="Search City"
+                value={image}
+                onChange={(e) => setName(e.target.value)}
                 sx={{ marginTop: "5%" }}
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment position="end" sx={{ color: "green" }}>
+                    <InputAdornment position="end" sx={{ color: "#59CE8F" }}>
                       <PlaceIcon />
                     </InputAdornment>
                   ),
@@ -491,6 +511,18 @@ export default function ChatBot() {
                   >
                     Choose your preferred city
                   </Typography>
+                  <IconButton
+                    aria-label="close"
+                    onClick={() => setOpen(false)}
+                    sx={{
+                      position: "absolute",
+                      right: 8,
+                      top: 8,
+                      color: (theme) => theme.palette.grey[600],
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
                   <Grid container spacing={2} sx={{ marginTop: "5px" }}>
                     <Grid item xs={12} sm={2}>
                       <img
@@ -501,6 +533,10 @@ export default function ChatBot() {
                           width: "125px",
                           height: "125px",
                           borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Bangalore");
+                          setOpen(false);
                         }}
                       />
                       <Typography variant="h6" align="center">
@@ -517,6 +553,10 @@ export default function ChatBot() {
                           height: "125px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => {
+                          setImage("Chandigarh");
+                          setOpen(false);
+                        }}
                       />
                       <Typography variant="h6" align="center">
                         Chandigarh
@@ -531,6 +571,10 @@ export default function ChatBot() {
                           width: "125px",
                           height: "125px",
                           borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Chennai");
+                          setOpen(false);
                         }}
                       />
                       <Typography variant="h6" align="center">
@@ -547,6 +591,10 @@ export default function ChatBot() {
                           height: "125px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => {
+                          setImage("Dehradun");
+                          setOpen(false);
+                        }}
                       />
                       <Typography variant="h6" align="center">
                         Dehradun
@@ -561,6 +609,10 @@ export default function ChatBot() {
                           width: "125px",
                           height: "125px",
                           borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Delhi");
+                          setOpen(false);
                         }}
                       />
                       <Typography variant="h6" align="center">
@@ -577,6 +629,10 @@ export default function ChatBot() {
                           height: "125px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => {
+                          setImage("Ghaziabad");
+                          setOpen(false);
+                        }}
                       />
                       <Typography variant="h6" align="center">
                         Ghaziabad
@@ -591,6 +647,10 @@ export default function ChatBot() {
                           width: "125px",
                           height: "125px",
                           borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Goa");
+                          setOpen(false);
                         }}
                       />
                       <Typography variant="h6" align="center">
@@ -607,6 +667,10 @@ export default function ChatBot() {
                           height: "125px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => {
+                          setImage("Hyderabad");
+                          setOpen(false);
+                        }}
                       />
                       <Typography variant="h6" align="center">
                         Hyderabad
@@ -621,6 +685,10 @@ export default function ChatBot() {
                           width: "125px",
                           height: "125px",
                           borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Kolkata");
+                          setOpen(false);
                         }}
                       />
                       <Typography variant="h6" align="center">
@@ -637,6 +705,10 @@ export default function ChatBot() {
                           height: "125px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => {
+                          setImage("Manali");
+                          setOpen(false);
+                        }}
                       />
                       <Typography variant="h6" align="center">
                         Manali
@@ -651,6 +723,10 @@ export default function ChatBot() {
                           width: "125px",
                           height: "125px",
                           borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Mumbai");
+                          setOpen(false);
                         }}
                       />
                       <Typography variant="h6" align="center">
@@ -667,6 +743,10 @@ export default function ChatBot() {
                           height: "125px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => {
+                          setImage("Pune");
+                          setOpen(false);
+                        }}
                       />
                       <Typography variant="h6" align="center">
                         Pune
@@ -681,6 +761,10 @@ export default function ChatBot() {
                           width: "125px",
                           height: "125px",
                           borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Gurgaon");
+                          setOpen(false);
                         }}
                       />
                       <Typography variant="h6" align="center">
@@ -697,6 +781,10 @@ export default function ChatBot() {
                           height: "125px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => {
+                          setImage("Guwahati");
+                          setOpen(false);
+                        }}
                       />
                       <Typography variant="h6" align="center">
                         Guwahati
@@ -711,6 +799,10 @@ export default function ChatBot() {
                           width: "125px",
                           height: "125px",
                           borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Jaipur");
+                          setOpen(false);
                         }}
                       />
                       <Typography variant="h6" align="center">
@@ -727,6 +819,10 @@ export default function ChatBot() {
                           height: "125px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => {
+                          setImage("Leh");
+                          setOpen(false);
+                        }}
                       />
                       <Typography variant="h6" align="center">
                         Leh
@@ -741,6 +837,10 @@ export default function ChatBot() {
                           width: "125px",
                           height: "125px",
                           borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Noida");
+                          setOpen(false);
                         }}
                       />
                       <Typography variant="h6" align="center">
@@ -757,6 +857,10 @@ export default function ChatBot() {
                           height: "125px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => {
+                          setImage("Udaipur");
+                          setOpen(false);
+                        }}
                       />
                       <Typography variant="h6" align="center">
                         Udaipur
@@ -765,19 +869,27 @@ export default function ChatBot() {
                   </Grid>
                 </Box>
               </Modal>
-              <TextField
+              {/* <TextField
                 fullWidth
                 placeholder="Start Date"
                 sx={{ marginTop: "2%" }}
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment position="end" sx={{ color: "#aeea00" }}>
+                    <InputAdornment position="end" sx={{ color: "#59CE8F" }}>
                       <CalendarMonthIcon />
                     </InputAdornment>
                   ),
                 }}
-              />
-              <TextField
+              /> */}
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                  value={startDate}
+                  onChange={(newValue) => setStartDate(newValue)}
+                  sx={{ marginTop: "2%" }}
+                  fullWidth
+                />
+              </LocalizationProvider>
+              {/* <TextField
                 fullWidth
                 placeholder="End Date"
                 sx={{ marginTop: "2%" }}
@@ -788,8 +900,16 @@ export default function ChatBot() {
                     </InputAdornment>
                   ),
                 }}
-              />
-              <TextField
+              /> */}
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                  value={endDate}
+                  onChange={(newValue) => setEndDate(newValue)}
+                  sx={{ marginTop: "2%" }}
+                  fullWidth
+                />
+              </LocalizationProvider>
+              {/* <TextField
                 fullWidth
                 placeholder="Book Now"
                 sx={{ marginTop: "2%" }}
@@ -800,19 +920,215 @@ export default function ChatBot() {
                     </InputAdornment>
                   ),
                 }}
-              />
+              /> */}
               <Typography variant="p" sx={{ marginTop: "2%" }}>
                 Duration: 1 Day
               </Typography>
               <Button
                 variant="contained"
-                sx={{ marginTop: "2%", width: "25%", backgroundColor: "green" }}
+                sx={{
+                  marginTop: "2%",
+                  width: "25%",
+                  backgroundColor: "#59CE8F",
+                }}
+                component={Link}
+                to="/bookingFlow"
               >
                 Search
               </Button>
             </Box>
           </Grid>
           <Grid item xs={12} sm={6}>
+            {image === "" && (
+              <img
+                src={rightSection}
+                alt="Right Section"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Bangalore" && (
+              <img
+                src={Bangalore}
+                alt="Bangalore"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Chandigarh" && (
+              <img
+                src={Chandigarh}
+                alt="Chandigarh"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Chennai" && (
+              <img
+                src={Chennai}
+                alt="Chennai"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Dehradun" && (
+              <img
+                src={Dehradun}
+                alt="Dehradun"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Delhi" && (
+              <img
+                src={Delhi}
+                alt="Delhi"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Ghaziabad" && (
+              <img
+                src={Ghaziabad}
+                alt="Ghaziabad"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Goa" && (
+              <img
+                src={Goa}
+                alt="Goa"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Hyderabad" && (
+              <img
+                src={Hyderabad}
+                alt="Hyderabad"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Kolkata" && (
+              <img
+                src={Kolkata}
+                alt="Kolkata"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Manali" && (
+              <img
+                src={Manali}
+                alt="Manali"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Mumbai" && (
+              <img
+                src={Mumbai}
+                alt="Mumbai"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Pune" && (
+              <img
+                src={Pune}
+                alt="Pune"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Gurgaon" && (
+              <img
+                src={Gurgaon}
+                alt="Gurgaon"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Guwahati" && (
+              <img
+                src={Guwahati}
+                alt="Guwahati"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Jaipur" && (
+              <img
+                src={Jaipur}
+                alt="Jaipur"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Leh" && (
+              <img
+                src={Leh}
+                alt="Leh"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Noida" && (
+              <img
+                src={Noida}
+                alt="Noida"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
+            {image === "Udaipur" && (
+              <img
+                src={Udaipur}
+                alt="Udaipur"
+                style={{
+                  width: "49.1vw",
+                  height: "85vh",
+                }}
+              />
+            )}
             <RightSection />
           </Grid>
         </Grid>
