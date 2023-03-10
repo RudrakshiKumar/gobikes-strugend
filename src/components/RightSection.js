@@ -1,5 +1,5 @@
 import React from "react";
-import rightSection from "../assets/rightSection.jpeg";
+// import rightSection from "../assets/rightSection.jpeg";
 import Features from "./Features";
 import BookRide from "./BookRide";
 import Faq from "./Faq";
@@ -15,6 +15,7 @@ export default function RightSection() {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.up("md"));
   return (
+<<<<<<< HEAD
     <Box>
       {isMatch && (
         <Box sx={{ mt: 10 }}>
@@ -37,5 +38,24 @@ export default function RightSection() {
         </Box>
       )}
     </Box>
+=======
+    <>
+      {/* <img
+        src={rightSection}
+        alt="Right Section"
+        style={{
+          width: "49.1vw",
+          height: "85vh",
+        }}
+      /> */}
+      <Offer />
+      <Video />
+      <Features />
+      <BookRide />
+      <Faq />
+      <Statistics />
+      <KnowMore />
+    </>
+>>>>>>> 9362a22 (added functionality)
   );
 }
