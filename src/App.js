@@ -11,31 +11,31 @@ import {
   withRouter,
   ScrollRestoration,
 } from "react-router-dom";
-import AboutUs from "./components/AboutUs";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import TermsCondition from "./components/TermsCondition";
-import ListYourVehicle from "./components/ListYourVehicle";
+// import AboutUs from "./components/AboutUs";
+// import PrivacyPolicy from "./components/PrivacyPolicy";
+// import TermsCondition from "./components/TermsCondition";
+// import ListYourVehicle from "./components/ListYourVehicle";
 import ContactUs from "./components/ContactUs";
-import FAQs from "./components/FAQs";
-import OffersForYou from "./components/OffersForYou";
-import DashBoard from "./components/Dashboard";
-import BookingFlow from "./components/BookingFlow";
-import BookNowPage from "./components/BookNowPage";
-import NoBikesAvailable from "./components/NoBikesAvailable";
-import PostLoginNavbar from "./components/PostLoginNavbar";
-import PersonalDetails from "./components/PersonalDetails";
-import Dialog from "./components/Dialog";
-import OTP from "./components/OTP";
-import OTPVerified from "./components/OTPVerified";
-import BookingConfirmation from "./components/BookingConfirmation";
-import RideCompletion from "./components/RideCompletion";
-import { Modal } from "@mui/material";
-import ScrollToTop from "./components/ScrollToTop";
+// import FAQs from "./components/FAQs";
+// import OffersForYou from "./components/OffersForYou";
+// import DashBoard from "./components/Dashboard";
+// import BookingFlow from "./components/BookingFlow";
+// import BookNowPage from "./components/BookNowPage";
+// import NoBikesAvailable from "./components/NoBikesAvailable";
+// import PostLoginNavbar from "./components/PostLoginNavbar";
+// import PersonalDetails from "./components/PersonalDetails";
+// import Dialog from "./components/Dialog";
+// import OTP from "./components/OTP";
+// import OTPVerified from "./components/OTPVerified";
+// import BookingConfirmation from "./components/BookingConfirmation";
+// import RideCompletion from "./components/RideCompletion";
+// import { Modal } from "@mui/material";
+// import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <>
-      <Router>
+      {/* <Router>
         <ScrollToTop />
         <Navbar />
         <Routes>
@@ -52,7 +52,7 @@ function App() {
           <Route path="/BookNowPage" element={<BookNowPage />} />
         </Routes>
         <Footer />
-      </Router>
+      </Router> */}
       {/* <PostLoginNavbar /> */}
       {/* <DashBoard /> */}
       {/* <BookingFlow /> */}
@@ -63,6 +63,7 @@ function App() {
       <OTPVerified />
       <BookingConfirmation />
       <RideCompletion /> */}
+      <ContactUs/>
     </>
   );
 }

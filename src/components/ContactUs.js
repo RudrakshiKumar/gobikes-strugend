@@ -1,30 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
-import { Typography, Grid, Button } from "@mui/material";
+import { Typography, Grid, Button, TextareaAutosize } from "@mui/material";
 import MobileContactUs from "./MobileContactUs";
 import TextField from "@mui/material/TextField";
 import contactcompany from "../assets/contactcompany.svg";
 import contactlocation from "../assets/contactlocation.svg";
 import contactphone from "../assets/contactphone.svg";
 import contactemail from "../assets/contactemail.svg";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactUs = () => {
+  const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+  const [capchaIsDone, setCapchaDone] = useState(false);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+
+  function onChange(){
+    setCapchaDone(true)
+  }
+
   return (
     <div>
       {isMatch ? (
         <MobileContactUs />
       ) : (
-        <Box sx={{ display: "inline-flex" }}>
+        <Box sx={{ display: "flex", position:"relative", padding:"0 12%", boxSizing:"border-box", marginTop:"7%" }}>
           <Box>
             <Box>
-              <Typography variant="h5">Contact Us</Typography> <br />
-              <Typography variant="h4">How can we help you?</Typography>
+              <Typography variant="h5" fontSize={"30px"} fontWeight={"bold"} sx={{color:"#99CC33"}}>Contact Us</Typography> <br />
+              <Typography variant="h4" fontWeight={"bold"}>How can we help you?</Typography>
               <br />
-              <Typography variant="p">
+              <Typography variant="p" fontSize={"18px"} fontWeight={"bold"} sx={{color:"#717171"}}>
                 Fill in the form or drop an email
               </Typography>
             </Box>
@@ -100,44 +108,59 @@ const ContactUs = () => {
             </Box>
           </Box>
 
-          <Box>
-            <Box sx={{ bgcolor: "#FAFAFA" }}>
-              <Typography>We're here for you</Typography>
+          <Box sx={{position: 'relative', display: 'flex', alignItems:"center", justifyContent: "center", top: "auto", left: "10em", boxSizing:"border-box"}}>
+            <Box sx={{ bgcolor: "#FAFAFA", p: "10%", borderRadius: "20px", boxSizing:"border-box", boxShadow:"0 0 6px"}}>
+              <Typography fontWeight={'bold'} fontSize={'25px'}>We're here for you:</Typography>
               <Box
                 component="form"
                 sx={{
-                  "& > :not(style)": { m: 1, width: "25ch" },
+                  "& > :not(style)": { m: 1, width: "30em" },
                 }}
                 noValidate
                 autoComplete="off"
               >
                 <TextField
+                sx={{
+                   height: "7vh", p: "2px", position:  "relative", margin: "auto" }}
                   id="outlined-basic"
                   label="Name*"
                   variant="outlined"
                 />{" "}
                 <br />
-                <TextField
+                <TextField 
+                sx={{
+                  height: "7vh", width: 10, p: "2px" }}
                   id="outlined-basic"
                   label="Email*"
                   variant="outlined"
                 />{" "}
                 <br />
-                <TextField
+                <TextField 
+                sx={{
+                  height: "7vh", width: 10, p: "2px" }}
                   id="outlined-basic"
                   label="Mobile*"
                   variant="outlined"
                 />{" "}
                 <br />
-                <TextField
-                  id="outlined-basic"
-                  label="Message*"
-                  variant="outlined"
-                />
+                <TextareaAutosize
+                 id="outlined-basic"
+                 label='message'
+                 variant="outlined"
+                 />
               </Box>
-              <Button variant="contained" sx={{ bgcolor: "#99CC33" }}>
+              <Box sx={{margin:"10px"}}>
+                <div>
+
+                <ReCAPTCHA
+                sitekey={key}
+                onChange={onChange}
+                />
+              </div>
+              </Box>
+              {capchaIsDone && <Button variant="contained" sx={{ bgcolor: "#99CC33", p: "7px", display: "flex", alignItems: "center", justifyContent: "center", width: "35em" }}>
                 Submit
-              </Button>
+              </Button>}
             </Box>
           </Box>
         </Box>
