@@ -5,11 +5,12 @@ import BookRide from "./BookRide";
 import Faq from "./Faq";
 import Statistics from "./Statistics";
 import KnowMore from "./KnowMore";
-import Offer from "./Offer";
+import OfferCarousal from "./OfferCarousal";
 import Video from "./Video";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
+import { Typography } from "@mui/material";
 
 export default function RightSection() {
   const theme = useTheme();
@@ -26,8 +27,10 @@ export default function RightSection() {
               height: "85vh",
             }}
           />
-
-          <Offer />
+          <Typography variant="h4" sx={{ fontWeight: "bold", my: 5 }}>
+            Offers for you
+          </Typography>
+          <OfferCarousal />
           <Video />
           <Features />
           <BookRide />

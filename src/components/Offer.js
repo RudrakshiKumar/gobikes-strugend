@@ -1,31 +1,74 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import goImage from "../assets/goImage.png";
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
 
 export default function Offer() {
   return (
     <>
-      <Container sx={{ marginTop: "7%" }}>
-        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-          Offers for you
+      {/* <Box sx={{ boxShadow: "5", borderRadius: "5px", width: 500, p: 5 }}>
+        <Box sx={{ display: "inline-flex", justifyContent: "space-between" }}>
+          <Typography variant="h5" color="#9c3" sx={{ pr: 10 }}>
+            Get 10% as gocoins
+          </Typography>
+          <Box>
+            <img
+              src={goImage}
+              alt="goImage"
+              style={{ width: "61px", height: "41px" }}
+            />
+          </Box>
+        </Box>{" "}
+        <br />
+        <Typography variant="p">
+          Receive GoCoins worth 10% of the booking amount which you can redeem
+          in your next booking
         </Typography>
+        <Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              border: "1px dashed #9c3",
+              width: "55%",
+              marginTop: "5%",
+            }}
+          >
+            <span
+              style={{
+                fontSize: "20px",
+                color: "#9c3",
+                marginLeft: "17%",
+              }}
+            >
+              GOCOINS
+            </span>
+            <button
+              style={{
+                border: "2px solid #9c3",
+                backgroundColor: "#9c3",
+                color: "#fff",
+                marginLeft: "25%",
+                height: "50px",
+                padding: "0 20px",
+                fontWeight: "500",
+              }}
+            >
+              COPY
+            </button>
+          </Box>
+
+          <Typography variant="p">Coupon Code</Typography>
+        </Box>
+      </Box> */}
+
+      <Box
+        sx={{
+          marginTop: "4%",
+          // width: { md: "50%", xs: "94%" },
+          pr: { md: 5, xs: 2 },
+        }}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
             <Box
@@ -40,7 +83,7 @@ export default function Offer() {
               <Grid container>
                 <Grid item xs={12} sm={10}>
                   <Typography variant="h5" color="#9c3">
-                    Get 10% as gocoins
+                    Get Flat Rs. 100 OFF
                   </Typography>
                 </Grid>
                 <Grid item xs={12} sm={2}>
@@ -55,6 +98,41 @@ export default function Offer() {
                 Receive GoCoins worth 10% of the booking amount which you can
                 redeem in your next booking
               </Typography>
+
+              {/* <Box
+                sx={{
+                  m: { md: "auto" },
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  border: "1px dashed #9c3",
+                  width: { md: "55%", xs: "80%" },
+                  marginTop: "5%",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "20px",
+                    color: "#9c3",
+                    marginLeft: { md: "30%" },
+                  }}
+                >
+                  GOBIKES100
+                </span>
+                <button
+                  style={{
+                    border: "2px solid #9c3",
+                    backgroundColor: "#9c3",
+                    color: "#fff",
+                    marginLeft: "25%",
+                    height: "50px",
+                    padding: "0 20px",
+                    fontWeight: "500",
+                  }}
+                >
+                  COPY
+                </button>
+              </Box> */}
               <Box
                 sx={{
                   display: "flex",
@@ -88,16 +166,13 @@ export default function Offer() {
                   COPY
                 </button>
               </Box>
-              <div style={{ marginTop: "5%" }}>
-                <Typography variant="p" marginLeft="5px">
-                  Coupon Code
-                </Typography>
-              </div>
+              <Typography variant="p">Coupon Code</Typography>
+              <div style={{ marginTop: "5%" }}></div>
             </Box>
           </Grid>
         </Grid>
         <div style={{ marginTop: "5%", marginLeft: "5%" }}></div>
-      </Container>
+      </Box>
     </>
   );
 }

@@ -32,6 +32,7 @@ import RideCompletion from "./components/RideCompletion";
 import { Modal } from "@mui/material";
 import ScrollToTop from "./components/ScrollToTop";
 import MyRides from "./components/MyRides";
+import Trial from "./components/OfferCarousal";
 
 function App() {
   return (
@@ -52,6 +53,9 @@ function App() {
           <Route path="/MyRides" element={<MyRides />} />
           <Route path="/BookingFlow" element={<BookingFlow />} />
           <Route path="/BookNowPage" element={<BookNowPage />} />
+          <Route path="/OTP" element={<OTP />} />
+          <Route path="/PersonalDetails" element={<PersonalDetails />} />
+          <Route path="/Trial" element={<Trial />} />
         </Routes>
 
         <Footer />
