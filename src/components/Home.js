@@ -36,6 +36,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileHome from "./MobileHome";
 import GoToTop from "./ScrollToTop";
 import Navbar from "./Navbar";
+import PreLoginFooter from "./PreLoginFooter";
 
 const style = {
   position: "absolute",
@@ -819,6 +820,7 @@ export default function ChatBot() {
           </Grid>
         </Grid>
       </Container>
+      <PreLoginFooter />
       {/* <GoToTop /> */}
     </>
   );

@@ -36,6 +36,7 @@ import GoToTop from "./ScrollToTop";
 import StartEarning from "./StartEarning";
 import { bgcolor } from "@mui/system";
 import Navbar from "./Navbar";
+import PostLoginFooter from "./PostLoginFooter";
 
 const styles = {
   paperContainer: {
@@ -378,6 +379,7 @@ const ListYourVehicle = () => {
         </Box>
       )}
       {/* <GoToTop /> */}
+      <PostLoginFooter />
     </div>
   );
 };

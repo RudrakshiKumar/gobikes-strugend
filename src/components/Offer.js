@@ -158,83 +158,77 @@ export default function Offer() {
                   COPY
                 </button>
               </Box> */}
-              <Box
-                sx={{
-                  display: "inline-flex",
-                  justifyContent: "space-between",
-                  gap: 1,
-                  alignItems: "center",
-                  border: "1px dashed #9c3",
-                  width: "60%",
-                  marginTop: "5%",
-                }}
-              >
-                <Typography
-                  style={{
-                    fontSize: "20px",
-                    color: "#9c3",
-                    // marginLeft: "17%",
+              <Box textAlign={"center"} sx={{ mt: 5 }}>
+                {" "}
+                <Box
+                  sx={{
+                    display: "inline-flex",
                   }}
                 >
-                  GOCOINS
-                </Typography>
-                <Button
-                  variant="contained"
-                  sx={{ bgcolor: "#59CE8F" }}
-                  onClick={() => {
-                    handlePopup();
-                  }}
-                >
-                  Copy
-                </Button>
-                <Modal
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={style}>
-                    <div style={{ display: "flex" }}>
-                      <IconButton>
-                        <TaskAltOutlinedIcon sx={{ color: "white" }} />
-                      </IconButton>
-                      <Typography
-                        id="modal-modal-title"
-                        variant="h6"
-                        component="h2"
-                      >
-                        Success
-                      </Typography>
-                    </div>
-                    <Typography id="modal-modal-description" sx={{ ml: 5 }}>
-                      Copied Sucessfully!
+                  <Box
+                    sx={{
+                      border: "1px dashed #59CE8F",
+                      display: "flex",
+                      alignContent: "center",
+
+                      px: 1,
+                    }}
+                  >
+                    <Typography
+                      sx={{ p: 1, py: "20%" }}
+                      style={{
+                        fontSize: "20px",
+                        color: "#59CE8F",
+                      }}
+                    >
+                      GOCOINS
                     </Typography>
                   </Box>
-                </Modal>
-                {/* <button
-                  style={{
-                    border: "2px solid #9c3",
-                    backgroundColor: "#9c3",
-                    color: "#fff",
-                    marginLeft: "25%",
-                    height: "50px",
-                    padding: "0 20px",
-                    fontWeight: "500",
-                  }}
-                >
-                  COPY
-                </button> */}
 
-                {/* <span
-                  style={{
-                    fontSize: "20px",
-                    color: "#9c3",
-                    // marginLeft: "17%",
-                  }}
-                >
-                  GOCOINS
-                </span> */}
-              </Box>{" "}
+                  <Box>
+                    <Button
+                      variant="contained"
+                      sx={{
+                        bgcolor: "#59CE8F",
+                        py: 1.8,
+                        px: 4,
+                        borderRadius: 0,
+                        ":hover": { bgcolor: "#36b671" },
+                        fontSize: 25,
+                      }}
+                      onClick={() => {
+                        handlePopup();
+                      }}
+                    >
+                      Copy
+                    </Button>
+                    <Modal
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
+                      <Box sx={style}>
+                        <div style={{ display: "flex" }}>
+                          <IconButton>
+                            <TaskAltOutlinedIcon sx={{ color: "white" }} />
+                          </IconButton>
+                          <Typography
+                            id="modal-modal-title"
+                            variant="h6"
+                            component="h2"
+                          >
+                            Success
+                          </Typography>
+                        </div>
+                        <Typography id="modal-modal-description" sx={{ ml: 5 }}>
+                          Copied Sucessfully!
+                        </Typography>
+                      </Box>
+                    </Modal>
+                  </Box>
+                </Box>{" "}
+              </Box>
               <br />
               <Typography variant="p">Coupon Code</Typography>
               <div style={{ marginTop: "5%" }}></div>

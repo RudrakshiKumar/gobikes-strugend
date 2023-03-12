@@ -34,6 +34,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import MyRides from "./components/MyRides";
 import Trial from "./components/OfferCarousal";
 import PostLoginFooter from "./components/PostLoginFooter";
+import PreLoginFooter from "./components/PreLoginFooter";
 
 function App() {
   return (
@@ -58,8 +59,6 @@ function App() {
           <Route path="/PersonalDetails" element={<PersonalDetails />} />
           <Route path="/Trial" element={<Trial />} />
         </Routes>
-
-        <PostLoginFooter />
       </Router>
 
       {/* <BookingFlow /> */}

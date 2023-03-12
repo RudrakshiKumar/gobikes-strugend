@@ -19,7 +19,7 @@ const PostLoginFooter = () => {
   };
   return (
     <div className="">
-      <Box sx={{ mt: 20 }} className="relative z-50">
+      <Box sx={{}} className="relative z-50">
         <Box
           sx={{
             bgcolor: "#d6fbe6",

@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import PostLoginFooter from "./PostLoginFooter";
 
 const AboutUs = () => {
   return (
@@ -54,6 +55,7 @@ const AboutUs = () => {
           </Typography>
         </Box>
       </Box>
+      <PostLoginFooter />
     </>
   );
 };
