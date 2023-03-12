@@ -1,8 +1,34 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Typography,
+  Modal,
+  IconButton,
+} from "@mui/material";
+import React, { useState } from "react";
 import goImage from "../assets/goImage.png";
+import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
+
+const style = {
+  position: "absolute",
+  top: "15%",
+  right: "-7%",
+  transform: "translate(-50%, -50%)",
+  width: 300,
+  bgcolor: "green",
+  color: "white",
+  boxShadow: 24,
+  p: 2,
+  borderRadius: 3,
+};
 
 export default function Offer() {
+  const [open, setOpen] = useState(false);
+  const handlePopup = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       {/* <Box sx={{ boxShadow: "5", borderRadius: "5px", width: 500, p: 5 }}>
@@ -98,7 +124,6 @@ export default function Offer() {
                 Receive GoCoins worth 10% of the booking amount which you can
                 redeem in your next booking
               </Typography>
-
               {/* <Box
                 sx={{
                   m: { md: "auto" },
@@ -135,24 +160,58 @@ export default function Offer() {
               </Box> */}
               <Box
                 sx={{
-                  display: "flex",
-                  justifyContent: "center",
+                  display: "inline-flex",
+                  justifyContent: "space-between",
+                  gap: 1,
                   alignItems: "center",
                   border: "1px dashed #9c3",
-                  width: "55%",
+                  width: "60%",
                   marginTop: "5%",
                 }}
               >
-                <span
+                <Typography
                   style={{
                     fontSize: "20px",
                     color: "#9c3",
-                    marginLeft: "17%",
+                    // marginLeft: "17%",
                   }}
                 >
                   GOCOINS
-                </span>
-                <button
+                </Typography>
+                <Button
+                  variant="contained"
+                  sx={{ bgcolor: "#59CE8F" }}
+                  onClick={() => {
+                    handlePopup();
+                  }}
+                >
+                  Copy
+                </Button>
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={style}>
+                    <div style={{ display: "flex" }}>
+                      <IconButton>
+                        <TaskAltOutlinedIcon sx={{ color: "white" }} />
+                      </IconButton>
+                      <Typography
+                        id="modal-modal-title"
+                        variant="h6"
+                        component="h2"
+                      >
+                        Success
+                      </Typography>
+                    </div>
+                    <Typography id="modal-modal-description" sx={{ ml: 5 }}>
+                      Copied Sucessfully!
+                    </Typography>
+                  </Box>
+                </Modal>
+                {/* <button
                   style={{
                     border: "2px solid #9c3",
                     backgroundColor: "#9c3",
@@ -164,8 +223,19 @@ export default function Offer() {
                   }}
                 >
                   COPY
-                </button>
-              </Box>
+                </button> */}
+
+                {/* <span
+                  style={{
+                    fontSize: "20px",
+                    color: "#9c3",
+                    // marginLeft: "17%",
+                  }}
+                >
+                  GOCOINS
+                </span> */}
+              </Box>{" "}
+              <br />
               <Typography variant="p">Coupon Code</Typography>
               <div style={{ marginTop: "5%" }}></div>
             </Box>

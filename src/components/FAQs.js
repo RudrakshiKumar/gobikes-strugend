@@ -3,13 +3,16 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
 import MobileFAQ from "./MobileFAQ";
+import Navbar from "./Navbar";
 import { Typography, Grid } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 const FAQs = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div>
+      <Navbar />
       {isMatch ? (
         <MobileFAQ />
       ) : (
@@ -21,7 +24,7 @@ const FAQs = () => {
         >
           <Box
             sx={{
-              marginTop: 10,
+              mt: 6,
               marginRight: 10,
               padding: 5,
               boxShadow: 3,
@@ -32,13 +35,16 @@ const FAQs = () => {
             }}
           >
             <Box>
-              <Typography>FAQ Section</Typography>
-              <Box sx={{ bgcolor: "#EAEAEA" }}>
-                <Typography>Booking</Typography>
-                <Typography>Booking Cancellation</Typography>
-                <Typography>Safety and Tips</Typography>
-                <Typography>Security Deposit</Typography>
-                <Typography>Accident ot Damage</Typography>
+              <Typography variant="h4">FAQ Section</Typography>
+              <Box sx={{ bgcolor: "#59CE8F20", mt: 3 }}>
+                <NavLink to="#booking">
+                  <Typography sx={{ p: 1.5 }}>Booking</Typography>
+                </NavLink>
+
+                <Typography sx={{ p: 1.5 }}>Booking Cancellation</Typography>
+                <Typography sx={{ p: 1.5 }}>Safety and Tips</Typography>
+                <Typography sx={{ p: 1.5 }}>Security Deposit</Typography>
+                <Typography sx={{ p: 1.5 }}>Accident ot Damage</Typography>
               </Box>
             </Box>
           </Box>

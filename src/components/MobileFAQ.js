@@ -52,14 +52,14 @@ const MobileFAQ = () => {
   return (
     <div>
       <Box sx={{ px: 2 }}>
-        <Typography variant="h4" textAlign={"center"}>
+        {/* <Typography variant="h4" textAlign={"center"}>
           FAQ Section
-        </Typography>
+        </Typography> */}
         {/* BOOKING FAQS */}
         <Typography variant="h5" sx={{ pt: 4, pb: 2 }}>
           Bookings
         </Typography>
-        <Box>
+        <Box id="booking">
           <Accordion
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}

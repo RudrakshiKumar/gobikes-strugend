@@ -39,6 +39,7 @@ import AirlineSeatReclineNormalRoundedIcon from "@mui/icons-material/AirlineSeat
 import SettingsAccessibilityRoundedIcon from "@mui/icons-material/SettingsAccessibilityRounded";
 import goImage from "../assets/goImage.png";
 import Faq from "./Faq";
+import OfferCarousal from "./OfferCarousal";
 
 const style = {
   position: "absolute",
@@ -745,7 +746,8 @@ export default function BookNowPage() {
           <Typography variant="h4" sx={{ fontWeight: "bold" }}>
             Offers for you
           </Typography>
-          <Grid container spacing={7}>
+          <OfferCarousal />
+          {/* <Grid container spacing={7}>
             <Grid item xs={12} sm={4}>
               <Box
                 sx={{
@@ -952,7 +954,7 @@ export default function BookNowPage() {
                 </div>
               </Box>
             </Grid>
-          </Grid>
+          </Grid> */}
         </Container>
         <Faq />
       </Container>

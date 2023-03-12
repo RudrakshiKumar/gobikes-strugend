@@ -1,92 +1,163 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import { NavLink } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
+import { useCallback } from "react";
 
 const TermsCondition = () => {
+  const { hash } = useLocation();
+  const isActive = (iHash) => hash === iHash;
   return (
     <div className="tc_container1">
       <div className="tc_container2">
         <div className="tc_container3">
           <ol>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                1. A general guide for use
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                2. Use of the vehicle
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                3. Prohibited Uses
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                4. Maintenance/Vehicle Condition/Return/Stolen Vehicles
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                5. Trip Extension
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                6. Fee Policy
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                7. No Agency
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                8. Offers and Promotions
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                9. Traffic Law/Applicable Law Violations
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                10. Insurance/Liability
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                11. Acceptable Website Use
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                12. Disclaimer of Consequential Damages
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                13. Intellectual Property Rights
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                14. Dispute Resolution/Arbitration
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                15. Governing Law and Jurisdiction
-              </Typography>
-            </li>
-            <li className="tc_list1">
-              <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                16. Entire Agreement
-              </Typography>
-            </li>
+            <NavHashLink
+              to="#1"
+              style={
+                isActive("#1")
+                  ? {
+                      color: "#59ce8f",
+                    }
+                  : {}
+              }
+            >
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  1. A general guide for use
+                </Typography>
+              </li>
+            </NavHashLink>
+            <NavHashLink to="#2">
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  2. Use of the vehicle
+                </Typography>
+              </li>
+            </NavHashLink>
+            <NavHashLink to="#3">
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  3. Prohibited Uses
+                </Typography>
+              </li>
+            </NavHashLink>
+            <NavHashLink to="#4">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  4. Maintenance/Vehicle Condition/Return/Stolen Vehicles
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#5">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  5. Trip Extension
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#6">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  6. Fee Policy
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#7">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  7. No Agency
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#8">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  8. Offers and Promotions
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#9">
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  9. Traffic Law/Applicable Law Violations
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#10">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  10. Insurance/Liability
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#11">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  11. Acceptable Website Use
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#12">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  12. Disclaimer of Consequential Damages
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#13">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  13. Intellectual Property Rights
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#14">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  14. Dispute Resolution/Arbitration
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#15">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  15. Governing Law and Jurisdiction
+                </Typography>
+              </li>
+            </NavHashLink>
+
+            <NavHashLink to="#16">
+              {" "}
+              <li className="tc_list1">
+                <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
+                  16. Entire Agreement
+                </Typography>
+              </li>
+            </NavHashLink>
           </ol>
         </div>
         <div className="tc_body">
@@ -98,7 +169,7 @@ const TermsCondition = () => {
             Terms and Conditions
           </Typography>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="1">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -194,7 +265,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="2">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -480,7 +551,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="3">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -625,7 +696,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="4">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -833,7 +904,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="5">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -861,7 +932,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="6">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -922,7 +993,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="7">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -943,7 +1014,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="8">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -970,7 +1041,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="9">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -1027,7 +1098,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="10">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -1123,7 +1194,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="11">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -1175,7 +1246,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="12">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -1213,7 +1284,44 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="13">
+              <Typography
+                variant="span"
+                fontWeight={"bold"}
+                className="tc_title"
+                id="tc_header"
+              >
+                13. Intellectual Property Rights
+              </Typography>
+              <ol>
+                <li>
+                  <span>
+                    13.1. None of the content may be downloaded, copied,
+                    reproduced, transmitted, stored, sold or distributed without
+                    the prior written consent of the copyright holder. This
+                    excludes the downloading, copying and/or printing of pages
+                    of the Website for personal, non-commercial home use only.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    13.2. General Rules: Visitors may not use the Web Site in
+                    order to transmit, distribute, store or destroy material (a)
+                    that could constitute or encourage conduct that would be
+                    considered a criminal offence or violate any applicable law
+                    or regulation, (b) in a manner that will infringe the
+                    copyright, trademark, trade secret or other intellectual
+                    property rights of others or violate the privacy or
+                    publicity of other personal rights of others, or (c) that is
+                    libellous, defamatory, pornographic, profane, obscene,
+                    threatening, abusive or hateful.
+                  </span>
+                </li>
+              </ol>
+            </li>
+          </ol>
+          <ol>
+            <li className="tc_card" id="14">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -1240,7 +1348,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="15">
               <Typography
                 variant="span"
                 fontWeight={"bold"}
@@ -1263,7 +1371,7 @@ const TermsCondition = () => {
             </li>
           </ol>
           <ol>
-            <li className="tc_card">
+            <li className="tc_card" id="16">
               <Typography
                 variant="span"
                 fontWeight={"bold"}

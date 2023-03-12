@@ -19,3 +19,11 @@ code {
 .message {
   -webkit-appearance: none;
 }
+
+.active {
+  color: #000000;
+}
+
+.active:hover {
+  color: #59ce8f;
+}
