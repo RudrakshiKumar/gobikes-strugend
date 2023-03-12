@@ -33,6 +33,7 @@ import { Modal } from "@mui/material";
 import ScrollToTop from "./components/ScrollToTop";
 import MyRides from "./components/MyRides";
 import Trial from "./components/OfferCarousal";
+import PostLoginFooter from "./components/PostLoginFooter";
 
 function App() {
   return (
@@ -58,7 +59,7 @@ function App() {
           <Route path="/Trial" element={<Trial />} />
         </Routes>
 
-        <Footer />
+        <PostLoginFooter />
       </Router>
 
       {/* <BookingFlow /> */}
