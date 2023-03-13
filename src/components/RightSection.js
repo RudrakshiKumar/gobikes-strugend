@@ -1,5 +1,7 @@
 import React from "react";
+import rightSection from "../assets/rightSection.jpeg";
 import Features from "./Features";
+import BookRide from "./BookRide";
 import Faq from "./Faq";
 import Statistics from "./Statistics";
 import KnowMore from "./KnowMore";
@@ -11,6 +13,8 @@ import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 
 export default function RightSection() {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <Box>
       {isMatch && (
