@@ -1,12 +1,16 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import PostLoginFooter from "./PostLoginFooter";
+import Navbar from "./Navbar";
 
 const AboutUs = () => {
   return (
     <>
-      <Box sx={{ px: "15px", position: "relative" }}>
-        <Typography variant="h4">About Us</Typography>
+      <Navbar />
+      <Box sx={{ px: "15px", position: "relative", mt: 5, mx: 10 }}>
+        <Typography variant="h4" sx={{ mb: 3 }}>
+          About Us
+        </Typography>
         <Box
           sx={{
             bgcolor: "#f1f8ed",
@@ -42,8 +46,10 @@ const AboutUs = () => {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ px: "15px", position: "relative" }}>
-        <Typography variant="h4">Our Mission</Typography>
+      <Box sx={{ px: "15px", position: "relative", mt: 5, mb: 10, mx: 10 }}>
+        <Typography variant="h4" sx={{ mb: 3 }}>
+          Our Mission
+        </Typography>
         <Box
           sx={{ bgcolor: "#f1f8ed", borderRadius: "10px", textAlign: "center" }}
         >

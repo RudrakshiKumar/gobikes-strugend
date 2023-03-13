@@ -141,7 +141,8 @@ textarea:focus {
   position: fixed;
   top: 12%;
   left: 8%;
-  max-width: 250px;
+  /* bottom: 8%; */
+  max-width: 300px;
 }
 
 .tc_list1 {

@@ -38,8 +38,9 @@ const PostLoginFooter = () => {
           sx={{
             bgcolor: "#d6fbe6",
             display: "inline-flex",
+            justifyContent: "space-evenly",
             width: "100%",
-            px: 10,
+
             pb: 10,
           }}
         >
@@ -48,13 +49,12 @@ const PostLoginFooter = () => {
               component="img"
               sx={{
                 height: 50,
-                ml: 10,
               }}
               alt="Your logo."
               src={logo}
             />
           </Link>
-          <Box sx={{ pr: 20, pl: 30 }}>
+          <Box sx={{}}>
             <Link to="/ContactUs">
               <Typography sx={{ color: "#000000" }}>Contact Us</Typography>
             </Link>
@@ -67,7 +67,7 @@ const PostLoginFooter = () => {
               </Typography>
             </Link>
           </Box>
-          <Box sx={{ px: 20 }}>
+          <Box sx={{}}>
             <Link to="/OffersForYou">
               <Typography sx={{ color: "#000000" }}>Offers</Typography>
             </Link>
@@ -80,7 +80,7 @@ const PostLoginFooter = () => {
               <Typography sx={{ color: "#000000" }}>FAQs</Typography>
             </Link>
           </Box>
-          <Box sx={{ px: 20 }}>
+          <Box sx={{}}>
             <Link to="/AboutUs">
               <Typography sx={{ color: "#000000" }}>About Us</Typography>
             </Link>

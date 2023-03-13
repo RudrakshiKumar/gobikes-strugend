@@ -4,6 +4,7 @@ import { Box, Toolbar, Typography } from "@mui/material";
 import { NavHashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
+import PostLoginFooter from "./PostLoginFooter";
 
 const TermsCondition = () => {
   const { hash } = useLocation();
@@ -11,8 +12,8 @@ const TermsCondition = () => {
   return (
     <>
       <Navbar />
-      <Toolbar />
-      <div className="tc_container1">
+
+      <div className="tc_container1 mb-80">
         <div className="tc_container2">
           <div className="tc_container3 mb-10">
             <ol>
@@ -304,11 +305,12 @@ const TermsCondition = () => {
               fontWeight={"bold"}
               fontFamily={"Poppins, sans-serif"}
               sx={{ ml: 3, pb: 3 }}
+              id="1"
             >
               Terms and Conditions
             </Typography>
-            <ol>
-              <li className="tc_card" id="1">
+            <ol className="mt-0">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -407,8 +409,9 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="2"></div>
             <ol>
-              <li className="tc_card" id="2">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -698,8 +701,9 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="3"></div>
             <ol>
-              <li className="tc_card" id="3">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -848,8 +852,9 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="4"></div>
             <ol>
-              <li className="tc_card" id="4">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1062,8 +1067,9 @@ const TermsCondition = () => {
                 <ol></ol>
               </li>
             </ol>
+            <div className="p-10" id="5"></div>
             <ol>
-              <li className="tc_card" id="5">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1091,8 +1097,9 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="6"></div>
             <ol>
-              <li className="tc_card" id="6">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1152,8 +1159,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="7"></div>
+
             <ol>
-              <li className="tc_card" id="7">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1173,8 +1182,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="8"></div>
+
             <ol>
-              <li className="tc_card" id="8">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1201,8 +1212,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="9"></div>
+
             <ol>
-              <li className="tc_card" id="9">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1259,8 +1272,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="10"></div>
+
             <ol>
-              <li className="tc_card" id="10">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1356,8 +1371,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="11"></div>
+
             <ol>
-              <li className="tc_card" id="11">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1409,8 +1426,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="12"></div>
+
             <ol>
-              <li className="tc_card" id="12">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1449,8 +1468,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="13"></div>
+
             <ol>
-              <li className="tc_card" id="13">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1487,8 +1508,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="14"></div>
+
             <ol>
-              <li className="tc_card" id="14">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1514,8 +1537,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="15"></div>
+
             <ol>
-              <li className="tc_card" id="15">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1537,8 +1562,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
+            <div className="p-10" id="16"></div>
+
             <ol>
-              <li className="tc_card" id="16">
+              <li className="tc_card">
                 <Typography
                   variant="span"
                   fontWeight={"bold"}
@@ -1566,6 +1593,7 @@ const TermsCondition = () => {
           </div>
         </div>
       </div>
+      <PostLoginFooter />
     </>
   );
 };

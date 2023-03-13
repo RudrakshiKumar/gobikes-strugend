@@ -10,6 +10,8 @@ import contactlocation from "../assets/contactlocation.svg";
 import contactphone from "../assets/contactphone.svg";
 import contactemail from "../assets/contactemail.svg";
 import ReCAPTCHA from "react-google-recaptcha";
+import Navbar from "./Navbar";
+import PostLoginFooter from "./PostLoginFooter";
 
 const ContactUs = () => {
   const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
@@ -23,6 +25,7 @@ const ContactUs = () => {
 
   return (
     <div>
+      <Navbar />
       {isMatch ? (
         <MobileContactUs />
       ) : (
@@ -32,7 +35,7 @@ const ContactUs = () => {
             position: "relative",
             padding: "0 12%",
             boxSizing: "border-box",
-            marginTop: "7%",
+            marginTop: "5%",
           }}
         >
           <Box>
@@ -226,6 +229,7 @@ const ContactUs = () => {
           </Box>
         </Box>
       )}
+      <PostLoginFooter />
     </div>
   );
 };
