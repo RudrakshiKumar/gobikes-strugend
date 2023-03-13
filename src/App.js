@@ -41,7 +41,7 @@ function App() {
     <>
       <Router>
         <ScrollToTop />
-        {/* <Navbar /> */}
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ListYourVehicle" element={<ListYourVehicle />} />
@@ -59,8 +59,10 @@ function App() {
           <Route path="/PersonalDetails" element={<PersonalDetails />} />
           <Route path="/Trial" element={<Trial />} />
         </Routes>
+        <Footer />
       </Router>
-
+      {/* <PostLoginNavbar /> */}
+      {/* <DashBoard /> */}
       {/* <BookingFlow /> */}
       {/* <Dialog /> */}
       {/* <NoBikesAvailable /> */}
@@ -69,6 +71,7 @@ function App() {
       <OTPVerified />
       <BookingConfirmation />
       <RideCompletion /> */}
+      <ContactUs />
     </>
   );
 }
