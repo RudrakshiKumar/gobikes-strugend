@@ -12,13 +12,13 @@ import contactemail from "../assets/contactemail.svg";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactUs = () => {
-  const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+  const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
   const [capchaIsDone, setCapchaDone] = useState(false);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
-  function onChange(){
-    setCapchaDone(true)
+  function onChange() {
+    setCapchaDone(true);
   }
 
   return (
@@ -26,13 +26,36 @@ const ContactUs = () => {
       {isMatch ? (
         <MobileContactUs />
       ) : (
-        <Box sx={{ display: "flex", position:"relative", padding:"0 12%", boxSizing:"border-box", marginTop:"7%" }}>
+        <Box
+          sx={{
+            display: "flex",
+            position: "relative",
+            padding: "0 12%",
+            boxSizing: "border-box",
+            marginTop: "7%",
+          }}
+        >
           <Box>
             <Box>
-              <Typography variant="h5" fontSize={"30px"} fontWeight={"bold"} sx={{color:"#99CC33"}}>Contact Us</Typography> <br />
-              <Typography variant="h4" fontWeight={"bold"}>How can we help you?</Typography>
+              <Typography
+                variant="h5"
+                fontSize={"30px"}
+                fontWeight={"bold"}
+                sx={{ color: "#99CC33" }}
+              >
+                Contact Us
+              </Typography>{" "}
               <br />
-              <Typography variant="p" fontSize={"18px"} fontWeight={"bold"} sx={{color:"#717171"}}>
+              <Typography variant="h4" fontWeight={"bold"}>
+                How can we help you?
+              </Typography>
+              <br />
+              <Typography
+                variant="p"
+                fontSize={"18px"}
+                fontWeight={"bold"}
+                sx={{ color: "#717171" }}
+              >
                 Fill in the form or drop an email
               </Typography>
             </Box>
@@ -108,9 +131,29 @@ const ContactUs = () => {
             </Box>
           </Box>
 
-          <Box sx={{position: 'relative', display: 'flex', alignItems:"center", justifyContent: "center", top: "auto", left: "10em", boxSizing:"border-box"}}>
-            <Box sx={{ bgcolor: "#FAFAFA", p: "10%", borderRadius: "20px", boxSizing:"border-box", boxShadow:"0 0 6px"}}>
-              <Typography fontWeight={'bold'} fontSize={'25px'}>We're here for you:</Typography>
+          <Box
+            sx={{
+              position: "relative",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              top: "auto",
+              left: "10em",
+              boxSizing: "border-box",
+            }}
+          >
+            <Box
+              sx={{
+                bgcolor: "#FAFAFA",
+                p: "10%",
+                borderRadius: "20px",
+                boxSizing: "border-box",
+                boxShadow: "0 0 6px",
+              }}
+            >
+              <Typography fontWeight={"bold"} fontSize={"25px"}>
+                We're here for you:
+              </Typography>
               <Box
                 component="form"
                 sx={{
@@ -120,47 +163,65 @@ const ContactUs = () => {
                 autoComplete="off"
               >
                 <TextField
-                sx={{
-                   height: "7vh", p: "2px", position:  "relative", margin: "auto" }}
+                  sx={{
+                    height: "7vh",
+                    p: "2px",
+                    position: "relative",
+                    margin: "auto",
+                  }}
                   id="outlined-basic"
                   label="Name*"
                   variant="outlined"
                 />{" "}
                 <br />
-                <TextField 
-                sx={{
-                  height: "7vh", width: 10, p: "2px" }}
+                <TextField
+                  sx={{
+                    height: "7vh",
+                    width: 10,
+                    p: "2px",
+                  }}
                   id="outlined-basic"
                   label="Email*"
                   variant="outlined"
                 />{" "}
                 <br />
-                <TextField 
-                sx={{
-                  height: "7vh", width: 10, p: "2px" }}
+                <TextField
+                  sx={{
+                    height: "7vh",
+                    width: 10,
+                    p: "2px",
+                  }}
                   id="outlined-basic"
                   label="Mobile*"
                   variant="outlined"
                 />{" "}
                 <br />
                 <TextareaAutosize
-                 id="outlined-basic"
-                 label='message'
-                 variant="outlined"
-                 />
-              </Box>
-              <Box sx={{margin:"10px"}}>
-                <div>
-
-                <ReCAPTCHA
-                sitekey={key}
-                onChange={onChange}
+                  id="outlined-basic"
+                  label="message"
+                  variant="outlined"
                 />
-              </div>
               </Box>
-              {capchaIsDone && <Button variant="contained" sx={{ bgcolor: "#99CC33", p: "7px", display: "flex", alignItems: "center", justifyContent: "center", width: "35em" }}>
-                Submit
-              </Button>}
+              <Box sx={{ margin: "10px" }}>
+                <div>
+                  <ReCAPTCHA sitekey={key} onChange={onChange} />
+                </div>
+              </Box>
+              {capchaIsDone && (
+                <Button
+                  variant="contained"
+                  sx={{
+                    bgcolor: "#99CC33",
+                    p: "7px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "35em",
+                  }}
+                >
+                  Submit
+                </Button>
+              )}
             </Box>
           </Box>
         </Box>

@@ -59,19 +59,7 @@ function App() {
           <Route path="/PersonalDetails" element={<PersonalDetails />} />
           <Route path="/Trial" element={<Trial />} />
         </Routes>
-        <Footer />
       </Router>
-      {/* <PostLoginNavbar /> */}
-      {/* <DashBoard /> */}
-      {/* <BookingFlow /> */}
-      {/* <Dialog /> */}
-      {/* <NoBikesAvailable /> */}
-      {/* <PersonalDetails />
-      <OTP />
-      <OTPVerified />
-      <BookingConfirmation />
-      <RideCompletion /> */}
-      <ContactUs />
     </>
   );
 }
