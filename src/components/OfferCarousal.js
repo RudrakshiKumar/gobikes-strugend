@@ -25,7 +25,7 @@ const responsive = {
   },
 };
 
-const Trial = () => {
+const OfferCarousal = () => {
   return (
     <div>
       <Carousel
@@ -57,4 +57,4 @@ const Trial = () => {
   );
 };
 
-export default Trial;
+export default OfferCarousal;

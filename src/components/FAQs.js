@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import { Typography, Grid, AppBar } from "@mui/material";
 import { NavHashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
+import PostLoginFooter from "./PostLoginFooter";
 
 const FAQs = () => {
   const theme = useTheme();
@@ -111,6 +112,7 @@ const FAQs = () => {
           </Box>
         </Box>
       )}
+      <PostLoginFooter />
     </div>
   );
 };

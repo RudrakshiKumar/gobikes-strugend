@@ -13,8 +13,10 @@ import goImage from "../assets/goImage.png";
 import bike1 from "../assets/bike1.webp";
 import bike2 from "../assets/bike2.webp";
 import bike3 from "../assets/bike3.webp";
-import Offer from "./Offer";
+import Navbar from "./Navbar";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
+import PreLoginFooter from "./PreLoginFooter";
+import PostLoginFooter from "./PostLoginFooter";
 
 const style = {
   position: "absolute",
@@ -35,6 +37,7 @@ const OffersForYou = () => {
   const handleClose = () => setOpen(false);
   return (
     <div>
+      <Navbar />
       <Box sx={{ marginLeft: "5%", pt: 10 }}>
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
           Offers for you
@@ -402,6 +405,7 @@ const OffersForYou = () => {
           <div style={{ marginTop: "5%", marginLeft: "5%" }}></div>
         </Box>
       </Box>
+      <PostLoginFooter />
     </div>
   );
 };

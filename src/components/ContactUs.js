@@ -62,75 +62,80 @@ const ContactUs = () => {
                 Fill in the form or drop an email
               </Typography>
             </Box>
+
             <Box className="" sx={{}}>
-              <Grid container columnSpacing={2} sx={{ py: 2, mr: 20 }}>
-                <Grid item xs={6} sx={{ m: "auto" }}>
+              <Box sx={{ display: "inline-flex", mt: 5 }}>
+                <Box>
                   <img
-                    className="m-auto"
+                    className="w-16"
                     src={contactcompany}
                     alt="Extra Income"
                   />
-                </Grid>
-
-                <Grid item xs={6}>
-                  <Typography variant="h6" sx={{ pb: 2 }}>
+                </Box>
+                <Box sx={{ ml: 3 }}>
+                  <Typography variant="h5" sx={{ color: "#59CE8F" }}>
                     Registered Company
                   </Typography>
-                  <Typography>GoBikes Automotive Private Limited</Typography>
-                </Grid>
-              </Grid>
-              <Grid container columnSpacing={2} sx={{ py: 2 }}>
-                <Grid item xs={6} sx={{ m: "auto" }}>
+                  <Typography variant="h6">
+                    GoBikes Automotive Private Limited
+                  </Typography>
+                </Box>
+              </Box>
+              <Box sx={{ display: "inline-flex", mt: 5 }}>
+                <Box>
                   <img
-                    className="m-auto"
+                    className="w-16"
                     src={contactlocation}
                     alt="Extra Income"
                   />
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography variant="h6" sx={{ pb: 2 }}>
-                    Registered Address
+                </Box>
+                <Box sx={{ ml: 3 }}>
+                  <Typography variant="h5" sx={{ color: "#59CE8F" }}>
+                    Registered Address{" "}
                   </Typography>
-                  <Typography>
-                    5th Floor, Seminar Building, Incubation Center IIIT Delhi,
-                    New Delhi, Delhi 110020
+                  <Typography variant="h6">
+                    5th Floor, Seminar Building, Incubation Center <br /> IIIT
+                    Delhi, New Delhi, Delhi 110020{" "}
                   </Typography>
-                </Grid>
-              </Grid>
-              <Grid container columnSpacing={2} sx={{ py: 2 }}>
-                <Grid item xs={6} sx={{ m: "auto" }}>
-                  <img
-                    className="m-auto"
-                    src={contactphone}
-                    alt="Extra Income"
-                  />
-                </Grid>
-                <Grid item xs={6} sx={{ pb: 2 }}>
-                  <Typography variant="h6" sx={{ pb: 2 }}>
-                    Mobile Number
+                </Box>
+              </Box>{" "}
+              <br />
+              <Box sx={{ display: "inline-flex", mt: 5 }}>
+                <Box>
+                  <img className="w-16" src={contactphone} alt="Extra Income" />
+                </Box>
+                <Box sx={{ ml: 3 }}>
+                  <Typography variant="h5" sx={{ color: "#59CE8F" }}>
+                    Mobile Number{" "}
                   </Typography>
-                  <Typography>+91-8448444897</Typography>
-                </Grid>
-              </Grid>
-              <Grid container columnSpacing={2}>
-                <Grid item xs={6} sx={{ m: "auto" }}>
-                  <img
-                    className="m-auto"
-                    src={contactemail}
-                    alt="Extra Income"
-                  />
-                </Grid>
-                <Grid item xs={6} sx={{ pb: 10 }}>
-                  <Typography variant="h6" sx={{}}>
-                    Support :
-                  </Typography>
-                  <Typography sx={{}}>support@gobikes.co.in</Typography>
-                  <Typography variant="h6" sx={{}}>
-                    Contact Us :
-                  </Typography>
-                  <Typography>contact-us@gobikes.co.in</Typography>
-                </Grid>
-              </Grid>
+                  <Typography variant="h6">+91-8448444897 </Typography>
+                </Box>
+              </Box>{" "}
+              <br />
+              <Box sx={{ display: "inline-flex", mt: 5 }}>
+                <Box>
+                  <img className="w-16" src={contactemail} alt="Extra Income" />
+                </Box>
+                <Box sx={{ ml: 3 }}>
+                  <Box sx={{ display: "inline-flex" }}>
+                    <Typography variant="h5" sx={{ color: "#59CE8F" }}>
+                      Support :
+                    </Typography>
+                    <Typography variant="h6">
+                      &nbsp; contact-us@gobikes.co.in
+                    </Typography>
+                  </Box>{" "}
+                  <br />
+                  <Box sx={{ display: "inline-flex" }}>
+                    <Typography variant="h5" sx={{ color: "#59CE8F" }}>
+                      Contact Us :{}
+                    </Typography>
+                    <Typography variant="h6">
+                      &nbsp; contact-us@gobikes.co.in{" "}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
             </Box>
           </Box>
 
@@ -138,10 +143,8 @@ const ContactUs = () => {
             sx={{
               position: "relative",
               display: "flex",
-              alignItems: "center",
+              // alignItems: "center",
               justifyContent: "center",
-              top: "auto",
-              left: "10em",
               boxSizing: "border-box",
             }}
           >
@@ -229,6 +232,7 @@ const ContactUs = () => {
           </Box>
         </Box>
       )}
+      <div className="h-32"></div>
       <PostLoginFooter />
     </div>
   );
