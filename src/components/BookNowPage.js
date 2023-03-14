@@ -1,13 +1,15 @@
 import {
   AppBar,
+  BottomNavigation,
   Box,
   Button,
+  Checkbox,
   Container,
   FormControlLabel,
   Grid,
   IconButton,
-  InputAdornment,
   Modal,
+  Paper,
   Radio,
   RadioGroup,
   Table,
@@ -19,7 +21,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import React, { useState } from "react";
 import HeroDestini from "../assets/HeroDestini.png";
 import SocialDistanceRoundedIcon from "@mui/icons-material/SocialDistanceRounded";
@@ -39,6 +40,12 @@ import AirlineSeatReclineNormalRoundedIcon from "@mui/icons-material/AirlineSeat
 import SettingsAccessibilityRoundedIcon from "@mui/icons-material/SettingsAccessibilityRounded";
 import goImage from "../assets/goImage.png";
 import Faq from "./Faq";
+import CloseIcon from "@mui/icons-material/Close";
+import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import AddIcon from "@mui/icons-material/Add";
+import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 const style = {
   position: "absolute",
@@ -50,6 +57,32 @@ const style = {
   borderRadius: "5px",
   boxShadow: 24,
   p: 4,
+};
+
+const styles = {
+  position: "absolute",
+  top: "15%",
+  right: "-7%",
+  transform: "translate(-50%, -50%)",
+  width: 300,
+  bgcolor: "green",
+  color: "white",
+  boxShadow: 24,
+  p: 2,
+  borderRadius: 3,
+};
+
+const styled = {
+  position: "absolute",
+  top: "15%",
+  right: "-7%",
+  transform: "translate(-50%, -50%)",
+  width: 300,
+  bgcolor: "red",
+  color: "white",
+  boxShadow: 24,
+  p: 2,
+  borderRadius: 3,
 };
 
 function createData(TimeOfCancellation, RefundPercentage, RefundAmount) {
@@ -66,10 +99,26 @@ const rows = [
   createData("If cancelled within 24 hours of pickup time", "50%", "₹ 0.00"),
 ];
 
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
 export default function BookNowPage() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [search, setSearch] = useState(false);
+  const handleSearchOpen = () => setSearch(true);
+  const handleSearchClose = () => setSearch(false);
+
+  const [payment, setPayment] = useState("PayNow");
+  const [partialPayment, setPartialPayment] = useState("PartialPayment");
+
+  const [payNow, setPayNow] = useState(false);
+  const handlePayNowOpen = () => setPayNow(true);
+  const handlePayNowClose = () => setPayNow(false);
+
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   return (
     <>
@@ -84,51 +133,80 @@ export default function BookNowPage() {
                 fullWidth
                 label="Go Hub Location"
                 defaultValue="Baghajatin"
-                size="small"
                 InputProps={{
                   readOnly: true,
                 }}
               />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <TextField
-                fullWidth
-                label="Pickup Date & Time"
-                defaultValue="February 26, 2023 1:00 AM"
-                size="small"
-                InputProps={{
-                  readOnly: true,
-                  endAdornment: (
-                    <InputAdornment position="end" sx={{ color: "#aeea00" }}>
-                      <CalendarMonthIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  label="Pickup Date & Time"
+                  value={startDate}
+                  onChange={(newValue) => setStartDate(newValue)}
+                  sx={{ width: "100%" }}
+                />
+              </LocalizationProvider>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <TextField
-                fullWidth
-                label="Dropoff Date & Time"
-                defaultValue="February 27, 2023 1:00 AM"
-                size="small"
-                InputProps={{
-                  readOnly: true,
-                  endAdornment: (
-                    <InputAdornment position="end" sx={{ color: "red" }}>
-                      <CalendarMonthIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  label="Dropoff Date & Time"
+                  value={endDate}
+                  onChange={(newValue) => setEndDate(newValue)}
+                  sx={{ width: "100%" }}
+                />
+              </LocalizationProvider>
             </Grid>
             <Grid item xs={12} sm={2}>
               <Button
+                onClick={handleSearchOpen}
                 variant="contained"
-                sx={{ backgroundColor: "#4cbb17", padding: "7px" }}
+                size="large"
+                sx={{
+                  backgroundColor: "#4cbb17",
+                  padding: "10px",
+                  margin: "5px",
+                }}
               >
                 Search
               </Button>
+              <Modal
+                open={search}
+                onClose={handleSearchClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={styles}>
+                  <div style={{ display: "flex" }}>
+                    <IconButton
+                      aria-label="close"
+                      onClick={() => setSearch(false)}
+                      sx={{
+                        position: "absolute",
+                        right: 8,
+                        top: 8,
+                        color: (theme) => theme.palette.grey[800],
+                      }}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                    <IconButton>
+                      <TaskAltOutlinedIcon sx={{ color: "white" }} />
+                    </IconButton>
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h6"
+                      component="h2"
+                    >
+                      Success
+                    </Typography>
+                  </div>
+                  <Typography id="modal-modal-description" sx={{ ml: 5 }}>
+                    Date and time changed
+                  </Typography>
+                </Box>
+              </Modal>
             </Grid>
           </Grid>
         </Container>
@@ -254,20 +332,67 @@ export default function BookNowPage() {
               </Typography>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="daily package"
                 name="radio-buttons-group"
               >
-                <FormControlLabel
-                  value="daily package"
-                  control={<Radio color="success" />}
-                  label="Pay Now  (Pay full amount now)"
-                />
-                <FormControlLabel
-                  value="weekly package"
-                  control={<Radio color="success" />}
-                  label="Partial Payment  (Pay partial amount now and rest at the time of pickup)"
-                />
+                {payment === "PayNow" && (
+                  <FormControlLabel
+                    value="PayNow"
+                    control={<Radio color="success" />}
+                    label="Pay Now  (Pay full amount now)"
+                    onClick={() => {
+                      setPayment("PayNow");
+                      handlePayNowOpen();
+                    }}
+                  />
+                )}
+                {partialPayment === "PartialPayment" && (
+                  <FormControlLabel
+                    value="PartialPayment"
+                    control={<Radio color="success" />}
+                    label="Partial Payment  (Pay partial amount now and rest at the time of pickup)"
+                    onClick={() => {
+                      setPartialPayment("PartialPayment");
+                      handlePayNowOpen();
+                    }}
+                  />
+                )}
               </RadioGroup>
+              <Modal
+                open={payNow}
+                onClose={handlePayNowClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={styled}>
+                  <div style={{ display: "flex" }}>
+                    <IconButton
+                      aria-label="close"
+                      onClick={() => setPayNow(false)}
+                      sx={{
+                        position: "absolute",
+                        right: 8,
+                        top: 8,
+                        color: (theme) => theme.palette.grey[800],
+                      }}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                    <IconButton>
+                      <ErrorOutlineIcon sx={{ color: "white" }} />
+                    </IconButton>
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h6"
+                      component="h2"
+                    >
+                      Error
+                    </Typography>
+                  </div>
+                  <Typography id="modal-modal-description" sx={{ ml: 5 }}>
+                    Booking can be created only for future time
+                  </Typography>
+                </Box>
+              </Modal>
             </div>
             <Box
               sx={{
@@ -318,6 +443,18 @@ export default function BookNowPage() {
                   >
                     Cancellation Policy
                   </Typography>
+                  <IconButton
+                    aria-label="close"
+                    onClick={() => setOpen(false)}
+                    sx={{
+                      position: "absolute",
+                      right: 8,
+                      top: 8,
+                      color: (theme) => theme.palette.grey[600],
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     <TableContainer>
                       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -956,6 +1093,78 @@ export default function BookNowPage() {
         </Container>
         <Faq />
       </Container>
+      <Paper
+        sx={{ position: "fixed", bottom: 0, left: 0, right: 0, elevation: 3 }}
+      >
+        <Container>
+          <BottomNavigation size="large" sx={{ height: "5%" }}>
+            <Grid container spacing={1} sx={{ padding: "10px" }}>
+              <Grid item>
+                <Checkbox
+                  {...label}
+                  color="success"
+                  size="medium"
+                  inputProps={{ "aria-label": "controlled" }}
+                  sx={{ paddingLeft: "30px" }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Typography
+                  variant="p"
+                  sx={{ fontSize: "14px", fontWeight: "bold" }}
+                >
+                  You are just one step away from confirming your booking.
+                  Confirm that you are above 18 and you are good to go!
+                </Typography>
+              </Grid>
+              <Grid item sx={{ marginLeft: "10px" }}>
+                <Typography
+                  variant="p"
+                  sx={{ fontSize: "14px", fontWeight: "bold" }}
+                >
+                  Payable Amount
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{ fontSize: "22px", fontWeight: "bold" }}
+                >
+                  ₹
+                </Typography>
+              </Grid>
+              <Grid item>
+                <IconButton>
+                  <AddIcon />
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <Typography
+                  variant="p"
+                  sx={{ fontSize: "14px", fontWeight: "bold" }}
+                >
+                  Refundable Deposit
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{ fontSize: "22px", fontWeight: "bold" }}
+                >
+                  ₹ 2000
+                </Typography>
+              </Grid>
+              <Grid item sx={{ marginLeft: "25px" }}>
+                <Button
+                  onClick={handlePayNowOpen}
+                  variant="contained"
+                  color="success"
+                  size="medium"
+                  align="center"
+                >
+                  Rent Now
+                </Button>
+              </Grid>
+            </Grid>
+          </BottomNavigation>
+        </Container>
+      </Paper>
     </>
   );
 }
