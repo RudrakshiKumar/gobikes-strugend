@@ -37,6 +37,7 @@ import StartEarning from "./StartEarning";
 import { bgcolor } from "@mui/system";
 import Navbar from "./Navbar";
 import PostLoginFooter from "./PostLoginFooter";
+import Process from "./Process";
 
 const styles = {
   paperContainer: {
@@ -44,36 +45,91 @@ const styles = {
   },
 };
 
+const Day = ({ active, count, onClick }) => {
+  return (
+    <div onClick={onClick} className={active ? "day activeProcess" : "day"}>
+      <Box>
+        <Box
+          sx={{
+            display: "flex",
+            bgcolor: "#E2f0c680",
+            p: 3,
+          }}
+        >
+          <img src={count.img} alt="" />
+          <Box sx={{ pl: 3 }}>
+            <Typography variant="h6" sx={{ pb: 2 }}>
+              {count.step}
+            </Typography>
+            <Typography>
+              <span className="font-bold">{count.title}</span>
+              {count.description}
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    </div>
+  );
+};
+
 const ListYourVehicle = () => {
-  // const handleClick = (e) => {
-  //   console.log("this is:", this);
-  // };
-
-  // const changeBgcolor = (e) => {
-  //   console.log(e.target.id);
-  //   document.getElementById("step1box").classList.add("highlight");
-  //   // if (active === "step1") {
-
-  //   //   document.getElementById("step2box").classList.remove("highlight");
-  //   //   document.getElementById("step3box").classList.remove("highlight");
-  //   //   document.getElementById("step4box").classList.remove("highlight");
-  //   // } else if (active === "step2") {
-  //   //   document.getElementById("step2box").classList.add("highlight");
-  //   //   document.getElementById("step1box").classList.remove("highlight");
-  //   //   document.getElementById("step4box").classList.remove("highlight");
-  //   //   document.getElementById("step3box").classList.remove("highlight");
-  //   // } else if (active === "step3") {
-  //   //   document.getElementById("step3box").classList.add("highlight");
-  //   //   document.getElementById("step4box").classList.remove("highlight");
-  //   //   document.getElementById("step2box").classList.remove("highlight");
-  //   //   document.getElementById("step1box").classList.remove("highlight");
-  //   // } else {
-  //   //   document.getElementById("step4box").classList.add("highlight");
-  //   //   document.getElementById("step3box").classList.remove("highlight");
-  //   //   document.getElementById("step2box").classList.remove("highlight");
-  //   //   document.getElementById("step1box").classList.remove("highlight");
-  //   // }
-  // };
+  const [chosen, setChosen] = useState(0);
+  const test = [
+    {
+      id: 1,
+      step: "STEP 1",
+      img: listvehiclestep1icon,
+      title: "Sign up as a Partner",
+      description: (
+        <>
+          {" "}
+          - Enroll yourself as a partner and list your <br /> two-wheeler(s) on
+          GoBikes’s platform by submitting the required <br /> description. This
+          should not take more than 2 minutes.
+        </>
+      ),
+    },
+    {
+      id: 2,
+      step: "STEP 2",
+      img: listvehiclestep2icon,
+      title: "Get bookings on your dashboard",
+      description: (
+        <>
+          {" "}
+          - Manage your vehicles
+          <br /> and bookings from our platform through your dashboard.
+        </>
+      ),
+    },
+    {
+      id: 3,
+      step: "STEP 3",
+      img: listvehiclestep3icon,
+      title: "Complete the booking",
+      description: (
+        <>
+          {" "}
+          - Customers would rent your vehicle at a <br /> price defined by you
+          and come to your preferred location for <br /> pickup and drop of your
+          vehicle.
+        </>
+      ),
+    },
+    {
+      id: 4,
+      step: "STEP 4",
+      img: listvehiclestep4icon,
+      title: "Receive Payments",
+      description: (
+        <>
+          {" "}
+          - We will transfer your payment directly <br /> to your bank account
+          within 2 working days.
+        </>
+      ),
+    },
+  ];
 
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -95,10 +151,10 @@ const ListYourVehicle = () => {
   //   }
   // };
 
-  const handleClick = () => {
-    // const e = element.current.id();
-    element.current.classList.addClass("highlight");
-  };
+  // const handleClick = () => {
+  //   // const e = element.current.id();
+  //   element.current.classList.addClass("highlight");
+  // };
 
   return (
     <div>
@@ -130,23 +186,23 @@ const ListYourVehicle = () => {
 
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box sx={{ mr: "15%" }}>
-              {active === "step1" && (
+              {chosen === 0 && (
                 <Box sx={{ mt: "40%" }}>
                   <img src={listvehiclestep1image} alt="" />
                 </Box>
               )}
-              {active === "step2" && (
+              {chosen === 1 && (
                 <Box sx={{ mt: "40%" }}>
                   <img src={listvehiclestep2image} alt="" />
                 </Box>
               )}
 
-              {active === "step3" && (
+              {chosen === 2 && (
                 <Box sx={{ mt: "40%" }}>
                   <img src={listvehiclestep3image} alt="" />
                 </Box>
               )}
-              {active === "step4" && (
+              {chosen === 3 && (
                 <Box sx={{ mt: "40%" }}>
                   <img src={listvehiclestep4image} alt="" />
                 </Box>
@@ -158,123 +214,16 @@ const ListYourVehicle = () => {
                 Process
               </Typography>
 
-              <Box
-                ref={element}
-                id="step1box"
-                // className="highlight"
-                onClick={() => {
-                  setActive("step1");
-                  handleClick();
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    bgcolor: "#E2f0c680",
-                    p: 3,
-                  }}
-                >
-                  <img src={listvehiclestep1icon} alt="" />
-                  <Box sx={{ pl: 3 }}>
-                    <Typography variant="h6" sx={{ pb: 2 }}>
-                      STEP 1
-                    </Typography>
-                    <Typography>
-                      <span className="font-bold">Sign up as a Partner</span> -
-                      Enroll yourself as a partner and list your <br />{" "}
-                      two-wheeler(s) on GoBikes’s platform by submitting the
-                      required <br /> description. This should not take more
-                      than 2 minutes.
-                    </Typography>
-                  </Box>
-                  ;
-                </Box>
-              </Box>
-
-              <Box
-                ref={element}
-                id="step2box"
-                onClick={() => {
-                  setActive("step2");
-                  handleClick();
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    bgcolor: "#E2f0c680",
-                    p: 3,
-                  }}
-                >
-                  <img src={listvehiclestep2icon} alt="" />
-                  <Box sx={{ pl: 3 }}>
-                    <Typography variant="h6" sx={{ pb: 2 }}>
-                      STEP 2
-                    </Typography>
-                    <Typography>
-                      <span className="font-bold">
-                        Get bookings on your dashboard
-                      </span>{" "}
-                      - Manage your vehicles
-                      <br /> and bookings from our platform through your
-                      dashboard.
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
-              <Box
-                id="step3box"
-                onClick={() => {
-                  setActive("step3");
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    bgcolor: "#E2f0c680",
-                    p: 3,
-                  }}
-                >
-                  <img src={listvehiclestep3icon} alt="" />
-                  <Box sx={{ pl: 3 }} onClick={() => setActive("step3")}>
-                    <Typography variant="h6" sx={{ pb: 2 }}>
-                      STEP 3
-                    </Typography>
-                    <Typography>
-                      <span className="font-bold">Complete the booking</span> -
-                      Customers would rent your vehicle at a <br /> price
-                      defined by you and come to your preferred location for{" "}
-                      <br /> pickup and drop of your vehicle.
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
-              <Box
-                id="step4box"
-                onClick={() => {
-                  setActive("step4");
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    bgcolor: "#E2f0c680",
-                    p: 3,
-                  }}
-                >
-                  <img src={listvehiclestep4icon} alt="" />
-                  <Box sx={{ pl: 3 }}>
-                    <Typography variant="h6" sx={{ pb: 2 }}>
-                      STEP 4
-                    </Typography>
-                    <Typography>
-                      <span className="font-bold">Receive Payments</span> - We
-                      will transfer your payment directly <br /> to your bank
-                      account within 2 working days.
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
+              <div>
+                {test.map((elements, index) => (
+                  <Day
+                    key={index}
+                    count={elements}
+                    active={index === chosen}
+                    onClick={() => setChosen(index)}
+                  />
+                ))}
+              </div>
             </Box>
           </Box>
 

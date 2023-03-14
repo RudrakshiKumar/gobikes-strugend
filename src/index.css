@@ -30,24 +30,25 @@ code {
 
 /* Trial */
 
-.App {
+/* .App {
   display: flex;
   font-family: sans-serif;
   text-align: center;
-}
+} */
 
-.day {
+/* .day {
   background-color: aliceblue;
   align-items: center;
   cursor: default;
   display: flex;
   font-size: 24px;
-  height: 50px;
+  height: 50%;
   justify-content: center;
-  width: 50px;
-}
+  width: 50%;
+  border: solid;
+} */
 
 .activeProcess {
-  background-color: teal;
-  color: white;
+  background-color: #59ce8f;
+  /* color: white; */
 }

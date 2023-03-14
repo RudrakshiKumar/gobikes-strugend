@@ -32,7 +32,7 @@ import RideCompletion from "./components/RideCompletion";
 import { Modal } from "@mui/material";
 import ScrollToTop from "./components/ScrollToTop";
 import MyRides from "./components/MyRides";
-import Trial from "./components/Trial";
+import Trial from "./components/Process";
 import PostLoginFooter from "./components/PostLoginFooter";
 import PreLoginFooter from "./components/PreLoginFooter";
 
