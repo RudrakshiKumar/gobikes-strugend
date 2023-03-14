@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 export default function KnowMore() {
   return (
     <>
-      <Container sx={{ marginTop: "7%" }}>
+      <Container sx={{ marginTop: "10%" }}>
         <Box
           sx={{
-            width: "100%",
+            width: "80%",
             height: "100%",
             padding: "30px",
             borderRadius: "10px",

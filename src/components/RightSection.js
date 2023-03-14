@@ -19,14 +19,14 @@ export default function RightSection() {
     <Box>
       {isMatch && (
         <Box sx={{ mt: 10 }}>
-          <img
+          {/* <img
             src={rightSection}
             alt="Right Section"
             style={{
               width: "100vw",
               height: "85vh",
             }}
-          />
+          /> */}
           <Typography variant="h4" sx={{ fontWeight: "bold", my: 5 }}>
             Offers for you
           </Typography>
