@@ -52,6 +52,9 @@ export default function DashBoard() {
                 padding: "10px",
                 fontSize: "17px",
                 backgroundColor: "#4cbb17",
+                ":hover": {
+                  backgroundColor: "#4cbb17",
+                },
               }}
               onClick={() => setActive("profile")}
             >
@@ -67,6 +70,9 @@ export default function DashBoard() {
                 padding: "10px",
                 fontSize: "17px",
                 backgroundColor: "#4cbb17",
+                ":hover": {
+                  backgroundColor: "#4cbb17",
+                },
               }}
               onClick={() => setActive("booking")}
             >
@@ -82,6 +88,9 @@ export default function DashBoard() {
                 padding: "10px",
                 fontSize: "17px",
                 backgroundColor: "#4cbb17",
+                ":hover": {
+                  backgroundColor: "#4cbb17",
+                },
               }}
               onClick={() => setActive("goCoins")}
             >
