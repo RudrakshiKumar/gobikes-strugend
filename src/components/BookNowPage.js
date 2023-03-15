@@ -120,6 +120,11 @@ export default function BookNowPage() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
+  const [change, setChange] = useState(true);
+  const handleChange = () => {
+    setChange(!change);
+  };
+
   return (
     <>
       <AppBar
@@ -167,6 +172,9 @@ export default function BookNowPage() {
                   backgroundColor: "#4cbb17",
                   padding: "10px",
                   margin: "5px",
+                  ":hover": {
+                    backgroundColor: "#4cbb17",
+                  },
                 }}
               >
                 Search
@@ -1106,6 +1114,7 @@ export default function BookNowPage() {
                   size="medium"
                   inputProps={{ "aria-label": "controlled" }}
                   sx={{ paddingLeft: "30px" }}
+                  onClick={handleChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -1157,6 +1166,7 @@ export default function BookNowPage() {
                   color="success"
                   size="medium"
                   align="center"
+                  disabled={change}
                 >
                   Rent Now
                 </Button>
