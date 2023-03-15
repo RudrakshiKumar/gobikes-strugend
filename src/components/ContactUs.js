@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
-import { Typography, Grid, Button, TextareaAutosize } from "@mui/material";
+import { Typography, Button, TextareaAutosize } from "@mui/material";
 import MobileContactUs from "./MobileContactUs";
 import TextField from "@mui/material/TextField";
 import contactcompany from "../assets/contactcompany.svg";

@@ -1,15 +1,11 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+
 import listvehiclestep1icon from "../assets/listvehiclestep1icon.svg";
 import listvehiclestep2icon from "../assets/listvehiclestep2icon.svg";
 import listvehiclestep3icon from "../assets/listvehiclestep3icon.svg";
 import listvehiclestep4icon from "../assets/listvehiclestep4icon.svg";
-
-import PostLoginNavbar from "./PostLoginNavbar";
-
-// import "./styles.css";
 
 const Day = ({ active, count, onClick }) => {
   return (

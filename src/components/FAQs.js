@@ -4,7 +4,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
 import MobileFAQ from "./MobileFAQ";
 import Navbar from "./Navbar";
-import { Typography, Grid, AppBar } from "@mui/material";
+import { Typography } from "@mui/material";
 import { NavHashLink } from "react-router-hash-link";
 import PostLoginFooter from "./PostLoginFooter";
 import { useLocation } from "react-router-dom";
