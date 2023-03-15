@@ -6,8 +6,8 @@ import MobileFAQ from "./MobileFAQ";
 import Navbar from "./Navbar";
 import { Typography, Grid, AppBar } from "@mui/material";
 import { NavHashLink } from "react-router-hash-link";
-import { useLocation } from "react-router-dom";
 import PostLoginFooter from "./PostLoginFooter";
+import { useLocation } from "react-router-dom";
 
 const FAQs = () => {
   const theme = useTheme();
@@ -106,12 +106,13 @@ const FAQs = () => {
             </Box>
           </Box>
 
-          <Box sx={{ pl: "30%", pr: "10%" }}>
-            <AppBar />
+          <Box sx={{ pl: "30%", pr: "10%", pb: 20 }}>
+            {/* <AppBar /> */}
             <MobileFAQ />
           </Box>
         </Box>
       )}
+
       <PostLoginFooter />
     </div>
   );

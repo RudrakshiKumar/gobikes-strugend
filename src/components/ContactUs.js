@@ -32,6 +32,7 @@ const ContactUs = () => {
         <Box
           sx={{
             display: "flex",
+            justifyContent: "space-evenly",
             position: "relative",
             padding: "0 12%",
             boxSizing: "border-box",
@@ -80,7 +81,8 @@ const ContactUs = () => {
                     GoBikes Automotive Private Limited
                   </Typography>
                 </Box>
-              </Box>
+              </Box>{" "}
+              <br />
               <Box sx={{ display: "inline-flex", mt: 5 }}>
                 <Box>
                   <img
