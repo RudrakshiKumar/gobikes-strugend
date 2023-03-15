@@ -508,6 +508,9 @@ export default function Home() {
                 marginTop: "2%",
                 width: "25%",
                 backgroundColor: "#59CE8F",
+                ":hover": {
+                  backgroundColor: "#59CE8F",
+                },
               }}
               component={Link}
               to="/bookingFlow"
