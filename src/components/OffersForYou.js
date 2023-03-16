@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Container,
   Grid,
   IconButton,
   Modal,
@@ -15,7 +14,7 @@ import bike2 from "../assets/bike2.webp";
 import bike3 from "../assets/bike3.webp";
 import Navbar from "./Navbar";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
-import PreLoginFooter from "./PreLoginFooter";
+// import PreLoginFooter from "./PreLoginFooter";
 import PostLoginFooter from "./PostLoginFooter";
 
 const style = {

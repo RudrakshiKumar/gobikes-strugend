@@ -1,11 +1,11 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import goImage from "../assets/goImage.png";
+// import { Box, Container, Grid, Typography } from "@mui/material";
+// import goImage from "../assets/goImage.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import React from "react";
 import Offer from "./Offer";
-import ButtonGroup from "./ButtonGroup";
+// import ButtonGroup from "./ButtonGroup";
 
 const responsive = {
   desktop: {

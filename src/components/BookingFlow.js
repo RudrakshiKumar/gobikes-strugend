@@ -86,7 +86,7 @@ export default function BookingFlow(props) {
   const [endDate, setEndDate] = useState(null);
 
   const [name, setName] = useState("Location");
-  const [editName, setEditName] = useState("Bangalore");
+  const [setEditName] = useState("Bangalore");
 
   return (
     <>

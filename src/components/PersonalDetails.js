@@ -4,7 +4,6 @@ import React from "react";
 import logo from "../assets/logo.png";
 import star from "../assets/star.png";
 import loginPopup from "../assets/loginPopup.webp";
-import { useTheme } from "@mui/material/styles";
 
 const PersonalDetails = () => {
   return (

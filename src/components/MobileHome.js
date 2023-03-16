@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Container,
   Grid,
   InputAdornment,
   Modal,
@@ -32,13 +31,13 @@ import Leh from "../assets/Leh.jpg";
 import Noida from "../assets/Noida.jpg";
 import Udaipur from "../assets/Udaipur.jpg";
 import BookOnlineIcon from "@mui/icons-material/BookOnline";
-import Offer from "./Offer";
-import Video from "./Video";
+// import Offer from "./Offer";
+// import Video from "./Video";
 import Features from "./Features";
 import BookRide from "./BookRide";
 import Faq from "./Faq";
 import Statistics from "./Statistics";
-import KnowMore from "./KnowMore";
+// import KnowMore from "./KnowMore";
 import goImage from "../assets/goImage.png";
 import ReactPlayer from "react-player";
 import NotificationsIcon from "@mui/icons-material/Notifications";

@@ -1,7 +1,7 @@
 import React from "react";
 import EventBusyIcon from "@mui/icons-material/EventBusy";
 import { Box } from "@mui/system";
-import { Icon, IconButton, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const NoBikesAvailable = () => {
   return (

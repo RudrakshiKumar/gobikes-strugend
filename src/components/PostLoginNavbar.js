@@ -8,34 +8,34 @@ import logo from "../assets/logo.png";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileNavbar from "./MobileNavbar";
-import Modal from "@mui/material/Modal";
-import Login from "./LoginModal";
+// import Modal from "@mui/material/Modal";
+// import Login from "./LoginModal";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import { styled, alpha } from "@mui/material/styles";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import EditIcon from "@mui/icons-material/Edit";
+// import EditIcon from "@mui/icons-material/Edit";
 import Divider from "@mui/material/Divider";
-import ArchiveIcon from "@mui/icons-material/Archive";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+// import ArchiveIcon from "@mui/icons-material/Archive";
+// import FileCopyIcon from "@mui/icons-material/FileCopy";
+// import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Link } from "react-router-dom";
 
 //Navbar
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "65%",
-  height: "60%",
-  bgcolor: "background.paper",
-  boxShadow: 24,
-  borderRadius: 2,
-  flexWrap: "wrap",
-};
+// const style = {
+//   position: "absolute",
+//   top: "50%",
+//   left: "50%",
+//   transform: "translate(-50%, -50%)",
+//   width: "65%",
+//   height: "60%",
+//   bgcolor: "background.paper",
+//   boxShadow: 24,
+//   borderRadius: 2,
+//   flexWrap: "wrap",
+// };
 
 //Dropdown Menu
 const StyledMenu = styled((props) => (

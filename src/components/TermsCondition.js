@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Toolbar, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 import { NavHashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";

@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
 import { Box } from "@mui/system";
-import { Typography, TextField, Button } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 

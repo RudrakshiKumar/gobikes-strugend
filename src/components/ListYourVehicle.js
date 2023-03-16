@@ -1,20 +1,7 @@
-import React, { useRef, useState, NavLink } from "react";
+import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import {
-  Box,
-  Button,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  IconButton,
-  Container,
-  Grid,
-  InputAdornment,
-  Modal,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import MobileListYourVehicle from "./MobileListYourVehicle";
 import listyourvehiclegraphic from "../assets/listyourvehiclegraphic.jpg";
 import extraincome from "../assets/extraincome.svg";
@@ -32,12 +19,11 @@ import listvehiclestep1icon from "../assets/listvehiclestep1icon.svg";
 import listvehiclestep2icon from "../assets/listvehiclestep2icon.svg";
 import listvehiclestep3icon from "../assets/listvehiclestep3icon.svg";
 import listvehiclestep4icon from "../assets/listvehiclestep4icon.svg";
-import GoToTop from "./ScrollToTop";
+
 import StartEarning from "./StartEarning";
-import { bgcolor } from "@mui/system";
+
 import Navbar from "./Navbar";
 import PostLoginFooter from "./PostLoginFooter";
-import Process from "./Process";
 
 const styles = {
   paperContainer: {
@@ -133,8 +119,8 @@ const ListYourVehicle = () => {
 
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  const [active, setActive] = useState("step1");
-  const element = useRef("");
+  // const [active, setActive] = useState("step1");
+  // const element = useRef("");
   // const [appState, changeState] = useState({
   //   activeObject: null,
   //   objects: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],

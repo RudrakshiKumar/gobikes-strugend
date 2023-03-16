@@ -38,7 +38,7 @@ import SpeedRoundedIcon from "@mui/icons-material/SpeedRounded";
 import LocalGasStationRoundedIcon from "@mui/icons-material/LocalGasStationRounded";
 import AirlineSeatReclineNormalRoundedIcon from "@mui/icons-material/AirlineSeatReclineNormalRounded";
 import SettingsAccessibilityRoundedIcon from "@mui/icons-material/SettingsAccessibilityRounded";
-import goImage from "../assets/goImage.png";
+// import goImage from "../assets/goImage.png";
 import Faq from "./Faq";
 import OfferCarousal from "./OfferCarousal";
 import CloseIcon from "@mui/icons-material/Close";

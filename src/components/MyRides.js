@@ -1,17 +1,17 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
-import profileImage from "../assets/Profile.png";
-import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
-import BookOnlineOutlinedIcon from "@mui/icons-material/BookOnlineOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import Profile from "./Profile";
+// import { Box, Button, Container, Grid, Typography } from "@mui/material";
+// import React, { useState } from "react";
+// import profileImage from "../assets/Profile.png";
+// import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
+// import BookOnlineOutlinedIcon from "@mui/icons-material/BookOnlineOutlined";
+// import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+// import Profile from "./Profile";
 import Booking from "./Booking";
-import GoCoins from "./GoCoins";
+// import GoCoins from "./GoCoins";
 import PostLoginNavbar from "./PostLoginNavbar";
 import PostLoginFooter from "./PostLoginFooter";
 
 export default function MyRides() {
-  const [active, setActive] = useState("profile");
+  // const [active, setActive] = useState("profile");
   return (
     <>
       <PostLoginNavbar />
