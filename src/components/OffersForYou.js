@@ -402,7 +402,7 @@ const OffersForYou = () => {
               </Box>
             </Grid>
           </Grid>
-          <div style={{ marginTop: "5%", marginLeft: "5%" }}></div>
+          <div style={{ marginTop: "25%" }}></div>
         </Box>
       </Box>
       <PostLoginFooter />

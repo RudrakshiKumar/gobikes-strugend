@@ -368,6 +368,7 @@ const PrivacyPolicy = () => {
           </Typography>
         </Box>
       </Box>
+      <div style={{ marginTop: "10%" }}></div>
       <PostLoginFooter />
     </>
   );

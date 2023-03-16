@@ -47,6 +47,8 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import AddIcon from "@mui/icons-material/Add";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import PostLoginNavbar from "./PostLoginNavbar";
+import PostLoginFooter from "./PostLoginFooter";
 
 const style = {
   position: "absolute",
@@ -128,6 +130,7 @@ export default function BookNowPage() {
 
   return (
     <>
+      <PostLoginNavbar />
       <AppBar
         position="sticky"
         sx={{ backgroundColor: "white", padding: "20px" }}
@@ -1104,7 +1107,14 @@ export default function BookNowPage() {
         <Faq />
       </Container>
       <Paper
-        sx={{ position: "fixed", bottom: 0, left: 0, right: 0, elevation: 3 }}
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          elevation: 3,
+          zIndex: 100,
+        }}
       >
         <Container>
           <BottomNavigation size="large" sx={{ height: "5%" }}>
@@ -1115,7 +1125,7 @@ export default function BookNowPage() {
                   color="success"
                   size="medium"
                   inputProps={{ "aria-label": "controlled" }}
-                  sx={{ paddingLeft: "30px" }}
+                  sx={{}}
                   onClick={handleChange}
                 />
               </Grid>
@@ -1169,6 +1179,7 @@ export default function BookNowPage() {
                   size="medium"
                   align="center"
                   disabled={change}
+                  sx={{ mt: "10%" }}
                 >
                   Rent Now
                 </Button>
@@ -1177,6 +1188,8 @@ export default function BookNowPage() {
           </BottomNavigation>
         </Container>
       </Paper>
+      <div style={{ marginTop: "10%" }}></div>
+      <PostLoginFooter />
     </>
   );
 }

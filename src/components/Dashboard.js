@@ -7,12 +7,16 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import Profile from "./Profile";
 import Booking from "./Booking";
 import GoCoins from "./GoCoins";
+import PostLoginNavbar from "./PostLoginNavbar";
+import PostLoginFooter from "./PostLoginFooter";
 
 export default function DashBoard() {
   const [active, setActive] = useState("profile");
   return (
     <>
-      <Container sx={{ marginTop: "2%" }}>
+      <PostLoginNavbar />
+
+      <Container sx={{ marginTop: "5%" }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <Box
@@ -104,6 +108,8 @@ export default function DashBoard() {
           </Grid>
         </Grid>
       </Container>
+      <div className="h-40"></div>
+      <PostLoginFooter />
     </>
   );
 }

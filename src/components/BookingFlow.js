@@ -19,7 +19,7 @@ import HeroDestini from "../assets/HeroDestini.png";
 import HondaSP from "../assets/HondaSP.png";
 import { Link } from "react-router-dom";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
-import CloseIcon from "@mui/icons-material/CloseIcon";
+import CloseIcon from "@mui/icons-material/Close";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PostLoginNavbar from "./PostLoginNavbar";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
@@ -42,6 +42,7 @@ import Jaipur from "../assets/Jaipur.jpg";
 import Leh from "../assets/Leh.jpg";
 import Noida from "../assets/Noida.jpg";
 import Udaipur from "../assets/Udaipur.jpg";
+import PostLoginFooter from "./PostLoginFooter";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -1706,6 +1707,8 @@ export default function BookingFlow(props) {
           </Typography>
         </Box>
       </Modal>
+      <div style={{ marginTop: "10%" }}></div>
+      <PostLoginFooter />
     </>
   );
 }

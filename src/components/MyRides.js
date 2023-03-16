@@ -7,14 +7,19 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import Profile from "./Profile";
 import Booking from "./Booking";
 import GoCoins from "./GoCoins";
+import PostLoginNavbar from "./PostLoginNavbar";
+import PostLoginFooter from "./PostLoginFooter";
 
 export default function MyRides() {
   const [active, setActive] = useState("profile");
   return (
     <>
+      <PostLoginNavbar />
       <div className="m-10">
         <Booking />
       </div>
+      <div style={{ marginTop: "10%" }}></div>
+      <PostLoginFooter />
 
       {/* <Container sx={{ marginTop: "2%" }}>
         <Grid container spacing={2}>
