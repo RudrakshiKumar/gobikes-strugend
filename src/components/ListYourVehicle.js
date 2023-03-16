@@ -163,6 +163,7 @@ const ListYourVehicle = () => {
       ) : (
         <Box>
           <Navbar />
+
           <Box display={"inline-flex"} sx={{ p: 10 }}>
             <Box>
               <Typography variant="h5" sx={{ py: 4 }}>

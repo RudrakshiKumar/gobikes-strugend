@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -15,8 +16,16 @@ import PersonalDetails from "./PersonalDetails";
 import OTP from "./OTP";
 import OTPVerified from "./OTPVerified";
 import { Typography, TextField } from "@mui/material";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function StartEarning() {
+  const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+  const [capchaIsDone, setCapchaDone] = useState(false);
+
+  function onChange() {
+    setCapchaDone(true);
+  }
+
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -122,6 +131,11 @@ export default function StartEarning() {
                 InputProps={{ disableUnderline: true }}
               />{" "}
               <br />
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "center", my: 4 }}>
+              <div>
+                <ReCAPTCHA sitekey={key} onChange={onChange} />
+              </div>
             </Box>
             <Button
               variant="contained"

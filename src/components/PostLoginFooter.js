@@ -56,10 +56,14 @@ const PostLoginFooter = () => {
           </Link>
           <Box sx={{}}>
             <Link to="/ContactUs">
-              <Typography sx={{ color: "#000000" }}>Contact Us</Typography>
+              <Typography sx={{ color: "#000000", mb: 2 }}>
+                Contact Us
+              </Typography>
             </Link>
             <Link to="/PrivacyPolicy">
-              <Typography sx={{ color: "#000000" }}>Privacy Policy</Typography>
+              <Typography sx={{ color: "#000000", mb: 2 }}>
+                Privacy Policy
+              </Typography>
             </Link>
             <Link to="/TermsCondition">
               <Typography sx={{ color: "#000000" }}>
@@ -69,10 +73,10 @@ const PostLoginFooter = () => {
           </Box>
           <Box sx={{}}>
             <Link to="/OffersForYou">
-              <Typography sx={{ color: "#000000" }}>Offers</Typography>
+              <Typography sx={{ color: "#000000", mb: 2 }}>Offers</Typography>
             </Link>
             <Link to="/ListYourVehicle">
-              <Typography sx={{ color: "#000000" }}>
+              <Typography sx={{ color: "#000000", mb: 2 }}>
                 List Your Vehicle
               </Typography>
             </Link>
@@ -82,16 +86,22 @@ const PostLoginFooter = () => {
           </Box>
           <Box sx={{}}>
             <Link to="/AboutUs">
-              <Typography sx={{ color: "#000000" }}>About Us</Typography>
+              <Typography sx={{ color: "#000000", mb: 2 }}>About Us</Typography>
             </Link>
-            <Link to="/">
-              <Typography sx={{ color: "#000000" }}>
-                service@strugend.com
-              </Typography>
-            </Link>
-            <Link to="/">
-              <Typography sx={{ color: "#000000" }}>+91 7328834913</Typography>
-            </Link>
+            <button
+              // sx={{ color: "#000000" }}
+              onClick={() => (window.location = "mailto:service@strugend.com")}
+            >
+              {" "}
+              service@strugend.com
+            </button>{" "}
+            <Box sx={{ color: "#000000", mt: 2 }}>
+              <a className="text-pink-900" href="tel:+917328834913">
+                <Typography sx={{ color: "#000000", mb: 2 }}>
+                  +91 7328834913
+                </Typography>
+              </a>
+            </Box>
           </Box>
         </Box>
 
