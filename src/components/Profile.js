@@ -1,10 +1,18 @@
-import { Box, Button, Grid, IconButton, Typography } from "@mui/material";
-import React from "react";
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
 import PersonPinRoundedIcon from "@mui/icons-material/PersonPinRounded";
 
 export default function Profile() {
+  const [name, setName] = useState(null);
   return (
     <>
       <Box
@@ -33,8 +41,16 @@ export default function Profile() {
                 <Grid item xs={12} sm={2}>
                   <Button
                     variant="text"
-                    color="success"
-                    sx={{ fontSize: "15px" }}
+                    size="small"
+                    sx={{
+                      fontSize: "15px",
+                      backgroundColor: "#4cbb17",
+                      ":hover": {
+                        backgroundColor: "#4cbb17",
+                      },
+                      color: "white",
+                    }}
+                    onClick={() => setName("Name")}
                   >
                     Edit
                   </Button>
@@ -43,6 +59,37 @@ export default function Profile() {
               <Typography variant="p" sx={{ fontSize: "18px" }}>
                 Dibyajyoti Sahoo
               </Typography>
+              <br />
+              {name === "Name" && (
+                <div>
+                  <TextField
+                    label="Name"
+                    defaultValue="Dibyajyoti Sahoo"
+                    size="small"
+                    color="success"
+                    sx={{
+                      marginTop: "15px",
+                    }}
+                    focused
+                  />
+                  <br />
+                  <Button
+                    variant="text"
+                    size="small"
+                    sx={{
+                      fontSize: "15px",
+                      backgroundColor: "#4cbb17",
+                      ":hover": {
+                        backgroundColor: "#4cbb17",
+                      },
+                      color: "white",
+                      marginTop: "5px",
+                    }}
+                  >
+                    Save
+                  </Button>
+                </div>
+              )}
               <hr style={{ marginTop: "3%" }} />
               <Grid container sx={{ marginTop: "5%" }}>
                 <Grid item xs={12} sm={10}>
@@ -53,16 +100,53 @@ export default function Profile() {
                 <Grid item xs={12} sm={2}>
                   <Button
                     variant="text"
-                    color="success"
-                    sx={{ fontSize: "15px" }}
+                    size="small"
+                    sx={{
+                      fontSize: "15px",
+                      backgroundColor: "#4cbb17",
+                      ":hover": {
+                        backgroundColor: "#4cbb17",
+                      },
+                      color: "white",
+                    }}
+                    onClick={() => setName("Email")}
                   >
                     Edit
                   </Button>
                 </Grid>
               </Grid>
               <Typography variant="p" sx={{ fontSize: "18px" }}>
-                sahoodibyajyoti25@gmail.com
+                strugend@gmail.com
               </Typography>
+              <br />
+              {name === "Email" && (
+                <div>
+                  <TextField
+                    label="Email"
+                    defaultValue="strugend@gmail.com"
+                    size="small"
+                    color="success"
+                    focused
+                    sx={{ marginTop: "15px" }}
+                  />
+                  <br />
+                  <Button
+                    variant="text"
+                    size="small"
+                    sx={{
+                      fontSize: "15px",
+                      backgroundColor: "#4cbb17",
+                      ":hover": {
+                        backgroundColor: "#4cbb17",
+                      },
+                      color: "white",
+                      marginTop: "5px",
+                    }}
+                  >
+                    Save
+                  </Button>
+                </div>
+              )}
               <hr style={{ marginTop: "3%" }} />
               <div style={{ marginTop: "5%" }}>
                 <Typography variant="h5" sx={{ fontWeight: "regular" }}>
@@ -85,16 +169,52 @@ export default function Profile() {
                 <Grid item xs={12} sm={2}>
                   <Button
                     variant="text"
-                    color="success"
-                    sx={{ fontSize: "15px" }}
+                    size="small"
+                    sx={{
+                      fontSize: "15px",
+                      backgroundColor: "#4cbb17",
+                      ":hover": {
+                        backgroundColor: "#4cbb17",
+                      },
+                      color: "white",
+                    }}
+                    onClick={() => setName("Address")}
                   >
                     Edit
                   </Button>
                 </Grid>
               </Grid>
               <Typography variant="p" sx={{ fontSize: "18px" }}>
-                Not Provided
+                Odisha
               </Typography>
+              <br />
+              {name === "Address" && (
+                <div style={{ marginTop: "10px" }}>
+                  <TextField
+                    label="Address"
+                    defaultValue="Odisha"
+                    size="small"
+                    color="success"
+                    focused
+                  />
+                  <br />
+                  <Button
+                    variant="text"
+                    size="small"
+                    sx={{
+                      fontSize: "15px",
+                      backgroundColor: "#4cbb17",
+                      ":hover": {
+                        backgroundColor: "#4cbb17",
+                      },
+                      color: "white",
+                      marginTop: "5px",
+                    }}
+                  >
+                    Save
+                  </Button>
+                </div>
+              )}
             </Grid>
             <Grid item xs={12} sm={5}>
               <Box

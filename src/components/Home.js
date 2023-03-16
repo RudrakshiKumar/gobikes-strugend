@@ -859,7 +859,7 @@ import RightSection from "./RightSection";
 import rightSection from "../assets/rightSection.jpeg";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Link } from "react-router-dom";
 import PreLoginFooter from "./PreLoginFooter";
@@ -1304,7 +1304,7 @@ export default function Home() {
             </Modal>
 
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
+              <DateTimePicker
                 value={startDate}
                 onChange={(newValue) => setStartDate(newValue)}
                 sx={{ marginTop: "2%" }}
@@ -1313,7 +1313,7 @@ export default function Home() {
             </LocalizationProvider>
 
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
+              <DateTimePicker
                 value={endDate}
                 onChange={(newValue) => setEndDate(newValue)}
                 sx={{ marginTop: "2%" }}
@@ -1341,6 +1341,9 @@ export default function Home() {
                 marginTop: "2%",
                 width: "25%",
                 backgroundColor: "#59CE8F",
+                ":hover": {
+                  backgroundColor: "#59CE8F",
+                },
               }}
               component={Link}
               to="/bookingFlow"

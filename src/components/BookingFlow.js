@@ -8,7 +8,6 @@ import {
   FormControlLabel,
   Grid,
   IconButton,
-  InputAdornment,
   Modal,
   Radio,
   RadioGroup,
@@ -16,13 +15,33 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import HeroDestini from "../assets/HeroDestini.png";
 import HondaSP from "../assets/HondaSP.png";
 import { Link } from "react-router-dom";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
+import CloseIcon from "@mui/icons-material/CloseIcon";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PostLoginNavbar from "./PostLoginNavbar";
+import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import Bangalore from "../assets/Bangalore.jpg";
+import Chandigarh from "../assets/Chandigarh.jpg";
+import Chennai from "../assets/Chennai.jpg";
+import Dehradun from "../assets/Dehradun.webp";
+import Delhi from "../assets/Delhi.webp";
+import Ghaziabad from "../assets/Ghaziabad.jpg";
+import Goa from "../assets/Goa.jpg";
+import Hyderabad from "../assets/Hyderabad.jpg";
+import Kolkata from "../assets/Kolkata.jpg";
+import Manali from "../assets/Manali.jpg";
+import Mumbai from "../assets/Mumbai.webp";
+import Pune from "../assets/Pune.jpg";
+import Gurgaon from "../assets/Gurgaon.jpg";
+import Guwahati from "../assets/Guwahati.jpg";
+import Jaipur from "../assets/Jaipur.jpg";
+import Leh from "../assets/Leh.jpg";
+import Noida from "../assets/Noida.jpg";
+import Udaipur from "../assets/Udaipur.jpg";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -39,12 +58,34 @@ const style = {
   borderRadius: 3,
 };
 
-export default function BookingFlow() {
+const styles = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "50%",
+  bgcolor: "background.paper",
+  borderRadius: "5px",
+  boxShadow: 24,
+  p: 4,
+};
+
+export default function BookingFlow(props) {
   const [packages, setPackages] = useState("dailyPackages");
 
   const [open, setOpen] = useState(false);
-  const handlePopup = () => setOpen(true);
+  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [location, setLocation] = useState(false);
+  const handleLocationOpen = () => setLocation(true);
+  const handleLocationClose = () => setLocation(false);
+
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+
+  const [name, setName] = useState("Location");
+  const [editName, setEditName] = useState("Bangalore");
 
   return (
     <>
@@ -56,47 +97,422 @@ export default function BookingFlow() {
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
-              <TextField
-                fullWidth
-                label="Pickup Date & Time"
-                defaultValue="February 26, 2023 1:00 AM"
-                size="small"
-                InputProps={{
-                  readOnly: true,
-                  endAdornment: (
-                    <InputAdornment position="end" sx={{ color: "#aeea00" }}>
-                      <CalendarMonthIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  label="Pickup Date & Time"
+                  value={startDate}
+                  onChange={(newValue) => setStartDate(newValue)}
+                  sx={{ width: "100%" }}
+                />
+              </LocalizationProvider>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <TextField
-                fullWidth
-                label="Dropoff Date & Time"
-                defaultValue="February 27, 2023 1:00 AM"
-                size="small"
-                InputProps={{
-                  readOnly: true,
-                  endAdornment: (
-                    <InputAdornment position="end" sx={{ color: "red" }}>
-                      <CalendarMonthIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} sm={2}>
-              <Button>
-                <LocationOnIcon sx={{ color: "#59CE8F", fontSize: 30 }} />
-                <Typography sx={{ color: "#000000" }}>Location</Typography>
-              </Button>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  label="Dropoff Date & Time"
+                  value={endDate}
+                  onChange={(newValue) => setEndDate(newValue)}
+                  sx={{ width: "100%" }}
+                />
+              </LocalizationProvider>
             </Grid>
             <Grid item xs={12} sm={2}>
               <Button
+                onClick={handleLocationOpen}
+                sx={{ marginTop: "5px", marginLeft: "12px" }}
+              >
+                <LocationOnIcon sx={{ color: "#59CE8F", fontSize: 30 }} />
+                <Typography
+                  sx={{ color: "#000000" }}
+                  value={name}
+                  onChange={(e) => setEditName(e.target.value)}
+                >
+                  {name}
+                </Typography>
+              </Button>
+            </Grid>
+            <Modal
+              open={location}
+              onClose={handleLocationClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={styles}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Choose your preferred city
+                </Typography>
+                <IconButton
+                  aria-label="close"
+                  onClick={() => setLocation(false)}
+                  sx={{
+                    position: "absolute",
+                    right: 8,
+                    top: 8,
+                    color: (theme) => theme.palette.grey[600],
+                  }}
+                >
+                  <CloseIcon />
+                </IconButton>
+                <Grid container spacing={2} sx={{ marginTop: "5px" }}>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Bangalore}
+                      alt="Bangalore"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Bangalore");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Bangalore
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Chandigarh}
+                      alt="Chandigarh"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Chandigarh");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Chandigarh
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Chennai}
+                      alt="Chennai"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Chennai");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Chennai
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Dehradun}
+                      alt="Dehradun"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Dehradun");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Dehradun
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Delhi}
+                      alt="Delhi"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Delhi");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Delhi
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Ghaziabad}
+                      alt="Ghaziabad"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Ghaziabad");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Ghaziabad
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Goa}
+                      alt="Goa"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Goa");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Goa
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Hyderabad}
+                      alt="Hyderabad"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Hyderabad");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Hyderabad
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Kolkata}
+                      alt="Kolkata"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Kolkata");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Kolkata
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Manali}
+                      alt="Manali"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Manali");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Manali
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Mumbai}
+                      alt="Mumbai"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Mumbai");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Mumbai
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Pune}
+                      alt="Pune"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Pune");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Pune
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Gurgaon}
+                      alt="Gurgaon"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Gurgaon");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Gurgaon
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Guwahati}
+                      alt="Guwahati"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Guwahati");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Guwahati
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Jaipur}
+                      alt="Jaipur"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Jaipur");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Jaipur
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Leh}
+                      alt="Leh"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Leh");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Leh
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Noida}
+                      alt="Noida"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Noida");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Noida
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <img
+                      className="image"
+                      src={Udaipur}
+                      alt="Udaipur"
+                      style={{
+                        width: "125px",
+                        height: "125px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        setName("Udaipur");
+                        setLocation(false);
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      Udaipur
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Box>
+            </Modal>
+            <Grid item xs={12} sm={2}>
+              <Button
                 variant="contained"
-                sx={{ backgroundColor: "#4cbb17", padding: "7px" }}
+                size="medium"
+                sx={{
+                  backgroundColor: "#4cbb17",
+                  padding: "10px",
+                  marginTop: "5px",
+                  marginRight: "12px",
+                  ":hover": {
+                    backgroundColor: "#4cbb17",
+                  },
+                }}
+                onClick={handleOpen}
               >
                 Search
               </Button>
@@ -130,7 +546,7 @@ export default function BookingFlow() {
                     label="Daily Package"
                     onClick={() => {
                       setPackages("dailyPackages");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                   <FormControlLabel
@@ -139,7 +555,7 @@ export default function BookingFlow() {
                     label="Weekly Package"
                     onClick={() => {
                       setPackages("weeklyPackages");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                   <FormControlLabel
@@ -148,7 +564,7 @@ export default function BookingFlow() {
                     label="15 Days Package"
                     onClick={() => {
                       setPackages("15daysPackages");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                   <FormControlLabel
@@ -157,7 +573,7 @@ export default function BookingFlow() {
                     label="Monthly Package"
                     onClick={() => {
                       setPackages("monthlyPackages");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                 </RadioGroup>
@@ -175,7 +591,7 @@ export default function BookingFlow() {
                     inputProps={{ "aria-label": "controlled" }}
                     onClick={() => {
                       setPackages("gear");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                   Gear
@@ -188,7 +604,7 @@ export default function BookingFlow() {
                     inputProps={{ "aria-label": "controlled" }}
                     onClick={() => {
                       setPackages("gearLess");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                   Gearless
@@ -207,7 +623,7 @@ export default function BookingFlow() {
                     inputProps={{ "aria-label": "controlled" }}
                     onClick={() => {
                       setPackages("baghajatin");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                   Baghajatin
@@ -220,7 +636,7 @@ export default function BookingFlow() {
                     inputProps={{ "aria-label": "controlled" }}
                     onClick={() => {
                       setPackages("tikiaparaRailwayStation");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                   Tikiapara Railway Station
@@ -239,7 +655,7 @@ export default function BookingFlow() {
                     inputProps={{ "aria-label": "controlled" }}
                     onClick={() => {
                       setPackages("hero");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                   Hero
@@ -252,7 +668,7 @@ export default function BookingFlow() {
                     inputProps={{ "aria-label": "controlled" }}
                     onClick={() => {
                       setPackages("honda");
-                      handlePopup();
+                      handleOpen();
                     }}
                   />
                   Honda
@@ -265,7 +681,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -277,25 +696,12 @@ export default function BookingFlow() {
                     <img
                       src={HeroDestini}
                       alt="HeroDestini"
-                      style={{ height: "100%", width: "100%", padding: "7px" }}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        padding: "7px",
+                      }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -320,10 +726,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -342,7 +752,10 @@ export default function BookingFlow() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -356,23 +769,6 @@ export default function BookingFlow() {
                       alt="HeroDestini"
                       style={{ height: "100%", width: "81%", padding: "7px" }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -397,10 +793,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -423,7 +823,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -435,25 +838,12 @@ export default function BookingFlow() {
                     <img
                       src={HeroDestini}
                       alt="HeroDestini"
-                      style={{ height: "100%", width: "100%", padding: "7px" }}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        padding: "7px",
+                      }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -478,10 +868,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -500,7 +894,10 @@ export default function BookingFlow() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -514,23 +911,6 @@ export default function BookingFlow() {
                       alt="HeroDestini"
                       style={{ height: "100%", width: "81%", padding: "7px" }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -555,10 +935,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -581,7 +965,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -593,25 +980,12 @@ export default function BookingFlow() {
                     <img
                       src={HeroDestini}
                       alt="HeroDestini"
-                      style={{ height: "100%", width: "100%", padding: "7px" }}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        padding: "7px",
+                      }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -636,10 +1010,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -658,7 +1036,10 @@ export default function BookingFlow() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -672,23 +1053,6 @@ export default function BookingFlow() {
                       alt="HeroDestini"
                       style={{ height: "100%", width: "81%", padding: "7px" }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -713,10 +1077,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -739,7 +1107,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -751,25 +1122,12 @@ export default function BookingFlow() {
                     <img
                       src={HeroDestini}
                       alt="HeroDestini"
-                      style={{ height: "100%", width: "100%", padding: "7px" }}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        padding: "7px",
+                      }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -794,10 +1152,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -816,7 +1178,10 @@ export default function BookingFlow() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -830,23 +1195,6 @@ export default function BookingFlow() {
                       alt="HeroDestini"
                       style={{ height: "100%", width: "81%", padding: "7px" }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -871,10 +1219,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -897,7 +1249,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -911,23 +1266,6 @@ export default function BookingFlow() {
                       alt="HeroDestini"
                       style={{ height: "100%", width: "81%", padding: "7px" }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -952,10 +1290,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -978,7 +1320,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -990,25 +1335,12 @@ export default function BookingFlow() {
                     <img
                       src={HeroDestini}
                       alt="HeroDestini"
-                      style={{ height: "100%", width: "100%", padding: "7px" }}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        padding: "7px",
+                      }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -1033,10 +1365,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -1059,7 +1395,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -1073,23 +1412,6 @@ export default function BookingFlow() {
                       alt="HeroDestini"
                       style={{ height: "100%", width: "81%", padding: "7px" }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -1114,10 +1436,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -1140,7 +1466,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -1152,25 +1481,12 @@ export default function BookingFlow() {
                     <img
                       src={HeroDestini}
                       alt="HeroDestini"
-                      style={{ height: "100%", width: "100%", padding: "7px" }}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        padding: "7px",
+                      }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -1195,10 +1511,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -1221,7 +1541,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -1233,25 +1556,12 @@ export default function BookingFlow() {
                     <img
                       src={HeroDestini}
                       alt="HeroDestini"
-                      style={{ height: "100%", width: "100%", padding: "7px" }}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        padding: "7px",
+                      }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -1276,10 +1586,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
@@ -1302,7 +1616,10 @@ export default function BookingFlow() {
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <CardContent
-                    sx={{ border: "1px solid lightGray", borderRadius: "5px" }}
+                    sx={{
+                      border: "1px solid lightGray",
+                      borderRadius: "5px",
+                    }}
                   >
                     <Typography
                       variant="h6"
@@ -1316,23 +1633,6 @@ export default function BookingFlow() {
                       alt="HeroDestini"
                       style={{ height: "100%", width: "81%", padding: "7px" }}
                     />
-                    <div style={{ display: "flex" }}>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                      <span>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{ borderRadius: "25px" }}
-                        >
-                          View
-                        </Button>
-                      </span>
-                      <span style={{ width: "100%", padding: "5px" }}>
-                        <hr />
-                      </span>
-                    </div>
                     <TextField
                       fullWidth
                       label="Available at"
@@ -1357,10 +1657,14 @@ export default function BookingFlow() {
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
-                          sx={{ backgroundColor: "#4cbb17" }}
+                          sx={{
+                            backgroundColor: "#4cbb17",
+                            ":hover": {
+                              backgroundColor: "#4cbb17",
+                            },
+                          }}
                           component={Link}
                           to="/BookNowPage"
-                          onClick={handlePopup}
                         >
                           Book Now
                         </Button>
