@@ -8,7 +8,7 @@ import ListYourVehicle from "./components/ListYourVehicle";
 import ContactUs from "./components/ContactUs";
 import FAQs from "./components/FAQs";
 import OffersForYou from "./components/OffersForYou";
-import DashBoard from "./components/DashBoard";
+import Dashboard from "./components/Dashboard";
 import BookingFlow from "./components/BookingFlow";
 import BookNowPage from "./components/BookNowPage";
 
@@ -35,7 +35,7 @@ function App() {
           <Route path="/OffersForYou" element={<OffersForYou />} />
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/TermsCondition" element={<TermsCondition />} />
-          <Route path="/DashBoard" element={<DashBoard />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/MyRides" element={<MyRides />} />
           <Route path="/BookingFlow" element={<BookingFlow />} />
           <Route path="/BookNowPage" element={<BookNowPage />} />

@@ -10,7 +10,7 @@ import GoCoins from "./GoCoins";
 import PostLoginNavbar from "./PostLoginNavbar";
 import PostLoginFooter from "./PostLoginFooter";
 
-export default function DashBoard() {
+export default function Dashboard() {
   const [active, setActive] = useState("profile");
   return (
     <>
