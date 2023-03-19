@@ -12,7 +12,66 @@ import LockRoundedIcon from "@mui/icons-material/LockRounded";
 import PersonPinRoundedIcon from "@mui/icons-material/PersonPinRounded";
 
 export default function Profile() {
-  const [name, setName] = useState(null);
+  const [name, setName] = useState("");
+  const [editName, setEditName] = useState(false);
+  const [cancelEditName, setCancelEditName] = useState(false);
+  const [myName, setMyName] = useState("Dibyajyoti Sahoo");
+  const [showName, setShowName] = useState("Dibyajyoti Sahoo");
+  const [nameSaved, setNameSaved] = useState(false);
+
+  const handleCancelEditName = () => {
+    setCancelEditName(!cancelEditName);
+    setEditName(!editName);
+    setName("");
+  };
+
+  const handleNameSave = () => {
+    setNameSaved(!nameSaved);
+    setEditName(!editName);
+    setShowName(myName);
+    setName("");
+  };
+
+  const [email, setEmail] = useState("");
+  const [editEmail, setEditEmail] = useState(false);
+  const [cancelEditEmail, setCancelEditEmail] = useState(false);
+  const [myEmail, setMyEmail] = useState("strugend@gmail.com");
+  const [showEmail, setShowEmail] = useState("strugend@gmail.com");
+  const [emailSaved, setEmailSaved] = useState(false);
+
+  const handleCancelEditEmail = () => {
+    setCancelEditEmail(!cancelEditEmail);
+    setEditEmail(!editEmail);
+    setEmail("");
+  };
+
+  const handleEmailSave = () => {
+    setEmailSaved(!emailSaved);
+    setEditEmail(!editEmail);
+    setShowEmail(myEmail);
+    setEmail("");
+  };
+
+  const [address, setAddress] = useState("");
+  const [editAddress, setEditAddress] = useState(false);
+  const [cancelEditAddress, setCancelEditAddress] = useState(false);
+  const [myAddress, setMyAddress] = useState("Odisha");
+  const [showAddress, setShowAddress] = useState("Odisha");
+  const [addressSaved, setAddressSaved] = useState(false);
+
+  const handleCancelEditAddress = () => {
+    setCancelEditAddress(!cancelEditAddress);
+    setEditAddress(!editAddress);
+    setAddress("");
+  };
+
+  const handleAddressSave = () => {
+    setAddressSaved(!addressSaved);
+    setEditAddress(!editAddress);
+    setShowAddress(myAddress);
+    setAddress("");
+  };
+
   return (
     <>
       <Box
@@ -39,27 +98,49 @@ export default function Profile() {
                   </Typography>
                 </Grid>
                 <Grid item xs={12} sm={2}>
-                  <Button
-                    variant="text"
-                    size="small"
-                    sx={{
-                      fontSize: "15px",
-                      backgroundColor: "#4cbb17",
-                      ":hover": {
+                  {!editName ? (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
                         backgroundColor: "#4cbb17",
-                      },
-                      color: "white",
-                    }}
-                    onClick={() => setName("Name")}
-                  >
-                    Edit
-                  </Button>
+                        ":hover": {
+                          backgroundColor: "#4cbb17",
+                        },
+                        color: "white",
+                      }}
+                      onClick={() => {
+                        setEditName(!editName);
+                        setName("Name");
+                      }}
+                    >
+                      Edit
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
+                        backgroundColor: "#4cbb17",
+                        ":hover": {
+                          backgroundColor: "#4cbb17",
+                        },
+                        color: "white",
+                      }}
+                      onClick={handleCancelEditName}
+                    >
+                      Cancel
+                    </Button>
+                  )}
                 </Grid>
               </Grid>
-              <Typography variant="p" sx={{ fontSize: "18px" }}>
-                Dibyajyoti Sahoo
-              </Typography>
-              <br />
+              {name === "" && (
+                <Typography variant="p" sx={{ fontSize: "18px" }}>
+                  {showName}
+                </Typography>
+              )}
               {name === "Name" && (
                 <div>
                   <TextField
@@ -71,6 +152,8 @@ export default function Profile() {
                       marginTop: "15px",
                     }}
                     focused
+                    value={myName}
+                    onChange={(e) => setMyName(e.target.value)}
                   />
                   <br />
                   <Button
@@ -85,6 +168,7 @@ export default function Profile() {
                       color: "white",
                       marginTop: "5px",
                     }}
+                    onClick={handleNameSave}
                   >
                     Save
                   </Button>
@@ -98,28 +182,50 @@ export default function Profile() {
                   </Typography>
                 </Grid>
                 <Grid item xs={12} sm={2}>
-                  <Button
-                    variant="text"
-                    size="small"
-                    sx={{
-                      fontSize: "15px",
-                      backgroundColor: "#4cbb17",
-                      ":hover": {
+                  {!editEmail ? (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
                         backgroundColor: "#4cbb17",
-                      },
-                      color: "white",
-                    }}
-                    onClick={() => setName("Email")}
-                  >
-                    Edit
-                  </Button>
+                        ":hover": {
+                          backgroundColor: "#4cbb17",
+                        },
+                        color: "white",
+                      }}
+                      onClick={() => {
+                        setEditEmail(!editEmail);
+                        setEmail("Email");
+                      }}
+                    >
+                      Edit
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
+                        backgroundColor: "#4cbb17",
+                        ":hover": {
+                          backgroundColor: "#4cbb17",
+                        },
+                        color: "white",
+                      }}
+                      onClick={handleCancelEditEmail}
+                    >
+                      Cancel
+                    </Button>
+                  )}
                 </Grid>
               </Grid>
-              <Typography variant="p" sx={{ fontSize: "18px" }}>
-                strugend@gmail.com
-              </Typography>
-              <br />
-              {name === "Email" && (
+              {email === "" && (
+                <Typography variant="p" sx={{ fontSize: "18px" }}>
+                  {showEmail}
+                </Typography>
+              )}
+              {email === "Email" && (
                 <div>
                   <TextField
                     label="Email"
@@ -128,6 +234,8 @@ export default function Profile() {
                     color="success"
                     focused
                     sx={{ marginTop: "15px" }}
+                    value={myEmail}
+                    onChange={(e) => setMyEmail(e.target.value)}
                   />
                   <br />
                   <Button
@@ -142,6 +250,7 @@ export default function Profile() {
                       color: "white",
                       marginTop: "5px",
                     }}
+                    onClick={handleEmailSave}
                   >
                     Save
                   </Button>
@@ -167,28 +276,50 @@ export default function Profile() {
                   </Typography>
                 </Grid>
                 <Grid item xs={12} sm={2}>
-                  <Button
-                    variant="text"
-                    size="small"
-                    sx={{
-                      fontSize: "15px",
-                      backgroundColor: "#4cbb17",
-                      ":hover": {
+                  {!editAddress ? (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
                         backgroundColor: "#4cbb17",
-                      },
-                      color: "white",
-                    }}
-                    onClick={() => setName("Address")}
-                  >
-                    Edit
-                  </Button>
+                        ":hover": {
+                          backgroundColor: "#4cbb17",
+                        },
+                        color: "white",
+                      }}
+                      onClick={() => {
+                        setEditAddress(!editAddress);
+                        setAddress("Address");
+                      }}
+                    >
+                      Edit
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
+                        backgroundColor: "#4cbb17",
+                        ":hover": {
+                          backgroundColor: "#4cbb17",
+                        },
+                        color: "white",
+                      }}
+                      onClick={handleCancelEditAddress}
+                    >
+                      Cancel
+                    </Button>
+                  )}
                 </Grid>
               </Grid>
-              <Typography variant="p" sx={{ fontSize: "18px" }}>
-                Odisha
-              </Typography>
-              <br />
-              {name === "Address" && (
+              {address === "" && (
+                <Typography variant="p" sx={{ fontSize: "18px" }}>
+                  {showAddress}
+                </Typography>
+              )}
+              {address === "Address" && (
                 <div style={{ marginTop: "10px" }}>
                   <TextField
                     label="Address"
@@ -196,6 +327,8 @@ export default function Profile() {
                     size="small"
                     color="success"
                     focused
+                    value={myAddress}
+                    onChange={(e) => setMyAddress(e.target.value)}
                   />
                   <br />
                   <Button
@@ -210,6 +343,7 @@ export default function Profile() {
                       color: "white",
                       marginTop: "5px",
                     }}
+                    onClick={handleAddressSave}
                   >
                     Save
                   </Button>
