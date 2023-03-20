@@ -49,6 +49,8 @@ import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import PostLoginNavbar from "./PostLoginNavbar";
 import PostLoginFooter from "./PostLoginFooter";
+import Map from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 const style = {
   position: "absolute",
@@ -887,7 +889,17 @@ export default function BookNowPage() {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={5}>
-            <img src={location} alt="location" />
+            <Map
+              mapboxAccessToken="pk.eyJ1IjoicnVkcmFrc2hpIiwiYSI6ImNsZmd3YXJ6MTAzY20zeHFwdmxueGV0MXMifQ.IKsQI3VPd6L6R-0rIbIoHg"
+              initialViewState={{
+                longitude: -122.4,
+                latitude: 37.8,
+                zoom: 14,
+              }}
+              style={{ width: 600, height: 400 }}
+              mapStyle="mapbox://styles/mapbox/streets-v9"
+            />
+            {/* <img src={location} alt="location" /> */}
           </Grid>
         </Grid>
         <Container sx={{ marginTop: "3%" }}>
