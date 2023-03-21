@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
-import { Typography, Grid, Button, TextareaAutosize } from "@mui/material";
+import { Typography, Button, TextareaAutosize } from "@mui/material";
 import MobileContactUs from "./MobileContactUs";
 import TextField from "@mui/material/TextField";
 import contactcompany from "../assets/contactcompany.svg";
@@ -10,107 +10,158 @@ import contactlocation from "../assets/contactlocation.svg";
 import contactphone from "../assets/contactphone.svg";
 import contactemail from "../assets/contactemail.svg";
 import ReCAPTCHA from "react-google-recaptcha";
+import Navbar from "./Navbar";
+import PostLoginFooter from "./PostLoginFooter";
 
 const ContactUs = () => {
-  const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+  const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
   const [capchaIsDone, setCapchaDone] = useState(false);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
-  function onChange(){
-    setCapchaDone(true)
+  function onChange() {
+    setCapchaDone(true);
   }
 
   return (
     <div>
+      <Navbar />
       {isMatch ? (
         <MobileContactUs />
       ) : (
-        <Box sx={{ display: "flex", position:"relative", padding:"0 12%", boxSizing:"border-box", marginTop:"7%" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            position: "relative",
+            padding: "0 12%",
+            boxSizing: "border-box",
+            marginTop: "5%",
+          }}
+        >
           <Box>
             <Box>
-              <Typography variant="h5" fontSize={"30px"} fontWeight={"bold"} sx={{color:"#99CC33"}}>Contact Us</Typography> <br />
-              <Typography variant="h4" fontWeight={"bold"}>How can we help you?</Typography>
+              <Typography
+                variant="h5"
+                fontSize={"30px"}
+                fontWeight={"bold"}
+                sx={{ color: "#99CC33" }}
+              >
+                Contact Us
+              </Typography>{" "}
               <br />
-              <Typography variant="p" fontSize={"18px"} fontWeight={"bold"} sx={{color:"#717171"}}>
+              <Typography variant="h4" fontWeight={"bold"}>
+                How can we help you?
+              </Typography>
+              <br />
+              <Typography
+                variant="p"
+                fontSize={"18px"}
+                fontWeight={"bold"}
+                sx={{ color: "#717171" }}
+              >
                 Fill in the form or drop an email
               </Typography>
             </Box>
+
             <Box className="" sx={{}}>
-              <Grid container columnSpacing={2} sx={{ py: 2, mr: 20 }}>
-                <Grid item xs={6} sx={{ m: "auto" }}>
+              <Box sx={{ display: "inline-flex", mt: 5 }}>
+                <Box>
                   <img
-                    className="m-auto"
+                    className="w-16"
                     src={contactcompany}
                     alt="Extra Income"
                   />
-                </Grid>
-
-                <Grid item xs={6}>
-                  <Typography variant="h6" sx={{ pb: 2 }}>
+                </Box>
+                <Box sx={{ ml: 3 }}>
+                  <Typography variant="h5" sx={{ color: "#59CE8F" }}>
                     Registered Company
                   </Typography>
-                  <Typography>GoBikes Automotive Private Limited</Typography>
-                </Grid>
-              </Grid>
-              <Grid container columnSpacing={2} sx={{ py: 2 }}>
-                <Grid item xs={6} sx={{ m: "auto" }}>
+                  <Typography variant="h6">
+                    GoBikes Automotive Private Limited
+                  </Typography>
+                </Box>
+              </Box>{" "}
+              <br />
+              <Box sx={{ display: "inline-flex", mt: 5 }}>
+                <Box>
                   <img
-                    className="m-auto"
+                    className="w-16"
                     src={contactlocation}
                     alt="Extra Income"
                   />
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography variant="h6" sx={{ pb: 2 }}>
-                    Registered Address
+                </Box>
+                <Box sx={{ ml: 3 }}>
+                  <Typography variant="h5" sx={{ color: "#59CE8F" }}>
+                    Registered Address{" "}
                   </Typography>
-                  <Typography>
-                    5th Floor, Seminar Building, Incubation Center IIIT Delhi,
-                    New Delhi, Delhi 110020
+                  <Typography variant="h6">
+                    5th Floor, Seminar Building, Incubation Center <br /> IIIT
+                    Delhi, New Delhi, Delhi 110020{" "}
                   </Typography>
-                </Grid>
-              </Grid>
-              <Grid container columnSpacing={2} sx={{ py: 2 }}>
-                <Grid item xs={6} sx={{ m: "auto" }}>
-                  <img
-                    className="m-auto"
-                    src={contactphone}
-                    alt="Extra Income"
-                  />
-                </Grid>
-                <Grid item xs={6} sx={{ pb: 2 }}>
-                  <Typography variant="h6" sx={{ pb: 2 }}>
-                    Mobile Number
+                </Box>
+              </Box>{" "}
+              <br />
+              <Box sx={{ display: "inline-flex", mt: 5 }}>
+                <Box>
+                  <img className="w-16" src={contactphone} alt="Extra Income" />
+                </Box>
+                <Box sx={{ ml: 3 }}>
+                  <Typography variant="h5" sx={{ color: "#59CE8F" }}>
+                    Mobile Number{" "}
                   </Typography>
-                  <Typography>+91-8448444897</Typography>
-                </Grid>
-              </Grid>
-              <Grid container columnSpacing={2}>
-                <Grid item xs={6} sx={{ m: "auto" }}>
-                  <img
-                    className="m-auto"
-                    src={contactemail}
-                    alt="Extra Income"
-                  />
-                </Grid>
-                <Grid item xs={6} sx={{ pb: 10 }}>
-                  <Typography variant="h6" sx={{}}>
-                    Support :
-                  </Typography>
-                  <Typography sx={{}}>support@gobikes.co.in</Typography>
-                  <Typography variant="h6" sx={{}}>
-                    Contact Us :
-                  </Typography>
-                  <Typography>contact-us@gobikes.co.in</Typography>
-                </Grid>
-              </Grid>
+                  <Typography variant="h6">+91-8448444897 </Typography>
+                </Box>
+              </Box>{" "}
+              <br />
+              <Box sx={{ display: "inline-flex", mt: 5 }}>
+                <Box>
+                  <img className="w-16" src={contactemail} alt="Extra Income" />
+                </Box>
+                <Box sx={{ ml: 3 }}>
+                  <Box sx={{ display: "inline-flex" }}>
+                    <Typography variant="h5" sx={{ color: "#59CE8F" }}>
+                      Support :
+                    </Typography>
+                    <Typography variant="h6">
+                      &nbsp; contact-us@gobikes.co.in
+                    </Typography>
+                  </Box>{" "}
+                  <br />
+                  <Box sx={{ display: "inline-flex" }}>
+                    <Typography variant="h5" sx={{ color: "#59CE8F" }}>
+                      Contact Us :{}
+                    </Typography>
+                    <Typography variant="h6">
+                      &nbsp; contact-us@gobikes.co.in{" "}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
             </Box>
           </Box>
 
-          <Box sx={{position: 'relative', display: 'flex', alignItems:"center", justifyContent: "center", top: "auto", left: "10em", boxSizing:"border-box"}}>
-            <Box sx={{ bgcolor: "#FAFAFA", p: "10%", borderRadius: "20px", boxSizing:"border-box", boxShadow:"0 0 6px"}}>
-              <Typography fontWeight={'bold'} fontSize={'25px'}>We're here for you:</Typography>
+          <Box
+            sx={{
+              position: "relative",
+              display: "flex",
+              // alignItems: "center",
+              justifyContent: "center",
+              boxSizing: "border-box",
+            }}
+          >
+            <Box
+              sx={{
+                bgcolor: "#FAFAFA",
+                p: "10%",
+                borderRadius: "20px",
+                boxSizing: "border-box",
+                boxShadow: "0 0 6px",
+              }}
+            >
+              <Typography fontWeight={"bold"} fontSize={"25px"}>
+                We're here for you:
+              </Typography>
               <Box
                 component="form"
                 sx={{
@@ -120,51 +171,71 @@ const ContactUs = () => {
                 autoComplete="off"
               >
                 <TextField
-                sx={{
-                   height: "7vh", p: "2px", position:  "relative", margin: "auto" }}
+                  sx={{
+                    height: "7vh",
+                    p: "2px",
+                    position: "relative",
+                    margin: "auto",
+                  }}
                   id="outlined-basic"
                   label="Name*"
                   variant="outlined"
                 />{" "}
                 <br />
-                <TextField 
-                sx={{
-                  height: "7vh", width: 10, p: "2px" }}
+                <TextField
+                  sx={{
+                    height: "7vh",
+                    width: 10,
+                    p: "2px",
+                  }}
                   id="outlined-basic"
                   label="Email*"
                   variant="outlined"
                 />{" "}
                 <br />
-                <TextField 
-                sx={{
-                  height: "7vh", width: 10, p: "2px" }}
+                <TextField
+                  sx={{
+                    height: "7vh",
+                    width: 10,
+                    p: "2px",
+                  }}
                   id="outlined-basic"
                   label="Mobile*"
                   variant="outlined"
                 />{" "}
                 <br />
                 <TextareaAutosize
-                 id="outlined-basic"
-                 label='message'
-                 variant="outlined"
-                 />
-              </Box>
-              <Box sx={{margin:"10px"}}>
-                <div>
-
-                <ReCAPTCHA
-                sitekey={key}
-                onChange={onChange}
+                  id="outlined-basic"
+                  label="message"
+                  variant="outlined"
                 />
-              </div>
               </Box>
-              {capchaIsDone && <Button variant="contained" sx={{ bgcolor: "#99CC33", p: "7px", display: "flex", alignItems: "center", justifyContent: "center", width: "35em" }}>
-                Submit
-              </Button>}
+              <Box sx={{ margin: "10px" }}>
+                <div>
+                  <ReCAPTCHA sitekey={key} onChange={onChange} />
+                </div>
+              </Box>
+              {capchaIsDone && (
+                <Button
+                  variant="contained"
+                  sx={{
+                    bgcolor: "#99CC33",
+                    p: "7px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "35em",
+                  }}
+                >
+                  Submit
+                </Button>
+              )}
             </Box>
           </Box>
         </Box>
       )}
+      <div className="h-32"></div>
+      <PostLoginFooter />
     </div>
   );
 };

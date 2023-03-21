@@ -1,15 +1,15 @@
 import React from "react";
-import rightSection from "../assets/rightSection.jpeg";
 import Features from "./Features";
 import BookRide from "./BookRide";
 import Faq from "./Faq";
 import Statistics from "./Statistics";
 import KnowMore from "./KnowMore";
-import Offer from "./Offer";
-import Video from "./Video";
+import OfferCarousal from "./OfferCarousal";
+// import Video from "./Video";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
+import { Typography } from "@mui/material";
 
 export default function RightSection() {
   const theme = useTheme();
@@ -18,17 +18,19 @@ export default function RightSection() {
     <Box>
       {isMatch && (
         <Box sx={{ mt: 10 }}>
-          <img
+          {/* <img
             src={rightSection}
             alt="Right Section"
             style={{
               width: "100vw",
               height: "85vh",
             }}
-          />
-
-          <Offer />
-          <Video />
+          /> */}
+          <Typography variant="h4" sx={{ fontWeight: "bold", fontFamily:"Poppins", my: 5 }}>
+            Offers for you
+          </Typography>
+          <OfferCarousal />
+          {/* <Video /> */}
           <Features />
           <BookRide />
           <Faq />

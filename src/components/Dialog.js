@@ -3,22 +3,22 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
-import BookingConfirmation from "./BookingConfirmation";
+// import DialogContentText from "@mui/material/DialogContentText";
+// import DialogTitle from "@mui/material/DialogTitle";
+// import useMediaQuery from "@mui/material/useMediaQuery";
+// import { useTheme } from "@mui/material/styles";
+// import BookingConfirmation from "./BookingConfirmation";
 import CloseIcon from "@mui/icons-material/Close";
-import { Box } from "@mui/system";
+// import { Box } from "@mui/system";
 import RideCompletion from "./RideCompletion";
-import PersonalDetails from "./PersonalDetails";
-import OTP from "./OTP";
-import OTPVerified from "./OTPVerified";
+// import PersonalDetails from "./PersonalDetails";
+// import OTP from "./OTP";
+// import OTPVerified from "./OTPVerified";
 
 export default function ResponsiveDialog() {
   const [open, setOpen] = React.useState(false);
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  // const theme = useTheme();
+  // const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleClickOpen = () => {
     setOpen(true);

@@ -3,13 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./components/Home";
-import ListYourVehicle from "./components/ListYourVehicle";
-import RootLayout from "./routes/RootLayout";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import GoToTop from "./components/ScrollToTop";
 
 // const router = createBrowserRouter([
 //   {

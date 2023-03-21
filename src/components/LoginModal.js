@@ -1,7 +1,5 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import logo from "../assets/logo.png";
@@ -10,16 +8,16 @@ import loginPopup from "../assets/loginPopup.webp";
 import googleLogo from "../assets/googleLogo.png";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import MobileNavbar from "./MobileNavbar";
-import Modal from "@mui/material/Modal";
-import Grid from "@mui/material/Grid";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
-import { useState } from "react";
+// import MobileNavbar from "./MobileNavbar";
+// import Modal from "@mui/material/Modal";
+// import Grid from "@mui/material/Grid";
+// import { styled } from "@mui/material/styles";
+// import Paper from "@mui/material/Paper";
+// import { useState } from "react";
 import { Divider } from "@mui/material";
 import { MuiTelInput } from "mui-tel-input";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
+// import IconButton from "@mui/material/IconButton";
+// import CloseIcon from "@mui/icons-material/Close";
 import MobileLogin from "./MobileLogin";
 
 // const style = {

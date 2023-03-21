@@ -1,31 +1,99 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import React from "react";
+import {
+  Box,
+  Button,
+  Grid,
+  Typography,
+  Modal,
+  IconButton,
+} from "@mui/material";
+import React, { useState } from "react";
 import goImage from "../assets/goImage.png";
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
+import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
+const style = {
+  position: "absolute",
+  top: "15%",
+  right: "-7%",
+  transform: "translate(-50%, -50%)",
+  width: 300,
+  bgcolor: "green",
+  color: "white",
+  boxShadow: 24,
+  p: 2,
+  borderRadius: 3,
 };
 
 export default function Offer() {
+  const [open, setOpen] = useState(false);
+  const handlePopup = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
-      <Container sx={{ marginTop: "7%" }}>
-        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-          Offers for you
+      {/* <Box sx={{ boxShadow: "5", borderRadius: "5px", width: 500, p: 5 }}>
+        <Box sx={{ display: "inline-flex", justifyContent: "space-between" }}>
+          <Typography variant="h5" color="#9c3" sx={{ pr: 10 }}>
+            Get 10% as gocoins
+          </Typography>
+          <Box>
+            <img
+              src={goImage}
+              alt="goImage"
+              style={{ width: "61px", height: "41px" }}
+            />
+          </Box>
+        </Box>{" "}
+        <br />
+        <Typography variant="p">
+          Receive GoCoins worth 10% of the booking amount which you can redeem
+          in your next booking
         </Typography>
+        <Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              border: "1px dashed #9c3",
+              width: "55%",
+              marginTop: "5%",
+            }}
+          >
+            <span
+              style={{
+                fontSize: "20px",
+                color: "#9c3",
+                marginLeft: "17%",
+              }}
+            >
+              GOCOINS
+            </span>
+            <button
+              style={{
+                border: "2px solid #9c3",
+                backgroundColor: "#9c3",
+                color: "#fff",
+                marginLeft: "25%",
+                height: "50px",
+                padding: "0 20px",
+                fontWeight: "500",
+              }}
+            >
+              COPY
+            </button>
+          </Box>
+
+          <Typography variant="p">Coupon Code</Typography>
+        </Box>
+      </Box> */}
+
+      <Box
+        sx={{
+          marginTop: "4%",
+          // width: { md: "50%", xs: "94%" },
+          pr: { md: 5, xs: 2 },
+        }}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
             <Box
@@ -39,8 +107,8 @@ export default function Offer() {
             >
               <Grid container>
                 <Grid item xs={12} sm={10}>
-                  <Typography variant="h5" color="#9c3">
-                    Get 10% as gocoins
+                  <Typography variant="h5" fontSize={'20px'} fontFamily={"Poppin"} color="#59CE8F">
+                    Get Flat Rs. 100 OFF
                   </Typography>
                 </Grid>
                 <Grid item xs={12} sm={2}>
@@ -51,17 +119,18 @@ export default function Offer() {
                   />
                 </Grid>
               </Grid>
-              <Typography variant="p">
+              <Typography variant="p" fontSize={'18px'} fontFamily={"Poppin"}>
                 Receive GoCoins worth 10% of the booking amount which you can
                 redeem in your next booking
               </Typography>
-              <Box
+              {/* <Box
                 sx={{
+                  m: { md: "auto" },
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   border: "1px dashed #9c3",
-                  width: "55%",
+                  width: { md: "55%", xs: "80%" },
                   marginTop: "5%",
                 }}
               >
@@ -69,10 +138,10 @@ export default function Offer() {
                   style={{
                     fontSize: "20px",
                     color: "#9c3",
-                    marginLeft: "17%",
+                    marginLeft: { md: "30%" },
                   }}
                 >
-                  GOCOINS
+                  GOBIKES100
                 </span>
                 <button
                   style={{
@@ -87,17 +156,90 @@ export default function Offer() {
                 >
                   COPY
                 </button>
+              </Box> */}
+              <Box textAlign={"center"} sx={{ mt: 5 }}>
+                {" "}
+                <Box
+                  sx={{
+                    display: "inline-flex",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      border: "1px dashed #59CE8F",
+                      display: "flex",
+                      alignContent: "center",
+
+                      px: 1,
+                    }}
+                  >
+                    <Typography
+                      sx={{ p: 1, py: "20%" }}
+                      style={{
+                        fontFamily:"Poppin",
+                        fontSize: "20px",
+                        color: "#59CE8F",
+                      }}
+                    >
+                      GOCOINS
+                    </Typography>
+                  </Box>
+
+                  <Box>
+                    <Button
+                      variant="contained"
+                      fontFamily={'Poppin'}
+                      sx={{
+                        bgcolor: "#59CE8F",
+                        py: 1.8,
+                        px: 4,
+                        borderRadius: 0,
+                        ":hover": { bgcolor: "#36b671" },
+                        fontSize: 25,
+                      }}
+                      onClick={() => {
+                        handlePopup();
+                      }}
+                    >
+                      Copy
+                    </Button>
+                    <Modal
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
+                      <Box sx={style}>
+                        <div style={{ display: "flex" }}>
+                          <IconButton>
+                            <TaskAltOutlinedIcon sx={{ color: "white" }} />
+                          </IconButton>
+                          <Typography
+                            id="modal-modal-title"
+                            variant="h6"
+                            component="h2"
+                            fontFamily={"Poppin"}
+                            fontSize={'20px'}
+                          >
+                            Success
+                          </Typography>
+                        </div>
+                        <Typography id="modal-modal-description" sx={{ ml: 5 }} fontFamily={"Poppin"} fontSize={'18px'}>
+                          Copied Sucessfully!
+                        </Typography>
+                      </Box>
+                    </Modal>
+                  </Box>
+                </Box>{" "}
               </Box>
-              <div style={{ marginTop: "5%" }}>
-                <Typography variant="p" marginLeft="5px">
-                  Coupon Code
-                </Typography>
-              </div>
+              <br />
+              <Typography variant="p" fontFamily={'Poppin'} fontSize={'18px'}>Coupon Code</Typography>
+              <div style={{ marginTop: "5%" }}></div>
             </Box>
           </Grid>
         </Grid>
         <div style={{ marginTop: "5%", marginLeft: "5%" }}></div>
-      </Container>
+      </Box>
     </>
   );
 }

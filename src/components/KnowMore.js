@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 export default function KnowMore() {
   return (
     <>
-      <Container sx={{ marginTop: "7%" }}>
+      <Container sx={{ marginTop: "10%" }}>
         <Box
           sx={{
-            width: "100%",
+            width: "80%",
             height: "100%",
             padding: "30px",
             borderRadius: "10px",
@@ -19,14 +19,14 @@ export default function KnowMore() {
           <IconButton>
             <NotificationsIcon sx={{ fontSize: "30px", color: "black" }} />
           </IconButton>
-          <Typography variant="p" sx={{ fontSize: "20px" }}>
+          <Typography variant="p" sx={{ fontSize: "20px", fontFamily: "Poppins" }}>
             List your vehicle
           </Typography>
-          <Typography variant="h3" sx={{ marginTop: "3%", color: "#9c3" }}>
+          <Typography variant="h3" sx={{ marginTop: "3%", color: "#59CE8F", fontFamily: "Poppins", fontSize: "36px" }}>
             Want to list your unused two-wheeler and earn extra income
           </Typography>
           <br />
-          <Typography variant="p" sx={{ fontSize: "20px" }}>
+          <Typography variant="p" sx={{ fontSize: "20px", fontFamily: "Poppins" }}>
             List your motorcycles and scooters with India's fastest growing
             mobility platform - Just connect to turn them into earning members
             of your family.
@@ -37,7 +37,7 @@ export default function KnowMore() {
             <Button
               variant="contained"
               color="success"
-              sx={{ marginTop: "3%" }}
+              sx={{ marginTop: "3%", fontFamily: "Poppins", bgcolor: "#59CE8F" }}
             >
               Know More
             </Button>

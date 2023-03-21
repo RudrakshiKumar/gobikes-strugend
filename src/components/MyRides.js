@@ -1,22 +1,27 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
-import profileImage from "../assets/Profile.png";
-import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
-import BookOnlineOutlinedIcon from "@mui/icons-material/BookOnlineOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import Profile from "./Profile";
+// import { Box, Button, Container, Grid, Typography } from "@mui/material";
+// import React, { useState } from "react";
+// import profileImage from "../assets/Profile.png";
+// import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
+// import BookOnlineOutlinedIcon from "@mui/icons-material/BookOnlineOutlined";
+// import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+// import Profile from "./Profile";
 import Booking from "./Booking";
-import GoCoins from "./GoCoins";
+// import GoCoins from "./GoCoins";
 import PostLoginNavbar from "./PostLoginNavbar";
 import PostLoginFooter from "./PostLoginFooter";
 
-export default function Dashboard() {
-  const [active, setActive] = useState("profile");
+export default function MyRides() {
+  // const [active, setActive] = useState("profile");
   return (
     <>
       <PostLoginNavbar />
+      <div className="m-10">
+        <Booking />
+      </div>
+      <div style={{ marginTop: "10%" }}></div>
+      <PostLoginFooter />
 
-      <Container sx={{ marginTop: "5%" }}>
+      {/* <Container sx={{ marginTop: "2%" }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <Box
@@ -56,9 +61,6 @@ export default function Dashboard() {
                 padding: "10px",
                 fontSize: "17px",
                 backgroundColor: "#4cbb17",
-                ":hover": {
-                  backgroundColor: "#4cbb17",
-                },
               }}
               onClick={() => setActive("profile")}
             >
@@ -74,9 +76,6 @@ export default function Dashboard() {
                 padding: "10px",
                 fontSize: "17px",
                 backgroundColor: "#4cbb17",
-                ":hover": {
-                  backgroundColor: "#4cbb17",
-                },
               }}
               onClick={() => setActive("booking")}
             >
@@ -92,9 +91,6 @@ export default function Dashboard() {
                 padding: "10px",
                 fontSize: "17px",
                 backgroundColor: "#4cbb17",
-                ":hover": {
-                  backgroundColor: "#4cbb17",
-                },
               }}
               onClick={() => setActive("goCoins")}
             >
@@ -102,14 +98,13 @@ export default function Dashboard() {
             </Button>
           </Grid>
           <Grid item xs={12} sm={8}>
+           
             {active === "profile" && <Profile />}
             {active === "booking" && <Booking />}
             {active === "goCoins" && <GoCoins />}
           </Grid>
         </Grid>
-      </Container>
-      <div className="h-40"></div>
-      <PostLoginFooter />
+      </Container> */}
     </>
   );
 }
