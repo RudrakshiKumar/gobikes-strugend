@@ -19,31 +19,34 @@ import OTP from "./components/desktop/OTP";
 import ScrollToTop from "./components/ScrollToTop";
 import MyRides from "./components/desktop/MyRides";
 import Trial from "./components/desktop/Process";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
   return (
     <>
-      <Router>
-        <ScrollToTop />
+      <GoogleOAuthProvider clientId="276649340099-4c50k2i1gbf9d9jee9pv996rcv4e4i3a.apps.googleusercontent.com">
+        <Router>
+          <ScrollToTop />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/ListYourVehicle" element={<ListYourVehicle />} />
-          <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/FAQs" element={<FAQs />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
-          <Route path="/OffersForYou" element={<OffersForYou />} />
-          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
-          <Route path="/TermsCondition" element={<TermsCondition />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/MyRides" element={<MyRides />} />
-          <Route path="/BookingFlow" element={<BookingFlow />} />
-          <Route path="/BookNowPage" element={<BookNowPage />} />
-          <Route path="/OTP" element={<OTP />} />
-          <Route path="/PersonalDetails" element={<PersonalDetails />} />
-          <Route path="/Trial" element={<Trial />} />
-        </Routes>
-      </Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/ListYourVehicle" element={<ListYourVehicle />} />
+            <Route path="/ContactUs" element={<ContactUs />} />
+            <Route path="/FAQs" element={<FAQs />} />
+            <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/OffersForYou" element={<OffersForYou />} />
+            <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+            <Route path="/TermsCondition" element={<TermsCondition />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/MyRides" element={<MyRides />} />
+            <Route path="/BookingFlow" element={<BookingFlow />} />
+            <Route path="/BookNowPage" element={<BookNowPage />} />
+            <Route path="/OTP" element={<OTP />} />
+            <Route path="/PersonalDetails" element={<PersonalDetails />} />
+            <Route path="/Trial" element={<Trial />} />
+          </Routes>
+        </Router>
+      </GoogleOAuthProvider>{" "}
     </>
   );
 }
