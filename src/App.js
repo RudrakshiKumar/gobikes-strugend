@@ -1,24 +1,24 @@
-import "./App.css";
-import Home from "./components/Home";
+import "./assets/styles/App.css";
+import Home from "./pages/desktop/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AboutUs from "./components/AboutUs";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import TermsCondition from "./components/TermsCondition";
-import ListYourVehicle from "./components/ListYourVehicle";
-import ContactUs from "./components/ContactUs";
-import FAQs from "./components/FAQs";
-import OffersForYou from "./components/OffersForYou";
-import Dashboard from "./components/Dashboard";
-import BookingFlow from "./components/BookingFlow";
-import BookNowPage from "./components/BookNowPage";
+import AboutUs from "./pages/desktop/AboutUs";
+import PrivacyPolicy from "./pages/desktop/PrivacyPolicy";
+import TermsCondition from "./pages/desktop/TermsCondition";
+import ListYourVehicle from "./pages/desktop/ListYourVehicle";
+import ContactUs from "./pages/desktop/ContactUs";
+import FAQs from "./pages/desktop/FAQs";
+import OffersForYou from "./pages/desktop/OffersForYou";
+import Dashboard from "./pages/desktop/Dashboard";
+import BookingFlow from "./pages/desktop/BookingFlow";
+import BookNowPage from "./pages/desktop/BookNowPage";
 
-import PersonalDetails from "./components/PersonalDetails";
+import PersonalDetails from "./components/desktop/PersonalDetails";
 
-import OTP from "./components/OTP";
+import OTP from "./components/desktop/OTP";
 
 import ScrollToTop from "./components/ScrollToTop";
-import MyRides from "./components/MyRides";
-import Trial from "./components/Process";
+import MyRides from "./components/desktop/MyRides";
+import Trial from "./components/desktop/Process";
 
 function App() {
   return (
