@@ -86,7 +86,7 @@ export default function Home() {
                 marginTop: 10,
                 ml: "12%",
                 padding: 5,
-                boxShadow: "10px 10px 10px #59CE8F",
+                boxShadow: "10px 10px 10px #3C8C62",
                 borderRadius: 2,
                 display: "flex",
                 justifyContent: "center",
