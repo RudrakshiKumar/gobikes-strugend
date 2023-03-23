@@ -11,6 +11,8 @@ import { Divider } from "@mui/material";
 import { MuiTelInput } from "mui-tel-input";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
+import { Link } from "react-router-dom";
 
 const MobileLogin = () => {
   const [open, setOpen] = React.useState(false);
@@ -25,49 +27,54 @@ const MobileLogin = () => {
     setPhone(newPhone);
   };
   return (
-    <Box sx={{ textAlign: "center" }}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "flex-end",
-        }}
-      >
-        <IconButton onClick={handleDrawerClose} open={open}>
-          <CloseIcon />
-        </IconButton>
-      </Box>
-      <Box
-        className="m-auto "
-        component="img"
-        sx={{
-          height: 60,
-          mb: 4,
-          mt: 5,
-        }}
-        alt="Your logo."
-        src={logo}
-      />
-      <Typography
-        id="modal-modal-description"
-        sx={{
-          // mt: 2,
-          pb: 1,
-          fontWeight: "semi-bold",
-          fontSize: 25,
-          font: "poppins",
-        }}
-      >
-        Welcome to <span className="text-[#4CBB17]"> GoBikes </span>
-      </Typography>
-      <Typography
-        id="modal-modal-description"
-        sx={{ pb: 1, color: "text.secondary" }}
-      >
-        Commuting Made <span className="text-[#4CBB17]">Easy</span>,{" "}
-        <span className="text-[#4CBB17]">Affordable </span>
-        and <span className="text-[#4CBB17]">Quick</span>
-      </Typography>
-      {/* <Box
+    <>
+      <MobilePreLoginNavbar />
+      <Box sx={{ textAlign: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          {/* <IconButton onClick={handleDrawerClose} open={open}>
+            <CloseIcon />
+          </IconButton> */}
+        </Box>
+        <Link to="/">
+          <Box
+            className="m-auto "
+            component="img"
+            sx={{
+              height: 60,
+              mb: 4,
+              mt: 5,
+            }}
+            alt="Your logo."
+            src={logo}
+          />
+        </Link>
+
+        <Typography
+          id="modal-modal-description"
+          sx={{
+            // mt: 2,
+            pb: 1,
+            fontWeight: "semi-bold",
+            fontSize: 25,
+            font: "poppins",
+          }}
+        >
+          Welcome to <span className="text-[#4CBB17]"> GoBikes </span>
+        </Typography>
+        <Typography
+          id="modal-modal-description"
+          sx={{ pb: 1, color: "text.secondary" }}
+        >
+          Commuting Made <span className="text-[#4CBB17]">Easy</span>,{" "}
+          <span className="text-[#4CBB17]">Affordable </span>
+          and <span className="text-[#4CBB17]">Quick</span>
+        </Typography>
+        {/* <Box
                             className=""
                             component="form"
                             textAlign="center"
@@ -93,68 +100,69 @@ const MobileLogin = () => {
                               onChange={setValue}
                             />
                           </Box> */}
-      <MuiTelInput
-        sx={{
-          my: 2,
-          width: "85% ",
-          borderColor: "#FF5733",
-        }}
-        value={phone}
-        onChange={handleChange}
-        focusOnSelectCountry
-        forceCallingCode
-        flagSize="medium"
-        defaultCountry="IN"
-      />
-      <Button
-        disabled
-        variant="contained"
-        sx={{
-          textTransform: "none",
-          my: 2,
-          py: 1.5,
-          width: "85% ",
-          fontSize: 18,
-          fontWeight: 400,
-          // bgcolor: "#4CBB17",
-          bgcolor: "text.disabled",
-        }}
-      >
-        Send OTP
-      </Button>
-      <br />
-      <Divider
-        sx={{
-          mt: 1,
-          color: "text.disabled",
-          mx: 4,
-        }}
-      >
-        OR
-      </Divider>
-      <Button
-        className=""
-        variant="outlined"
-        sx={{
-          textTransform: "none",
-          mt: 3,
-          color: "#4CBB17",
-          fontWeight: "bold",
-          borderColor: "#4CBB17",
-        }}
-      >
-        <Box
-          component="img"
+        <MuiTelInput
           sx={{
-            height: 20,
-            pr: 2,
+            my: 2,
+            width: "85% ",
+            borderColor: "#FF5733",
           }}
-          alt="Your logo."
-          src={googleLogo}
+          value={phone}
+          onChange={handleChange}
+          focusOnSelectCountry
+          forceCallingCode
+          flagSize="medium"
+          defaultCountry="IN"
         />
-        Sign in with Google
-      </Button>
-    </Box>
+        <Button
+          disabled
+          variant="contained"
+          sx={{
+            textTransform: "none",
+            my: 2,
+            py: 1.5,
+            width: "85% ",
+            fontSize: 18,
+            fontWeight: 400,
+            // bgcolor: "#4CBB17",
+            bgcolor: "text.disabled",
+          }}
+        >
+          Send OTP
+        </Button>
+        <br />
+        <Divider
+          sx={{
+            mt: 1,
+            color: "text.disabled",
+            mx: 4,
+          }}
+        >
+          OR
+        </Divider>
+        <Button
+          className=""
+          variant="outlined"
+          sx={{
+            textTransform: "none",
+            mt: 3,
+            color: "#4CBB17",
+            fontWeight: "bold",
+            borderColor: "#4CBB17",
+          }}
+        >
+          <Box
+            component="img"
+            sx={{
+              height: 20,
+              pr: 2,
+            }}
+            alt="Your logo."
+            src={googleLogo}
+          />
+          Sign in with Google
+        </Button>
+      </Box>
+    </>
   );
 };
 

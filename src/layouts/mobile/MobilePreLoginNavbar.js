@@ -20,6 +20,8 @@ import LoginIcon from "@mui/icons-material/Login";
 import BikeScooterIcon from "@mui/icons-material/BikeScooter";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import { Link } from "react-router-dom";
+
 // import "../App.css";
 
 const drawerWidth = 290;
@@ -102,15 +104,17 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Box
-            id="logo"
-            component="img"
-            sx={{
-              height: 30,
-            }}
-            alt="Your logo."
-            src={logo}
-          />
+          <Link to="/">
+            <Box
+              id="logo"
+              component="img"
+              sx={{
+                height: 30,
+              }}
+              alt="Your logo."
+              src={logo}
+            />
+          </Link>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -127,57 +131,72 @@ export default function PersistentDrawerLeft() {
         open={open}
       >
         <DrawerHeader sx={{ justifyContent: "space-between" }}>
-          <Box
-            component="img"
-            sx={{
-              width: 70,
-              ml: 1,
-              mt: 1,
-            }}
-            alt="Your logo."
-            src={logo}
-          />
+          <Link to="/">
+            <Box
+              component="img"
+              sx={{
+                width: 70,
+                ml: 1,
+                mt: 1,
+              }}
+              alt="Your logo."
+              src={logo}
+            />
+          </Link>
+
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? <CloseIcon /> : <CloseIcon />}
           </IconButton>
         </DrawerHeader>
 
         <List sx={{ ml: 2, mt: 2 }}>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <LoginIcon sx={{ color: "#A4F069" }} />
-              </ListItemIcon>
-              <ListItemText primary="LogIn/SignUp" font="poppins" />
-            </ListItemButton>
-          </ListItem>
+          <Link to="/MobileLogin">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <LoginIcon sx={{ color: "#59ce8f" }} />
+                </ListItemIcon>
+                <ListItemText primary="LogIn/SignUp" font="poppins" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
           <Divider variant="inset" />
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <BikeScooterIcon sx={{ color: "#A4F069" }} />
-              </ListItemIcon>
-              <ListItemText primary="List Your Vehicle" font="poppins" />
-            </ListItemButton>
-          </ListItem>
+          <Link to="/MobileListYourVehicle">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <BikeScooterIcon sx={{ color: "#59ce8f" }} />
+                </ListItemIcon>
+                <ListItemText primary="List Your Vehicle" font="poppins" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
           <Divider variant="inset" />
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <ConnectWithoutContactIcon sx={{ color: "#A4F069" }} />
-              </ListItemIcon>
-              <ListItemText primary="Contact Us" font="poppins" />
-            </ListItemButton>
-          </ListItem>
+          <Link to="/MobileContactUs">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ConnectWithoutContactIcon sx={{ color: "#59ce8f" }} />
+                </ListItemIcon>
+                <ListItemText primary="Contact Us" font="poppins" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
           <Divider variant="inset" />
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <QuestionAnswerIcon sx={{ color: "#A4F069" }} />
-              </ListItemIcon>
-              <ListItemText primary="FAQs" font="poppins" />
-            </ListItemButton>
-          </ListItem>
+          <Link to="/MobileFAQs">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <QuestionAnswerIcon sx={{ color: "#59ce8f" }} />
+                </ListItemIcon>
+                <ListItemText primary="FAQs" font="poppins" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
           <Divider variant="inset" />
         </List>
       </Drawer>

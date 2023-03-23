@@ -19,6 +19,10 @@ import OTP from "./components/desktop/OTP";
 import ScrollToTop from "./components/ScrollToTop";
 import MyRides from "./components/desktop/MyRides";
 import Trial from "./components/desktop/Process";
+import MobileLogin from "./pages/mobile/MobileLogin";
+import MobileListYourVehicle from "./pages/mobile/MobileListYourVehicle";
+import MobileContactUs from "./pages/mobile/MobileContactUs";
+import MobileFAQs from "./pages/mobile/MobileFAQs";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
@@ -44,6 +48,15 @@ function App() {
           <Route path="/OTP" element={<OTP />} />
           <Route path="/PersonalDetails" element={<PersonalDetails />} />
           <Route path="/Trial" element={<Trial />} />
+
+          {/* For Mobile View */}
+          <Route path="/MobileLogin" element={<MobileLogin />} />
+          <Route
+            path="/MobileListYourVehicle"
+            element={<MobileListYourVehicle />}
+          />
+          <Route path="/MobileContactUs" element={<MobileContactUs />} />
+          <Route path="/MobileFAQs" element={<MobileFAQs />} />
         </Routes>
       </Router>
       {/* </GoogleOAuthProvider>{" "} */}
