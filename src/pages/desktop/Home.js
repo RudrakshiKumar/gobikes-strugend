@@ -523,7 +523,7 @@ export default function Home() {
                 }}
               /> */}
               <Typography variant="p" sx={{ marginTop: "2%" }}>
-                Duration: 1 Day
+                Duration: {(endDate - startDate) / (1000 * 3600 * 24)} Day
               </Typography>
               <Button
                 variant="contained"
