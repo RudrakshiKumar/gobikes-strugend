@@ -23,6 +23,7 @@ import MobileLogin from "./pages/mobile/MobileLogin";
 import MobileListYourVehicle from "./pages/mobile/MobileListYourVehicle";
 import MobileContactUs from "./pages/mobile/MobileContactUs";
 import MobileFAQs from "./pages/mobile/MobileFAQs";
+import MobileBookingFlow from "./pages/mobile/MobileBookingFlow";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           />
           <Route path="/MobileContactUs" element={<MobileContactUs />} />
           <Route path="/MobileFAQs" element={<MobileFAQs />} />
+          <Route path="/MobileBookingFlow" element={<MobileBookingFlow />} />
         </Routes>
       </Router>
       {/* </GoogleOAuthProvider>{" "} */}
