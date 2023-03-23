@@ -19,7 +19,10 @@ import { MuiTelInput } from "mui-tel-input";
 // import IconButton from "@mui/material/IconButton";
 // import CloseIcon from "@mui/icons-material/Close";
 import MobileLogin from "../../pages/mobile/MobileLogin";
-
+import { useNavigate } from 'react-router-dom'
+import { auth, provider } from '../../Utlity/FirebaseConfig'
+import { signInWithPopup } from "firebase/auth";
+import googleLogo from "../../assets/images/googleLogo.png";
 // const style = {
 //   position: "absolute",
 //   top: "50%",
@@ -48,12 +51,28 @@ const LoginModal = () => {
   //   const [value, setValue] = useState();
 
   const [phone, setPhone] = React.useState("");
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const nevigate = useNavigate()
+  const theme = useTheme();
+
+  const googleSignInHandler = () => {
+    signInWithPopup(auth, provider)
+      .then(res => {
+        const credentials = {
+          name: res.user.displayName,
+          email: res.user.email,
+          accessToken: res.user.accessToken
+        }
+
+        localStorage.setItem('user', JSON.stringify(credentials));
+        nevigate('/');
+      })
+      .catch(err => console.log(err))
+  };
 
   const handleChange = (newPhone) => {
     setPhone(newPhone);
   };
-  const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div>
       {isMatch ? (
@@ -177,33 +196,13 @@ const LoginModal = () => {
             </Button>
             <br />
             <Divider sx={{ mt: 1, color: "text.disabled" }}>OR</Divider>
-            <Button
-              className=""
-              variant="outlined"
-              sx={{
-                textTransform: "none",
-                mt: 3,
-                color: "#4CBB17",
-                fontWeight: "bold",
-                borderColor: "#4CBB17",
-              }}
-            >
-              <Box
-                component="img"
-                sx={{
-                  height: 20,
-                  pr: 2,
-                }}
-                alt="Your logo."
-                src={googleLogo}
-              />
-              Sign in with Google
-            </Button>
-          </Box>
 
-          {/* </Grid>
-            </Grid>
-          </Grid> */}
+            <Box min-width='85%' m='20px auto' display='flex' alignItems='center' justifyContent='center'   >
+              <Button onClick={googleSignInHandler}>
+                <img src={googleLogo} alt='Google Logo' height='4%' width='4%' />
+                <Typography mx='3%'>Sign in with Google</Typography></Button>
+            </Box>
+          </Box>
         </Box>
       )}
     </div>
