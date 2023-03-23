@@ -19,8 +19,8 @@ import { MuiTelInput } from "mui-tel-input";
 // import IconButton from "@mui/material/IconButton";
 // import CloseIcon from "@mui/icons-material/Close";
 import MobileLogin from "../../pages/mobile/MobileLogin";
-import { GoogleLogin } from "@react-oauth/google";
-import { useNavigate } from "react-router-dom";
+// import { GoogleLogin } from "@react-oauth/google";
+// import { useNavigate } from "react-router-dom";
 
 // const style = {
 //   position: "absolute",
@@ -48,12 +48,14 @@ const LoginModal = () => {
   //   const handleClose = () => setOpen(false);
 
   //   const [value, setValue] = useState();
-  const navigate = useNavigate();
 
-  const googleSucess = (res) => {
-    console.log(res);
-    navigate("/");
-  };
+  //Google Sign In with react-oauth
+  // const navigate = useNavigate();
+  // const googleSucess = (res) => {
+  //   console.log(res);
+  //   navigate("/");
+  // };
+
   const [phone, setPhone] = React.useState("");
 
   const handleChange = (newPhone) => {
@@ -184,7 +186,7 @@ const LoginModal = () => {
             </Button>
             <br />
             <Divider sx={{ mt: 1, color: "text.disabled" }}>OR</Divider>
-            {/* <Button
+            <Button
               className=""
               variant="outlined"
               sx={{
@@ -205,8 +207,9 @@ const LoginModal = () => {
                 src={googleLogo}
               />
               Sign in with Google
-            </Button> */}
-            <Box
+            </Button>
+            {/* Google Sign In with react-oauth */}
+            {/* <Box
               min-width="85%"
               m="20px auto"
               display="flex"
@@ -219,7 +222,7 @@ const LoginModal = () => {
                   console.log(err, "google login was unsucessfull")
                 }
               />
-            </Box>
+            </Box> */}
           </Box>
 
           {/* </Grid>
