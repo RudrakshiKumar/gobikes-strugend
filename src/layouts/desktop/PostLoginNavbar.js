@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import logo from "../../assets/images/logo.png";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import MobileNavbar from "../../layouts/mobile/MobileNavbar";
+import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
 // import Modal from "@mui/material/Modal";
 // import Login from "./LoginModal";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -105,7 +105,7 @@ const PostLoginNavbar = () => {
     <div>
       <Box>
         {isMatch ? (
-          <MobileNavbar />
+          <MobilePreLoginNavbar />
         ) : (
           <AppBar
             position="sticky"

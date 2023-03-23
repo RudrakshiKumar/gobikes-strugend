@@ -889,7 +889,7 @@ export default function BookNowPage() {
           </Grid>
           <Grid item xs={12} sm={5}>
             <Map
-              mapboxAccessToken="pk.eyJ1IjoicnVkcmFrc2hpIiwiYSI6ImNsZmd3YXJ6MTAzY20zeHFwdmxueGV0MXMifQ.IKsQI3VPd6L6R-0rIbIoHg"
+              mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACESS_TOKEN}
               initialViewState={{
                 longitude: -122.4,
                 latitude: 37.8,

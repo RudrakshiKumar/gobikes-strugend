@@ -23,6 +23,9 @@ import { useNavigate } from 'react-router-dom'
 import { auth, provider } from '../../Utlity/FirebaseConfig'
 import { signInWithPopup } from "firebase/auth";
 import googleLogo from "../../assets/images/googleLogo.png";
+// import { GoogleLogin } from "@react-oauth/google";
+// import { useNavigate } from "react-router-dom";
+
 // const style = {
 //   position: "absolute",
 //   top: "50%",
@@ -49,6 +52,13 @@ const LoginModal = () => {
   //   const handleClose = () => setOpen(false);
 
   //   const [value, setValue] = useState();
+
+  //Google Sign In with react-oauth
+  // const navigate = useNavigate();
+  // const googleSucess = (res) => {
+  //   console.log(res);
+  //   navigate("/");
+  // };
 
   const [phone, setPhone] = React.useState("");
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));

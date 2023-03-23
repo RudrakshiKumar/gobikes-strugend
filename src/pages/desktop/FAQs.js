@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
-import MobileFAQ from "../mobile/MobileFAQ";
+import MobileFAQ from "../mobile/MobileFAQs";
 import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
 import { Typography } from "@mui/material";
 import { NavHashLink } from "react-router-hash-link";

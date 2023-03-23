@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import logo from "../../assets/images/logo.png";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import MobileNavbar from "../mobile/MobileNavbar";
+import MobilePreLoginNavbar from "../mobile/MobilePreLoginNavbar";
 import CloseIcon from "@mui/icons-material/Close";
 import LoginModal from "../../components/desktop/LoginModal";
 import { NavLink } from "react-router-dom";
@@ -51,7 +51,7 @@ export default function ButtonAppBar() {
   return (
     <Box>
       {isMatch ? (
-        <MobileNavbar />
+        <MobilePreLoginNavbar />
       ) : (
         <Box>
           <AppBar
