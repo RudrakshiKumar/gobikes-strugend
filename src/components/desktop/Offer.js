@@ -107,7 +107,7 @@ export default function Offer() {
             >
               <Grid container>
                 <Grid item xs={12} sm={10}>
-                  <Typography variant="h5" color="#9c3">
+                  <Typography variant="h5" color="#59CE8F" fontFamily={"Poppins"} fontWeight={"bold"}>
                     Get Flat Rs. 100 OFF
                   </Typography>
                 </Grid>
@@ -119,7 +119,7 @@ export default function Offer() {
                   />
                 </Grid>
               </Grid>
-              <Typography variant="p">
+              <Typography variant="p" fontFamily={"Poppins"}>
                 Receive GoCoins worth 10% of the booking amount which you can
                 redeem in your next booking
               </Typography>
@@ -176,6 +176,7 @@ export default function Offer() {
                     <Typography
                       sx={{ p: 1, py: "20%" }}
                       style={{
+                        fontFamily:"Poppins",
                         fontSize: "20px",
                         color: "#59CE8F",
                       }}
@@ -188,11 +189,13 @@ export default function Offer() {
                     <Button
                       variant="contained"
                       sx={{
+                        fontFamily:"Poppins",
+                        fontWeight:"bold",
                         bgcolor: "#59CE8F",
                         py: 1.8,
                         px: 4,
                         borderRadius: 0,
-                        ":hover": { bgcolor: "#36b671" },
+                        ":hover": { bgcolor: "#3C8C62" },
                         fontSize: 25,
                       }}
                       onClick={() => {
@@ -216,11 +219,12 @@ export default function Offer() {
                             id="modal-modal-title"
                             variant="h6"
                             component="h2"
+                            sx={{ fontFamily:"Poppins", fontWeight:"bold" }}
                           >
                             Success
                           </Typography>
                         </div>
-                        <Typography id="modal-modal-description" sx={{ ml: 5 }}>
+                        <Typography id="modal-modal-description" sx={{ ml: 5, fontFamily:"Poppins" }}>
                           Copied Sucessfully!
                         </Typography>
                       </Box>
@@ -229,7 +233,7 @@ export default function Offer() {
                 </Box>{" "}
               </Box>
               <br />
-              <Typography variant="p">Coupon Code</Typography>
+              <Typography variant="p" fontFamily={"Poppins"}>Coupon Code</Typography>
               <div style={{ marginTop: "5%" }}></div>
             </Box>
           </Grid>

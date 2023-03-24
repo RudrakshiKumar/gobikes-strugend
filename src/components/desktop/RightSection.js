@@ -26,7 +26,7 @@ export default function RightSection() {
               height: "85vh",
             }}
           /> */}
-          <Typography variant="h4" sx={{ fontWeight: "bold", my: 5 }}>
+          <Typography variant="h4" sx={{ fontWeight: "bold", my: 5, fontFamily:"Poppins" }}>
             Offers for you
           </Typography>
           <OfferCarousal />

@@ -56,37 +56,37 @@ const PostLoginFooter = () => {
           </Link>
           <Box sx={{}}>
             <Link to="/ContactUs">
-              <Typography sx={{ color: "#000000", mb: 2 }}>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>
                 Contact Us
               </Typography>
             </Link>
             <Link to="/PrivacyPolicy">
-              <Typography sx={{ color: "#000000", mb: 2 }}>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>
                 Privacy Policy
               </Typography>
             </Link>
             <Link to="/TermsCondition">
-              <Typography sx={{ color: "#000000" }}>
+              <Typography sx={{ color: "#000000", fontFamily:"Poppins", fontWeight:"bold" }}>
                 Terms and Conditions
               </Typography>
             </Link>
           </Box>
           <Box sx={{}}>
             <Link to="/OffersForYou">
-              <Typography sx={{ color: "#000000", mb: 2 }}>Offers</Typography>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>Offers</Typography>
             </Link>
             <Link to="/ListYourVehicle">
-              <Typography sx={{ color: "#000000", mb: 2 }}>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>
                 List Your Vehicle
               </Typography>
             </Link>
             <Link to="/FAQs">
-              <Typography sx={{ color: "#000000" }}>FAQs</Typography>
+              <Typography sx={{ color: "#000000", fontFamily:"Poppins", fontWeight:"bold" }}>FAQs</Typography>
             </Link>
           </Box>
           <Box sx={{}}>
             <Link to="/AboutUs">
-              <Typography sx={{ color: "#000000", mb: 2 }}>About Us</Typography>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>About Us</Typography>
             </Link>
             <button
               // sx={{ color: "#000000" }}
@@ -97,7 +97,7 @@ const PostLoginFooter = () => {
             </button>{" "}
             <Box sx={{ color: "#000000", mt: 2 }}>
               <a className="text-pink-900" href="tel:+917328834913">
-                <Typography sx={{ color: "#000000", mb: 2 }}>
+                <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>
                   +91 7328834913
                 </Typography>
               </a>
@@ -106,7 +106,7 @@ const PostLoginFooter = () => {
         </Box>
 
         <Box sx={{ p: 2, display: "flex", justifyContent: "space-between" }}>
-          <Typography sx={{ pl: 10 }}>
+          <Typography sx={{ pl: 10, fontFamily:"Poppins", fontWeight:"bold" }}>
             {" "}
             © STRUGEND. All rights reserved.
           </Typography>

@@ -138,7 +138,7 @@ const PostLoginNavbar = () => {
                 >
                   <Link to="/ListYourVehicle">
                     <Button
-                      sx={{ color: "black", marginLeft: "auto" }}
+                      sx={{ color: "black", marginLeft: "auto", fontFamily:"Poppins", fontWeight:"bold" }}
                       color="primary"
                     >
                       List your Vehicle
@@ -148,7 +148,7 @@ const PostLoginNavbar = () => {
                   <Link to="/MyRides">
                     <Button sx={{ color: "black" }} color="primary">
                       <TwoWheelerIcon
-                        sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40 }}
+                        sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40, fontFamily:"Poppins", fontWeight:"bold" }}
                       />
                       Rides
                     </Button>
@@ -166,7 +166,7 @@ const PostLoginNavbar = () => {
                     color="primary"
                   >
                     <AccountCircleIcon
-                      sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40 }}
+                      sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40, fontFamily:"Poppins", fontWeight:"bold" }}
                     />
                     Profile
                   </Button>
@@ -188,7 +188,7 @@ const PostLoginNavbar = () => {
                       <MenuItem
                         onClick={handleClose}
                         disableRipple
-                        sx={{ color: "#000000" }}
+                        sx={{ color: "#000000", fontFamily:"Poppins", fontWeight:"bold" }}
                       >
                         Dashboard
                       </MenuItem>
@@ -199,7 +199,7 @@ const PostLoginNavbar = () => {
                       <MenuItem
                         onClick={handleClose}
                         disableRipple
-                        sx={{ color: "#000000" }}
+                        sx={{ color: "#000000", fontFamily:"Poppins", fontWeight:"bold" }}
                       >
                         Sign Out
                       </MenuItem>

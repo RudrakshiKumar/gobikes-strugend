@@ -94,15 +94,15 @@ export default function Home() {
                 position: "fixed",
               }}
             >
-              <Typography variant="h4">
+              <Typography variant="h4" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                 Commuting Made <span style={{ color: "#59CE8F" }}>Easy</span>,
                 <br />
               </Typography>
-              <Typography variant="h4" sx={{ marginTop: "5px" }}>
+              <Typography variant="h4" sx={{ marginTop: "5px", fontFamily:"Poppins", fontWeight:"bold" }}>
                 <span style={{ color: "#59CE8F" }}>Affordable</span> and{" "}
                 <span style={{ color: "#59CE8F" }}>Quick</span>
               </Typography>
-              <Typography variant="h6" sx={{ marginTop: "2px" }}>
+              <Typography variant="h6" sx={{ marginTop: "2px", fontFamily:"Poppins", fontWeight:"bold" }}>
                 Scooter/Scooty/Bike on Rent in Delhi
               </Typography>
               <TextField
@@ -131,6 +131,8 @@ export default function Home() {
                     id="modal-modal-title"
                     variant="h6"
                     component="h2"
+                    fontFamily={"Poppins"}
+                    fontWeight={"bold"}
                   >
                     Choose your preferred city
                   </Typography>
@@ -162,7 +164,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Bangalore
                       </Typography>
                     </Grid>
@@ -181,7 +183,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Chandigarh
                       </Typography>
                     </Grid>
@@ -200,7 +202,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Chennai
                       </Typography>
                     </Grid>
@@ -219,7 +221,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Dehradun
                       </Typography>
                     </Grid>
@@ -238,7 +240,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Delhi
                       </Typography>
                     </Grid>
@@ -257,7 +259,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Ghaziabad
                       </Typography>
                     </Grid>
@@ -276,7 +278,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Goa
                       </Typography>
                     </Grid>
@@ -295,7 +297,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Hyderabad
                       </Typography>
                     </Grid>
@@ -314,7 +316,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Kolkata
                       </Typography>
                     </Grid>
@@ -333,7 +335,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Manali
                       </Typography>
                     </Grid>
@@ -352,7 +354,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Mumbai
                       </Typography>
                     </Grid>
@@ -371,7 +373,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Pune
                       </Typography>
                     </Grid>
@@ -390,7 +392,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Gurgaon
                       </Typography>
                     </Grid>
@@ -409,7 +411,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Guwahati
                       </Typography>
                     </Grid>
@@ -428,7 +430,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Jaipur
                       </Typography>
                     </Grid>
@@ -447,7 +449,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Leh
                       </Typography>
                     </Grid>
@@ -466,7 +468,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Noida
                       </Typography>
                     </Grid>
@@ -485,7 +487,7 @@ export default function Home() {
                           setOpen(false);
                         }}
                       />
-                      <Typography variant="h6" align="center">
+                      <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                         Udaipur
                       </Typography>
                     </Grid>
@@ -522,17 +524,19 @@ export default function Home() {
                   ),
                 }}
               /> */}
-              <Typography variant="p" sx={{ marginTop: "2%" }}>
+              <Typography variant="p" sx={{ marginTop: "2%", fontFamily:"Poppins", fontWeight:"bold" }}>
                 Duration: 1 Day
               </Typography>
               <Button
                 variant="contained"
                 sx={{
+                  fontFamily:"Poppins",
+                  fontWeight:"bold",
                   marginTop: "2%",
                   width: "25%",
                   backgroundColor: "#59CE8F",
                   ":hover": {
-                    backgroundColor: "#59CE8F",
+                    backgroundColor: "#3C8C62",
                   },
                 }}
                 component={Link}

@@ -73,7 +73,7 @@ export default function StartEarning() {
           </DialogActions>
 
           <DialogContent sx={{}}>
-            <Typography variant="h5" sx={{ pb: 3 }}>
+            <Typography variant="h5" sx={{ pb: 3, fontFamily:"Poppins" }}>
               List Your Vehicle
             </Typography>
             <Box
@@ -146,6 +146,8 @@ export default function StartEarning() {
                 textAlign: "center",
                 m: "auto",
                 py: 1.4,
+
+                fontFamily:"Poppins",
               }}
             >
               {" "}

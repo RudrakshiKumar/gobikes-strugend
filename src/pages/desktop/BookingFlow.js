@@ -139,7 +139,7 @@ export default function BookingFlow(props) {
               aria-describedby="modal-modal-description"
             >
               <Box sx={styles}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
+                <Typography id="modal-modal-title" variant="h6" component="h2" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                   Choose your preferred city
                 </Typography>
                 <IconButton
@@ -170,7 +170,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Bangalore
                     </Typography>
                   </Grid>
@@ -189,7 +189,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Chandigarh
                     </Typography>
                   </Grid>
@@ -208,7 +208,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Chennai
                     </Typography>
                   </Grid>
@@ -227,7 +227,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Dehradun
                     </Typography>
                   </Grid>
@@ -246,7 +246,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Delhi
                     </Typography>
                   </Grid>
@@ -265,7 +265,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Ghaziabad
                     </Typography>
                   </Grid>
@@ -284,7 +284,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Goa
                     </Typography>
                   </Grid>
@@ -303,7 +303,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Hyderabad
                     </Typography>
                   </Grid>
@@ -322,7 +322,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Kolkata
                     </Typography>
                   </Grid>
@@ -341,7 +341,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Manali
                     </Typography>
                   </Grid>
@@ -360,7 +360,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Mumbai
                     </Typography>
                   </Grid>
@@ -379,7 +379,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Pune
                     </Typography>
                   </Grid>
@@ -398,7 +398,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Gurgaon
                     </Typography>
                   </Grid>
@@ -417,7 +417,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Guwahati
                     </Typography>
                   </Grid>
@@ -436,7 +436,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Jaipur
                     </Typography>
                   </Grid>
@@ -455,7 +455,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Leh
                     </Typography>
                   </Grid>
@@ -474,7 +474,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Noida
                     </Typography>
                   </Grid>
@@ -493,7 +493,7 @@ export default function BookingFlow(props) {
                         setLocation(false);
                       }}
                     />
-                    <Typography variant="h6" align="center">
+                    <Typography variant="h6" align="center" sx={{fontFamily:"Poppins", fontWeight:"bold"}}>
                       Udaipur
                     </Typography>
                   </Grid>
@@ -505,12 +505,14 @@ export default function BookingFlow(props) {
                 variant="contained"
                 size="medium"
                 sx={{
-                  backgroundColor: "#4cbb17",
+                  fontFamily:"Poppins",
+                  fontWeight:"bold",
+                  backgroundColor: "#59CE8F",
                   padding: "10px",
                   marginTop: "5px",
                   marginRight: "12px",
                   ":hover": {
-                    backgroundColor: "#4cbb17",
+                    backgroundColor: "#3C8C62",
                   },
                 }}
                 onClick={handleOpen}
@@ -531,9 +533,9 @@ export default function BookingFlow(props) {
                 padding: "10px",
               }}
             >
-              <Typography variant="h5">FILTER</Typography>
+              <Typography variant="h5" fontFamily={"Poppins"}>FILTER</Typography>
               <div style={{ padding: "7px", marginTop: "8px" }}>
-                <Typography variant="p" sx={{ fontWeight: "medium" }}>
+                <Typography variant="p" sx={{ fontWeight: "medium", fontFamily:"Poppins" }}>
                   BOOKING DURATION
                 </Typography>
                 <RadioGroup
@@ -542,6 +544,7 @@ export default function BookingFlow(props) {
                   name="radio-buttons-group"
                 >
                   <FormControlLabel
+                    fontFamily={"Poppins"}
                     value="daily package"
                     control={<Radio color="success" />}
                     label="Daily Package"
@@ -581,12 +584,13 @@ export default function BookingFlow(props) {
               </div>
               <hr />
               <div style={{ padding: "7px", marginTop: "8px" }}>
-                <Typography variant="p" sx={{ fontWeight: "medium" }}>
+                <Typography variant="p" sx={{ fontWeight: "medium", fontFamily:"Poppins" }}>
                   TRANSMISSION TYPE
                 </Typography>
                 <div>
                   <Checkbox
                     {...label}
+                    fontFamily={"Poppins"}
                     color="success"
                     size="small"
                     inputProps={{ "aria-label": "controlled" }}
@@ -600,6 +604,7 @@ export default function BookingFlow(props) {
                 <div>
                   <Checkbox
                     {...label}
+                    fontFamily={"Poppins"}
                     color="success"
                     size="small"
                     inputProps={{ "aria-label": "controlled" }}
@@ -613,12 +618,13 @@ export default function BookingFlow(props) {
               </div>
               <hr />
               <div style={{ padding: "7px", marginTop: "8px" }}>
-                <Typography variant="p" sx={{ fontWeight: "medium" }}>
+                <Typography variant="p" sx={{ fontFamily:"Poppins", fontWeight: "medium" }}>
                   GO HUBS
                 </Typography>
                 <div>
                   <Checkbox
                     {...label}
+                    fontFamily={"Poppins"}
                     color="success"
                     size="small"
                     inputProps={{ "aria-label": "controlled" }}
@@ -632,6 +638,7 @@ export default function BookingFlow(props) {
                 <div>
                   <Checkbox
                     {...label}
+                    fontFamily={"Poppins"}
                     color="success"
                     size="small"
                     inputProps={{ "aria-label": "controlled" }}
@@ -645,12 +652,13 @@ export default function BookingFlow(props) {
               </div>
               <hr />
               <div style={{ padding: "7px", marginTop: "8px" }}>
-                <Typography variant="p" sx={{ fontWeight: "medium" }}>
+                <Typography variant="p" sx={{ fontFamily:"Poppins", fontWeight: "medium" }}>
                   Brands
                 </Typography>
                 <div>
                   <Checkbox
                     {...label}
+                    fontFamily={"Poppins"}
                     color="success"
                     size="small"
                     inputProps={{ "aria-label": "controlled" }}
@@ -664,6 +672,7 @@ export default function BookingFlow(props) {
                 <div>
                   <Checkbox
                     {...label}
+                    fontFamily={"Poppins"}
                     color="success"
                     size="small"
                     inputProps={{ "aria-label": "controlled" }}
@@ -690,7 +699,7 @@ export default function BookingFlow(props) {
                     <Typography
                       variant="h6"
                       align="center"
-                      sx={{ fontWeight: "bold" }}
+                      sx={{ fontFamily:"Poppins", fontWeight: "bold" }}
                     >
                       Hero Destini 125
                     </Typography>
@@ -717,20 +726,22 @@ export default function BookingFlow(props) {
                       <Grid item xs={12} sm={6}>
                         <Typography
                           variant="p"
-                          sx={{ color: "#4cbb17", fontSize: "25px" }}
+                          sx={{ color: "#59CE8F", fontSize: "25px", fontFamily:"Poppins" }}
                         >
                           ₹449
                         </Typography>
                         <br />
-                        <Typography variant="p">100 Km limit</Typography>
+                        <Typography variant="p" fontFamily={"Poppins"}>100 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
                           sx={{
-                            backgroundColor: "#4cbb17",
+                            fontFamily:"Poppins",
+                            fontWeight:"bold",
+                            backgroundColor: "#59CE8F",
                             ":hover": {
-                              backgroundColor: "#4cbb17",
+                              backgroundColor: "#3C8C62",
                             },
                           }}
                           component={Link}
@@ -743,10 +754,10 @@ export default function BookingFlow(props) {
                     <hr />
                     <Grid container spacing={2} sx={{ fontSize: "15px" }}>
                       <Grid item xs={12} sm={6}>
-                        <Typography variant="p">Deposit : ₹2000</Typography>
+                        <Typography variant="p" fontFamily={"Poppins"}>Deposit : ₹2000</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Typography variant="p">Make Year : 2020</Typography>
+                        <Typography variant="p" fontFamily={"Poppins"}>Make Year : 2020</Typography>
                       </Grid>
                     </Grid>
                   </CardContent>
@@ -761,7 +772,7 @@ export default function BookingFlow(props) {
                     <Typography
                       variant="h6"
                       align="center"
-                      sx={{ fontWeight: "bold" }}
+                      sx={{ fontFamily:"Poppins", fontWeight: "bold" }}
                     >
                       Honda SP 125
                     </Typography>
@@ -784,20 +795,22 @@ export default function BookingFlow(props) {
                       <Grid item xs={12} sm={6}>
                         <Typography
                           variant="p"
-                          sx={{ color: "#4cbb17", fontSize: "25px" }}
+                          sx={{ color: "#59CE8F", fontSize: "25px", fontFamily:"Poppins" }}
                         >
                           ₹719
                         </Typography>
                         <br />
-                        <Typography variant="p">240 Km limit</Typography>
+                        <Typography variant="p" fontFamily={"Poppins"}>240 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
                           sx={{
-                            backgroundColor: "#4cbb17",
+                            fontFamily:"Poppins",
+                            fontWeight:"bold",
+                            backgroundColor: "#59CE8F",
                             ":hover": {
-                              backgroundColor: "#4cbb17",
+                              backgroundColor: "#3C8C62",
                             },
                           }}
                           component={Link}
@@ -808,12 +821,12 @@ export default function BookingFlow(props) {
                       </Grid>
                     </Grid>
                     <hr />
-                    <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                    <Grid container spacing={2} sx={{ fontSize: "15px", fontFamily:"Poppins" }}>
                       <Grid item xs={12} sm={6}>
-                        <Typography variant="p">Deposit : ₹2000</Typography>
+                        <Typography variant="p" fontFamily={"Poppins"}>Deposit : ₹2000</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Typography variant="p">Make Year : 2020</Typography>
+                        <Typography variant="p" fontFamily={"Poppins"}>Make Year : 2020</Typography>
                       </Grid>
                     </Grid>
                   </CardContent>
@@ -832,7 +845,7 @@ export default function BookingFlow(props) {
                     <Typography
                       variant="h6"
                       align="center"
-                      sx={{ fontWeight: "bold" }}
+                      sx={{ fontWeight: "bold", fontFamily:"Poppins" }}
                     >
                       Hero Destini 125
                     </Typography>
@@ -859,20 +872,22 @@ export default function BookingFlow(props) {
                       <Grid item xs={12} sm={6}>
                         <Typography
                           variant="p"
-                          sx={{ color: "#4cbb17", fontSize: "25px" }}
+                          sx={{ color: "#59CE8F", fontSize: "25px", fontFamily:"Poppins" }}
                         >
                           ₹4049
                         </Typography>
                         <br />
-                        <Typography variant="p">1000 Km limit</Typography>
+                        <Typography variant="p" fontFamily={"Poppins"}>1000 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <Button
                           variant="contained"
                           sx={{
-                            backgroundColor: "#4cbb17",
+                            fontFamily:"Poppins",
+                            fontWeight:"bold",
+                            backgroundColor: "#59CE8F",
                             ":hover": {
-                              backgroundColor: "#4cbb17",
+                              backgroundColor: "#3C8C62",
                             },
                           }}
                           component={Link}
@@ -885,10 +900,10 @@ export default function BookingFlow(props) {
                     <hr />
                     <Grid container spacing={2} sx={{ fontSize: "15px" }}>
                       <Grid item xs={12} sm={6}>
-                        <Typography variant="p">Deposit : ₹2000</Typography>
+                        <Typography variant="p" fontFamily={"Poppins"}>Deposit : ₹2000</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Typography variant="p">Make Year : 2020</Typography>
+                        <Typography variant="p" fontFamily={"Poppins"}>Make Year : 2020</Typography>
                       </Grid>
                     </Grid>
                   </CardContent>
@@ -903,7 +918,7 @@ export default function BookingFlow(props) {
                     <Typography
                       variant="h6"
                       align="center"
-                      sx={{ fontWeight: "bold" }}
+                      sx={{ fontWeight: "bold", fontFamily:"Poppins" }}
                     >
                       Honda SP 125
                     </Typography>

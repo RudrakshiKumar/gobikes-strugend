@@ -37,7 +37,7 @@ const OffersForYou = () => {
     <div>
       <PreLoginNavbar />
       <Box sx={{ marginLeft: "5%", pt: 10 }}>
-        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h4" sx={{ fontFamily:"Poppins", fontWeight: "bold" }}>
           Offers for you
         </Typography>
       </Box>
@@ -63,7 +63,7 @@ const OffersForYou = () => {
               >
                 <Grid container>
                   <Grid item xs={12} sm={10}>
-                    <Typography variant="h5" color="#9c3">
+                    <Typography variant="h5" color="#59CE8F" fontFamily={"Poppins"}>
                       Get 10% as gocoins
                     </Typography>
                   </Grid>
@@ -75,7 +75,7 @@ const OffersForYou = () => {
                     />
                   </Grid>
                 </Grid>
-                <Typography variant="p">
+                <Typography variant="p" fontFamily={"Poppins"}>
                   Receive GoCoins worth 10% of the booking amount which you can
                   redeem in your next booking
                 </Typography>
@@ -97,7 +97,7 @@ const OffersForYou = () => {
                       }}
                     >
                       <Typography
-                        sx={{ p: 1, py: "20%" }}
+                        sx={{ p: 1, py: "20%", fontFamily:"Poppins" }}
                         style={{
                           fontSize: "20px",
                           color: "#59CE8F",
@@ -115,7 +115,7 @@ const OffersForYou = () => {
                           py: 1.8,
                           px: 4,
                           borderRadius: 0,
-                          ":hover": { bgcolor: "#36b671" },
+                          ":hover": { bgcolor: "#3C8C62" },
                           fontSize: 25,
                         }}
                         onClick={() => {
@@ -136,6 +136,8 @@ const OffersForYou = () => {
                               <TaskAltOutlinedIcon sx={{ color: "white" }} />
                             </IconButton>
                             <Typography
+                              fontFamily={"Poppins"}
+                              fontWeight={"bold"}
                               id="modal-modal-title"
                               variant="h6"
                               component="h2"
@@ -145,7 +147,7 @@ const OffersForYou = () => {
                           </div>
                           <Typography
                             id="modal-modal-description"
-                            sx={{ ml: 5 }}
+                            sx={{ ml: 5, fontFamily:"Poppins" }}
                           >
                             Copied Sucessfully!
                           </Typography>
@@ -180,7 +182,7 @@ const OffersForYou = () => {
               >
                 <Grid container>
                   <Grid item xs={12} sm={10}>
-                    <Typography variant="h5" color="#9c3">
+                    <Typography variant="h5" color="#59CE8F">
                       Get Flat Rs. 50 OFF
                     </Typography>
                   </Grid>

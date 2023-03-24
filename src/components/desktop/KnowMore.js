@@ -19,14 +19,14 @@ export default function KnowMore() {
           <IconButton>
             <NotificationsIcon sx={{ fontSize: "30px", color: "black" }} />
           </IconButton>
-          <Typography variant="p" sx={{ fontSize: "20px" }}>
+          <Typography variant="p" sx={{ fontSize: "20px", fontFamily:"Poppins" }}>
             List your vehicle
           </Typography>
-          <Typography variant="h3" sx={{ marginTop: "3%", color: "#9c3" }}>
+          <Typography variant="h3" sx={{ marginTop: "3%", color: "#59CE8F", fontFamily:"Poppins" }}>
             Want to list your unused two-wheeler and earn extra income
           </Typography>
           <br />
-          <Typography variant="p" sx={{ fontSize: "20px" }}>
+          <Typography variant="p" sx={{ fontSize: "20px", fontFamily:"Poppins" }}>
             List your motorcycles and scooters with India's fastest growing
             mobility platform - Just connect to turn them into earning members
             of your family.
@@ -35,6 +35,7 @@ export default function KnowMore() {
 
           <Link to="/ListYourVehicle">
             <Button
+              bgcolor={"#59CE8F"}
               variant="contained"
               color="success"
               sx={{ marginTop: "3%" }}

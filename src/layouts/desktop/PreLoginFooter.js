@@ -31,7 +31,7 @@ const PreLoginFooter = () => {
           }}
         >
           <Button onClick={scrollToTop}>
-            <ArrowUpwardIcon sx={{ color: "#59CE8F" }} />
+            <ArrowUpwardIcon sx={{ color: "#3C8C62" }} />
           </Button>
         </Box>
         <Box
@@ -56,40 +56,40 @@ const PreLoginFooter = () => {
           </Link>
           <Box sx={{}}>
             <Link to="/ContactUs">
-              <Typography sx={{ color: "#000000", mb: 2 }}>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>
                 Contact Us
               </Typography>
             </Link>
             <Link to="/PrivacyPolicy">
-              <Typography sx={{ color: "#000000", mb: 2 }}>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>
                 Privacy Policy
               </Typography>
             </Link>
             <Link to="/TermsCondition">
-              <Typography sx={{ color: "#000000" }}>
+              <Typography sx={{ color: "#000000", fontFamily:"Poppins", fontWeight:"bold" }}>
                 Terms and Conditions
               </Typography>
             </Link>
           </Box>
           <Box sx={{}}>
             <Link to="/OffersForYou">
-              <Typography sx={{ color: "#000000", mb: 2 }}>Offers</Typography>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>Offers</Typography>
             </Link>
             <Link to="/ListYourVehicle">
-              <Typography sx={{ color: "#000000", mb: 2 }}>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>
                 List Your Vehicle
               </Typography>
             </Link>
             <Link to="/FAQs">
-              <Typography sx={{ color: "#000000" }}>FAQs</Typography>
+              <Typography sx={{ color: "#000000", fontFamily:"Poppins", fontWeight:"bold" }}>FAQs</Typography>
             </Link>
           </Box>
           <Box sx={{}}>
             <Link to="/AboutUs">
-              <Typography sx={{ color: "#000000", mb: 2 }}>About Us</Typography>
+              <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>About Us</Typography>
             </Link>
-            <button
-              // sx={{ color: "#000000" }}
+            <button 
+              sx={{ color: "#000000", fontFamily:"Poppins" }}
               onClick={() => (window.location = "mailto:service@strugend.com")}
             >
               {" "}
@@ -97,7 +97,7 @@ const PreLoginFooter = () => {
             </button>{" "}
             <Box sx={{ color: "#000000", mt: 2 }}>
               <a className="text-pink-900" href="tel:+917328834913">
-                <Typography sx={{ color: "#000000", mb: 2 }}>
+                <Typography sx={{ color: "#000000", mb: 2, fontFamily:"Poppins", fontWeight:"bold" }}>
                   +91 7328834913
                 </Typography>
               </a>
@@ -116,45 +116,45 @@ const PreLoginFooter = () => {
           }}
         >
           <Box sx={{}}>
-            <Typography>Bike on rent in Agra</Typography>
-            <Typography>Bike on rent in Ahmedabad</Typography>
-            <Typography>Bike on rent in Bangalore</Typography>
-            <Typography>Bike on rent in Chandigarh</Typography>
-            <Typography>Bike on rent in Chennai</Typography>
-            <Typography>Monthly Bike Rental</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Agra</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Ahmedabad</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Bangalore</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Chandigarh</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Chennai</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Monthly Bike Rental</Typography>
           </Box>
           <Box sx={{}}>
-            <Typography>Bike on rent in Dehradun</Typography>
-            <Typography>Bike on rent in Delhi</Typography>
-            <Typography>Bike on rent in Ghaziabad</Typography>
-            <Typography>Bike on rent in Gos</Typography>
-            <Typography>Bike on rent in Gurgaon</Typography>
-            <Typography>Scooter Rental</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Dehradun</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Delhi</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Ghaziabad</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Gos</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Gurgaon</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Scooter Rental</Typography>
           </Box>
           <Box sx={{}}>
-            <Typography>Bike on rent in Guwahati</Typography>
-            <Typography>Bike on rent in Hyderabad</Typography>
-            <Typography>Bike on rent in Jaipur</Typography>
-            <Typography>Bike on rent in Kolkata</Typography>
-            <Typography>Bike on rent in Leh</Typography>
-            <Typography>Two Wheeler for Rent</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Guwahati</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Hyderabad</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Jaipur</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Kolkata</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Leh</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Two Wheeler for Rent</Typography>
           </Box>
           <Box sx={{}}>
-            <Typography>Bike on rent in Manali</Typography>
-            <Typography>Bike on rent in Mumbai</Typography>
-            <Typography>Bike on rent in Noida</Typography>
-            <Typography>Bike on rent in Pune</Typography>
-            <Typography>Bike on rent in Udaipur</Typography>
-            <Typography>Bike on rent in Vizag</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Manali</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Mumbai</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Noida</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Pune</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Udaipur</Typography>
+            <Typography sx={{fontFamily:"Poppins"}}>Bike on rent in Vizag</Typography>
           </Box>
         </Box>
         <Box sx={{ bgcolor: "#d6fbe6" }}>
           <Box sx={{ py: 5, px: 20 }}>
-            <Typography variant="h6">
+            <Typography variant="h6" fontFamily={"Poppins"} fontWeight={"bold"}>
               India: Popular For Iconic Monuments
             </Typography>{" "}
             <br />
-            <Typography>
+            <Typography fontFamily={"Poppins"}>
               The abundance of historic buildings in the country proves India's
               rich legacy. In terms of the number of World Heritage Sites, India
               is placed in the top 10 nations of the world. India has more than
@@ -168,9 +168,9 @@ const PreLoginFooter = () => {
             </Typography>
           </Box>
           <Box sx={{ py: 5, px: 20 }}>
-            <Typography variant="h6">Places to visit in India</Typography>{" "}
+            <Typography variant="h6" fontFamily={"Poppins"} fontWeight={"bold"}>Places to visit in India</Typography>{" "}
             <br />
-            <Typography>
+            <Typography fontFamily={"Poppins"}>
               The Taj Mahal is one of the most stunning and well-known
               structures in India. This monument in Agra is one of the Seven
               Wonders of the World. A Mughal emperor by the name of Shahjahan
@@ -203,8 +203,8 @@ const PreLoginFooter = () => {
             </Typography>
           </Box>
           <Box sx={{ py: 5, px: 20 }}>
-            <Typography variant="h6">Places to eat in India</Typography> <br />
-            <Typography>
+            <Typography variant="h6" fontFamily={"Poppins"} fontWeight={"bold"}>Places to eat in India</Typography> <br />
+            <Typography fontFamily={"Poppins"}>
               There are several famous restaurants in India where you can get
               everything on a platter with a big smile. Bombay center is one
               such restaurant. So, type on Google bike rental near me while
@@ -216,7 +216,7 @@ const PreLoginFooter = () => {
             </Typography>
           </Box>
           <Box sx={{ py: 5, px: 20 }}>
-            <Typography>
+            <Typography fontFamily={"Poppins"}>
               Wrapping Up India is an absolutely stunning country for travelers.
               You can read this guide anytime if you have difficulty deciding on
               the perfect destination. Also, check the restaurant we've
@@ -239,7 +239,7 @@ const PreLoginFooter = () => {
             bgcolor: "#ffffff",
           }}
         >
-          <Typography sx={{ pl: 10 }}>
+          <Typography sx={{ pl: 10, fontFamily:"Poppins", fontWeight:"bold" }}>
             {" "}
             © STRUGEND. All rights reserved.
           </Typography>
