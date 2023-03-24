@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -81,7 +81,7 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-const PostLoginNavbar = () => {
+const PostLoginNavbar = ({userDetails}) => {
   //Modal
   // const [open, setOpen] = React.useState(false);
   // const handleOpen = () => setOpen(true);
@@ -91,6 +91,8 @@ const PostLoginNavbar = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
+
+
   //Dropdown Menu
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -99,14 +101,16 @@ const PostLoginNavbar = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+    localStorage.clear();
   };
 
   return (
-    <div>
+    <>
       <Box>
-        {isMatch ? (
+        
+        {isMatch ? 
           <MobilePreLoginNavbar />
-        ) : (
+         : (
           <AppBar
             position="sticky"
             sx={{
@@ -168,7 +172,7 @@ const PostLoginNavbar = () => {
                     <AccountCircleIcon
                       sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40 }}
                     />
-                    Profile
+                   {userDetails.name}
                   </Button>
 
                   <StyledMenu
@@ -217,9 +221,10 @@ const PostLoginNavbar = () => {
               </Box>
             </Toolbar>
           </AppBar>
-        )}
+        )
+      }
       </Box>
-    </div>
+    </>
   );
 };
 

@@ -19,10 +19,9 @@ import { MuiTelInput } from "mui-tel-input";
 // import IconButton from "@mui/material/IconButton";
 // import CloseIcon from "@mui/icons-material/Close";
 import MobileLogin from "../../pages/mobile/MobileLogin";
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { auth, provider } from '../../Utlity/FirebaseConfig'
 import { signInWithPopup } from "firebase/auth";
-import googleLogo from "../../assets/images/googleLogo.png";
 // import { GoogleLogin } from "@react-oauth/google";
 // import { useNavigate } from "react-router-dom";
 
@@ -60,11 +59,29 @@ const LoginModal = () => {
   //   navigate("/");
   // };
 
+  const theme = useTheme();
+  
+  const nevigate = useNavigate()
   const [phone, setPhone] = React.useState("");
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  const nevigate = useNavigate()
-  const theme = useTheme();
 
+  const handelOTPSignin =()=>{
+console.log('fdgbuhsf'); 
+    // Define the 'otpless' function
+
+
+    window.otpless = (otplessUser) => {
+     // Retrieve the user's details after successful login
+
+     const waName = otplessUser.waName;
+     const waNumber = otplessUser.waNumber;
+         
+     // Handle the signup/signin process
+     // ...
+    }}
+   
+
+  
   const googleSignInHandler = () => {
     signInWithPopup(auth, provider)
       .then(res => {
@@ -75,7 +92,7 @@ const LoginModal = () => {
         }
 
         localStorage.setItem('user', JSON.stringify(credentials));
-        nevigate('/');
+        
       })
       .catch(err => console.log(err))
   };
@@ -189,7 +206,8 @@ const LoginModal = () => {
               defaultCountry="IN"
             />
             <Button
-              disabled
+            onClick={handelOTPSignin}
+              // disabled
               variant="contained"
               sx={{
                 textTransform: "none",

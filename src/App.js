@@ -24,14 +24,16 @@ import MobileListYourVehicle from "./pages/mobile/MobileListYourVehicle";
 import MobileContactUs from "./pages/mobile/MobileContactUs";
 import MobileFAQs from "./pages/mobile/MobileFAQs";
 import MobileBookingFlow from "./pages/mobile/MobileBookingFlow";
-// import { GoogleOAuthProvider } from "@react-oauth/google";
+import Navbar from "./layouts/desktop/DynamicNavbar";
+
 
 function App() {
   return (
     <>
-      {/* <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}> */}
+     
       <Router>
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
+       
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -61,7 +63,6 @@ function App() {
           <Route path="/MobileBookingFlow" element={<MobileBookingFlow />} />
         </Routes>
       </Router>
-      {/* </GoogleOAuthProvider>{" "} */}
     </>
   );
 }
