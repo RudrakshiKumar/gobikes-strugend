@@ -35,10 +35,14 @@ export default function KnowMore() {
 
           <Link to="/ListYourVehicle">
             <Button
-              bgcolor={"#59CE8F"}
               variant="contained"
-              color="success"
-              sx={{ marginTop: "3%" }}
+              sx={{ marginTop: "3%",
+              backgroundColor: "#59CE8F",
+              ":hover": {
+                backgroundColor: "#3C8C62",
+              }, }}
+
+              
             >
               Know More
             </Button>
