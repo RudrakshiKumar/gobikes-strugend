@@ -7,6 +7,7 @@ import {
   Grid,
   IconButton,
   MenuItem,
+  Modal,
   Select,
   Typography,
 } from "@mui/material";
@@ -17,9 +18,25 @@ import AddIcon from "@mui/icons-material/Add";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 800,
+  bgcolor: "background.paper",
+  borderRadius: "10px",
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function RentNow() {
   const [payment, setPayment] = useState("");
   const [disable, setDisable] = useState(true);
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleChange = (event) => {
     setPayment(event.target.value);
@@ -436,9 +453,71 @@ export default function RentNow() {
                   color="success"
                   size="medium"
                   inputProps={{ "aria-label": "controlled" }}
-                  onClick={handleDisable}
+                  onClick={() => {
+                    handleDisable();
+                    handleOpen();
+                  }}
                 />
               </Grid>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                  >
+                    GoHub Terms and Conditions
+                  </Typography>
+                  <div style={{ padding: "3px", paddingLeft: "17px" }}>
+                    <ui>
+                      <li>
+                        Documents Required: Aadhar Card, Driving License and
+                        Student/Employee ID Card.
+                      </li>
+                      <li>
+                        One Goverment address proved has to be submitted at the
+                        time of pickUp which will be returned at the time of
+                        drop. The riders needs to present all the original
+                        documents at the time of pickUp.
+                      </li>
+                      <li>
+                        Fuel Charges are not included in the security deposit or
+                        rent.
+                      </li>
+                      <li>
+                        In the case any damage to the vehicle, the customer is
+                        liable to pay the repair charges plus the labour charges
+                        as per Authorised Service Center.
+                      </li>
+                      <li>
+                        Charges to be borne by the customer: Helmet Lost:
+                        Rs.700, Key Lost: Rs.1000, Full Insurance Declared Value
+                        of the vehicle of the in case of any theft.
+                      </li>
+                    </ui>
+                  </div>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    sx={{
+                      marginLeft: "68%",
+                      marginTop: "2%",
+                      backgroundColor: "#4cbb17",
+                      ":hover": {
+                        backgroundColor: "#4cbb17",
+                      },
+                    }}
+                    onClick={handleClose}
+                  >
+                    Accept & Proceed To Payment
+                  </Button>
+                </Box>
+              </Modal>
               <Grid item sx={{ marginTop: "7px" }}>
                 <Typography
                   variant="p"
