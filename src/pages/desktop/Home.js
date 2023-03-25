@@ -35,9 +35,9 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { Link } from "react-router-dom";
 import PreLoginFooter from "../../layouts/desktop/PreLoginFooter";
 import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
+import { useNavigate } from "react-router-dom";
 // import BookOnlineIcon from "@mui/icons-material/BookOnline";
 
 const style = {
@@ -62,6 +62,17 @@ export default function Home() {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/BookingFlow", { state: startDate });
+  };
+
+  const [change, setChange] = useState(false);
+  const handleChange = () => {
+    setChange(!change);
+    console.log(!change);
+  };
 
   return (
     <>
@@ -499,6 +510,7 @@ export default function Home() {
                   onChange={(newValue) => setStartDate(newValue)}
                   sx={{ marginTop: "2%" }}
                   fullWidth
+                  onClick={handleChange}
                 />
               </LocalizationProvider>
 
@@ -508,6 +520,7 @@ export default function Home() {
                   onChange={(newValue) => setEndDate(newValue)}
                   sx={{ marginTop: "2%" }}
                   fullWidth
+                  disabled={change}
                 />
               </LocalizationProvider>
               {/* <TextField
@@ -535,8 +548,7 @@ export default function Home() {
                     backgroundColor: "#59CE8F",
                   },
                 }}
-                component={Link}
-                to="/bookingFlow"
+                onClick={handleNavigate}
               >
                 Search
               </Button>
