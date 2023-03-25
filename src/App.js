@@ -20,6 +20,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import MyRides from "./components/desktop/MyRides";
 import Trial from "./components/desktop/Process";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import RentNowSummary from "./components/desktop/RentNowSummary";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="/OTP" element={<OTP />} />
             <Route path="/PersonalDetails" element={<PersonalDetails />} />
             <Route path="/Trial" element={<Trial />} />
+            <Route path="/RentNowSummary" element={<RentNowSummary />} />
           </Routes>
         </Router>
       </GoogleOAuthProvider>{" "}

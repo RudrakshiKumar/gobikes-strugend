@@ -50,6 +50,7 @@ import PostLoginNavbar from "../../layouts/desktop/PostLoginNavbar";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -127,6 +128,11 @@ export default function BookNowPage() {
   const [change, setChange] = useState(true);
   const handleChange = () => {
     setChange(!change);
+  };
+
+  const navigate = useNavigate();
+  const handleRentNowSummary = () => {
+    navigate("/RentNowSummary");
   };
 
   return (
@@ -1184,7 +1190,7 @@ export default function BookNowPage() {
               </Grid>
               <Grid item sx={{ marginLeft: "25px" }}>
                 <Button
-                  onClick={handlePayNowOpen}
+                  onClick={handleRentNowSummary}
                   variant="contained"
                   color="success"
                   size="medium"
