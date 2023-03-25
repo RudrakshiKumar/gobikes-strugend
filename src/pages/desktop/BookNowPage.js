@@ -132,7 +132,7 @@ export default function BookNowPage() {
 
   const navigate = useNavigate();
   const handleRentNowSummary = () => {
-    navigate("/RentNowSummary");
+    navigate("/RentNow");
   };
 
   return (
