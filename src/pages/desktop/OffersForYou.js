@@ -15,6 +15,8 @@ import bike3 from "../../assets/images/bike3.webp";
 import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 
 const style = {
   position: "absolute",
@@ -35,7 +37,7 @@ const OffersForYou = () => {
   const handleClose = () => setOpen(false);
   return (
     <div>
-      <PreLoginNavbar />
+      <DynamicNavbar/>
       <Box sx={{ marginLeft: "5%", pt: 10 }}>
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
           Offers for you
@@ -403,7 +405,7 @@ const OffersForYou = () => {
           <div style={{ marginTop: "25%" }}></div>
         </Box>
       </Box>
-      <PostLoginFooter />
+      <DynamicFooter />
     </div>
   );
 };

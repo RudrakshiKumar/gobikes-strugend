@@ -2,11 +2,13 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 
 const PrivacyPolicy = () => {
   return (
     <>
-      <PreLoginNavbar />
+      <DynamicNavbar />
       <Box sx={{ px: "50px", mt: 5 }}>
         <Typography variant="h3" sx={{ px: "5px", mb: 3 }}>
           Privacy Policy
@@ -369,7 +371,7 @@ const PrivacyPolicy = () => {
         </Box>
       </Box>
       <div style={{ marginTop: "10%" }}></div>
-      <PostLoginFooter />
+      <DynamicFooter />
     </>
   );
 };

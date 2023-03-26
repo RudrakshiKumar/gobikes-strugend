@@ -3,15 +3,15 @@ import { Typography } from "@mui/material";
 
 import { NavHashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
-import Navbar from "../../layouts/desktop/PreLoginNavbar";
-import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 
 const TermsCondition = () => {
   const { hash } = useLocation();
   const isActive = (iHash) => hash === iHash;
   return (
     <>
-      <Navbar />
+      <DynamicNavbar />
 
       <div className="tc_container1 mb-80">
         <div className="tc_container2">
@@ -1593,7 +1593,7 @@ const TermsCondition = () => {
           </div>
         </div>
       </div>
-      <PostLoginFooter />
+      <DynamicFooter />
     </>
   );
 };

@@ -4,15 +4,16 @@ import PreLoginNavbar from './PreLoginNavbar'
 import { useLocation } from 'react-router-dom'
 
 const DynamicNavbar = () => {
-    const Location=useLocation()
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
- useEffect(() => {
-    const token=user?.accessToken
-if(token){
-    setUser(JSON.parse(localStorage.getItem('user')))
-}
-    
-  }, [Location])
+    const Location = useLocation()
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+    console.log(user);
+    // useEffect(() => {
+    //     const token = user?.accessToken
+    //     if (token) {
+    //         setUser(JSON.parse(localStorage.getItem('user')))
+    //     }
+
+    // }, [Location])
 
     return (
         <>

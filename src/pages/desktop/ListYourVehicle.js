@@ -25,6 +25,9 @@ import StartEarning from "../../components/desktop/StartEarning";
 import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
+
 const styles = {
   paperContainer: {
     backgroundImage: `url(${ridesharing})`,
@@ -148,7 +151,7 @@ const ListYourVehicle = () => {
         <MobileListYourVehicle />
       ) : (
         <Box>
-          <PreLoginNavbar />
+        <DynamicNavbar />
 
           <Box display={"inline-flex"} sx={{ p: 10 }}>
             <Box>
@@ -314,8 +317,8 @@ const ListYourVehicle = () => {
           </Box>
         </Box>
       )}
-      {/* <GoToTop /> */}
-      <PostLoginFooter />
+     
+      <DynamicFooter />
     </div>
   );
 };

@@ -1,11 +1,28 @@
 import { Typography, TextField, Button } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/logo.png";
 import star from "../../assets/images/star.png";
 import loginPopup from "../../assets/images/loginPopup.webp";
 
 const PersonalDetails = () => {
+
+  const [formData, setFormData] = useState({ firstName: '',lastName: '', email: '', mobile: '' })
+
+  const [showSubmit, setShowSubmit] =useState(true)
+
+
+ useEffect(() => {
+    
+    if (formData.firstName.length > 1 && formData.email.length > 6 && formData.mobile.length > 9 && formData.lastName.length > 1) {
+      setShowSubmit(false)
+    }
+    else if (formData.firstName.length <= 1 ||formData.email.length <= 6 || formData.mobile.length <= 9 || formData.lastName.length <= 1) {
+      setShowSubmit(true)
+    }
+  }, [formData])
+
+
   return (
     <div className="text-center">
       <Box>
@@ -74,59 +91,41 @@ const PersonalDetails = () => {
             </Typography>
           </Box>
           <Box sx={{ pl: 4, textAlign: "left" }}>
+
+
+            {/* personal Details div starts here  */}
             <Typography variant="h5" sx={{ pt: 1.5, pb: 1, pl: 1 }}>
               Personal Details
             </Typography>
-            <Box
-              component="form"
+            {/* personal Details forn starts here  */}
+            <Box component="form" noValidate autoComplete="off"
               sx={{
                 "& > :not(style)": { m: 1, width: "50ch" },
                 mb: 2,
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="outlined-basic"
-                label="First Name*"
-                variant="outlined"
-              />{" "}
+              }} >
+
+              <TextField id="outlined-basic" name='firstName' value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} required type='text' label="First Name" variant="outlined" />
               <br />
-              <TextField
-                id="outlined-basic"
-                label="Last Name*"
-                variant="outlined"
-              />{" "}
+
+              <TextField id="outlined-basic" name='lastName' value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} required type='text' label="Last Name" variant="outlined" />
               <br />
-              <TextField
-                id="outlined-basic"
-                label="Email*"
-                variant="outlined"
-              />{" "}
+
+              <TextField id="outlined-basic" name='email' value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required type='email' label="Email" variant="outlined" />
               <br />
-              <TextField
-                id="outlined-basic"
-                label="Mobile Number*"
-                variant="outlined"
+
+              <TextField id="outlined-basic" name='mobile' value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required type='number' label="Mobile Number" variant="outlined"
               />
+              <Button variant="outlined"
+               disabled={showSubmit}
+                sx={{
+                  display: "flex", justifyContent: "center", p: 2, fontWeight:'bold', width: "97%",
+                  color: "#ffffff", bgcolor: "#59CE8F", textAlign: "center", m: "auto",
+                }}>
+
+                Submit
+              </Button>
             </Box>
 
-            <Button
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-
-                p: 2,
-                width: "97%",
-                color: "#ffffff",
-                bgcolor: "#59CE8F",
-                textAlign: "center",
-                m: "auto",
-              }}
-            >
-              {" "}
-              Submit{" "}
-            </Button>
           </Box>
         </Box>
       </Box>

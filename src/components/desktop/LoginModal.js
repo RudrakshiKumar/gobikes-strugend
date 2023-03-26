@@ -60,28 +60,28 @@ const LoginModal = () => {
   // };
 
   const theme = useTheme();
-  
+
   const nevigate = useNavigate()
   const [phone, setPhone] = React.useState("");
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
-  const handelOTPSignin =()=>{
-console.log('fdgbuhsf'); 
+  const handelOTPSignin = () => {
     // Define the 'otpless' function
 
 
-    window.otpless = (otplessUser) => {
-     // Retrieve the user's details after successful login
+    // window.otpless = (otplessUser) => {
+    //   // Retrieve the user's details after successful login
 
-     const waName = otplessUser.waName;
-     const waNumber = otplessUser.waNumber;
-         
-     // Handle the signup/signin process
-     // ...
-    }}
-   
+    //   const waName = otplessUser.waName;
+    //   const waNumber = otplessUser.waNumber;
 
-  
+    //   // Handle the signup/signin process
+    //   // ...
+    // }
+  }
+
+
+
   const googleSignInHandler = () => {
     signInWithPopup(auth, provider)
       .then(res => {
@@ -92,7 +92,8 @@ console.log('fdgbuhsf');
         }
 
         localStorage.setItem('user', JSON.stringify(credentials));
-        
+        nevigate('/')
+
       })
       .catch(err => console.log(err))
   };
@@ -206,8 +207,8 @@ console.log('fdgbuhsf');
               defaultCountry="IN"
             />
             <Button
-            onClick={handelOTPSignin}
-              // disabled
+              onClick={handelOTPSignin}
+            disabled
               variant="contained"
               sx={{
                 textTransform: "none",

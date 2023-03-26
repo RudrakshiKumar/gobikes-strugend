@@ -24,7 +24,8 @@ import MobileListYourVehicle from "./pages/mobile/MobileListYourVehicle";
 import MobileContactUs from "./pages/mobile/MobileContactUs";
 import MobileFAQs from "./pages/mobile/MobileFAQs";
 import MobileBookingFlow from "./pages/mobile/MobileBookingFlow";
-import Navbar from "./layouts/desktop/DynamicNavbar";
+
+
 
 
 function App() {
@@ -32,8 +33,7 @@ function App() {
     <>
      
       <Router>
-        {/* <ScrollToTop /> */}
-       
+        <ScrollToTop />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -54,10 +54,7 @@ function App() {
 
           {/* For Mobile View */}
           <Route path="/MobileLogin" element={<MobileLogin />} />
-          <Route
-            path="/MobileListYourVehicle"
-            element={<MobileListYourVehicle />}
-          />
+          <Route path="/MobileListYourVehicle" element={<MobileListYourVehicle />} />
           <Route path="/MobileContactUs" element={<MobileContactUs />} />
           <Route path="/MobileFAQs" element={<MobileFAQs />} />
           <Route path="/MobileBookingFlow" element={<MobileBookingFlow />} />

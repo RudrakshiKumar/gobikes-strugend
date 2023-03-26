@@ -50,6 +50,8 @@ import PostLoginNavbar from "../../layouts/desktop/PostLoginNavbar";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 
 const style = {
   position: "absolute",
@@ -131,7 +133,7 @@ export default function BookNowPage() {
 
   return (
     <>
-      <PostLoginNavbar />
+      <DynamicNavbar />
       <AppBar
         position="sticky"
         sx={{ backgroundColor: "white", padding: "20px" }}
@@ -1200,7 +1202,7 @@ export default function BookNowPage() {
         </Container>
       </Paper>
       <div style={{ marginTop: "10%" }}></div>
-      <PostLoginFooter />
+      <DynamicFooter />
     </>
   );
 }
