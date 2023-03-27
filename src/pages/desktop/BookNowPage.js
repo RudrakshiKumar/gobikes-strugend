@@ -49,10 +49,17 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import PostLoginNavbar from "../../layouts/desktop/PostLoginNavbar";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 import Map from "react-map-gl";
+
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileBookNowPage from "../../pages/mobile/MobileBookNowPage";
+
+/* eslint-disable import/no-webpack-loader-syntax */
+import mapboxgl from "mapbox-gl";
+// @ts-ignore
+mapboxgl.workerClass =
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 const style = {
   position: "absolute",
