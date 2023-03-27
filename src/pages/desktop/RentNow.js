@@ -31,20 +31,28 @@ const style = {
 };
 
 export default function RentNow() {
-  const [payment, setPayment] = useState("");
-  const [disable, setDisable] = useState(true);
-
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [payment, setPayment] = useState("");
   const handleChange = (event) => {
     setPayment(event.target.value);
   };
 
+  const [coupons, setCoupons] = useState("");
+  const handleCoupons = (event) => {
+    setCoupons(event.target.value);
+  };
+
+  const [disable, setDisable] = useState(true);
   const handleDisable = () => {
     setDisable(!disable);
   };
+
+  const [firstMenu, setFirstMenu] = useState("");
+  const [secondMenu, setSecondMenu] = useState("");
+  const [thirdMenu, setThirdMenu] = useState("");
 
   return (
     <>
@@ -246,18 +254,18 @@ export default function RentNow() {
             <Box>
               <FormControl sx={{ minWidth: 470 }}>
                 <Select
-                  value={payment}
+                  value={coupons}
                   size="small"
-                  onChange={handleChange}
+                  onChange={handleCoupons}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
                   <MenuItem value="">
                     <em>Apply Coupons</em>
                   </MenuItem>
-                  <MenuItem value={10}>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={2}>
+                  <MenuItem value={10} onClick={() => setFirstMenu("remove")}>
+                    {firstMenu === "" && (
+                      <div style={{ display: "flex" }}>
                         <Button
                           variant="contained"
                           size="small"
@@ -271,18 +279,18 @@ export default function RentNow() {
                         >
                           GOCOINS
                         </Button>
-                      </Grid>
-                      <Grid item xs={12} sm={8}>
                         <Typography
                           variant="p"
-                          sx={{ fontSize: "14px", color: "#4cbb17" }}
+                          sx={{
+                            fontSize: "14px",
+                            color: "#4cbb17",
+                            marginLeft: "5px",
+                          }}
                         >
                           Receive GoCoins worth 10% of the booking amount
                           <br />
                           which you can redeem in your next booking.
                         </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
                         <Button
                           variant="text"
                           size="small"
@@ -290,12 +298,10 @@ export default function RentNow() {
                         >
                           APPLY
                         </Button>
-                      </Grid>
-                    </Grid>
-                  </MenuItem>
-                  <MenuItem value={20}>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={2}>
+                      </div>
+                    )}
+                    {firstMenu === "remove" && (
+                      <div style={{ display: "flex" }}>
                         <Button
                           variant="contained"
                           size="small"
@@ -309,16 +315,54 @@ export default function RentNow() {
                         >
                           GOCOINS
                         </Button>
-                      </Grid>
-                      <Grid item xs={12} sm={8}>
                         <Typography
                           variant="p"
-                          sx={{ fontSize: "14px", color: "#4cbb17" }}
+                          sx={{
+                            fontSize: "14px",
+                            color: "#4cbb17",
+                            marginLeft: "5px",
+                          }}
+                        >
+                          Receive GoCoins worth 10% of the booking amount
+                          <br />
+                          which you can redeem in your next booking.
+                        </Typography>
+                        <Button
+                          variant="text"
+                          size="small"
+                          sx={{ color: "red" }}
+                        >
+                          REMOVE
+                        </Button>
+                      </div>
+                    )}
+                  </MenuItem>
+                  <MenuItem value={20} onClick={() => setSecondMenu("remove")}>
+                    {secondMenu === "" && (
+                      <div style={{ display: "flex" }}>
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{
+                            color: "black",
+                            backgroundColor: "#eeeeee",
+                            ":hover": {
+                              backgroundColor: "#eeeeee",
+                            },
+                          }}
+                        >
+                          GOCOINS
+                        </Button>
+                        <Typography
+                          variant="p"
+                          sx={{
+                            fontSize: "14px",
+                            color: "#4cbb17",
+                            marginLeft: "5px",
+                          }}
                         >
                           Get Flat Rs.50 Off on orders above Rs.1000.
                         </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
                         <Button
                           variant="text"
                           size="small"
@@ -326,12 +370,10 @@ export default function RentNow() {
                         >
                           APPLY
                         </Button>
-                      </Grid>
-                    </Grid>
-                  </MenuItem>
-                  <MenuItem value={30}>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={2}>
+                      </div>
+                    )}
+                    {secondMenu === "remove" && (
+                      <div style={{ display: "flex" }}>
                         <Button
                           variant="contained"
                           size="small"
@@ -345,16 +387,52 @@ export default function RentNow() {
                         >
                           GOCOINS
                         </Button>
-                      </Grid>
-                      <Grid item xs={12} sm={8}>
                         <Typography
                           variant="p"
-                          sx={{ fontSize: "14px", color: "#4cbb17" }}
+                          sx={{
+                            fontSize: "14px",
+                            color: "#4cbb17",
+                            marginLeft: "5px",
+                          }}
+                        >
+                          Get Flat Rs.50 Off on orders above Rs.1000.
+                        </Typography>
+                        <Button
+                          variant="text"
+                          size="small"
+                          sx={{ color: "red" }}
+                        >
+                          REMOVE
+                        </Button>
+                      </div>
+                    )}
+                  </MenuItem>
+                  <MenuItem value={30} onClick={() => setThirdMenu("remove")}>
+                    {thirdMenu === "" && (
+                      <div style={{ display: "flex" }}>
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{
+                            color: "black",
+                            backgroundColor: "#eeeeee",
+                            ":hover": {
+                              backgroundColor: "#eeeeee",
+                            },
+                          }}
+                        >
+                          GOCOINS
+                        </Button>
+                        <Typography
+                          variant="p"
+                          sx={{
+                            fontSize: "14px",
+                            color: "#4cbb17",
+                            marginLeft: "5px",
+                          }}
                         >
                           Get Flat Rs.100 Off on orders above Rs.2000.
                         </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
                         <Button
                           variant="text"
                           size="small"
@@ -362,8 +440,42 @@ export default function RentNow() {
                         >
                           APPLY
                         </Button>
-                      </Grid>
-                    </Grid>
+                      </div>
+                    )}
+                    {thirdMenu === "remove" && (
+                      <div style={{ display: "flex" }}>
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{
+                            color: "black",
+                            backgroundColor: "#eeeeee",
+                            ":hover": {
+                              backgroundColor: "#eeeeee",
+                            },
+                          }}
+                        >
+                          GOCOINS
+                        </Button>
+                        <Typography
+                          variant="p"
+                          sx={{
+                            fontSize: "14px",
+                            color: "#4cbb17",
+                            marginLeft: "5px",
+                          }}
+                        >
+                          Get Flat Rs.100 Off on orders above Rs.2000.
+                        </Typography>
+                        <Button
+                          variant="text"
+                          size="small"
+                          sx={{ color: "red" }}
+                        >
+                          REMOVE
+                        </Button>
+                      </div>
+                    )}
                   </MenuItem>
                 </Select>
               </FormControl>
