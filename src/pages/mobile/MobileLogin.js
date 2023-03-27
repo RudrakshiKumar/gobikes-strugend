@@ -12,20 +12,42 @@ import { MuiTelInput } from "mui-tel-input";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate,Link } from 'react-router-dom'
+import { auth, provider } from '../../Utlity/FirebaseConfig'
+import { signInWithPopup } from "firebase/auth";
+
 
 const MobileLogin = () => {
+  const nevigate = useNavigate()
   const [open, setOpen] = React.useState(false);
   const handleDrawerClose = () => {
     setOpen(false);
     document.getElementById("logo").classList.remove("makeDisappear");
   };
-
   const [phone, setPhone] = React.useState("");
 
   const handleChange = (newPhone) => {
     setPhone(newPhone);
   };
+
+  const googleSignInHandler = () => {
+    signInWithPopup(auth, provider)
+      .then(res => {
+        const credentials = {
+          name: res.user.displayName,
+          email: res.user.email,
+          accessToken: res.user.accessToken
+        }
+
+        localStorage.setItem('user', JSON.stringify(credentials));
+        nevigate('/')
+
+      })
+      .catch(err => console.log(err))
+  };
+
+
+
   return (
     <>
       <MobilePreLoginNavbar />
@@ -139,9 +161,7 @@ const MobileLogin = () => {
         >
           OR
         </Divider>
-        <Button
-          className=""
-          variant="outlined"
+        <Button onClick={googleSignInHandler} className="" variant="outlined"
           sx={{
             textTransform: "none",
             mt: 3,
@@ -150,15 +170,11 @@ const MobileLogin = () => {
             borderColor: "#4CBB17",
           }}
         >
-          <Box
-            component="img"
-            sx={{
+          <Box component="img"  alt="Your logo." src={googleLogo}
+           sx={{
               height: 20,
               pr: 2,
-            }}
-            alt="Your logo."
-            src={googleLogo}
-          />
+            }}/>
           Sign in with Google
         </Button>
       </Box>

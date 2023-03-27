@@ -9,12 +9,14 @@ import Booking from "../../components/desktop/Booking";
 import GoCoins from "../../components/desktop/GoCoins";
 import PostLoginNavbar from "../../layouts/desktop/PostLoginNavbar";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 
 export default function MobileDashboard() {
   const [active, setActive] = useState("profile");
   return (
     <>
-      <PostLoginNavbar />
+      <DynamicNavbar />
 
       <Container sx={{ marginTop: "5%" }}>
         <Grid container spacing={2}>
@@ -109,7 +111,7 @@ export default function MobileDashboard() {
         </Grid>
       </Container>
       <div className="h-40"></div>
-      <PostLoginFooter />
+      <DynamicFooter />
     </>
   );
 }

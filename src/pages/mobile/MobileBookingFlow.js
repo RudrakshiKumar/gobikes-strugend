@@ -43,6 +43,7 @@ import Leh from "../../assets/images/Leh.jpg";
 import Noida from "../../assets/images/Noida.jpg";
 import Udaipur from "../../assets/images/Udaipur.jpg";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -90,7 +91,7 @@ export default function MobileBookingFlow(props) {
 
   return (
     <>
-      <PostLoginNavbar />
+      <DynamicNavbar />
       <AppBar
         position="sticky"
         sx={{ backgroundColor: "white", padding: "20px" }}

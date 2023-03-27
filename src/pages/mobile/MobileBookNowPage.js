@@ -1,7 +1,8 @@
 import React from "react";
+import BookNowPage from "../desktop/BookNowPage";
 
 const MObileBookNowPage = () => {
-  return <div>MObileBookNowPage</div>;
+  return <><BookNowPage /></>
 };
 
 export default MObileBookNowPage;

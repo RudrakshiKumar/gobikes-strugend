@@ -24,6 +24,7 @@ import MobileListYourVehicle from "./pages/mobile/MobileListYourVehicle";
 import MobileContactUs from "./pages/mobile/MobileContactUs";
 import MobileFAQs from "./pages/mobile/MobileFAQs";
 import MobileBookingFlow from "./pages/mobile/MobileBookingFlow";
+import MobileBookNowPage from "./pages/mobile/MobileBookNowPage";
 
 
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="/MobileContactUs" element={<MobileContactUs />} />
           <Route path="/MobileFAQs" element={<MobileFAQs />} />
           <Route path="/MobileBookingFlow" element={<MobileBookingFlow />} />
+          <Route path="/MobileBookNowPage" element={<MobileBookNowPage />} />
         </Routes>
       </Router>
     </>
