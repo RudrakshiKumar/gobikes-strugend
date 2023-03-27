@@ -16,11 +16,14 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import LoginIcon from "@mui/icons-material/Login";
 import BikeScooterIcon from "@mui/icons-material/BikeScooter";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import { Link } from "react-router-dom";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import BookOnlineIcon from "@mui/icons-material/BookOnline";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 // import "../App.css";
 
@@ -71,7 +74,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function MobilePreLoginNavbar() {
+export default function MobilePostLoginNavbar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -150,13 +153,37 @@ export default function MobilePreLoginNavbar() {
         </DrawerHeader>
 
         <List sx={{ ml: 2, mt: 2 }}>
-          <Link to="/MobileLogin">
+          <Link to="/MobileProfile">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <LoginIcon sx={{ color: "#59ce8f" }} />
+                  <AccountBoxIcon sx={{ color: "#59ce8f" }} />
                 </ListItemIcon>
-                <ListItemText primary="LogIn/SignUp" font="poppins" />
+                <ListItemText primary="Profile" font="poppins" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
+          <Divider variant="inset" />
+          <Link to="/MobileBookings">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <BookOnlineIcon sx={{ color: "#59ce8f" }} />
+                </ListItemIcon>
+                <ListItemText primary="Bookings" font="poppins" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
+          <Divider variant="inset" />
+          <Link to="/MobileGoCoins">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <AccountBalanceWalletIcon sx={{ color: "#59ce8f" }} />
+                </ListItemIcon>
+                <ListItemText primary="GoCoins" font="poppins" />
               </ListItemButton>
             </ListItem>
           </Link>
@@ -193,6 +220,18 @@ export default function MobilePreLoginNavbar() {
                   <QuestionAnswerIcon sx={{ color: "#59ce8f" }} />
                 </ListItemIcon>
                 <ListItemText primary="FAQs" font="poppins" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
+          <Divider variant="inset" />
+          <Link to="/">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <LogoutIcon sx={{ color: "#59ce8f" }} />
+                </ListItemIcon>
+                <ListItemText primary="Logout" font="poppins" />
               </ListItemButton>
             </ListItem>
           </Link>

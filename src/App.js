@@ -24,6 +24,10 @@ import MobileListYourVehicle from "./pages/mobile/MobileListYourVehicle";
 import MobileContactUs from "./pages/mobile/MobileContactUs";
 import MobileFAQs from "./pages/mobile/MobileFAQs";
 import MobileBookingFlow from "./pages/mobile/MobileBookingFlow";
+import MobileProfile from "./pages/mobile/MobileProfile";
+import MobileBookings from "./pages/mobile/MobileBookings";
+import MobileGoCoins from "./pages/mobile/MobileGoCoins";
+import RentNow from "./pages/desktop/RentNow";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
@@ -46,6 +50,7 @@ function App() {
           <Route path="/MyRides" element={<MyRides />} />
           <Route path="/BookingFlow" element={<BookingFlow />} />
           <Route path="/BookNowPage" element={<BookNowPage />} />
+          <Route path="/RentNow" element={<RentNow />} />
           <Route path="/OTP" element={<OTP />} />
           <Route path="/PersonalDetails" element={<PersonalDetails />} />
           <Route path="/Trial" element={<Trial />} />
@@ -59,6 +64,9 @@ function App() {
           <Route path="/MobileContactUs" element={<MobileContactUs />} />
           <Route path="/MobileFAQs" element={<MobileFAQs />} />
           <Route path="/MobileBookingFlow" element={<MobileBookingFlow />} />
+          <Route path="/MobileProfile" element={<MobileProfile />} />
+          <Route path="/MobileBookings" element={<MobileBookings />} />
+          <Route path="/MobileGoCoins" element={<MobileGoCoins />} />
         </Routes>
       </Router>
       {/* </GoogleOAuthProvider>{" "} */}
