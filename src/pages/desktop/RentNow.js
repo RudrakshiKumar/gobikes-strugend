@@ -50,9 +50,16 @@ export default function RentNow() {
     setDisable(!disable);
   };
 
-  const [firstMenu, setFirstMenu] = useState("");
-  const [secondMenu, setSecondMenu] = useState("");
-  const [thirdMenu, setThirdMenu] = useState("");
+  const handleApply = () => {
+    var change = document.getElementById("apply");
+    if (change.innerHTML === "APPLY") {
+      change.innerHTML = "REMOVE";
+      change.style.color = "red";
+    } else {
+      change.innerHTML = "APPLY";
+      change.style.color = "#4cbb17";
+    }
+  };
 
   return (
     <>
@@ -263,219 +270,115 @@ export default function RentNow() {
                   <MenuItem value="">
                     <em>Apply Coupons</em>
                   </MenuItem>
-                  <MenuItem value={10} onClick={() => setFirstMenu("remove")}>
-                    {firstMenu === "" && (
-                      <div style={{ display: "flex" }}>
-                        <Button
-                          variant="contained"
-                          size="small"
-                          sx={{
-                            color: "black",
+                  <MenuItem value={10}>
+                    <div style={{ display: "flex" }}>
+                      <Button
+                        variant="contained"
+                        size="small"
+                        sx={{
+                          color: "black",
+                          backgroundColor: "#eeeeee",
+                          ":hover": {
                             backgroundColor: "#eeeeee",
-                            ":hover": {
-                              backgroundColor: "#eeeeee",
-                            },
-                          }}
-                        >
-                          GOCOINS
-                        </Button>
-                        <Typography
-                          variant="p"
-                          sx={{
-                            fontSize: "14px",
-                            color: "#4cbb17",
-                            marginLeft: "5px",
-                          }}
-                        >
-                          Receive GoCoins worth 10% of the booking amount
-                          <br />
-                          which you can redeem in your next booking.
-                        </Typography>
-                        <Button
-                          variant="text"
-                          size="small"
-                          sx={{ color: "#4cbb17" }}
-                        >
-                          APPLY
-                        </Button>
-                      </div>
-                    )}
-                    {firstMenu === "remove" && (
-                      <div style={{ display: "flex" }}>
-                        <Button
-                          variant="contained"
-                          size="small"
-                          sx={{
-                            color: "black",
-                            backgroundColor: "#eeeeee",
-                            ":hover": {
-                              backgroundColor: "#eeeeee",
-                            },
-                          }}
-                        >
-                          GOCOINS
-                        </Button>
-                        <Typography
-                          variant="p"
-                          sx={{
-                            fontSize: "14px",
-                            color: "#4cbb17",
-                            marginLeft: "5px",
-                          }}
-                        >
-                          Receive GoCoins worth 10% of the booking amount
-                          <br />
-                          which you can redeem in your next booking.
-                        </Typography>
-                        <Button
-                          variant="text"
-                          size="small"
-                          sx={{ color: "red" }}
-                        >
-                          REMOVE
-                        </Button>
-                      </div>
-                    )}
+                          },
+                        }}
+                      >
+                        GOCOINS
+                      </Button>
+                      <Typography
+                        variant="p"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#4cbb17",
+                          marginLeft: "5px",
+                        }}
+                      >
+                        Receive GoCoins worth 10% of the booking amount
+                        <br />
+                        which you can redeem in your next booking.
+                      </Typography>
+                      <Button
+                        id="apply"
+                        variant="text"
+                        size="small"
+                        sx={{ color: "#4cbb17" }}
+                        onClick={handleApply}
+                      >
+                        APPLY
+                      </Button>
+                    </div>
                   </MenuItem>
-                  <MenuItem value={20} onClick={() => setSecondMenu("remove")}>
-                    {secondMenu === "" && (
-                      <div style={{ display: "flex" }}>
-                        <Button
-                          variant="contained"
-                          size="small"
-                          sx={{
-                            color: "black",
+                  <MenuItem value={20}>
+                    <div style={{ display: "flex" }}>
+                      <Button
+                        variant="contained"
+                        size="small"
+                        sx={{
+                          color: "black",
+                          backgroundColor: "#eeeeee",
+                          ":hover": {
                             backgroundColor: "#eeeeee",
-                            ":hover": {
-                              backgroundColor: "#eeeeee",
-                            },
-                          }}
-                        >
-                          GOCOINS
-                        </Button>
-                        <Typography
-                          variant="p"
-                          sx={{
-                            fontSize: "14px",
-                            color: "#4cbb17",
-                            marginLeft: "5px",
-                          }}
-                        >
-                          Get Flat Rs.50 Off on orders above Rs.1000.
-                        </Typography>
-                        <Button
-                          variant="text"
-                          size="small"
-                          sx={{ color: "#4cbb17" }}
-                        >
-                          APPLY
-                        </Button>
-                      </div>
-                    )}
-                    {secondMenu === "remove" && (
-                      <div style={{ display: "flex" }}>
-                        <Button
-                          variant="contained"
-                          size="small"
-                          sx={{
-                            color: "black",
-                            backgroundColor: "#eeeeee",
-                            ":hover": {
-                              backgroundColor: "#eeeeee",
-                            },
-                          }}
-                        >
-                          GOCOINS
-                        </Button>
-                        <Typography
-                          variant="p"
-                          sx={{
-                            fontSize: "14px",
-                            color: "#4cbb17",
-                            marginLeft: "5px",
-                          }}
-                        >
-                          Get Flat Rs.50 Off on orders above Rs.1000.
-                        </Typography>
-                        <Button
-                          variant="text"
-                          size="small"
-                          sx={{ color: "red" }}
-                        >
-                          REMOVE
-                        </Button>
-                      </div>
-                    )}
+                          },
+                        }}
+                      >
+                        GOCOINS
+                      </Button>
+                      <Typography
+                        variant="p"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#4cbb17",
+                          marginLeft: "5px",
+                        }}
+                      >
+                        Get Flat Rs.50 Off on orders above Rs.1000.
+                      </Typography>
+                      <Button
+                        id="apply"
+                        variant="text"
+                        size="small"
+                        sx={{ color: "#4cbb17" }}
+                        onClick={handleApply}
+                      >
+                        APPLY
+                      </Button>
+                    </div>
                   </MenuItem>
-                  <MenuItem value={30} onClick={() => setThirdMenu("remove")}>
-                    {thirdMenu === "" && (
-                      <div style={{ display: "flex" }}>
-                        <Button
-                          variant="contained"
-                          size="small"
-                          sx={{
-                            color: "black",
+                  <MenuItem value={30}>
+                    <div style={{ display: "flex" }}>
+                      <Button
+                        variant="contained"
+                        size="small"
+                        sx={{
+                          color: "black",
+                          backgroundColor: "#eeeeee",
+                          ":hover": {
                             backgroundColor: "#eeeeee",
-                            ":hover": {
-                              backgroundColor: "#eeeeee",
-                            },
-                          }}
-                        >
-                          GOCOINS
-                        </Button>
-                        <Typography
-                          variant="p"
-                          sx={{
-                            fontSize: "14px",
-                            color: "#4cbb17",
-                            marginLeft: "5px",
-                          }}
-                        >
-                          Get Flat Rs.100 Off on orders above Rs.2000.
-                        </Typography>
-                        <Button
-                          variant="text"
-                          size="small"
-                          sx={{ color: "#4cbb17" }}
-                        >
-                          APPLY
-                        </Button>
-                      </div>
-                    )}
-                    {thirdMenu === "remove" && (
-                      <div style={{ display: "flex" }}>
-                        <Button
-                          variant="contained"
-                          size="small"
-                          sx={{
-                            color: "black",
-                            backgroundColor: "#eeeeee",
-                            ":hover": {
-                              backgroundColor: "#eeeeee",
-                            },
-                          }}
-                        >
-                          GOCOINS
-                        </Button>
-                        <Typography
-                          variant="p"
-                          sx={{
-                            fontSize: "14px",
-                            color: "#4cbb17",
-                            marginLeft: "5px",
-                          }}
-                        >
-                          Get Flat Rs.100 Off on orders above Rs.2000.
-                        </Typography>
-                        <Button
-                          variant="text"
-                          size="small"
-                          sx={{ color: "red" }}
-                        >
-                          REMOVE
-                        </Button>
-                      </div>
-                    )}
+                          },
+                        }}
+                      >
+                        GOCOINS
+                      </Button>
+                      <Typography
+                        variant="p"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#4cbb17",
+                          marginLeft: "5px",
+                        }}
+                      >
+                        Get Flat Rs.100 Off on orders above Rs.2000.
+                      </Typography>
+                      <Button
+                        id="apply"
+                        variant="text"
+                        size="small"
+                        sx={{ color: "#4cbb17" }}
+                        onClick={handleApply}
+                      >
+                        APPLY
+                      </Button>
+                    </div>
                   </MenuItem>
                 </Select>
               </FormControl>
