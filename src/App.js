@@ -27,6 +27,7 @@ import MobileBookingFlow from "./pages/mobile/MobileBookingFlow";
 import MobileProfile from "./pages/mobile/MobileProfile";
 import MobileBookings from "./pages/mobile/MobileBookings";
 import MobileGoCoins from "./pages/mobile/MobileGoCoins";
+import RentNow from "./pages/desktop/RentNow";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           <Route path="/MyRides" element={<MyRides />} />
           <Route path="/BookingFlow" element={<BookingFlow />} />
           <Route path="/BookNowPage" element={<BookNowPage />} />
+          <Route path="/RentNow" element={<RentNow />} />
           <Route path="/OTP" element={<OTP />} />
           <Route path="/PersonalDetails" element={<PersonalDetails />} />
           <Route path="/Trial" element={<Trial />} />
