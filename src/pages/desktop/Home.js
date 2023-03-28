@@ -42,6 +42,8 @@ import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileHome from "../mobile/MobileHome";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 
 const style = {
   position: "absolute",
@@ -75,7 +77,7 @@ export default function Home() {
         <MobileHome />
       ) : (
         <Box>
-          <PreLoginNavbar />
+          <DynamicNavbar />
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <Box sx={{ display: "inline-flex" }}>
@@ -738,7 +740,7 @@ export default function Home() {
               <RightSection />
             </Grid>
           </Grid>
-          <PreLoginFooter />
+          <DynamicFooter />
         </Box>
       )}
     </>

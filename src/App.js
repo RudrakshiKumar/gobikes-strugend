@@ -29,11 +29,11 @@ import MobileBookings from "./pages/mobile/MobileBookings";
 import MobileGoCoins from "./pages/mobile/MobileGoCoins";
 import RentNow from "./pages/desktop/RentNow";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
+import MobileBookNowPage from "./pages/mobile/MobileBookNowPage";
 
 function App() {
   return (
     <>
-      {/* <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}> */}
       <Router>
         <ScrollToTop />
 
@@ -64,12 +64,12 @@ function App() {
           <Route path="/MobileContactUs" element={<MobileContactUs />} />
           <Route path="/MobileFAQs" element={<MobileFAQs />} />
           <Route path="/MobileBookingFlow" element={<MobileBookingFlow />} />
+          <Route path="/MobileBookNowPage" element={<MobileBookNowPage />} />
           <Route path="/MobileProfile" element={<MobileProfile />} />
           <Route path="/MobileBookings" element={<MobileBookings />} />
           <Route path="/MobileGoCoins" element={<MobileGoCoins />} />
         </Routes>
       </Router>
-      {/* </GoogleOAuthProvider>{" "} */}
     </>
   );
 }

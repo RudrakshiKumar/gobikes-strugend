@@ -19,6 +19,9 @@ import { MuiTelInput } from "mui-tel-input";
 // import IconButton from "@mui/material/IconButton";
 // import CloseIcon from "@mui/icons-material/Close";
 import MobileLogin from "../../pages/mobile/MobileLogin";
+import { useLocation, useNavigate } from 'react-router-dom'
+import { auth, provider } from '../../Utlity/FirebaseConfig'
+import { signInWithPopup } from "firebase/auth";
 // import { GoogleLogin } from "@react-oauth/google";
 // import { useNavigate } from "react-router-dom";
 
@@ -56,13 +59,48 @@ const LoginModal = () => {
   //   navigate("/");
   // };
 
+  const theme = useTheme();
+
+  const nevigate = useNavigate()
   const [phone, setPhone] = React.useState("");
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handelOTPSignin = () => {
+    // Define the 'otpless' function
+
+
+    // window.otpless = (otplessUser) => {
+    //   // Retrieve the user's details after successful login
+
+    //   const waName = otplessUser.waName;
+    //   const waNumber = otplessUser.waNumber;
+
+    //   // Handle the signup/signin process
+    //   // ...
+    // }
+  }
+
+
+
+  const googleSignInHandler = () => {
+    signInWithPopup(auth, provider)
+      .then(res => {
+        const credentials = {
+          name: res.user.displayName,
+          email: res.user.email,
+          accessToken: res.user.accessToken
+        }
+
+        localStorage.setItem('user', JSON.stringify(credentials));
+        nevigate('/')
+
+      })
+      .catch(err => console.log(err))
+  };
 
   const handleChange = (newPhone) => {
     setPhone(newPhone);
   };
-  const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div>
       {isMatch ? (
@@ -169,7 +207,8 @@ const LoginModal = () => {
               defaultCountry="IN"
             />
             <Button
-              disabled
+              onClick={handelOTPSignin}
+            disabled
               variant="contained"
               sx={{
                 textTransform: "none",
@@ -186,48 +225,13 @@ const LoginModal = () => {
             </Button>
             <br />
             <Divider sx={{ mt: 1, color: "text.disabled" }}>OR</Divider>
-            <Button
-              className=""
-              variant="outlined"
-              sx={{
-                textTransform: "none",
-                mt: 3,
-                color: "#4CBB17",
-                fontWeight: "bold",
-                borderColor: "#4CBB17",
-              }}
-            >
-              <Box
-                component="img"
-                sx={{
-                  height: 20,
-                  pr: 2,
-                }}
-                alt="Your logo."
-                src={googleLogo}
-              />
-              Sign in with Google
-            </Button>
-            {/* Google Sign In with react-oauth */}
-            {/* <Box
-              min-width="85%"
-              m="20px auto"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <GoogleLogin
-                onSuccess={googleSucess}
-                onError={(err) =>
-                  console.log(err, "google login was unsucessfull")
-                }
-              />
-            </Box> */}
-          </Box>
 
-          {/* </Grid>
-            </Grid>
-          </Grid> */}
+            <Box min-width='85%' m='20px auto' display='flex' alignItems='center' justifyContent='center'   >
+              <Button onClick={googleSignInHandler}>
+                <img src={googleLogo} alt='Google Logo' height='4%' width='4%' />
+                <Typography mx='3%'>Sign in with Google</Typography></Button>
+            </Box>
+          </Box>
         </Box>
       )}
     </div>

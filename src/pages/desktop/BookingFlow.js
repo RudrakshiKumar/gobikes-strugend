@@ -46,6 +46,8 @@ import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileBookingFlow from "../../pages/mobile/MobileBookingFlow";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -100,7 +102,7 @@ export default function BookingFlow(props) {
         <MobileBookingFlow />
       ) : (
         <Box>
-          <PostLoginNavbar />
+          <DynamicNavbar />
           <AppBar
             position="sticky"
             sx={{ backgroundColor: "white", padding: "20px" }}
@@ -1778,7 +1780,7 @@ export default function BookingFlow(props) {
             </Box>
           </Modal>
           <div style={{ marginTop: "10%" }}></div>
-          <PostLoginFooter />
+          <DynamicFooter />
         </Box>
       )}
     </>

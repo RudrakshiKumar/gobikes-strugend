@@ -2,11 +2,13 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 import Navbar from "../../layouts/desktop/PreLoginNavbar";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 
 const AboutUs = () => {
   return (
     <>
-      <Navbar />
+      <DynamicNavbar />
       <Box sx={{ px: "15px", position: "relative", mt: 5, mx: 10 }}>
         <Typography variant="h4" sx={{ mb: 3 }}>
           About Us
@@ -61,7 +63,7 @@ const AboutUs = () => {
           </Typography>
         </Box>
       </Box>
-      <PostLoginFooter />
+      <DynamicFooter />
     </>
   );
 };

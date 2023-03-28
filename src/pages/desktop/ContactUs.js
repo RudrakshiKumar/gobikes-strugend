@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
@@ -10,22 +10,33 @@ import contactlocation from "../../assets/images/contactlocation.svg";
 import contactphone from "../../assets/images/contactphone.svg";
 import contactemail from "../../assets/images/contactemail.svg";
 import ReCAPTCHA from "react-google-recaptcha";
-import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
-import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 
 const ContactUs = () => {
   const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
-  const [capchaIsDone, setCapchaDone] = useState(false);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const [formData, setFormData] = React.useState({
+    name: '', email: '', mobile: '', message: ''
+  })
+  const [isCapchaDone, setIsCapchaDone] = useState(false);
+  const [showSubmit, setShowSubmit] = React.useState(true)
 
-  function onChange() {
-    setCapchaDone(true);
-  }
+  useEffect(() => {
+    // console.log(formData.name.length);
+    if (formData.name.length > 4 && formData.email.length > 6 && formData.mobile.length > 9 && formData.message.length > 10 && isCapchaDone==true) {
+      setShowSubmit(false)
+    }
+    else if (formData.name.length <= 4 || formData.email.length <= 6 || formData.mobile.length <= 9||formData.message.length <= 9|| isCapchaDone==false) {
+      setShowSubmit(true)
+    }
+  }, [formData,isCapchaDone])
+
 
   return (
     <div>
-      <PreLoginNavbar />
+      <DynamicNavbar />
       {isMatch ? (
         <MobileContactUs />
       ) : (
@@ -130,7 +141,7 @@ const ContactUs = () => {
                   <br />
                   <Box sx={{ display: "inline-flex" }}>
                     <Typography variant="h5" sx={{ color: "#59CE8F" }}>
-                      Contact Us :{}
+                      Contact Us :{ }
                     </Typography>
                     <Typography variant="h6">
                       &nbsp; contact-us@gobikes.co.in{" "}
@@ -162,80 +173,68 @@ const ContactUs = () => {
               <Typography fontWeight={"bold"} fontSize={"25px"}>
                 We're here for you:
               </Typography>
-              <Box
-                component="form"
+
+              {/* ContactUs form starts here  */}
+              <Box component="form" noValidate autoComplete="off"
                 sx={{
                   "& > :not(style)": { m: 1, width: "30em" },
-                }}
-                noValidate
-                autoComplete="off"
-              >
-                <TextField
+                }}>
+
+                <TextField name="name" type='text' value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required id="outlined-basic" label="Name" variant="outlined"
                   sx={{
                     height: "7vh",
                     p: "2px",
                     position: "relative",
-                    margin: "auto",
-                  }}
-                  id="outlined-basic"
-                  label="Name*"
-                  variant="outlined"
-                />{" "}
+                    margin: "auto"
+                  }} />
                 <br />
-                <TextField
+
+                <TextField name="email" type='email' value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required id="outlined-basic" label="Email" variant="outlined"
                   sx={{
                     height: "7vh",
                     width: 10,
                     p: "2px",
-                  }}
-                  id="outlined-basic"
-                  label="Email*"
-                  variant="outlined"
-                />{" "}
+                  }} />
                 <br />
-                <TextField
+
+                <TextField name="mobile" type='number' value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required id="outlined-basic" label="Mobile" variant="outlined"
                   sx={{
                     height: "7vh",
                     width: 10,
                     p: "2px",
-                  }}
-                  id="outlined-basic"
-                  label="Mobile*"
-                  variant="outlined"
-                />{" "}
+                  }} />
                 <br />
-                <TextareaAutosize
-                  id="outlined-basic"
-                  label="message"
-                  variant="outlined"
+
+                <TextareaAutosize name="message" type='text' value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} required id="outlined-basic" placeholder="hello..." variant="outlined"
                 />
               </Box>
+
               <Box sx={{ margin: "10px" }}>
                 <div>
-                  <ReCAPTCHA sitekey={key} onChange={onChange} />
+                  <ReCAPTCHA sitekey={key} onChange={(e)=>setIsCapchaDone(true)} onErrored={(e)=>setIsCapchaDone(false)} />
                 </div>
               </Box>
-              {capchaIsDone && (
-                <Button
-                  variant="contained"
-                  sx={{
-                    bgcolor: "#99CC33",
-                    p: "7px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "35em",
-                  }}
-                >
-                  Submit
-                </Button>
-              )}
+
+
+              <Button type="submit" variant="contained"
+              disabled={showSubmit}
+                sx={{
+                  bgcolor: "#99CC33",
+                  p: "7px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "35em",
+                }}>
+                Submit
+              </Button>
+
             </Box>
           </Box>
         </Box>
       )}
       <div className="h-32"></div>
-      <PostLoginFooter />
+      <DynamicFooter />
     </div>
   );
 };

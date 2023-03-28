@@ -7,6 +7,8 @@ import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
 import { Typography } from "@mui/material";
 import { NavHashLink } from "react-router-hash-link";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
+import DynamicNavbar from '../../layouts/desktop/DynamicNavbar'
 import { useLocation } from "react-router-dom";
 
 const FAQs = () => {
@@ -16,7 +18,7 @@ const FAQs = () => {
   const isActive = (iHash) => hash === iHash;
   return (
     <div>
-      <PreLoginNavbar />
+      <DynamicNavbar />
       {isMatch ? (
         <MobileFAQ />
       ) : (
@@ -113,7 +115,7 @@ const FAQs = () => {
         </Box>
       )}
 
-      <PostLoginFooter />
+      <DynamicFooter/>
     </div>
   );
 };

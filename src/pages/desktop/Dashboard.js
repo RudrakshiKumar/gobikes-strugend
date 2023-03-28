@@ -9,6 +9,8 @@ import Booking from "../../components/desktop/Booking";
 import GoCoins from "../../components/desktop/GoCoins";
 import PostLoginNavbar from "../../layouts/desktop/PostLoginNavbar";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileDashboard from "../mobile/MobileDashboard";
@@ -23,7 +25,7 @@ export default function Dashboard() {
         <MobileDashboard />
       ) : (
         <Box>
-          <PostLoginNavbar />
+          <DynamicNavbar />
 
           <Container sx={{ marginTop: "5%" }}>
             <Grid container spacing={2}>
@@ -118,7 +120,7 @@ export default function Dashboard() {
             </Grid>
           </Container>
           <div className="h-40"></div>
-          <PostLoginFooter />
+          <DynamicFooter />
         </Box>
       )}
     </>
