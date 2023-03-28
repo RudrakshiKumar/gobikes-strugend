@@ -14,7 +14,8 @@ export default function Faq() {
       <Container sx={{ marginTop: "7%" }}>
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
           Have Questions? We got you.
-        </Typography>
+        </Typography>{" "}
+        <br />
         <Typography variant="p" sx={{ fontSize: "20px" }}>
           Contact us on +91-8448444897 WhatsApp/Call in case of any other query.
         </Typography>

@@ -5,7 +5,7 @@ import Faq from "./Faq";
 import Statistics from "./Statistics";
 import KnowMore from "./KnowMore";
 import OfferCarousal from "./OfferCarousal";
-// import Video from "./Video";
+import Video from "./Video";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
@@ -30,7 +30,7 @@ export default function RightSection() {
             Offers for you
           </Typography>
           <OfferCarousal />
-          {/* <Video /> */}
+          <Video />
           <Features />
           <BookRide />
           <Faq />

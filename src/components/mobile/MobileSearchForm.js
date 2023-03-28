@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Grid,
   InputAdornment,
@@ -6,29 +7,37 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Box } from "@mui/system";
 import React, { useState } from "react";
 import PlaceIcon from "@mui/icons-material/Place";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import Bangalore from "../../assets/images/Bangalore.jpg";
-import Chandigarh from "../assets/images/Chandigarh.jpg";
-import Chennai from "../assets/images/Chennai.jpg";
-import Dehradun from "../assets/images/Dehradun.webp";
-import Delhi from "../assets/images/Delhi.webp";
-import Ghaziabad from "../assets/images/Ghaziabad.jpg";
-import Goa from "../assets/images/Goa.jpg";
-import Hyderabad from "../assets/images/Hyderabad.jpg";
-import Kolkata from "../assets/images/Kolkata.jpg";
-import Manali from "../assets/images/Manali.jpg";
-import Mumbai from "../assets/images/Mumbai.webp";
-import Pune from "../assets/images/Pune.jpg";
-import Gurgaon from "../assets/images/Gurgaon.jpg";
-import Guwahati from "../assets/images/Guwahati.jpg";
-import Jaipur from "../assets/images/Jaipur.jpg";
-import Leh from "../assets/images/Leh.jpg";
-import Noida from "../assets/images/Noida.jpg";
-import Udaipur from "../assets/images/Udaipur.jpg";
-import BookOnlineIcon from "@mui/icons-material/BookOnline";
+import Chandigarh from "../../assets/images/Chandigarh.jpg";
+import Chennai from "../../assets/images/Chennai.jpg";
+import Dehradun from "../../assets/images/Dehradun.webp";
+import Delhi from "../../assets/images/Delhi.webp";
+import Ghaziabad from "../../assets/images/Ghaziabad.jpg";
+import Goa from "../../assets/images/Goa.jpg";
+import Hyderabad from "../../assets/images/Hyderabad.jpg";
+import Kolkata from "../../assets/images/Kolkata.jpg";
+import Manali from "../../assets/images/Manali.jpg";
+import Mumbai from "../../assets/images/Mumbai.webp";
+import Pune from "../../assets/images/Pune.jpg";
+import Gurgaon from "../../assets/images/Gurgaon.jpg";
+import Guwahati from "../../assets/images/Guwahati.jpg";
+import Jaipur from "../../assets/images/Jaipur.jpg";
+import Leh from "../../assets/images/Leh.jpg";
+import Noida from "../../assets/images/Noida.jpg";
+import Udaipur from "../../assets/images/Udaipur.jpg";
+import bikeleft from "../../assets/images/bikeleft.png";
+
+import RightSection from "../../components/desktop/RightSection";
+import rightSectionNew from "../../assets/images/rightSectionNew.jpg";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import PreLoginFooter from "../../layouts/desktop/PreLoginFooter";
+import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
+import { useNavigate } from "react-router-dom";
 
 const MobileSearchForm = () => {
   const style = {
@@ -45,37 +54,58 @@ const MobileSearchForm = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [image, setImage] = useState("");
+  const [setName] = useState("Bangalore");
+
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/BookingFlow", { state: startDate });
+  };
+
+  const [change, setChange] = useState(false);
+  const handleChange = () => {
+    setChange(!change);
+    console.log(!change);
+  };
   return (
     <Box
       className=""
       sx={{
         // marginTop: 10,
-        // marginRight: 10,
-        padding: 2,
+        // ml: "12%",
+        padding: 3,
         boxShadow: 3,
         borderRadius: 2,
         display: "flex",
+        justifyContent: "center",
         flexDirection: "column",
+        // position: "relative",
       }}
     >
       <Typography variant="h6">
-        Commuting Made <span style={{ color: "#aeea00" }}>Easy</span>,
+        Commuting Made <span style={{ color: "#59CE8F" }}>Easy</span>,
         <br />
       </Typography>
-      <Typography variant="h6" sx={{ marginTop: "5px" }}>
-        <span style={{ color: "#aeea00" }}>Affordable</span> and{" "}
-        <span style={{ color: "#aeea00" }}>Quick</span>
+      <Typography variant="h6" sx={{ marginTop: "5px", font: "bold" }}>
+        <span style={{ color: "#59CE8F" }}>Affordable</span> and{" "}
+        <span style={{ color: "#59CE8F" }}>Quick</span>
       </Typography>
-      <Typography variant="h6" sx={{ marginTop: "2px" }}>
+      <Typography variant="h7" sx={{ marginTop: "2px" }}>
         Scooter/Scooty/Bike on Rent in Delhi
       </Typography>
       <TextField
         fullWidth
-        label="Search City"
+        placeholder="Search City"
+        value={image}
+        onChange={(e) => setName(e.target.value)}
         sx={{ marginTop: "5%" }}
         InputProps={{
           endAdornment: (
-            <InputAdornment position="end" sx={{ color: "green" }}>
+            <InputAdornment position="end" sx={{ color: "#59CE8F" }}>
               <PlaceIcon />
             </InputAdornment>
           ),
@@ -92,6 +122,18 @@ const MobileSearchForm = () => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Choose your preferred city
           </Typography>
+          <IconButton
+            aria-label="close"
+            onClick={() => setOpen(false)}
+            sx={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[600],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
           <Grid container spacing={2} sx={{ marginTop: "5px" }}>
             <Grid item xs={12} sm={2}>
               <img
@@ -102,6 +144,10 @@ const MobileSearchForm = () => {
                   width: "125px",
                   height: "125px",
                   borderRadius: "5px",
+                }}
+                onClick={() => {
+                  setImage("Bangalore");
+                  setOpen(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -118,6 +164,10 @@ const MobileSearchForm = () => {
                   height: "125px",
                   borderRadius: "5px",
                 }}
+                onClick={() => {
+                  setImage("Chandigarh");
+                  setOpen(false);
+                }}
               />
               <Typography variant="h6" align="center">
                 Chandigarh
@@ -132,6 +182,10 @@ const MobileSearchForm = () => {
                   width: "125px",
                   height: "125px",
                   borderRadius: "5px",
+                }}
+                onClick={() => {
+                  setImage("Chennai");
+                  setOpen(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -148,6 +202,10 @@ const MobileSearchForm = () => {
                   height: "125px",
                   borderRadius: "5px",
                 }}
+                onClick={() => {
+                  setImage("Dehradun");
+                  setOpen(false);
+                }}
               />
               <Typography variant="h6" align="center">
                 Dehradun
@@ -162,6 +220,10 @@ const MobileSearchForm = () => {
                   width: "125px",
                   height: "125px",
                   borderRadius: "5px",
+                }}
+                onClick={() => {
+                  setImage("Delhi");
+                  setOpen(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -178,6 +240,10 @@ const MobileSearchForm = () => {
                   height: "125px",
                   borderRadius: "5px",
                 }}
+                onClick={() => {
+                  setImage("Ghaziabad");
+                  setOpen(false);
+                }}
               />
               <Typography variant="h6" align="center">
                 Ghaziabad
@@ -192,6 +258,10 @@ const MobileSearchForm = () => {
                   width: "125px",
                   height: "125px",
                   borderRadius: "5px",
+                }}
+                onClick={() => {
+                  setImage("Goa");
+                  setOpen(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -208,6 +278,10 @@ const MobileSearchForm = () => {
                   height: "125px",
                   borderRadius: "5px",
                 }}
+                onClick={() => {
+                  setImage("Hyderabad");
+                  setOpen(false);
+                }}
               />
               <Typography variant="h6" align="center">
                 Hyderabad
@@ -222,6 +296,10 @@ const MobileSearchForm = () => {
                   width: "125px",
                   height: "125px",
                   borderRadius: "5px",
+                }}
+                onClick={() => {
+                  setImage("Kolkata");
+                  setOpen(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -238,6 +316,10 @@ const MobileSearchForm = () => {
                   height: "125px",
                   borderRadius: "5px",
                 }}
+                onClick={() => {
+                  setImage("Manali");
+                  setOpen(false);
+                }}
               />
               <Typography variant="h6" align="center">
                 Manali
@@ -252,6 +334,10 @@ const MobileSearchForm = () => {
                   width: "125px",
                   height: "125px",
                   borderRadius: "5px",
+                }}
+                onClick={() => {
+                  setImage("Mumbai");
+                  setOpen(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -268,6 +354,10 @@ const MobileSearchForm = () => {
                   height: "125px",
                   borderRadius: "5px",
                 }}
+                onClick={() => {
+                  setImage("Pune");
+                  setOpen(false);
+                }}
               />
               <Typography variant="h6" align="center">
                 Pune
@@ -282,6 +372,10 @@ const MobileSearchForm = () => {
                   width: "125px",
                   height: "125px",
                   borderRadius: "5px",
+                }}
+                onClick={() => {
+                  setImage("Gurgaon");
+                  setOpen(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -298,6 +392,10 @@ const MobileSearchForm = () => {
                   height: "125px",
                   borderRadius: "5px",
                 }}
+                onClick={() => {
+                  setImage("Guwahati");
+                  setOpen(false);
+                }}
               />
               <Typography variant="h6" align="center">
                 Guwahati
@@ -312,6 +410,10 @@ const MobileSearchForm = () => {
                   width: "125px",
                   height: "125px",
                   borderRadius: "5px",
+                }}
+                onClick={() => {
+                  setImage("Jaipur");
+                  setOpen(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -328,6 +430,10 @@ const MobileSearchForm = () => {
                   height: "125px",
                   borderRadius: "5px",
                 }}
+                onClick={() => {
+                  setImage("Leh");
+                  setOpen(false);
+                }}
               />
               <Typography variant="h6" align="center">
                 Leh
@@ -342,6 +448,10 @@ const MobileSearchForm = () => {
                   width: "125px",
                   height: "125px",
                   borderRadius: "5px",
+                }}
+                onClick={() => {
+                  setImage("Noida");
+                  setOpen(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -358,6 +468,10 @@ const MobileSearchForm = () => {
                   height: "125px",
                   borderRadius: "5px",
                 }}
+                onClick={() => {
+                  setImage("Udaipur");
+                  setOpen(false);
+                }}
               />
               <Typography variant="h6" align="center">
                 Udaipur
@@ -366,52 +480,52 @@ const MobileSearchForm = () => {
           </Grid>
         </Box>
       </Modal>
-      <TextField
-        fullWidth
-        label="Start Date"
-        sx={{ marginTop: "2%" }}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end" sx={{ color: "#aeea00" }}>
-              <CalendarMonthIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
-      <TextField
-        fullWidth
-        label="End Date"
-        sx={{ marginTop: "2%" }}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end" sx={{ color: "red" }}>
-              <CalendarMonthIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
-      <TextField
-        fullWidth
-        label="Book Now"
-        sx={{ marginTop: "2%" }}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end" sx={{ color: "blue" }}>
-              <BookOnlineIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
+
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DateTimePicker
+          value={startDate}
+          onChange={(newValue) => setStartDate(newValue)}
+          sx={{ marginTop: "2%" }}
+          fullWidth
+          onClick={handleChange}
+        />
+      </LocalizationProvider>
+
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DateTimePicker
+          value={endDate}
+          onChange={(newValue) => setEndDate(newValue)}
+          sx={{ marginTop: "2%" }}
+          fullWidth
+          disabled={change}
+        />
+      </LocalizationProvider>
+      {/* <TextField
+      fullWidth
+      placeholder="Book Now"
+      sx={{ marginTop: "2%" }}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end" sx={{ color: "blue" }}>
+            <BookOnlineIcon />
+          </InputAdornment>
+        ),
+      }}
+    /> */}
       <Typography variant="p" sx={{ marginTop: "2%" }}>
-        Duration: 1 Day
+        Duration: {(endDate - startDate) / (1000 * 3600 * 24)} Day
       </Typography>
       <Button
         variant="contained"
         sx={{
           marginTop: "2%",
           width: "25%",
-          backgroundColor: "green",
+          backgroundColor: "#59CE8F",
+          ":hover": {
+            backgroundColor: "#59CE8F",
+          },
         }}
+        onClick={handleNavigate}
       >
         Search
       </Button>

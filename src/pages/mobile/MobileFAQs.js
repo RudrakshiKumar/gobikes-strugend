@@ -6,6 +6,8 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
+import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
+import MobileFooter from "../../layouts/mobile/MobileFooter";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -51,13 +53,14 @@ const MobileFAQ = () => {
   };
   return (
     <div>
+      <MobilePreLoginNavbar />
       <Box sx={{ px: 2 }}>
-        {/* <Typography variant="h4" textAlign={"center"}>
+        <Typography variant="h4" textAlign={"center"} sx={{ mt: 5 }}>
           FAQ Section
-        </Typography> */}
+        </Typography>
         {/* BOOKING FAQS */}
         <Box id="Booking">
-          <Typography variant="h5" sx={{ pt: 10, pb: 2 }}>
+          <Typography variant="h5" sx={{ pt: 5, pb: 2 }}>
             Bookings
           </Typography>
           <Box>
@@ -930,6 +933,8 @@ const MobileFAQ = () => {
           </Box>
         </Box>
       </Box>
+      <div className="p-20"></div>
+      <MobileFooter />
     </div>
   );
 };
