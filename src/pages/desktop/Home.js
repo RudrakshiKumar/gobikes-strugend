@@ -7,7 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PlaceIcon from "@mui/icons-material/Place";
 import Bangalore from "../../assets/images/Bangalore.jpg";
 import Chandigarh from "../../assets/images/Chandigarh.jpg";
@@ -68,11 +68,13 @@ export default function Home() {
     navigate("/BookingFlow", { state: startDate });
   };
 
-  const [change, setChange] = useState(false);
-  const handleChange = () => {
-    setChange(!change);
-    console.log(!change);
-  };
+  const [changeStart, setChangeStart] = useState(true);
+  const [changeEnd, setChangeEnd] = useState(false);
+
+  useEffect(() => {
+    setChangeStart(!changeStart);
+    setChangeEnd(!changeEnd);
+  }, [startDate]);
 
   return (
     <>
@@ -510,7 +512,7 @@ export default function Home() {
                   onChange={(newValue) => setStartDate(newValue)}
                   sx={{ marginTop: "2%" }}
                   fullWidth
-                  onClick={handleChange}
+                  disabled={changeStart}
                 />
               </LocalizationProvider>
 
@@ -520,7 +522,7 @@ export default function Home() {
                   onChange={(newValue) => setEndDate(newValue)}
                   sx={{ marginTop: "2%" }}
                   fullWidth
-                  disabled={change}
+                  disabled={changeEnd}
                 />
               </LocalizationProvider>
               {/* <TextField
