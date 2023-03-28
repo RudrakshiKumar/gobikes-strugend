@@ -17,6 +17,9 @@ import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import MobileFooter from "../../layouts/mobile/MobileFooter";
 
 const style = {
   position: "absolute",
@@ -32,14 +35,20 @@ const style = {
 };
 
 const OffersForYou = () => {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState(false);
   const handlePopup = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <div>
-      <DynamicNavbar/>
+      <DynamicNavbar />
       <Box sx={{ marginLeft: "5%", pt: 10 }}>
-        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+        <Typography
+          variant="h4"
+          textAlign={"center"}
+          // sx={{ fontWeight: "bold" }}
+        >
           Offers for you
         </Typography>
       </Box>
@@ -405,7 +414,7 @@ const OffersForYou = () => {
           <div style={{ marginTop: "25%" }}></div>
         </Box>
       </Box>
-      <DynamicFooter />
+      {isMatch ? <MobileFooter /> : <DynamicFooter />}
     </div>
   );
 };

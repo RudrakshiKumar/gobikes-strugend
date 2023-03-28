@@ -14,9 +14,10 @@ export default function video() {
         </CardMedia> */}
         <Box className="player-wrapper" sx={{ mt: 10, ml: 2 }}>
           <ReactPlayer
+            pip
             url="https://youtu.be/VB4SUy5h8ME"
             className="react-player"
-            playing
+            // playing
             width="90%"
             height="100%"
             controls

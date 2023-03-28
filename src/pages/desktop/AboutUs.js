@@ -4,13 +4,24 @@ import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 import Navbar from "../../layouts/desktop/PreLoginNavbar";
 import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import MobileFooter from "../../layouts/mobile/MobileFooter";
 
 const AboutUs = () => {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
       <DynamicNavbar />
-      <Box sx={{ px: "15px", position: "relative", mt: 5, mx: 10 }}>
-        <Typography variant="h4" sx={{ mb: 3 }}>
+      <Box
+        sx={{
+          position: "relative",
+          mt: 5,
+          mx: { md: 10, xs: 3 },
+        }}
+      >
+        <Typography variant="h4" textAlign={"center"} sx={{ mb: 3 }}>
           About Us
         </Typography>
         <Box
@@ -18,6 +29,7 @@ const AboutUs = () => {
             bgcolor: "#f1f8ed",
             borderRadius: "10px",
             textAlign: "left",
+            p: 5,
           }}
         >
           <Typography variant="p" sx={{ px: "15px" }}>
@@ -48,14 +60,19 @@ const AboutUs = () => {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ px: "15px", position: "relative", mt: 5, mb: 10, mx: 10 }}>
-        <Typography variant="h4" sx={{ mb: 3 }}>
+      <Box sx={{ mt: 5, mb: 10, mx: { md: 10, xs: 3 } }}>
+        <Typography variant="h4" textAlign={"center"} sx={{ mb: 3 }}>
           Our Mission
         </Typography>
         <Box
-          sx={{ bgcolor: "#f1f8ed", borderRadius: "10px", textAlign: "center" }}
+          sx={{
+            bgcolor: "#f1f8ed",
+            borderRadius: "10px",
+            textAlign: "center",
+            p: 5,
+          }}
         >
-          <Typography variant="p" textAlign={"center"} sx={{ px: "15px" }}>
+          <Typography variant="p" textAlign={"center"}>
             Our mission is to make our fleet available to everyone out there
             with a combination of good service and affordable prices. Your
             satisfaction will make us grow. We will be coming soon to your
@@ -63,7 +80,7 @@ const AboutUs = () => {
           </Typography>
         </Box>
       </Box>
-      <DynamicFooter />
+      {isMatch ? <MobileFooter /> : <DynamicFooter />}
     </>
   );
 };

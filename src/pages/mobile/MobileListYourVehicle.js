@@ -20,16 +20,20 @@ import extraincome from "../../assets/images/extraincome.svg";
 import nomoney from "../../assets/images/nomoney.svg";
 import listvehiclesupport from "../../assets/images/listvehiclesupport.svg";
 import listvehicleflexibility from "../../assets/images/listvehicleflexibility.svg";
+import StartEarning from "../../components/desktop/StartEarning";
+import MobileFooter from "../../layouts/mobile/MobileFooter";
+import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
 
 const MobileListYourVehicle = () => {
   return (
-    <div className="p-3">
+    <div>
+      <MobilePreLoginNavbar />
       <Box>
         <Box textAlign={"center"}>
           <Typography variant="h5" sx={{ py: 4 }}>
             Did you know you can now make money out of your unused two-wheeler?
           </Typography>
-          <Button variant="contained">Start Earning with GoBikes</Button>
+          <StartEarning />
           <Box
             component="img"
             sx={{
@@ -41,90 +45,92 @@ const MobileListYourVehicle = () => {
             src={listyourvehiclegraphic}
           />
         </Box>
-
-        <Typography variant="h4" textAlign={"center"}>
-          Process
-        </Typography>
-        <Box>
-          <Typography variant="h5" sx={{ py: 4 }}>
-            STEP 1 - Sign up as a Partner
+        <Box sx={{ px: 2 }}>
+          <Typography variant="h4" textAlign={"center"}>
+            Process
           </Typography>
-          <Typography variant="p">
-            Enroll yourself as a partner and list your two-wheeler(s) on
-            GoBikes’s platform by submitting the required description. This
-            should not take more than 2 minutes.
-          </Typography>
-          <Box
-            className="m-auto "
-            component="img"
-            sx={{
-              width: 70,
-              ml: 1,
-              py: 4,
-            }}
-            alt="Your logo."
-            src={listvehiclestep1image}
-          />
-        </Box>
-        <Box>
-          <Typography variant="h5" sx={{ py: 4 }}>
-            STEP 2 - Get bookings on your dashboard
-          </Typography>
-          <Typography variant="p">
-            Manage your vehicles and bookings from our platform through your
-            dashboard.
-          </Typography>
-          <Box
-            className="m-auto "
-            component="img"
-            sx={{
-              width: 70,
-              ml: 1,
-              py: 4,
-            }}
-            alt="Your logo."
-            src={listvehiclestep2image}
-          />
-        </Box>
-        <Box>
-          <Typography variant="h5" sx={{ py: 4 }}>
-            STEP 3 - Complete the booking
-          </Typography>
-          <Typography variant="p">
-            Customers would rent your vehicle at a price defined by you and come
-            to your preferred location for pickup and drop of your vehicle.
-          </Typography>
-          <Box
-            className="m-auto "
-            component="img"
-            sx={{
-              width: 70,
-              ml: 1,
-              py: 4,
-            }}
-            alt="Your logo."
-            src={listvehiclestep3image}
-          />
-        </Box>
-        <Box>
-          <Typography variant="h5" sx={{ py: 4 }}>
-            STEP 4 - Receive Payments
-          </Typography>
-          <Typography variant="p">
-            We will transfer your payment directly to your bank account within 2
-            working days.
-          </Typography>
-          <Box
-            className="m-auto "
-            component="img"
-            sx={{
-              width: 70,
-              ml: 1,
-              py: 4,
-            }}
-            alt="Your logo."
-            src={listvehiclestep4image}
-          />
+          <Box>
+            <Typography variant="h5" sx={{ py: 4 }}>
+              STEP 1 - Sign up as a Partner
+            </Typography>
+            <Typography variant="p">
+              Enroll yourself as a partner and list your two-wheeler(s) on
+              GoBikes’s platform by submitting the required description. This
+              should not take more than 2 minutes.
+            </Typography>
+            <Box
+              className="m-auto "
+              component="img"
+              sx={{
+                width: 150,
+                mx: "auto",
+                py: 4,
+              }}
+              alt="Your logo."
+              src={listvehiclestep1image}
+            />
+          </Box>
+          <Box>
+            <Typography variant="h5" sx={{ py: 4 }}>
+              STEP 2 - Get bookings on your dashboard
+            </Typography>
+            <Typography variant="p">
+              Manage your vehicles and bookings from our platform through your
+              dashboard.
+            </Typography>
+            <Box
+              className="m-auto "
+              component="img"
+              sx={{
+                width: 150,
+                mx: "auto",
+                py: 4,
+              }}
+              alt="Your logo."
+              src={listvehiclestep2image}
+            />
+          </Box>
+          <Box>
+            <Typography variant="h5" sx={{ py: 4 }}>
+              STEP 3 - Complete the booking
+            </Typography>
+            <Typography variant="p">
+              Customers would rent your vehicle at a price defined by you and
+              come to your preferred location for pickup and drop of your
+              vehicle.
+            </Typography>
+            <Box
+              className="m-auto "
+              component="img"
+              sx={{
+                width: 150,
+                mx: "auto",
+                py: 4,
+              }}
+              alt="Your logo."
+              src={listvehiclestep3image}
+            />
+          </Box>
+          <Box>
+            <Typography variant="h5" sx={{ py: 4 }}>
+              STEP 4 - Receive Payments
+            </Typography>
+            <Typography variant="p">
+              We will transfer your payment directly to your bank account within
+              2 working days.
+            </Typography>
+            <Box
+              className="m-auto "
+              component="img"
+              sx={{
+                width: 150,
+                mx: "auto",
+                py: 4,
+              }}
+              alt="Your logo."
+              src={listvehiclestep4image}
+            />
+          </Box>
         </Box>
       </Box>
       <Box className="m-auto" sx={{ m: "auto" }}>
@@ -135,11 +141,11 @@ const MobileListYourVehicle = () => {
           Why list your bike on GoBikes?
         </Typography>
         <Box sx={{}}>
-          <Grid container columnSpacing={2} sx={{ py: 2, mr: 20 }}>
-            <Grid item xs={6} sx={{ m: "auto" }}>
+          <Grid container columnSpacing={2} sx={{ py: 2 }}>
+            <Grid item xs={5} sx={{ m: "auto" }}>
               <img className="m-auto" src={extraincome} alt="Extra Income" />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={7}>
               <Typography variant="h6" sx={{ pb: 2 }}>
                 Earn extra income
               </Typography>
@@ -149,10 +155,10 @@ const MobileListYourVehicle = () => {
             </Grid>
           </Grid>
           <Grid container columnSpacing={2} sx={{ py: 2 }}>
-            <Grid item xs={6} sx={{ m: "auto" }}>
+            <Grid item xs={5} sx={{ m: "auto" }}>
               <img className="m-auto" src={nomoney} alt="Extra Income" />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={7}>
               <Typography variant="h6" sx={{ pb: 2 }}>
                 Zero listing fee
               </Typography>
@@ -162,14 +168,14 @@ const MobileListYourVehicle = () => {
             </Grid>
           </Grid>
           <Grid container columnSpacing={2} sx={{ py: 2 }}>
-            <Grid item xs={6} sx={{ m: "auto" }}>
+            <Grid item xs={5} sx={{ m: "auto" }}>
               <img
                 className="m-auto"
                 src={listvehiclesupport}
                 alt="Extra Income"
               />
             </Grid>
-            <Grid item xs={6} sx={{ pb: 2 }}>
+            <Grid item xs={7} sx={{ pb: 2 }}>
               <Typography variant="h6" sx={{ pb: 2 }}>
                 ESupport
               </Typography>
@@ -177,14 +183,14 @@ const MobileListYourVehicle = () => {
             </Grid>
           </Grid>
           <Grid container columnSpacing={2}>
-            <Grid item xs={6} sx={{ m: "auto" }}>
+            <Grid item xs={5} sx={{ m: "auto" }}>
               <img
                 className="m-auto"
                 src={listvehicleflexibility}
                 alt="Extra Income"
               />
             </Grid>
-            <Grid item xs={6} sx={{ pb: 10 }}>
+            <Grid item xs={7} sx={{ pb: 10 }}>
               <Typography variant="h6" sx={{ pb: 2 }}>
                 Flexibility
               </Typography>
@@ -194,10 +200,10 @@ const MobileListYourVehicle = () => {
         </Box>
       </Box>
       <Box>
-        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h5" sx={{ fontWeight: "bold", mb: 2 }}>
           Have Questions? We got you.
         </Typography>
-        <Typography variant="p" sx={{ fontSize: "20px" }}>
+        <Typography variant="p" sx={{ fontSize: "15px" }}>
           We're here to help every step of the way. See some of the most
           frequently asked questions below, and if you still don't find what you
           need, You can contact us on +91-8448444897 WhatsApp/Call.
@@ -389,11 +395,10 @@ const MobileListYourVehicle = () => {
             owners.
           </Typography>
           <br />
-          <Button variant="contained" color="success" sx={{ marginTop: "10%" }}>
-            Start Earning With Gobikes
-          </Button>
+          <StartEarning />
         </Box>
       </Box>
+      <MobileFooter />
     </div>
   );
 };

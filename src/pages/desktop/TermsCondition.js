@@ -1,12 +1,18 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { NavHashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import MobileFooter from "../../layouts/mobile/MobileFooter";
 
 const TermsCondition = () => {
+  const theme = useTheme();
+  const isMatchFooter = useMediaQuery(theme.breakpoints.down("md"));
+  const isMatch = useMediaQuery(theme.breakpoints.up("md"));
   const { hash } = useLocation();
   const isActive = (iHash) => hash === iHash;
   return (
@@ -15,296 +21,348 @@ const TermsCondition = () => {
 
       <div className="tc_container1 mb-80">
         <div className="tc_container2">
-          <div className="tc_container3 mb-10">
-            <ol>
-              <NavHashLink
-                to="#1"
-                style={
-                  isActive("#1")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    1. A general guide for use
-                  </Typography>
-                </li>
-              </NavHashLink>
-              <NavHashLink
-                to="#2"
-                style={
-                  isActive("#2")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    2. Use of the vehicle
-                  </Typography>
-                </li>
-              </NavHashLink>
-              <NavHashLink
-                to="#3"
-                style={
-                  isActive("#3")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    3. Prohibited Uses
-                  </Typography>
-                </li>
-              </NavHashLink>
-              <NavHashLink
-                to="#4"
-                style={
-                  isActive("#4")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    4. Maintenance/Vehicle Condition/Return/Stolen Vehicles
-                  </Typography>
-                </li>
-              </NavHashLink>
+          {isMatch && (
+            <div className="tc_container3 mb-10">
+              <ol>
+                <NavHashLink
+                  to="#1"
+                  style={
+                    isActive("#1")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      1. A general guide for use
+                    </Typography>
+                  </li>
+                </NavHashLink>
+                <NavHashLink
+                  to="#2"
+                  style={
+                    isActive("#2")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      2. Use of the vehicle
+                    </Typography>
+                  </li>
+                </NavHashLink>
+                <NavHashLink
+                  to="#3"
+                  style={
+                    isActive("#3")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      3. Prohibited Uses
+                    </Typography>
+                  </li>
+                </NavHashLink>
+                <NavHashLink
+                  to="#4"
+                  style={
+                    isActive("#4")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      4. Maintenance/Vehicle Condition/Return/Stolen Vehicles
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#5"
-                style={
-                  isActive("#5")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    5. Trip Extension
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#5"
+                  style={
+                    isActive("#5")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      5. Trip Extension
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#6"
-                style={
-                  isActive("#6")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    6. Fee Policy
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#6"
+                  style={
+                    isActive("#6")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      6. Fee Policy
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#7"
-                style={
-                  isActive("#7")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    7. No Agency
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#7"
+                  style={
+                    isActive("#7")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      7. No Agency
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#8"
-                style={
-                  isActive("#8")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    8. Offers and Promotions
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#8"
+                  style={
+                    isActive("#8")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      8. Offers and Promotions
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#9"
-                style={
-                  isActive("#9")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    9. Traffic Law/Applicable Law Violations
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#9"
+                  style={
+                    isActive("#9")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      9. Traffic Law/Applicable Law Violations
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#10"
-                style={
-                  isActive("#10")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    10. Insurance/Liability
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#10"
+                  style={
+                    isActive("#10")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      10. Insurance/Liability
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#11"
-                style={
-                  isActive("#11")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    11. Acceptable Website Use
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#11"
+                  style={
+                    isActive("#11")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      11. Acceptable Website Use
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#12"
-                style={
-                  isActive("#12")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    12. Disclaimer of Consequential Damages
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#12"
+                  style={
+                    isActive("#12")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      12. Disclaimer of Consequential Damages
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#13"
-                style={
-                  isActive("#13")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    13. Intellectual Property Rights
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#13"
+                  style={
+                    isActive("#13")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      13. Intellectual Property Rights
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#14"
-                style={
-                  isActive("#14")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    14. Dispute Resolution/Arbitration
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#14"
+                  style={
+                    isActive("#14")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      14. Dispute Resolution/Arbitration
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#15"
-                style={
-                  isActive("#15")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    15. Governing Law and Jurisdiction
-                  </Typography>
-                </li>
-              </NavHashLink>
+                <NavHashLink
+                  to="#15"
+                  style={
+                    isActive("#15")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      15. Governing Law and Jurisdiction
+                    </Typography>
+                  </li>
+                </NavHashLink>
 
-              <NavHashLink
-                to="#16"
-                style={
-                  isActive("#16")
-                    ? {
-                        color: "#59ce8f",
-                      }
-                    : {}
-                }
-              >
-                {" "}
-                <li className="tc_list1">
-                  <Typography variant="span" fontFamily={"Poppins, sans-serif"}>
-                    16. Entire Agreement
-                  </Typography>
-                </li>
-              </NavHashLink>
-            </ol>
-          </div>
-          <div className="tc_body">
+                <NavHashLink
+                  to="#16"
+                  style={
+                    isActive("#16")
+                      ? {
+                          color: "#59ce8f",
+                        }
+                      : {}
+                  }
+                >
+                  {" "}
+                  <li className="tc_list1">
+                    <Typography
+                      variant="span"
+                      fontFamily={"Poppins, sans-serif"}
+                    >
+                      16. Entire Agreement
+                    </Typography>
+                  </li>
+                </NavHashLink>
+              </ol>
+            </div>
+          )}
+
+          <Box sx={{ width: { md: "75%", xs: "100%" } }}>
             <Typography
-              variant="h3"
+              variant="h5"
+              textAlign={"center"}
               fontWeight={"bold"}
               fontFamily={"Poppins, sans-serif"}
-              sx={{ ml: 3, pb: 3 }}
+              sx={{ ml: { md: 3, xs: 0 }, pb: 3 }}
               id="1"
             >
               Terms and Conditions
@@ -1590,10 +1648,10 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-          </div>
+          </Box>
         </div>
       </div>
-      <DynamicFooter />
+      {isMatchFooter ? <MobileFooter /> : <DynamicFooter />}
     </>
   );
 };

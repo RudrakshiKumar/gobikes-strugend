@@ -8,6 +8,9 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -46,6 +49,8 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 const MobileFAQ = () => {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const [expanded, setExpanded] = React.useState("panel1");
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -55,7 +60,7 @@ const MobileFAQ = () => {
     <div>
       <MobilePreLoginNavbar />
       <Box sx={{ px: 2 }}>
-        <Typography variant="h4" textAlign={"center"} sx={{ mt: 5 }}>
+        <Typography variant="h4" textAlign={"center"} sx={{ mt: 3 }}>
           FAQ Section
         </Typography>
         {/* BOOKING FAQS */}

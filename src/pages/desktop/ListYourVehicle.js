@@ -151,7 +151,7 @@ const ListYourVehicle = () => {
         <MobileListYourVehicle />
       ) : (
         <Box>
-        <DynamicNavbar />
+          <DynamicNavbar />
 
           <Box display={"inline-flex"} sx={{ p: 10 }}>
             <Box>
@@ -315,10 +315,9 @@ const ListYourVehicle = () => {
               </Box>
             </Box>
           </Box>
+          <DynamicFooter />
         </Box>
       )}
-     
-      <DynamicFooter />
     </div>
   );
 };

@@ -8,7 +8,7 @@ import { Typography } from "@mui/material";
 import { NavHashLink } from "react-router-hash-link";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
-import DynamicNavbar from '../../layouts/desktop/DynamicNavbar'
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import { useLocation } from "react-router-dom";
 
 const FAQs = () => {
@@ -22,100 +22,102 @@ const FAQs = () => {
       {isMatch ? (
         <MobileFAQ />
       ) : (
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
+        <Box>
           <Box
             sx={{
-              mt: 6,
-              marginRight: 20,
-              padding: 5,
-              boxShadow: 3,
-              borderRadius: 2,
-
-              position: "fixed",
-              top: -1,
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            <Box sx={{ ml: 10, mt: 5 }}>
-              <Typography variant="h4">FAQ Section</Typography>
-              <Box sx={{ bgcolor: "#59CE8F20", mt: 3, pr: 5, pl: 1 }}>
-                <NavHashLink
-                  to="#Booking"
-                  style={
-                    isActive("#Booking")
-                      ? {
-                          color: "#59ce8f",
-                        }
-                      : {}
-                  }
-                >
-                  <Typography sx={{ p: 1.5 }}>Booking</Typography>
-                </NavHashLink>
-                <NavHashLink
-                  to="#BookingCancellation"
-                  style={
-                    isActive("#BookingCancellation")
-                      ? {
-                          color: "#59ce8f",
-                        }
-                      : {}
-                  }
-                >
-                  <Typography sx={{ p: 1.5 }}>Booking Cancellation</Typography>
-                </NavHashLink>
-                <NavHashLink
-                  to="#SafetyAndTips"
-                  style={
-                    isActive("#SafetyAndTips")
-                      ? {
-                          color: "#59ce8f",
-                        }
-                      : {}
-                  }
-                >
-                  <Typography sx={{ p: 1.5 }}>Safety and Tips</Typography>
-                </NavHashLink>
-                <NavHashLink
-                  to="#SecurityDeposit"
-                  style={
-                    isActive("#SecurityDeposit")
-                      ? {
-                          color: "#59ce8f",
-                        }
-                      : {}
-                  }
-                >
-                  <Typography sx={{ p: 1.5 }}>Security Deposit</Typography>
-                </NavHashLink>
+            <Box
+              sx={{
+                mt: 6,
+                marginRight: 20,
+                padding: 5,
+                boxShadow: 3,
+                borderRadius: 2,
 
-                <NavHashLink
-                  to="#AccidentOrDamage"
-                  style={
-                    isActive("#AccidentOrDamage")
-                      ? {
-                          color: "#59ce8f",
-                        }
-                      : {}
-                  }
-                >
-                  <Typography sx={{ p: 1.5 }}>Accident or Damage</Typography>
-                </NavHashLink>
+                position: "fixed",
+                top: -1,
+              }}
+            >
+              <Box sx={{ ml: 10, mt: 5 }}>
+                <Typography variant="h4">FAQ Section</Typography>
+                <Box sx={{ bgcolor: "#59CE8F20", mt: 3, pr: 5, pl: 1 }}>
+                  <NavHashLink
+                    to="#Booking"
+                    style={
+                      isActive("#Booking")
+                        ? {
+                            color: "#59ce8f",
+                          }
+                        : {}
+                    }
+                  >
+                    <Typography sx={{ p: 1.5 }}>Booking</Typography>
+                  </NavHashLink>
+                  <NavHashLink
+                    to="#BookingCancellation"
+                    style={
+                      isActive("#BookingCancellation")
+                        ? {
+                            color: "#59ce8f",
+                          }
+                        : {}
+                    }
+                  >
+                    <Typography sx={{ p: 1.5 }}>
+                      Booking Cancellation
+                    </Typography>
+                  </NavHashLink>
+                  <NavHashLink
+                    to="#SafetyAndTips"
+                    style={
+                      isActive("#SafetyAndTips")
+                        ? {
+                            color: "#59ce8f",
+                          }
+                        : {}
+                    }
+                  >
+                    <Typography sx={{ p: 1.5 }}>Safety and Tips</Typography>
+                  </NavHashLink>
+                  <NavHashLink
+                    to="#SecurityDeposit"
+                    style={
+                      isActive("#SecurityDeposit")
+                        ? {
+                            color: "#59ce8f",
+                          }
+                        : {}
+                    }
+                  >
+                    <Typography sx={{ p: 1.5 }}>Security Deposit</Typography>
+                  </NavHashLink>
+
+                  <NavHashLink
+                    to="#AccidentOrDamage"
+                    style={
+                      isActive("#AccidentOrDamage")
+                        ? {
+                            color: "#59ce8f",
+                          }
+                        : {}
+                    }
+                  >
+                    <Typography sx={{ p: 1.5 }}>Accident or Damage</Typography>
+                  </NavHashLink>
+                </Box>
               </Box>
             </Box>
-          </Box>
 
-          <Box sx={{ pl: "30%", pr: "10%", pb: 20 }}>
-            {/* <AppBar /> */}
-            <MobileFAQ />
+            <Box sx={{ pl: "30%", pr: "10%", pb: 20 }}>
+              <MobileFAQ />
+            </Box>
           </Box>
+          <DynamicFooter />
         </Box>
       )}
-
-      <DynamicFooter/>
     </div>
   );
 };

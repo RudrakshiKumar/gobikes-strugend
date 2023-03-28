@@ -114,13 +114,13 @@ textarea:focus {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #59CE8F;
+  background: #59ce8f;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #59CE8F;
+  background: #59ce8f;
 }
 
 .tc_container1 {
@@ -149,10 +149,6 @@ textarea:focus {
   cursor: pointer;
   font-size: 14px;
   margin-bottom: 8px;
-}
-
-.tc_body {
-  width: 75%;
 }
 
 .tc_card {

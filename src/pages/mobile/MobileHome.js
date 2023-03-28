@@ -110,13 +110,13 @@ const MobileHome = () => {
           </CardMedia> */}
           <Box className="player-wrapper" sx={{ ml: "5%" }}>
             <ReactPlayer
+              pip
               url="https://youtu.be/VB4SUy5h8ME"
               className="react-player"
-              playing
+              // playing
               width="95%"
               height="100%"
               controls
-              pip
             />
           </Box>
         </Box>

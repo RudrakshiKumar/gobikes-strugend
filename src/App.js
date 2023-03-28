@@ -51,11 +51,12 @@ function App() {
           <Route path="/BookingFlow" element={<BookingFlow />} />
           <Route path="/BookNowPage" element={<BookNowPage />} />
           <Route path="/RentNow" element={<RentNow />} />
+
+          {/* Test Routes */}
           <Route path="/OTP" element={<OTP />} />
           <Route path="/PersonalDetails" element={<PersonalDetails />} />
           <Route path="/Trial" element={<Trial />} />
 
-          {/* For Mobile View */}
           <Route path="/MobileLogin" element={<MobileLogin />} />
           <Route
             path="/MobileListYourVehicle"
