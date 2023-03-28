@@ -19,8 +19,8 @@ import { MuiTelInput } from "mui-tel-input";
 // import IconButton from "@mui/material/IconButton";
 // import CloseIcon from "@mui/icons-material/Close";
 import MobileLogin from "../../pages/mobile/MobileLogin";
-import { useLocation, useNavigate } from 'react-router-dom'
-import { auth, provider } from '../../Utlity/FirebaseConfig'
+import { useLocation, useNavigate } from "react-router-dom";
+import { auth, provider } from "../../utilities/FirebaseConfig";
 import { signInWithPopup } from "firebase/auth";
 // import { GoogleLogin } from "@react-oauth/google";
 // import { useNavigate } from "react-router-dom";
@@ -61,41 +61,34 @@ const LoginModal = () => {
 
   const theme = useTheme();
 
-  const nevigate = useNavigate()
+  const nevigate = useNavigate();
   const [phone, setPhone] = React.useState("");
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   const handelOTPSignin = () => {
     // Define the 'otpless' function
-
-
     // window.otpless = (otplessUser) => {
     //   // Retrieve the user's details after successful login
-
     //   const waName = otplessUser.waName;
     //   const waNumber = otplessUser.waNumber;
-
     //   // Handle the signup/signin process
     //   // ...
     // }
-  }
-
-
+  };
 
   const googleSignInHandler = () => {
     signInWithPopup(auth, provider)
-      .then(res => {
+      .then((res) => {
         const credentials = {
           name: res.user.displayName,
           email: res.user.email,
-          accessToken: res.user.accessToken
-        }
+          accessToken: res.user.accessToken,
+        };
 
-        localStorage.setItem('user', JSON.stringify(credentials));
-        nevigate('/')
-
+        localStorage.setItem("user", JSON.stringify(credentials));
+        nevigate("/");
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   };
 
   const handleChange = (newPhone) => {
@@ -208,7 +201,7 @@ const LoginModal = () => {
             />
             <Button
               onClick={handelOTPSignin}
-            disabled
+              disabled
               variant="contained"
               sx={{
                 textTransform: "none",
@@ -226,10 +219,22 @@ const LoginModal = () => {
             <br />
             <Divider sx={{ mt: 1, color: "text.disabled" }}>OR</Divider>
 
-            <Box min-width='85%' m='20px auto' display='flex' alignItems='center' justifyContent='center'   >
+            <Box
+              min-width="85%"
+              m="20px auto"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
               <Button onClick={googleSignInHandler}>
-                <img src={googleLogo} alt='Google Logo' height='4%' width='4%' />
-                <Typography mx='3%'>Sign in with Google</Typography></Button>
+                <img
+                  src={googleLogo}
+                  alt="Google Logo"
+                  height="4%"
+                  width="4%"
+                />
+                <Typography mx="3%">Sign in with Google</Typography>
+              </Button>
             </Box>
           </Box>
         </Box>

@@ -12,13 +12,12 @@ import { MuiTelInput } from "mui-tel-input";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
-import { useLocation, useNavigate,Link } from 'react-router-dom'
-import { auth, provider } from '../../Utlity/FirebaseConfig'
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import { auth, provider } from "../../utilities/FirebaseConfig";
 import { signInWithPopup } from "firebase/auth";
 
-
 const MobileLogin = () => {
-  const nevigate = useNavigate()
+  const nevigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleDrawerClose = () => {
     setOpen(false);
@@ -32,21 +31,18 @@ const MobileLogin = () => {
 
   const googleSignInHandler = () => {
     signInWithPopup(auth, provider)
-      .then(res => {
+      .then((res) => {
         const credentials = {
           name: res.user.displayName,
           email: res.user.email,
-          accessToken: res.user.accessToken
-        }
+          accessToken: res.user.accessToken,
+        };
 
-        localStorage.setItem('user', JSON.stringify(credentials));
-        nevigate('/')
-
+        localStorage.setItem("user", JSON.stringify(credentials));
+        nevigate("/");
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   };
-
-
 
   return (
     <>
@@ -161,7 +157,10 @@ const MobileLogin = () => {
         >
           OR
         </Divider>
-        <Button onClick={googleSignInHandler} className="" variant="outlined"
+        <Button
+          onClick={googleSignInHandler}
+          className=""
+          variant="outlined"
           sx={{
             textTransform: "none",
             mt: 3,
@@ -170,11 +169,15 @@ const MobileLogin = () => {
             borderColor: "#4CBB17",
           }}
         >
-          <Box component="img"  alt="Your logo." src={googleLogo}
-           sx={{
+          <Box
+            component="img"
+            alt="Your logo."
+            src={googleLogo}
+            sx={{
               height: 20,
               pr: 2,
-            }}/>
+            }}
+          />
           Sign in with Google
         </Button>
       </Box>
