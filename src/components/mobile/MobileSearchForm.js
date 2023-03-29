@@ -86,11 +86,15 @@ const MobileSearchForm = () => {
         // position: "relative",
       }}
     >
-      <Typography variant="h6">
+      <Typography variant="h6" fontWeight={"bold"}>
         Commuting Made <span style={{ color: "#59CE8F" }}>Easy</span>,
         <br />
       </Typography>
-      <Typography variant="h6" sx={{ marginTop: "5px", font: "bold" }}>
+      <Typography
+        variant="h6"
+        fontWeight={"bold"}
+        sx={{ marginTop: "5px", font: "bold" }}
+      >
         <span style={{ color: "#59CE8F" }}>Affordable</span> and{" "}
         <span style={{ color: "#59CE8F" }}>Quick</span>
       </Typography>

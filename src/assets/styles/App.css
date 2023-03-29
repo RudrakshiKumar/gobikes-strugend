@@ -31,8 +31,9 @@ body {
 body,
 input,
 textarea,
-button {
-  font-family: "Inter", sans-serif;
+button,
+a {
+  font-family: "Poppins", sans-serif;
 }
 
 .app {
@@ -69,7 +70,7 @@ textarea {
 
 .form > input:focus,
 textarea:focus {
-  border: 1px solid rgb(0, 0, 196);
+  border: 1px solid #59ce8f;
 }
 
 .form > textarea {
@@ -87,7 +88,7 @@ textarea:focus {
 .form > button {
   padding: 20px;
   border: none;
-  background-color: rgb(2, 2, 110);
+  background-color: #36b671;
   font-weight: 500;
   font-size: 20px;
   border-radius: 3px;
@@ -98,7 +99,7 @@ textarea:focus {
 }
 
 .form > button:hover {
-  background-color: rgb(0, 0, 196);
+  background-color: #36b671;
   /* width */
 }
 
@@ -125,7 +126,7 @@ textarea:focus {
 
 .tc_container1 {
   min-height: 100vh;
-  padding: 100px 8% 60px;
+  padding: 50px 8% 60px;
   font-family: "Poppins", sans-serif;
   position: relative;
 }

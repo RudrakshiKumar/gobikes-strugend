@@ -30,47 +30,60 @@ import MobileGoCoins from "./pages/mobile/MobileGoCoins";
 import RentNow from "./pages/desktop/RentNow";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 import MobileBookNowPage from "./pages/mobile/MobileBookNowPage";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  typography: {
+    // allVariants: {
+    fontFamily: "poppins",
+    // textTransform: "none",
+    // fontSize: 16,
+    // },
+  },
+});
 
 function App() {
   return (
     <>
-      <Router>
-        <ScrollToTop />
+      <ThemeProvider theme={theme}>
+        <Router>
+          <ScrollToTop />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/ListYourVehicle" element={<ListYourVehicle />} />
-          <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/FAQs" element={<FAQs />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
-          <Route path="/OffersForYou" element={<OffersForYou />} />
-          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
-          <Route path="/TermsCondition" element={<TermsCondition />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/MyRides" element={<MyRides />} />
-          <Route path="/BookingFlow" element={<BookingFlow />} />
-          <Route path="/BookNowPage" element={<BookNowPage />} />
-          <Route path="/RentNow" element={<RentNow />} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/ListYourVehicle" element={<ListYourVehicle />} />
+            <Route path="/ContactUs" element={<ContactUs />} />
+            <Route path="/FAQs" element={<FAQs />} />
+            <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/OffersForYou" element={<OffersForYou />} />
+            <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+            <Route path="/TermsCondition" element={<TermsCondition />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/MyRides" element={<MyRides />} />
+            <Route path="/BookingFlow" element={<BookingFlow />} />
+            <Route path="/BookNowPage" element={<BookNowPage />} />
+            <Route path="/RentNow" element={<RentNow />} />
 
-          {/* Test Routes */}
-          <Route path="/OTP" element={<OTP />} />
-          <Route path="/PersonalDetails" element={<PersonalDetails />} />
-          <Route path="/Trial" element={<Trial />} />
+            {/* Test Routes */}
+            <Route path="/OTP" element={<OTP />} />
+            <Route path="/PersonalDetails" element={<PersonalDetails />} />
+            <Route path="/Trial" element={<Trial />} />
 
-          <Route path="/MobileLogin" element={<MobileLogin />} />
-          <Route
-            path="/MobileListYourVehicle"
-            element={<MobileListYourVehicle />}
-          />
-          <Route path="/MobileContactUs" element={<MobileContactUs />} />
-          <Route path="/MobileFAQs" element={<MobileFAQs />} />
-          <Route path="/MobileBookingFlow" element={<MobileBookingFlow />} />
-          <Route path="/MobileBookNowPage" element={<MobileBookNowPage />} />
-          <Route path="/MobileProfile" element={<MobileProfile />} />
-          <Route path="/MobileBookings" element={<MobileBookings />} />
-          <Route path="/MobileGoCoins" element={<MobileGoCoins />} />
-        </Routes>
-      </Router>
+            <Route path="/MobileLogin" element={<MobileLogin />} />
+            <Route
+              path="/MobileListYourVehicle"
+              element={<MobileListYourVehicle />}
+            />
+            <Route path="/MobileContactUs" element={<MobileContactUs />} />
+            <Route path="/MobileFAQs" element={<MobileFAQs />} />
+            <Route path="/MobileBookingFlow" element={<MobileBookingFlow />} />
+            <Route path="/MobileBookNowPage" element={<MobileBookNowPage />} />
+            <Route path="/MobileProfile" element={<MobileProfile />} />
+            <Route path="/MobileBookings" element={<MobileBookings />} />
+            <Route path="/MobileGoCoins" element={<MobileGoCoins />} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
     </>
   );
 }

@@ -41,6 +41,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { green } from "@mui/material/colors";
 import { Avatar } from "@mui/material";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
+import { Link } from "react-router-dom";
 
 const MobileHome = () => {
   return (
@@ -129,7 +130,9 @@ const MobileHome = () => {
           <Box sx={{ mt: 5 }}>
             <img src={Money} alt="Money" />
             <div style={{ marginTop: "2%" }}>
-              <Typography variant="h6">Different Flexible Packages</Typography>
+              <Typography variant="h6" fontWeight={"bold"}>
+                Different Flexible Packages
+              </Typography>
               <Typography variant="p" sx={{ fontSize: "20px" }}>
                 Grab daily, weekly, fortnight and monthly packages at discounted
                 rates
@@ -139,7 +142,9 @@ const MobileHome = () => {
           <Box sx={{ mt: 4 }}>
             <img src={Bike} alt="Bike" />
             <div style={{}}>
-              <Typography variant="h6">Wide Range</Typography>
+              <Typography variant="h6" fontWeight={"bold"}>
+                Wide Range
+              </Typography>
               <Typography
                 variant="p"
                 sx={{ marginTop: "5px", fontSize: "20px" }}
@@ -152,7 +157,9 @@ const MobileHome = () => {
           <Box sx={{ mt: 5 }}>
             <img src={Rent} alt="Rent" />
             <div style={{ marginTop: "2%" }}>
-              <Typography variant="h6">Highly Maintained Fleet</Typography>
+              <Typography variant="h6" fontWeight={"bold"}>
+                Highly Maintained Fleet
+              </Typography>
               <Typography
                 variant="p"
                 sx={{ marginTop: "5px", fontSize: "20px" }}
@@ -164,7 +171,9 @@ const MobileHome = () => {
           <Box sx={{ mt: 5 }}>
             <img src={open24hours} alt="open24hours" />
             <div style={{ marginTop: "2%" }}>
-              <Typography variant="h6">24*7 At Service</Typography>
+              <Typography variant="h6" fontWeight={"bold"}>
+                24*7 At Service
+              </Typography>
               <Typography
                 variant="p"
                 sx={{ marginTop: "5px", fontSize: "20px" }}
@@ -176,7 +185,9 @@ const MobileHome = () => {
           <Box sx={{ mt: 5 }}>
             <img src={payLater} alt="payLater" />
             <div style={{ marginTop: "2%" }}>
-              <Typography variant="h6">Book Now, Pay later</Typography>
+              <Typography variant="h6" fontWeight={"bold"}>
+                Book Now, Pay later
+              </Typography>
               <Typography
                 variant="p"
                 sx={{ marginTop: "5px", fontSize: "20px" }}
@@ -188,7 +199,9 @@ const MobileHome = () => {
           <Box sx={{ mt: 5 }}>
             <img src={instantRefund} alt="instantRefund" />
             <div style={{ marginTop: "2%" }}>
-              <Typography variant="h6">Instant Refund</Typography>
+              <Typography variant="h6" fontWeight={"bold"}>
+                Instant Refund
+              </Typography>
               <Typography
                 variant="p"
                 sx={{ marginTop: "5px", fontSize: "20px" }}
@@ -451,13 +464,13 @@ const MobileHome = () => {
             }}
           >
             <IconButton>
-              <NotificationsIcon sx={{ fontSize: "30px", color: "black" }} />
+              <NotificationsIcon sx={{ fontSize: "30px", color: "#59CE8F" }} />
             </IconButton>
             <Typography variant="p" sx={{ fontSize: "20px" }}>
               List your vehicle
             </Typography>{" "}
             <br />
-            <Typography variant="h6" sx={{ marginTop: "3%", color: "#9c3" }}>
+            <Typography variant="h6" sx={{ marginTop: "3%", color: "#59CE8F" }}>
               Want to list your unused two-wheeler and earn extra income
             </Typography>
             <br />
@@ -466,14 +479,21 @@ const MobileHome = () => {
               mobility platform - Just connect to turn them into earning members
               of your family.
             </Typography>
-            <br />
-            <Button
-              variant="contained"
-              color="success"
-              sx={{ marginTop: "10%" }}
-            >
-              Know More
-            </Button>
+            <br /> <br />
+            <Link to="/ListYourVehicle">
+              <Button
+                sx={{
+                  marginTop: "10%",
+                  color: "#ffffff",
+                  bgcolor: "#59CE8F",
+                  textAlign: "center",
+                  m: "auto",
+                  ":hover": { bgcolor: "#36b671" },
+                }}
+              >
+                Know More
+              </Button>
+            </Link>
           </Box>
         </Box>
         <MobileFooter />

@@ -467,7 +467,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="2"></div>
+            <div className="py-10" id="2"></div>
             <ol>
               <li className="tc_card">
                 <Typography
@@ -591,15 +591,15 @@ const TermsCondition = () => {
                   </li>
                   <li>
                     <span>
-                      2.12. Mechanical failure/breakdown/cleanliness/maintenance
-                      during the ride: In case of a breakdown, the User has to
-                      immediately intimate the Company about the same and the
-                      location and kind of defect. The Company will send a
-                      mechanic or provide a necessary guidance to repair or
-                      rectify the fault so that you can get on with your ride as
-                      soon as possible. However, the Company is not assuring a
-                      definite timeline for repair, the same is depending on the
-                      location of the vehicle and kind of failure of the
+                      2.12. Mechanical failure/breakdown/cleanliness/ <br />{" "}
+                      maintenance during the ride: In case of a breakdown, the
+                      User has to immediately intimate the Company about the
+                      same and the location and kind of defect. The Company will
+                      send a mechanic or provide a necessary guidance to repair
+                      or rectify the fault so that you can get on with your ride
+                      as soon as possible. However, the Company is not assuring
+                      a definite timeline for repair, the same is depending on
+                      the location of the vehicle and kind of failure of the
                       vehicle, availability of the mechanic, spare parts etc.
                     </span>
                   </li>
@@ -759,7 +759,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="3"></div>
+            <div className="py-10" id="3"></div>
             <ol>
               <li className="tc_card">
                 <Typography
@@ -910,7 +910,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="4"></div>
+            <div className="py-10" id="4"></div>
             <ol>
               <li className="tc_card">
                 <Typography
@@ -1125,7 +1125,7 @@ const TermsCondition = () => {
                 <ol></ol>
               </li>
             </ol>
-            <div className="p-10" id="5"></div>
+            <div className="py-10" id="5"></div>
             <ol>
               <li className="tc_card">
                 <Typography
@@ -1155,7 +1155,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="6"></div>
+            <div className="py-10" id="6"></div>
             <ol>
               <li className="tc_card">
                 <Typography
@@ -1217,7 +1217,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="7"></div>
+            <div className="py-10" id="7"></div>
 
             <ol>
               <li className="tc_card">
@@ -1240,7 +1240,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="8"></div>
+            <div className="py-10" id="8"></div>
 
             <ol>
               <li className="tc_card">
@@ -1270,7 +1270,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="9"></div>
+            <div className="py-10" id="9"></div>
 
             <ol>
               <li className="tc_card">
@@ -1330,7 +1330,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="10"></div>
+            <div className="py-10" id="10"></div>
 
             <ol>
               <li className="tc_card">
@@ -1429,7 +1429,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="11"></div>
+            <div className="py-10" id="11"></div>
 
             <ol>
               <li className="tc_card">
@@ -1484,7 +1484,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="12"></div>
+            <div className="py-10" id="12"></div>
 
             <ol>
               <li className="tc_card">
@@ -1526,7 +1526,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="13"></div>
+            <div className="py-10" id="13"></div>
 
             <ol>
               <li className="tc_card">
@@ -1566,7 +1566,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="14"></div>
+            <div className="py-10" id="14"></div>
 
             <ol>
               <li className="tc_card">
@@ -1595,7 +1595,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="15"></div>
+            <div className="py-10" id="15"></div>
 
             <ol>
               <li className="tc_card">
@@ -1620,7 +1620,7 @@ const TermsCondition = () => {
                 </ol>
               </li>
             </ol>
-            <div className="p-10" id="16"></div>
+            <div className="py-10" id="16"></div>
 
             <ol>
               <li className="tc_card">

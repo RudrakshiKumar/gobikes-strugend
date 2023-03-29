@@ -17,12 +17,12 @@ export default function KnowMore() {
           }}
         >
           <IconButton>
-            <NotificationsIcon sx={{ fontSize: "30px", color: "black" }} />
+            <NotificationsIcon sx={{ fontSize: "30px", color: "#59CE8F" }} />
           </IconButton>
           <Typography variant="p" sx={{ fontSize: "20px" }}>
             List your vehicle
           </Typography>
-          <Typography variant="h3" sx={{ marginTop: "3%", color: "#9c3" }}>
+          <Typography variant="h3" sx={{ marginTop: "3%", color: "#59CE8F" }}>
             Want to list your unused two-wheeler and earn extra income
           </Typography>
           <br />
@@ -35,9 +35,15 @@ export default function KnowMore() {
 
           <Link to="/ListYourVehicle">
             <Button
-              variant="contained"
-              color="success"
-              sx={{ marginTop: "3%" }}
+              // variant="contained"
+              sx={{
+                color: "#ffffff",
+                bgcolor: "#59CE8F",
+                textAlign: "center",
+                m: "auto",
+                ":hover": { bgcolor: "#36b671" },
+                mt: "10%",
+              }}
             >
               Know More
             </Button>
