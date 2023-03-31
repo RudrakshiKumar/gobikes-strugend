@@ -79,21 +79,21 @@ export default function RentNow() {
 
   const [couponsArray, setCouponsArray] = useState(dynamicCoupons);
 
-  useEffect(() => {
-    console.log("couponsArray state changed");
-  }, [couponsArray]);
+  useEffect(() => {}, [couponsArray]);
 
   const handleApply = (e) => {
     let arr = couponsArray;
     var btnId = e.currentTarget.id;
     var currId = btnId[5];
-    console.log(currId);
+    console.log("Button Clicked!");
     if (arr[currId - 1].text === "APPLY") arr[currId - 1].text = "REMOVE";
-    else arr[currId - 1].text = "APPLY";
+    else {
+      arr[currId - 1].text = "APPLY";
+      setCoupons("");
+    }
     if (arr[currId - 1].color === "#4cbb17") arr[currId - 1].color = "red";
     else arr[currId - 1].color = "#4cbb17";
     setCouponsArray(arr);
-    console.log(couponsArray);
   };
 
   return (
