@@ -11,12 +11,39 @@ import {
   Select,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HondaActiva from "../../assets/images/HeroDestini.png";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+const dynamicCoupons = [
+  {
+    id: "apply1",
+    color: "#4cbb17",
+    text: "APPLY",
+    sideBtnText: "GOBIKES",
+    couponText: "Receive GoCoins worth 10% of the booking amount",
+    value: 10,
+  },
+  {
+    id: "apply2",
+    color: "#4cbb17",
+    text: "APPLY",
+    sideBtnText: "GOBIKES",
+    couponText: "Get Flat Rs.50 Off on orders above Rs.1000.",
+    value: 20,
+  },
+  {
+    id: "apply3",
+    color: "#4cbb17",
+    text: "APPLY",
+    sideBtnText: "GOBIKES",
+    couponText: "Get Flat Rs.100 Off on orders above Rs.2000.",
+    value: 30,
+  },
+];
 
 const style = {
   position: "absolute",
@@ -50,15 +77,23 @@ export default function RentNow() {
     setDisable(!disable);
   };
 
-  const handleApply = () => {
-    var change = document.getElementById("apply");
-    if (change.innerHTML === "APPLY") {
-      change.innerHTML = "REMOVE";
-      change.style.color = "red";
-    } else {
-      change.innerHTML = "APPLY";
-      change.style.color = "#4cbb17";
-    }
+  const [couponsArray, setCouponsArray] = useState(dynamicCoupons);
+
+  useEffect(() => {
+    console.log("couponsArray state changed");
+  }, [couponsArray]);
+
+  const handleApply = (e) => {
+    let arr = couponsArray;
+    var btnId = e.currentTarget.id;
+    var currId = btnId[5];
+    console.log(currId);
+    if (arr[currId - 1].text === "APPLY") arr[currId - 1].text = "REMOVE";
+    else arr[currId - 1].text = "APPLY";
+    if (arr[currId - 1].color === "#4cbb17") arr[currId - 1].color = "red";
+    else arr[currId - 1].color = "#4cbb17";
+    setCouponsArray(arr);
+    console.log(couponsArray);
   };
 
   return (
@@ -270,116 +305,44 @@ export default function RentNow() {
                   <MenuItem value="">
                     <em>Apply Coupons</em>
                   </MenuItem>
-                  <MenuItem value={10}>
-                    <div style={{ display: "flex" }}>
-                      <Button
-                        variant="contained"
-                        size="small"
-                        sx={{
-                          color: "black",
-                          backgroundColor: "#eeeeee",
-                          ":hover": {
+                  {couponsArray.map((coup) => (
+                    <MenuItem value={coup.value} key={coup.value}>
+                      <div style={{ display: "flex" }}>
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{
+                            color: "black",
                             backgroundColor: "#eeeeee",
-                          },
-                        }}
-                      >
-                        GOCOINS
-                      </Button>
-                      <Typography
-                        variant="p"
-                        sx={{
-                          fontSize: "14px",
-                          color: "#4cbb17",
-                          marginLeft: "5px",
-                        }}
-                      >
-                        Receive GoCoins worth 10% of the booking amount
-                        <br />
-                        which you can redeem in your next booking.
-                      </Typography>
-                      <Button
-                        id="apply"
-                        variant="text"
-                        size="small"
-                        sx={{ color: "#4cbb17" }}
-                        onClick={handleApply}
-                      >
-                        APPLY
-                      </Button>
-                    </div>
-                  </MenuItem>
-                  <MenuItem value={20}>
-                    <div style={{ display: "flex" }}>
-                      <Button
-                        variant="contained"
-                        size="small"
-                        sx={{
-                          color: "black",
-                          backgroundColor: "#eeeeee",
-                          ":hover": {
-                            backgroundColor: "#eeeeee",
-                          },
-                        }}
-                      >
-                        GOCOINS
-                      </Button>
-                      <Typography
-                        variant="p"
-                        sx={{
-                          fontSize: "14px",
-                          color: "#4cbb17",
-                          marginLeft: "5px",
-                        }}
-                      >
-                        Get Flat Rs.50 Off on orders above Rs.1000.
-                      </Typography>
-                      <Button
-                        id="apply"
-                        variant="text"
-                        size="small"
-                        sx={{ color: "#4cbb17" }}
-                        onClick={handleApply}
-                      >
-                        APPLY
-                      </Button>
-                    </div>
-                  </MenuItem>
-                  <MenuItem value={30}>
-                    <div style={{ display: "flex" }}>
-                      <Button
-                        variant="contained"
-                        size="small"
-                        sx={{
-                          color: "black",
-                          backgroundColor: "#eeeeee",
-                          ":hover": {
-                            backgroundColor: "#eeeeee",
-                          },
-                        }}
-                      >
-                        GOCOINS
-                      </Button>
-                      <Typography
-                        variant="p"
-                        sx={{
-                          fontSize: "14px",
-                          color: "#4cbb17",
-                          marginLeft: "5px",
-                        }}
-                      >
-                        Get Flat Rs.100 Off on orders above Rs.2000.
-                      </Typography>
-                      <Button
-                        id="apply"
-                        variant="text"
-                        size="small"
-                        sx={{ color: "#4cbb17" }}
-                        onClick={handleApply}
-                      >
-                        APPLY
-                      </Button>
-                    </div>
-                  </MenuItem>
+                            ":hover": {
+                              backgroundColor: "#eeeeee",
+                            },
+                          }}
+                        >
+                          {coup.sideBtnText}
+                        </Button>
+                        <Typography
+                          variant="p"
+                          sx={{
+                            fontSize: "14px",
+                            color: "#4cbb17",
+                            marginLeft: "5px",
+                          }}
+                        >
+                          {coup.couponText}
+                        </Typography>
+                        <Button
+                          id={coup.id}
+                          variant="text"
+                          size="small"
+                          sx={{ color: coup.color }}
+                          onClick={handleApply}
+                        >
+                          {coup.text}
+                        </Button>
+                      </div>
+                    </MenuItem>
+                  ))}
                 </Select>
               </FormControl>
             </Box>
