@@ -3,11 +3,12 @@ import {
   Button,
   Grid,
   InputAdornment,
+  Link,
   Modal,
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PlaceIcon from "@mui/icons-material/Place";
 import Bangalore from "../../assets/images/Bangalore.jpg";
 import Chandigarh from "../../assets/images/Chandigarh.jpg";
@@ -35,9 +36,9 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { Link } from "react-router-dom";
 import PreLoginFooter from "../../layouts/desktop/PreLoginFooter";
 import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
+import { useNavigate } from "react-router-dom";
 // import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -70,6 +71,18 @@ export default function Home() {
 
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/BookingFlow", { state: startDate });
+  };
+
+  const [changeStart, setChangeStart] = useState(true);
+  const [changeEnd, setChangeEnd] = useState(false);
+
+  useEffect(() => {
+    setChangeStart(!changeStart);
+    setChangeEnd(!changeEnd);
+  }, [startDate]);
 
   return (
     <>
@@ -527,6 +540,26 @@ export default function Home() {
                     />
                   </LocalizationProvider>
                   {/* <TextField
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  value={startDate}
+                  onChange={(newValue) => setStartDate(newValue)}
+                  sx={{ marginTop: "2%" }}
+                  fullWidth
+                  disabled={changeStart}
+                />
+              </LocalizationProvider>
+
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  value={endDate}
+                  onChange={(newValue) => setEndDate(newValue)}
+                  sx={{ marginTop: "2%" }}
+                  fullWidth
+                  disabled={changeEnd}
+                />
+              </LocalizationProvider>
+              {/* <TextField
                 fullWidth
                 placeholder="Book Now"
                 sx={{ marginTop: "2%" }}
@@ -571,6 +604,37 @@ export default function Home() {
                 />
               )}
               {/* <iframe
+              <Typography variant="p" sx={{ marginTop: "2%" }}>
+                Duration: {(endDate - startDate) / (1000 * 3600 * 24)} Day
+              </Typography>
+              <Button
+                variant="contained"
+                sx={{
+                  marginTop: "2%",
+                  width: "25%",
+                  backgroundColor: "#59CE8F",
+                  ":hover": {
+                    backgroundColor: "#59CE8F",
+                  },
+                }}
+                onClick={handleNavigate}
+              >
+                Search
+              </Button>
+            </Box>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          {image === "" && (
+            <img
+              src={rightSectionNew}
+              alt="Right Section"
+              style={{
+                height: "90vh",
+              }}
+            />
+          )}
+          {/* <iframe
               className="mt-0"
               src="https://embed.lottiefiles.com/animation/29"
               width={800}

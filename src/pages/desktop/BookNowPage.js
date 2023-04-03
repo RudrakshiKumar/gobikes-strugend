@@ -62,6 +62,7 @@ import mapboxgl from "mapbox-gl";
 // @ts-ignore
 mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -142,6 +143,11 @@ export default function BookNowPage() {
   const [change, setChange] = useState(true);
   const handleChange = () => {
     setChange(!change);
+  };
+
+  const navigate = useNavigate();
+  const handleRentNowSummary = () => {
+    navigate("/RentNow");
   };
 
   return (

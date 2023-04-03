@@ -14,7 +14,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
 import HondaSP from "../../assets/images/HondaSP.png";
 import { Link } from "react-router-dom";
@@ -43,6 +43,7 @@ import Leh from "../../assets/images/Leh.jpg";
 import Noida from "../../assets/images/Noida.jpg";
 import Udaipur from "../../assets/images/Udaipur.jpg";
 import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import { useLocation } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileBookingFlow from "../../pages/mobile/MobileBookingFlow";
@@ -90,11 +91,17 @@ export default function BookingFlow(props) {
   const handleLocationOpen = () => setLocation(true);
   const handleLocationClose = () => setLocation(false);
 
+  const [name, setName] = useState("Location");
+  const [setEditName] = useState("Bangalore");
+
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const [name, setName] = useState("Location");
-  const [setEditName] = useState("Bangalore");
+  const date = useLocation();
+
+  useEffect(() => {
+    setStartDate(date.state);
+  }, [date.state]);
 
   return (
     <>
