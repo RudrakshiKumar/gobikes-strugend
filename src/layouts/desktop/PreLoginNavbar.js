@@ -85,7 +85,11 @@ export default function ButtonAppBar() {
                 >
                   <NavLink to="/ListYourVehicle">
                     <Button
-                      sx={{ color: "black", marginLeft: "auto" }}
+                      sx={{
+                        color: "black",
+                        marginLeft: "auto",
+                        fontWeight: "bold",
+                      }}
                       color="primary"
                     >
                       List your Vehicle
@@ -94,7 +98,7 @@ export default function ButtonAppBar() {
 
                   <Button
                     onClick={handleOpen}
-                    sx={{ color: "black" }}
+                    sx={{ color: "black", fontWeight: "bold" }}
                     color="primary"
                   >
                     Login

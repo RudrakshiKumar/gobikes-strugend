@@ -39,6 +39,12 @@ const theme = createTheme({
     // textTransform: "none",
     // fontSize: 16,
     // },
+    button: {
+      fontWeight: "bold",
+      ":hover": {
+        backgroundColor: "#36b671",
+      },
+    },
   },
 });
 

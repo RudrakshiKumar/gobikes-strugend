@@ -91,8 +91,6 @@ const PostLoginNavbar = ({ userDetails }) => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
-
-
   //Dropdown Menu
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -102,119 +100,129 @@ const PostLoginNavbar = ({ userDetails }) => {
 
   const handleClose = () => {
     setAnchorEl(null);
-
   };
   const handelSignOut = () => {
     setAnchorEl(null);
     localStorage.clear();
-  }
+  };
 
   return (
     <>
       <Box>
-
-        {isMatch ?
+        {isMatch ? (
           <MobilePreLoginNavbar />
-          : (
-            <AppBar
-              position="sticky"
-              sx={{
-                bgcolor: "background.paper",
-              }}
-            >
-              <Toolbar sx={{ justifyContent: "space-between" }}>
-                <Link to="/">
-                  <Box
-                    component="img"
-                    sx={{
-                      height: 50,
-                      ml: 10,
-                    }}
-                    alt="Your logo."
-                    src={logo}
-                  />
-                </Link>
-
+        ) : (
+          <AppBar
+            position="sticky"
+            sx={{
+              bgcolor: "background.paper",
+            }}
+          >
+            <Toolbar sx={{ justifyContent: "space-between" }}>
+              <Link to="/">
                 <Box
+                  component="img"
                   sx={{
-                    mr: 10,
+                    height: 50,
+                    ml: 10,
                   }}
+                  alt="Your logo."
+                  src={logo}
+                />
+              </Link>
+
+              <Box
+                sx={{
+                  mr: 10,
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{ color: "black" }}
                 >
-                  <Typography
-                    variant="h6"
-                    component="div"
-                    sx={{ color: "black" }}
-                  >
-                    <Link to="/ListYourVehicle">
-                      <Button
-                        sx={{ color: "black", marginLeft: "auto" }}
-                        color="primary"
-                      >
-                        List your Vehicle
-                      </Button>
-                    </Link>
-
-                    <Link to="/MyRides">
-                      <Button sx={{ color: "black" }} color="primary">
-                        <TwoWheelerIcon
-                          sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40 }}
-                        />
-                        Rides
-                      </Button>
-                    </Link>
-
+                  <Link to="/ListYourVehicle">
                     <Button
-                      id="demo-customized-button"
-                      aria-controls={open ? "demo-customized-menu" : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
-                      disableElevation
-                      onClick={handleClick}
-                      endIcon={<KeyboardArrowDownIcon />}
-                      sx={{ color: "black" }}
+                      sx={{
+                        color: "black",
+                        marginLeft: "auto",
+                        fontWeight: "bold",
+                      }}
                       color="primary"
                     >
-                      <AccountCircleIcon
-                        sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40 }}
-                      />
-                      {userDetails.name}
+                      List your Vehicle
                     </Button>
+                  </Link>
 
-                    <StyledMenu
-                      id="demo-customized-menu"
-                      MenuListProps={{
-                        "aria-labelledby": "demo-customized-button",
-                      }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
+                  <Link to="/MyRides">
+                    <Button
+                      sx={{ color: "black", fontWeight: "bold" }}
+                      color="primary"
                     >
-                      {/* <MenuItem onClick={handleClose} disableRipple>
+                      <TwoWheelerIcon
+                        sx={{
+                          color: "#59CE8F",
+                          ml: 2,
+                          mr: 1,
+                          fontSize: 40,
+                        }}
+                      />
+                      Rides
+                    </Button>
+                  </Link>
+
+                  <Button
+                    id="demo-customized-button"
+                    aria-controls={open ? "demo-customized-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    disableElevation
+                    onClick={handleClick}
+                    endIcon={<KeyboardArrowDownIcon />}
+                    sx={{ color: "black", fontWeight: "bold" }}
+                    color="primary"
+                  >
+                    <AccountCircleIcon
+                      sx={{ color: "#59CE8F", ml: 2, mr: 1, fontSize: 40 }}
+                    />
+                    {userDetails.name}
+                  </Button>
+
+                  <StyledMenu
+                    id="demo-customized-menu"
+                    MenuListProps={{
+                      "aria-labelledby": "demo-customized-button",
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                  >
+                    {/* <MenuItem onClick={handleClose} disableRipple>
                       Orders
                     </MenuItem> */}
-                      {/* <Divider sx={{ my: 0.5 }} /> */}
-                      <Link to="/DashBoard">
-                        <MenuItem
-                          onClick={handleClose}
-                          disableRipple
-                          sx={{ color: "#000000" }}
-                        >
-                          Dashboard
-                        </MenuItem>
-                      </Link>
+                    {/* <Divider sx={{ my: 0.5 }} /> */}
+                    <Link to="/DashBoard">
+                      <MenuItem
+                        onClick={handleClose}
+                        disableRipple
+                        sx={{ color: "#000000" }}
+                      >
+                        Dashboard
+                      </MenuItem>
+                    </Link>
 
-                      <Divider sx={{ my: 0.5 }} />
-                      <Link to="/">
-                        <MenuItem
-                          onClick={handelSignOut}
-                          disableRipple
-                          sx={{ color: "#000000" }}
-                        >
-                          Sign Out
-                        </MenuItem>
-                      </Link>
-                    </StyledMenu>
-                    {/* <Modal
+                    <Divider sx={{ my: 0.5 }} />
+                    <Link to="/">
+                      <MenuItem
+                        onClick={handelSignOut}
+                        disableRipple
+                        sx={{ color: "#000000" }}
+                      >
+                        Sign Out
+                      </MenuItem>
+                    </Link>
+                  </StyledMenu>
+                  {/* <Modal
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
@@ -222,12 +230,11 @@ const PostLoginNavbar = ({ userDetails }) => {
                   >
                     <Login />
                   </Modal> */}
-                  </Typography>
-                </Box>
-              </Toolbar>
-            </AppBar>
-          )
-        }
+                </Typography>
+              </Box>
+            </Toolbar>
+          </AppBar>
+        )}
       </Box>
     </>
   );

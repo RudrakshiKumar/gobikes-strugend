@@ -116,13 +116,13 @@ const MobileFooter = () => {
             © STRUGEND. All rights reserved.
           </Typography>
           <Box sx={{}}>
-            <Link to="www.google.com">
+            <Link to="https://www.instagram.com/strugend/">
               <InstagramIcon sx={{ color: "#000000", mr: 2, width: 15 }} />
             </Link>
-            <Link to="www.google.com">
+            <Link to="https://strugend.com/index.html">
               <TwitterIcon sx={{ color: "#000000", mr: 2, width: 15 }} />
             </Link>
-            <Link to="www.google.com">
+            <Link to="https://www.facebook.com/profile.php?id=100085408645437">
               <FacebookIcon sx={{ color: "#000000", width: 15 }} />
             </Link>
           </Box>

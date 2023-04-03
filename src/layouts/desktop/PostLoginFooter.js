@@ -111,13 +111,13 @@ const PostLoginFooter = () => {
             © STRUGEND. All rights reserved.
           </Typography>
           <Box sx={{ pr: 10 }}>
-            <Link to="www.google.com">
+            <Link to="https://www.instagram.com/strugend/">
               <InstagramIcon sx={{ mx: 2, color: "#000000" }} />
             </Link>
-            <Link to="www.google.com">
+            <Link to="https://strugend.com/index.html">
               <TwitterIcon sx={{ mx: 2, color: "#000000" }} />
             </Link>
-            <Link to="www.google.com">
+            <Link to="https://www.facebook.com/profile.php?id=100085408645437">
               <FacebookIcon sx={{ mx: 2, color: "#000000" }} />
             </Link>
           </Box>

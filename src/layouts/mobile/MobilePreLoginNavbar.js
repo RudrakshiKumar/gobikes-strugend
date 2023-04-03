@@ -156,7 +156,11 @@ export default function MobilePreLoginNavbar() {
                 <ListItemIcon>
                   <LoginIcon sx={{ color: "#59ce8f" }} />
                 </ListItemIcon>
-                <ListItemText primary="LogIn/SignUp" font="poppins" />
+                <ListItemText
+                  primary="LogIn/SignUp"
+                  font="poppins"
+                  // primaryTypographyProps={{ fontWeight: "bold" }}
+                />
               </ListItemButton>
             </ListItem>
           </Link>

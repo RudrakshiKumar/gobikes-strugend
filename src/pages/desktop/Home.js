@@ -542,13 +542,14 @@ export default function Home() {
                     Duration: 1 Day
                   </Typography>
                   <Button
-                    variant="contained"
+                    // variant="contained"
                     sx={{
+                      color: "#ffffff",
                       marginTop: "2%",
                       width: "25%",
                       backgroundColor: "#59CE8F",
                       ":hover": {
-                        backgroundColor: "#59CE8F",
+                        backgroundColor: "#36b671",
                       },
                     }}
                     component={Link}
