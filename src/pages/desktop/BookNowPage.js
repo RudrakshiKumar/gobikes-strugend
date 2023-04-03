@@ -56,13 +56,13 @@ import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileBookNowPage from "../../pages/mobile/MobileBookNowPage";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable import/no-webpack-loader-syntax */
 import mapboxgl from "mapbox-gl";
 // @ts-ignore
 mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
-import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
