@@ -3,11 +3,11 @@ import {
   Button,
   Grid,
   InputAdornment,
-  Modal, 
+  Modal,
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PlaceIcon from "@mui/icons-material/Place";
 import Bangalore from "../../assets/images/Bangalore.jpg";
 import Chandigarh from "../../assets/images/Chandigarh.jpg";
@@ -71,6 +71,17 @@ const MobileSearchForm = () => {
     setChange(!change);
     console.log(!change);
   };
+
+  //Disabling Pickup & Dropoff Date Selection
+
+  const [changeStart, setChangeStart] = useState(true);
+  const [changeEnd, setChangeEnd] = useState(false);
+
+  useEffect(() => {
+    setChangeStart(!changeStart);
+    setChangeEnd(!changeEnd);
+  }, [startDate]);
+
   return (
     <Box
       className=""
@@ -491,7 +502,7 @@ const MobileSearchForm = () => {
           onChange={(newValue) => setStartDate(newValue)}
           sx={{ marginTop: "2%" }}
           fullWidth
-          onClick={handleChange}
+          disabled={changeStart}
         />
       </LocalizationProvider>
 
@@ -501,7 +512,7 @@ const MobileSearchForm = () => {
           onChange={(newValue) => setEndDate(newValue)}
           sx={{ marginTop: "2%" }}
           fullWidth
-          disabled={change}
+          disabled={changeEnd}
         />
       </LocalizationProvider>
       {/* <TextField
