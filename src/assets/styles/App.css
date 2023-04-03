@@ -165,3 +165,21 @@ textarea:focus {
   margin-bottom: 12px;
   font-weight: 500;
 }
+
+/* MobileBookingFlow CSS */
+
+.filter {
+  left: calc(85.5% - 50px);
+  bottom: 20px;
+  width: 88px;
+  height: 40px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4cbb17;
+  padding: 8px 12px;
+  border-radius: 5px;
+  z-index: 1001;
+}
