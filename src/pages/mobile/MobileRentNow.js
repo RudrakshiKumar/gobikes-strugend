@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+// import styles from '../../assets/styles/MobileRentNowCss.module.css';
 import HondaActiva from "../../assets/images/HeroDestini.png";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
@@ -20,10 +21,10 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const style = {
   position: "absolute",
-  top: "50%",
-  left: "50%",
+  bottom: "-30%",
+  right: "-38%",
   transform: "translate(-50%, -50%)",
-  width: 800,
+  width: "80vw",
   bgcolor: "background.paper",
   borderRadius: "10px",
   boxShadow: 24,
@@ -48,124 +49,113 @@ export default function MobileRentNow() {
 
   return (
     <>
-      <Container sx={{ marginTop: "2%" }}>
+      <Container sx={{ marginTop: "" }}>
         <Typography variant="h6">Summary</Typography>
-        <Grid container spacing={2} sx={{ paddingTop: "5px" }}>
-          <Grid item xs={12} sm={7}>
+        <Grid container sx={{}}  >
+          <Grid item={true} 
+            sx={{
+              width: "100%",
+              padding: "0px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
             <Box
-              sx={{
-                border: "2px solid #e0e0e0",
-                borderRadius: "4px",
-                padding: "20px",
-              }}
+              sx={{ width: "100%", border: "2px solid #e0e0e0", borderRadius: "4px", padding: "", }}
             >
-              <div style={{ display: "flex" }}>
-                <img
-                  src={HondaActiva}
-                  alt="HondaActiva"
-                  style={{ width: "40%" }}
-                />
-                <div style={{ marginLeft: "5px" }}>
-                  <Typography variant="h6">Hero Destini 125</Typography>
-                  <Typography variant="p" fontSize="16px">
-                    RentNow: <span style={{ fontWeight: "bold" }}>₹449</span>
-                  </Typography>
-                  <br />
-                  <Typography variant="p" fontSize="16px">
-                    Refundable Deposit:{" "}
-                    <span style={{ fontWeight: "bold" }}>₹2000</span>
-                  </Typography>
-                  <Box
-                    sx={{
-                      border: "1px solid #e0e0e0",
-                      borderRadius: "4px",
-                      width: "27%",
-                      marginTop: "7px",
-                      display: "flex",
-                    }}
-                  >
-                    <IconButton
+              <div>
+                <div style={{ display: "flex" }} >
+                  <img
+                    src={HondaActiva}
+                    alt="HondaActiva"
+                    style={{ width: "47%", height: "150px" }}
+                  />
+                  <div style={{ marginLeft: "5px", display: "flex", justifyContent: "space-between", flexDirection: "column" }} >
+                    <Typography id="bike_name" sx={{ fontSize: "20px" }} variant="h6">Hero Destini 125</Typography>
+                    <div style={{ display: "flex", justifyContent: "start", alignItems: "center" }}>
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        <Typography sx={{ fontSize: "16px", fontWeight: "700", margin: "0 20px 0 0" }}>Rental</Typography>
+                        <Typography>₹449</Typography>
+                      </div>
+
+                      <p style={{ fontSize: "30px", margin: "0 20px 0 0" }} >+</p>
+
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        <Typography sx={{ fontSize: "16px", fontWeight: "700", }}>Deposit</Typography>
+                        <Typography>₹2000</Typography>
+                      </div>
+                    </div>
+
+
+                    <Box
                       sx={{
-                        padding: "3px",
-                        paddingLeft: "5px",
+                        width: "fit-content", height: "40px", border: "1px solid #e0e0e0", display: "flex", justifyContent: "center"
                       }}
                     >
-                      <RemoveIcon />
-                    </IconButton>
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        borderLeft: "1px solid #e0e0e0",
-                        padding: "4px",
-                        paddingLeft: "6px",
-                        paddingRight: "6px",
-                        borderRight: "1px solid #e0e0e0",
-                      }}
-                    >
-                      1
-                    </Typography>
-                    <IconButton sx={{ padding: "3px", paddingLeft: "5px" }}>
-                      <AddIcon />
-                    </IconButton>
-                  </Box>
-                  <Box sx={{ marginTop: "7px" }}>
-                    <FormControl sx={{ minWidth: 350 }}>
-                      <Select
-                        value={payment}
-                        size="small"
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
+                      <IconButton sx={{ display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "0px", background: "#e0e0e0" }} >
+                        <RemoveIcon style={{ fontSize: "20px" }} />
+                      </IconButton>
+
+                      <Typography
+                        variant="h6"
+                        sx={{ fontSize: "20px", paddingLeft: "8px", paddingRight: "8px", display: "flex", alignItems: "center", }}
                       >
-                        <MenuItem value="">
-                          <em>Payment Mode:FullPayment</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Payment Mode:FullPayment</MenuItem>
-                        <MenuItem value={20}>
-                          Payment Mode:PartialPayment
-                        </MenuItem>
-                      </Select>
-                    </FormControl>
-                  </Box>
+                        1
+                      </Typography>
+
+                      <IconButton sx={{ display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "0px", background: "#e0e0e0" }}>
+                        <AddIcon style={{ fontSize: "20px" }} />
+                      </IconButton>
+                    </Box>
+                  </div>
                 </div>
+
+
+                <Box sx={{ marginTop: "7px" }}>
+                  <FormControl sx={{ minWidth: 350, width: "100%" }}>
+                    <Select
+                      width="100%"
+                      value={payment}
+                      size="small"
+                      onChange={handleChange}
+                      displayEmpty
+                      inputProps={{ "aria-label": "Without label" }}
+                    >
+                      <MenuItem value="">
+                        <em>Payment Mode:FullPayment</em>
+                      </MenuItem>
+                      <MenuItem sx={{ fontSize: "2px" }} fontSize="1px" value={10}>Payment Mode:FullPayment</MenuItem>
+                      <MenuItem value={20}>
+                        Payment Mode:PartialPayment
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+
               </div>
-              <div style={{ marginTop: "3%" }}>
+
+
+              <div style={{ marginTop: "40px", padding: "15px" }} >
                 <Typography
                   variant="p"
-                  sx={{ fontSize: "16px", color: "#4cbb17" }}
+                  sx={{ fontSize: "20px", fontWeight: "600", color: "#4cbb17", marginBottom: "10px" }}
                 >
                   Pickup and Drop Date
                 </Typography>
-                <br />
-                <div style={{ display: "flex" }}>
-                  <div>
-                    <Typography variant="p">
-                      <span style={{ fontSize: "35px", fontWeight: "bold" }}>
-                        22
-                      </span>
-                    </Typography>
-                    <Typography variant="p" sx={{ marginLeft: "10px" }}>
-                      <span>February, 2023</span>
-                      <br />
-                      <span>1.00PM</span>
-                    </Typography>
-                  </div>
-                  <div>
-                    <Typography variant="p">
-                      <span style={{ fontSize: "35px", fontWeight: "bold" }}>
-                        23
-                      </span>
-                    </Typography>
-                    <Typography variant="p" sx={{ marginLeft: "10px" }}>
-                      <span>February, 2023</span>
-                      <br />
-                      <span>2.00PM</span>
-                    </Typography>
-                  </div>
+                <div style={{ display: "flex", flexDirection: "column", marginBottom: "10px" }}>
+                  <Typography variant="p" sx={{ marginLeft: "15px", fontWeight: "600" }}>
+                    24th February 2023, 12:00 PM
+                  </Typography>
+
+                  <Typography variant="p" sx={{ marginLeft: "15px", fontWeight: "600" }}>
+                    25th February 2023, 12:00 AM
+                  </Typography>
                 </div>
+
                 <Typography
                   variant="p"
-                  sx={{ fontSize: "16px", color: "#4cbb17" }}
+                  sx={{ fontSize: "20px", fontWeight: "600", color: "#4cbb17" }}
                 >
                   Pickup and Drop Location
                 </Typography>
@@ -173,14 +163,16 @@ export default function MobileRentNow() {
                 <Typography
                   variant="p"
                   sx={{
-                    fontSize: "16px",
+                    fontSize: "18px",
                     fontWeight: "bold",
-                    padding: "5px",
+                    marginLeft: "15px",
                   }}
                 >
                   Tikiapara Railway Station
                 </Typography>
               </div>
+
+
               <Box
                 sx={{
                   border: "2px solid #e0e0e0",
@@ -188,63 +180,49 @@ export default function MobileRentNow() {
                   padding: "15px",
                   marginTop: "15px",
                 }}
+                
               >
                 <Typography
                   variant="p"
-                  sx={{ fontSize: "16px", fontWeight: "bold" }}
+                  sx={{ fontSize: "20px", fontWeight: "bold" }}
                 >
                   Things to Remember
                 </Typography>
-                <Grid container spacing={2} sx={{ marginTop: "2px" }}>
-                  <Grid item xs={12} sm={3}>
-                    <Typography variant="p" sx={{ fontSize: "15px" }}>
-                      Kilometer Limit
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={3}>
-                    <Typography variant="p" sx={{ fontSize: "15px" }}>
-                      100 Kms
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={4}>
-                    <Typography variant="p" sx={{ fontSize: "15px" }}>
-                      Kilometers Changes
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <Typography variant="p" sx={{ fontSize: "15px" }}>
-                      ₹3/Km
-                    </Typography>
-                  </Grid>
+
+                <Grid item xs={12} sm={3}>
+                  <Typography variant="p" sx={{ marginTop: "12px", marginBottom: "5px", weight: "100%", fontSize: "16px", fontWeigth: "500", display: "flex", justifyContent: "space-between" }}>
+                    <span>Kilometer Limit </span>
+                    <span> 100 Kms </span>
+                  </Typography>
                 </Grid>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={3}>
-                    <Typography variant="p" sx={{ fontSize: "15px" }}>
-                      Location Time
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={3}>
-                    <Typography variant="p" sx={{ fontSize: "15px" }}>
-                      7.00AM to 10.00Pm
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={4}>
-                    <Typography variant="p" sx={{ fontSize: "15px" }}>
-                      Late Drop Fee
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <Typography variant="p" sx={{ fontSize: "15px" }}>
-                      ₹100/hr
-                    </Typography>
-                  </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Typography variant="p" sx={{ marginBottom: "5px", weight: "100%", fontSize: "16px", fontWeigth: "500", display: "flex", justifyContent: "space-between" }}>
+                    <span>Kilometers Changes </span>
+                    <span> ₹3/Km </span>
+                  </Typography>
                 </Grid>
+                <Grid item xs={12} sm={3}>
+                  <Typography variant="p" sx={{ marginBottom: "5px", weight: "100%", fontSize: "16px", fontWeigth: "500", display: "flex", justifyContent: "space-between" }}>
+                    <span> Location Time </span>
+                    <span> 7.00AM to 10.00Pm </span>
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Typography variant="p" sx={{ marginBottom: "5px", weight: "100%", fontSize: "16px", fontWeigth: "500", display: "flex", justifyContent: "space-between" }}>
+                    <span>Late Drop Fee </span>
+                    <span> ₹100/hr </span>
+                  </Typography>
+                </Grid>
+
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={5}>
+
+
+
+          <Grid item xs={12} sm={5} >
             <Box>
-              <FormControl sx={{ minWidth: 470 }}>
+              <FormControl sx={{ width: "100%", marginTop: "20px" }}>
                 <Select
                   value={payment}
                   size="small"
@@ -256,8 +234,8 @@ export default function MobileRentNow() {
                     <em>Apply Coupons</em>
                   </MenuItem>
                   <MenuItem value={10}>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={2}>
+                    <Grid spacing={0} sx={{ marginBottom: "20px", paddingTop: "20px", paddingBottom: "20px", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }} >
+                      <Grid item xs={12} sm={2} sx={{ width: "20%" }} >
                         <Button
                           variant="contained"
                           size="small"
@@ -272,17 +250,17 @@ export default function MobileRentNow() {
                           GOCOINS
                         </Button>
                       </Grid>
-                      <Grid item xs={12} sm={8}>
+
+                      <Grid xs={12} sm={4} sx={{ width: "50%", heigth: "50px", display: "flex", flexWrap: "wrap" }}>
                         <Typography
                           variant="p"
                           sx={{ fontSize: "14px", color: "#4cbb17" }}
                         >
-                          Receive GoCoins worth 10% of the booking amount
-                          <br />
-                          which you can redeem in your next booking.
+                          Receive GoCoins worth 10% of the booking amount  which you can redeem in your next booking.
                         </Typography>
                       </Grid>
-                      <Grid item xs={12} sm={2}>
+
+                      <Grid item xs={12} sm={2} sx={{ width: "20%", textAlign: "end" }}>
                         <Button
                           variant="text"
                           size="small"
@@ -293,9 +271,10 @@ export default function MobileRentNow() {
                       </Grid>
                     </Grid>
                   </MenuItem>
+
                   <MenuItem value={20}>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={2}>
+                    <Grid spacing={0} sx={{ marginBottom: "20px", paddingTop: "20px", paddingBottom: "20px", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }} >
+                      <Grid item xs={12} sm={2} sx={{ width: "20%" }} >
                         <Button
                           variant="contained"
                           size="small"
@@ -310,7 +289,8 @@ export default function MobileRentNow() {
                           GOCOINS
                         </Button>
                       </Grid>
-                      <Grid item xs={12} sm={8}>
+
+                      <Grid xs={12} sm={4} sx={{ width: "50%", heigth: "50px", display: "flex", flexWrap: "wrap" }} >
                         <Typography
                           variant="p"
                           sx={{ fontSize: "14px", color: "#4cbb17" }}
@@ -318,7 +298,8 @@ export default function MobileRentNow() {
                           Get Flat Rs.50 Off on orders above Rs.1000.
                         </Typography>
                       </Grid>
-                      <Grid item xs={12} sm={2}>
+
+                      <Grid item xs={12} sm={2} sx={{ width: "20%", textAlign: "end" }} >
                         <Button
                           variant="text"
                           size="small"
@@ -329,9 +310,10 @@ export default function MobileRentNow() {
                       </Grid>
                     </Grid>
                   </MenuItem>
+
                   <MenuItem value={30}>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={2}>
+                    <Grid spacing={0} sx={{ marginBottom: "20px", paddingTop: "20px", paddingBottom: "20px", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <Grid item xs={12} sm={2} sx={{ width: "20%" }} >
                         <Button
                           variant="contained"
                           size="small"
@@ -346,7 +328,8 @@ export default function MobileRentNow() {
                           GOCOINS
                         </Button>
                       </Grid>
-                      <Grid item xs={12} sm={8}>
+
+                      <Grid xs={12} sm={4} sx={{ width: "50%", heigth: "50px", display: "flex", flexWrap: "wrap" }} >
                         <Typography
                           variant="p"
                           sx={{ fontSize: "14px", color: "#4cbb17" }}
@@ -354,7 +337,8 @@ export default function MobileRentNow() {
                           Get Flat Rs.100 Off on orders above Rs.2000.
                         </Typography>
                       </Grid>
-                      <Grid item xs={12} sm={2}>
+
+                      <Grid item xs={12} sm={2} sx={{ width: "20%", textAlign: "end" }} >
                         <Button
                           variant="text"
                           size="small"
@@ -368,45 +352,38 @@ export default function MobileRentNow() {
                 </Select>
               </FormControl>
             </Box>
+
+
+
             <Box
               sx={{
                 border: "2px solid #e0e0e0",
                 borderRadius: "4px",
-                padding: "10px",
+                padding: "15px",
                 marginTop: "7px",
                 backgroundColor: "#e0e0e0",
               }}
             >
               <Typography
                 variant="p"
-                sx={{ fontSize: "15px", fontWeight: "bold" }}
+                sx={{ marginBottom: "10px", fontSize: "20px", fontWeight: "bold" }}
               >
                 Fare Details
               </Typography>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={9}>
-                  <Typography variant="p" fontSize="15px">
-                    Rent Amount
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={3}>
-                  <Typography variant="p" fontSize="15px">
-                    ₹449.00
-                  </Typography>
+              <Grid container spacing={2} sx={{ width: "100%" }}>
+                <Grid item xs={12} sm={9} sx={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }} >
+                  <Typography variant="p" fontSize="18px"> Rent Amount </Typography>
+                  <Typography variant="p" fontSize="18px"> ₹449.00 </Typography>
                 </Grid>
               </Grid>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={9}>
-                  <Typography variant="p" fontSize="15px">
-                    Gohub Discount (10% off)
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={3}>
-                  <Typography variant="p" fontSize="15px">
-                    <span style={{ color: "#4cbb17" }}>-₹49.00</span>
-                  </Typography>
+
+              <Grid container spacing={2} sx={{ width: "100%", marginBottom: "15px" }}>
+                <Grid item xs={12} sm={9} sx={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <Typography variant="p" fontSize="15px"> Gohub Discount (10% off) </Typography>
+                  <Typography variant="p" fontSize="15px"> -₹49.00 </Typography>
                 </Grid>
               </Grid>
+
               <hr
                 style={{
                   background: "#9e9e9e",
@@ -415,38 +392,32 @@ export default function MobileRentNow() {
                   marginTop: "3px",
                 }}
               />
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={9}>
+              <Grid container spacing={2} sx={{ width: "100%" }} >
+                <Grid item xs={12} sm={9} sx={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }} >
                   <Typography
                     variant="p"
-                    sx={{ fontSize: "15px", fontWeight: "bold" }}
+                    sx={{ marginBottom: "10px", fontSize: "20px", fontWeight: "bold" }}
                   >
                     Total Payable Amount
                   </Typography>
+                  <Typography sx={{ marginBottom: "10px", fontSize: "20px", fontWeight: "bold" }}>₹449.10</Typography>
                 </Grid>
-                <Grid item xs={12} sm={3}>
-                  <Typography
-                    variant="p"
-                    sx={{ fontSize: "15px", fontWeight: "bold" }}
-                  >
-                    ₹449.10
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={9}>
-                  <Typography variant="p" sx={{ fontSize: "15px" }}>
+
+                <Grid item xs={12} sm={9} sx={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <Typography variant="p" fontSize="18px">
                     <span>Refundable Deposit</span>
                     <br />
                     <span>(To be paid at the time of Pickup)</span>
                   </Typography>
+                  <Typography variant="p" fontSize="18px">₹2000.00</Typography>
                 </Grid>
-                <Grid item xs={12} sm={3}>
-                  <Typography variant="p" sx={{ fontSize: "15px" }}>
-                    ₹2000.00
-                  </Typography>
-                </Grid>
+
               </Grid>
             </Box>
-            <Grid container sx={{ padding: "7px" }}>
+
+
+
+            <Grid container sx={{ width: "80vw", padding: "7px", position: "relative" }}>
               <Grid item>
                 <Checkbox
                   {...label}
@@ -461,6 +432,7 @@ export default function MobileRentNow() {
               </Grid>
               <Modal
                 open={open}
+                sx={{width: "90vw", position: "relative"}}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
@@ -470,34 +442,26 @@ export default function MobileRentNow() {
                     id="modal-modal-title"
                     variant="h6"
                     component="h2"
+                    sx={{width: "100%", }}
                   >
                     GoHub Terms and Conditions
                   </Typography>
-                  <div style={{ padding: "3px", paddingLeft: "17px" }}>
-                    <ui>
+                  <div style={{ width: "90vw", padding: "2px", paddingLeft: "" }}>
+                    <ui style={{width: "90vw", maxHeight: "300px", overflowY: "scroll" }} >
                       <li>
-                        Documents Required: Aadhar Card, Driving License and
-                        Student/Employee ID Card.
+                        Documents Required: Aadhar Card, Driving License and Student/Employee ID Card.
                       </li>
                       <li>
-                        One Goverment address proved has to be submitted at the
-                        time of pickUp which will be returned at the time of
-                        drop. The riders needs to present all the original
-                        documents at the time of pickUp.
+                        One Goverment address proved has to be submitted at the time of pickUp which will be returned at the time of drop. The riders needs to present all the original documents at the time of pickUp.
                       </li>
                       <li>
-                        Fuel Charges are not included in the security deposit or
-                        rent.
+                        Fuel Charges are not included in the security deposit or rent.
                       </li>
                       <li>
-                        In the case any damage to the vehicle, the customer is
-                        liable to pay the repair charges plus the labour charges
-                        as per Authorised Service Center.
+                        In the case any damage to the vehicle, the customer is liable to pay the repair charges plus the labour charges as per Authorised Service Center.
                       </li>
                       <li>
-                        Charges to be borne by the customer: Helmet Lost:
-                        Rs.700, Key Lost: Rs.1000, Full Insurance Declared Value
-                        of the vehicle of the in case of any theft.
+                        Charges to be borne by the customer: Helmet Lost: Rs.700, Key Lost: Rs.1000, Full Insurance Declared Value of the vehicle of the in case of any theft.
                       </li>
                     </ui>
                   </div>
