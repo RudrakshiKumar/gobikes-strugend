@@ -3,7 +3,6 @@ import {
   Button,
   Grid,
   InputAdornment,
-  Link,
   Modal,
   TextField,
   Typography,
@@ -39,12 +38,12 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import PreLoginFooter from "../../layouts/desktop/PreLoginFooter";
 import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
 import { useNavigate } from "react-router-dom";
-// import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import MobileHome from "../mobile/MobileHome";
-import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
+import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
+// import BookOnlineIcon from "@mui/icons-material/BookOnline";
+import MobileHome from "../mobile/MobileHome";
 
 const style = {
   position: "absolute",
@@ -59,6 +58,10 @@ const style = {
 };
 
 export default function Home() {
+  // Mobile View
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -69,8 +72,6 @@ export default function Home() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/BookingFlow", { state: startDate });
@@ -86,6 +87,7 @@ export default function Home() {
 
   return (
     <>
+      {/* Mobile View Condition Check */}
       {isMatch ? (
         <MobileHome />
       ) : (
@@ -528,6 +530,7 @@ export default function Home() {
                       onChange={(newValue) => setStartDate(newValue)}
                       sx={{ marginTop: "2%" }}
                       fullWidth
+                      disabled={changeStart}
                     />
                   </LocalizationProvider>
 
@@ -537,29 +540,10 @@ export default function Home() {
                       onChange={(newValue) => setEndDate(newValue)}
                       sx={{ marginTop: "2%" }}
                       fullWidth
+                      disabled={changeEnd}
                     />
                   </LocalizationProvider>
                   {/* <TextField
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateTimePicker
-                  value={startDate}
-                  onChange={(newValue) => setStartDate(newValue)}
-                  sx={{ marginTop: "2%" }}
-                  fullWidth
-                  disabled={changeStart}
-                />
-              </LocalizationProvider>
-
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateTimePicker
-                  value={endDate}
-                  onChange={(newValue) => setEndDate(newValue)}
-                  sx={{ marginTop: "2%" }}
-                  fullWidth
-                  disabled={changeEnd}
-                />
-              </LocalizationProvider>
-              {/* <TextField
                 fullWidth
                 placeholder="Book Now"
                 sx={{ marginTop: "2%" }}
@@ -572,21 +556,19 @@ export default function Home() {
                 }}
               /> */}
                   <Typography variant="p" sx={{ marginTop: "2%" }}>
-                    Duration: 1 Day
+                    Duration: {(endDate - startDate) / (1000 * 3600 * 24)} Day
                   </Typography>
                   <Button
-                    // variant="contained"
+                    variant="contained"
                     sx={{
-                      color: "#ffffff",
                       marginTop: "2%",
                       width: "25%",
                       backgroundColor: "#59CE8F",
                       ":hover": {
-                        backgroundColor: "#36b671",
+                        backgroundColor: "#59CE8F",
                       },
                     }}
-                    component={Link}
-                    to="/bookingFlow"
+                    onClick={handleNavigate}
                   >
                     Search
                   </Button>
@@ -604,37 +586,6 @@ export default function Home() {
                 />
               )}
               {/* <iframe
-              <Typography variant="p" sx={{ marginTop: "2%" }}>
-                Duration: {(endDate - startDate) / (1000 * 3600 * 24)} Day
-              </Typography>
-              <Button
-                variant="contained"
-                sx={{
-                  marginTop: "2%",
-                  width: "25%",
-                  backgroundColor: "#59CE8F",
-                  ":hover": {
-                    backgroundColor: "#59CE8F",
-                  },
-                }}
-                onClick={handleNavigate}
-              >
-                Search
-              </Button>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          {image === "" && (
-            <img
-              src={rightSectionNew}
-              alt="Right Section"
-              style={{
-                height: "90vh",
-              }}
-            />
-          )}
-          {/* <iframe
               className="mt-0"
               src="https://embed.lottiefiles.com/animation/29"
               width={800}
