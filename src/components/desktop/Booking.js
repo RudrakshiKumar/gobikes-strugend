@@ -196,7 +196,7 @@ export default function Booking() {
               >
                 <Grid container spacing={5}>
                   <Grid item xs={12} sm={9}>
-                    <IconButton>
+                    <IconButton onClick={() => setActive("")}>
                       <ArrowBackIosIcon fontSize="small" />
                     </IconButton>
                     <Typography variant="p">
