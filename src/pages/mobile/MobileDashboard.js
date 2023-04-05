@@ -8,12 +8,13 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import MobilePostLoginNavbar from "../../layouts/mobile/MobilePostLoginNavbar";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
 import { Link } from "react-router-dom";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 export default function MobileDashboard() {
   const [active, setActive] = useState("profile");
   return (
     <>
-      <MobilePostLoginNavbar />
+      <DynamicMobileNavbar />
 
       <Box
         sx={{

@@ -15,6 +15,7 @@ import PersonPinRoundedIcon from "@mui/icons-material/PersonPinRounded";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import MobilePostLoginNavbar from "../../layouts/mobile/MobilePostLoginNavbar";
 import { Link } from "react-router-dom";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const MobileProfile = () => {
   const [name, setName] = useState("");
@@ -78,7 +79,7 @@ const MobileProfile = () => {
   };
   return (
     <div>
-      <MobilePostLoginNavbar />
+      <DynamicMobileNavbar />
       <Box
         sx={{
           width: "100%",

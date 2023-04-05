@@ -73,6 +73,7 @@ export default function Home() {
   const [endDate, setEndDate] = useState(null);
 
   const navigate = useNavigate();
+
   const handleNavigate = () => {
     navigate("/BookingFlow", { state: startDate });
   };
@@ -526,16 +527,20 @@ export default function Home() {
 
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DateTimePicker
+                    label='Start Date'
                       value={startDate}
                       onChange={(newValue) => setStartDate(newValue)}
                       sx={{ marginTop: "2%" }}
                       fullWidth
+                      // disablePast
                       disabled={changeStart}
                     />
                   </LocalizationProvider>
 
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DateTimePicker
+                    // label='End Date'
+                    
                       value={endDate}
                       onChange={(newValue) => setEndDate(newValue)}
                       sx={{ marginTop: "2%" }}
