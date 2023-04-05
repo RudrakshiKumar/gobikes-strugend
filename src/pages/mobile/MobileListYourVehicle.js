@@ -23,11 +23,12 @@ import listvehicleflexibility from "../../assets/images/listvehicleflexibility.s
 import StartEarning from "../../components/desktop/StartEarning";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
 import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const MobileListYourVehicle = () => {
   return (
     <div>
-      <MobilePreLoginNavbar />
+      <DynamicMobileNavbar />
       <Box>
         <Box textAlign={"center"}>
           <Typography variant="h5" sx={{ py: 4 }}>

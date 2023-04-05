@@ -42,11 +42,12 @@ import { green } from "@mui/material/colors";
 import { Avatar } from "@mui/material";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
 import { Link } from "react-router-dom";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const MobileHome = () => {
   return (
     <>
-      <MobilePreLoginNavbar />
+      <DynamicMobileNavbar />
 
       <Box>
         <Box sx={{ position: "relative" }}>

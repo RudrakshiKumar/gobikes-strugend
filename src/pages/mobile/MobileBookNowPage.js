@@ -50,6 +50,7 @@ import MobilePostLoginNavbar from "../../layouts/mobile/MobilePostLoginNavbar";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const style = {
   position: "absolute",
@@ -131,7 +132,7 @@ export default function MobileBookNowPage() {
 
   return (
     <>
-      <MobilePostLoginNavbar />
+      <DynamicMobileNavbar />
       <AppBar
         position="sticky"
         sx={{ backgroundColor: "white", padding: "20px" }}
