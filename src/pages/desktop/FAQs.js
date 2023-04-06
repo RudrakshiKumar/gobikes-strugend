@@ -37,7 +37,7 @@ const FAQs = () => {
                 mt: 6,
                 marginRight: 20,
                 padding: 5,
-               // boxShadow: 3,
+                boxShadow: 3,
                 borderRadius: 2,
 
                 position: "fixed",
