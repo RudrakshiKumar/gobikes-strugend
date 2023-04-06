@@ -63,7 +63,7 @@ const MobileSearchForm = () => {
 
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate("/BookingFlow", { state: startDate });
+    navigate("/BookingFlow",{ state:{selected_startDate:startDate,selected_endDate:endDate} } );
   };
 
   const [change, setChange] = useState(false);
@@ -488,7 +488,7 @@ const MobileSearchForm = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker
           value={startDate}
-          onChange={(newValue) => setStartDate(newValue)}
+          onChange={(newValue) => {setStartDate(newValue)}}
           sx={{ marginTop: "2%" }}
           fullWidth
           onClick={handleChange}

@@ -69,13 +69,13 @@ export default function Home() {
   const [image, setImage] = useState("");
   const [setName] = useState("Bangalore");
 
-  const [startDate, setStartDate] = useState(null);
+  const [startDate, setStartDate] = useState(null); 
   const [endDate, setEndDate] = useState(null);
 
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/BookingFlow", { state: startDate });
+    navigate("/BookingFlow", { state:{selected_startDate:startDate,selected_endDate:endDate} });
   };
 
   const [changeStart, setChangeStart] = useState(true);
@@ -527,12 +527,11 @@ export default function Home() {
 
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DateTimePicker
-                    label='Start Date'
+                    label='Start Date' fullWidth disablePast
                       value={startDate}
                       onChange={(newValue) => setStartDate(newValue)}
                       sx={{ marginTop: "2%" }}
-                      fullWidth
-                      // disablePast
+                      
                       disabled={changeStart}
                     />
                   </LocalizationProvider>

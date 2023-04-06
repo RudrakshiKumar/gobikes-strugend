@@ -61,7 +61,8 @@ const MobileFAQ = () => {
   return (
     <div>
      
-      { isMatch && <DynamicMobileNavbar /> }
+      {/* { isMatch && <DynamicMobileNavbar /> } */}
+
       <Box sx={{ px: 2 }}>
         <Typography variant="h4" textAlign={"center"} sx={{ mt: 3 }}>
           FAQ Section
@@ -942,7 +943,7 @@ const MobileFAQ = () => {
         </Box>
       </Box>
       <div className="p-20"></div>
-      {isMatch&& <MobileFooter />}
+      {/* {isMatch&& <MobileFooter />} */}
     </div>
   );
 };

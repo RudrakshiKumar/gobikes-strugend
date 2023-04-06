@@ -55,7 +55,7 @@ const MobileHome = () => {
             component="img"
             src={rightSectionNew}
             alt="Header"
-            classname=""
+            className=""
             sx={{
               width: "100%",
               height: "100%",

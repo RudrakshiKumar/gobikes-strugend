@@ -20,7 +20,7 @@ const FAQs = () => {
   const isActive = (iHash) => hash === iHash;
   return (
     <div>
-      {/* <DynamicNavbar /> */}
+   
       {isMatch ? <DynamicMobileNavbar /> : <DynamicNavbar />}
       {isMatch ? (
         <MobileFAQ />

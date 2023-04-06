@@ -21,7 +21,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
 import SocialDistanceRoundedIcon from "@mui/icons-material/SocialDistanceRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
@@ -56,10 +56,11 @@ import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileBookNowPage from "../../pages/mobile/MobileBookNowPage";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 /* eslint-disable import/no-webpack-loader-syntax */
 import mapboxgl from "mapbox-gl";
+import dayjs from "dayjs";
 // @ts-ignore
 mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
@@ -120,6 +121,8 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function BookNowPage() {
   const theme = useTheme();
+  const date = useLocation();
+  const navigate = useNavigate();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   const [open, setOpen] = useState(false);
@@ -145,11 +148,18 @@ export default function BookNowPage() {
     setChange(!change);
   };
 
-  const navigate = useNavigate();
+  
   const handleRentNowSummary = () => {
     navigate("/RentNow");
   };
 
+  useEffect(() => {
+    const initial_StartDate = dayjs(date.state.selected_startDate.$d)
+    const initial_EndDate = dayjs(date.state.selected_endDate.$d)
+    setStartDate(initial_StartDate);
+    setEndDate(initial_EndDate)
+    
+  }, [])
   return (
     <>
       {isMatch ? (

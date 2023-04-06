@@ -72,6 +72,7 @@ function App() {
             <Route path="/BookingFlow" element={<BookingFlow />} />
             <Route path="/BookNowPage" element={<BookNowPage />} />
             <Route path="/RentNow" element={<RentNow />} />
+            
 
             {/* Test Routes */}
             <Route path="/OTP" element={<OTP />} />
