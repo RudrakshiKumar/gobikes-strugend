@@ -11,7 +11,6 @@ import MobileFooter from "../../layouts/mobile/MobileFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
-import DynamicMobileNavbar from '../../layouts/mobile/DynamicMobileNavbar';
 import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 
 const Accordion = styled((props) => (
@@ -60,7 +59,6 @@ const MobileFAQ = () => {
   };
   return (
     <div>
-      <MobilePreLoginNavbar />
       <Box sx={{ px: 2 }}>
         <Typography variant="h4" textAlign={"center"} sx={{ mt: 3 }}>
           FAQ Section
@@ -941,7 +939,6 @@ const MobileFAQ = () => {
         </Box>
       </Box>
       <div className="p-20"></div>
-      <MobileFooter />
     </div>
   );
 };
