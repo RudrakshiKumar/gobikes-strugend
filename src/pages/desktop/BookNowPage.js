@@ -21,7 +21,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
 import SocialDistanceRoundedIcon from "@mui/icons-material/SocialDistanceRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
@@ -56,10 +56,11 @@ import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileBookNowPage from "../../pages/mobile/MobileBookNowPage";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 /* eslint-disable import/no-webpack-loader-syntax */
 import mapboxgl from "mapbox-gl";
+import dayjs from "dayjs";
 // @ts-ignore
 mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
@@ -139,6 +140,17 @@ export default function BookNowPage() {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  const date = useLocation();
+
+  useEffect(() => {
+    const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+    const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+    console.log(initial_StartDate);
+    console.log(initial_EndDate);
+    setStartDate(initial_StartDate);
+    setEndDate(initial_EndDate);
+  }, []);
 
   const [change, setChange] = useState(true);
   const handleChange = () => {
