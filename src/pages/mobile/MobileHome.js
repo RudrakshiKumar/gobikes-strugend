@@ -51,7 +51,7 @@ const MobileHome = () => {
 
       <Box>
         <Box sx={{ position: "relative" }}>
-          <Box
+          {/* <Box
             component="img"
             src={rightSectionNew}
             alt="Header"
@@ -63,14 +63,15 @@ const MobileHome = () => {
               top: 0,
               left: 0,
             }}
-          />
+          /> */}
 
           <Box
             sx={{
-              mx: 1,
+              mx: 2,
               position: "relative",
               zIndex: 100,
-              top: 350,
+              // top: 350,
+              top: 50,
               bgcolor: "#ffffff",
               mb: 50,
             }}

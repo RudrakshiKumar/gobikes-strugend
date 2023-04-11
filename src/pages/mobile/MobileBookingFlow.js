@@ -1764,6 +1764,7 @@ import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import dayjs from "dayjs";
+import MobileFooter from "../../layouts/mobile/MobileFooter";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -1794,7 +1795,7 @@ const styles = {
 
 export default function MobileBookingFlow(props) {
   const date = useLocation();
-const navigate=useNavigate()
+  const navigate = useNavigate();
   const [packages, setPackages] = useState("dailyPackages");
 
   const [open, setOpen] = useState(false);
@@ -1923,7 +1924,7 @@ const navigate=useNavigate()
         <hr />
         <div style={{ padding: "7px", marginTop: "8px" }}>
           <Typography variant="p" sx={{ fontWeight: "medium" }}>
-            GO HUBS
+            FUEL TYPE
           </Typography>
           <div>
             <Checkbox
@@ -1936,7 +1937,7 @@ const navigate=useNavigate()
                 handleOpen();
               }}
             />
-            Baghajatin
+            Electric
           </div>
           <div>
             <Checkbox
@@ -1949,7 +1950,7 @@ const navigate=useNavigate()
                 handleOpen();
               }}
             />
-            Tikiapara Railway Station
+            Non-electric
           </div>
         </div>
         <hr />
@@ -1988,19 +1989,18 @@ const navigate=useNavigate()
     </Grid>
   );
 
-  
-
   const handleNavigate = () => {
-    navigate("/BookNowPage", { state:{selected_startDate:startDate,selected_endDate:endDate} });
+    navigate("/BookNowPage", {
+      state: { selected_startDate: startDate, selected_endDate: endDate },
+    });
   };
 
   useEffect(() => {
     const initial_StartDate = dayjs(date.state.selected_startDate.$d);
     const initial_EndDate = dayjs(date.state.selected_endDate.$d);
     setStartDate(initial_StartDate);
-    setEndDate(initial_EndDate)
-
-  }, [])
+    setEndDate(initial_EndDate);
+  }, []);
   return (
     <>
       <DynamicNavbar />
@@ -2691,7 +2691,8 @@ const navigate=useNavigate()
                         <Typography variant="p">100 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button onClick={handleNavigate}
+                        <Button
+                          onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2756,7 +2757,8 @@ const navigate=useNavigate()
                         <Typography variant="p">240 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button  onClick={handleNavigate}
+                        <Button
+                          onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2764,7 +2766,6 @@ const navigate=useNavigate()
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                    
                         >
                           Book Now
                         </Button>
@@ -2830,7 +2831,8 @@ const navigate=useNavigate()
                         <Typography variant="p">1000 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button  onClick={handleNavigate}
+                        <Button
+                          onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2838,7 +2840,6 @@ const navigate=useNavigate()
                               backgroundColor: "#4cbb17",
                             },
                           }}
-            
                         >
                           Book Now
                         </Button>
@@ -2896,7 +2897,8 @@ const navigate=useNavigate()
                         <Typography variant="p">2400 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button onClick={handleNavigate}
+                        <Button
+                          onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2904,7 +2906,6 @@ const navigate=useNavigate()
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                 
                         >
                           Book Now
                         </Button>
@@ -2970,7 +2971,8 @@ const navigate=useNavigate()
                         <Typography variant="p">2000 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button  onClick={handleNavigate}
+                        <Button
+                          onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2978,7 +2980,6 @@ const navigate=useNavigate()
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                     
                         >
                           Book Now
                         </Button>
@@ -3538,7 +3539,8 @@ const navigate=useNavigate()
                         <Typography variant="p">100 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button onClick={handleNavigate}
+                        <Button
+                          onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -3546,7 +3548,6 @@ const navigate=useNavigate()
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                  
                         >
                           Book Now
                         </Button>
@@ -3659,7 +3660,7 @@ const navigate=useNavigate()
         </Box>
       </Modal>
       <div style={{ marginTop: "10%" }}></div>
-      {/* <PostLoginFooter /> */}
+      <MobileFooter />
     </>
   );
 }

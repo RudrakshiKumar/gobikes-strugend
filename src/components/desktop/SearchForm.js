@@ -77,6 +77,7 @@ const SearchForm = () => {
     setChangeStart(!changeStart);
     setChangeEnd(!changeEnd);
   }, [startDate]);
+
   return (
     <>
       <Box sx={{ display: "inline-flex" }}>
@@ -502,19 +503,23 @@ const SearchForm = () => {
 
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DateTimePicker
+              label="Pickup Date"
+              fullWidth
+              // disablePast
               value={startDate}
               onChange={(newValue) => setStartDate(newValue)}
-              sx={{ marginTop: "2%" }}
-              fullWidth
+              sx={{ marginTop: "5%" }}
               disabled={changeStart}
             />
           </LocalizationProvider>
 
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DateTimePicker
+              label="Dropoff Date"
+              // disablePast
               value={endDate}
               onChange={(newValue) => setEndDate(newValue)}
-              sx={{ marginTop: "2%" }}
+              sx={{ marginTop: "5%" }}
               fullWidth
               disabled={changeEnd}
             />
@@ -532,7 +537,8 @@ const SearchForm = () => {
                 }}
               /> */}
           <Typography variant="p" sx={{ marginTop: "2%" }}>
-            Duration: {(endDate - startDate) / (1000 * 3600 * 24)} Day
+            Duration: {Math.floor((endDate - startDate) / (1000 * 3600 * 24))}{" "}
+            Day
           </Typography>
           <Button
             variant="contained"

@@ -143,7 +143,7 @@ export default function BookNowPage() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const date = useLocation();
+  // const date = useLocation();
 
   useEffect(() => {
     const initial_StartDate = dayjs(date.state.selected_startDate.$d);
@@ -159,18 +159,16 @@ export default function BookNowPage() {
     setChange(!change);
   };
 
-  
   const handleRentNowSummary = () => {
     navigate("/RentNow");
   };
 
   useEffect(() => {
-    const initial_StartDate = dayjs(date.state.selected_startDate.$d)
-    const initial_EndDate = dayjs(date.state.selected_endDate.$d)
+    const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+    const initial_EndDate = dayjs(date.state.selected_endDate.$d);
     setStartDate(initial_StartDate);
-    setEndDate(initial_EndDate)
-    
-  }, [])
+    setEndDate(initial_EndDate);
+  }, []);
   return (
     <>
       {isMatch ? (
