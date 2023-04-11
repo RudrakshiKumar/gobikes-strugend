@@ -7,13 +7,14 @@ import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const AboutUs = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
-      <DynamicNavbar />
+      {isMatch ? <DynamicMobileNavbar /> : <DynamicNavbar />}
       <Box
         sx={{
           position: "relative",

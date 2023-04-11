@@ -20,6 +20,7 @@ import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const style = {
   position: "absolute",
@@ -42,7 +43,7 @@ const OffersForYou = () => {
   const handleClose = () => setOpen(false);
   return (
     <div>
-      <DynamicNavbar />
+      {isMatch ? <DynamicMobileNavbar /> : <DynamicNavbar />}
       <Box sx={{ marginLeft: "5%", pt: 10 }}>
         <Typography
           variant="h4"

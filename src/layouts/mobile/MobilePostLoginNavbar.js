@@ -75,7 +75,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function MobilePostLoginNavbar({userDetails}) {
+export default function MobilePostLoginNavbar({ userDetails }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -89,9 +89,6 @@ export default function MobilePostLoginNavbar({userDetails}) {
     document.getElementById("logo").classList.remove("makeDisappear");
   };
 
- 
-
-
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -102,7 +99,7 @@ export default function MobilePostLoginNavbar({userDetails}) {
           bgcolor: "background.paper",
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between" }} >
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           <IconButton
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -155,7 +152,13 @@ export default function MobilePostLoginNavbar({userDetails}) {
             {theme.direction === "ltr" ? <CloseIcon /> : <CloseIcon />}
           </IconButton>
         </DrawerHeader>
-        <Typography mx={'auto'} variant="h6"  > &#128075;<Typography fontWeight={700} display={'inline-block'} px={1}>{userDetails.name}</Typography></Typography>
+        <Typography mx={"auto"} variant="h6">
+          {" "}
+          &#128075;
+          <Typography fontWeight={700} display={"inline-block"} px={1}>
+            {userDetails.name}
+          </Typography>
+        </Typography>
         <List sx={{ ml: 2, mt: 2 }}>
           <Link to="/MobileProfile">
             <ListItem disablePadding>
@@ -217,7 +220,7 @@ export default function MobilePostLoginNavbar({userDetails}) {
           </Link>
 
           <Divider variant="inset" />
-          <Link to="/MobileFAQs">
+          <Link to="/FAQs">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -229,10 +232,14 @@ export default function MobilePostLoginNavbar({userDetails}) {
           </Link>
 
           <Divider variant="inset" />
-          <Link to="/" >
+          <Link to="/">
             <ListItem disablePadding>
-              <ListItemButton onClick={()=>{ localStorage.clear()}}  >
-                <ListItemIcon >
+              <ListItemButton
+                onClick={() => {
+                  localStorage.clear();
+                }}
+              >
+                <ListItemIcon>
                   <LogoutIcon sx={{ color: "#59ce8f" }} />
                 </ListItemIcon>
                 <ListItemText primary="Logout" font="poppins" />

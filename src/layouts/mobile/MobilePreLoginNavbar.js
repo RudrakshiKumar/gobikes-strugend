@@ -190,7 +190,7 @@ export default function MobilePreLoginNavbar() {
           </Link>
 
           <Divider variant="inset" />
-          <Link to="/MobileFAQs">
+          <Link to="/FAQs">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
