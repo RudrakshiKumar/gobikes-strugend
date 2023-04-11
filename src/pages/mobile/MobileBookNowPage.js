@@ -21,7 +21,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
 import SocialDistanceRoundedIcon from "@mui/icons-material/SocialDistanceRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
@@ -50,6 +50,9 @@ import MobilePostLoginNavbar from "../../layouts/mobile/MobilePostLoginNavbar";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
+import { useLocation, useNavigate } from "react-router-dom";
+import dayjs from "dayjs";
 
 const style = {
   position: "absolute",
@@ -106,6 +109,9 @@ const rows = [
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function MobileBookNowPage() {
+  const date = useLocation();
+  const navigate = useNavigate();
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -129,9 +135,17 @@ export default function MobileBookNowPage() {
     setChange(!change);
   };
 
+  useEffect(() => {
+    const initial_StartDate = dayjs(date.state.selected_startDate.$d)
+    const initial_EndDate = dayjs(date.state.selected_endDate.$d)
+    setStartDate(initial_StartDate);
+    setEndDate(initial_EndDate)
+    
+  }, [])
+
   return (
     <>
-      <MobilePostLoginNavbar />
+      <DynamicMobileNavbar />
       <AppBar
         position="sticky"
         sx={{ backgroundColor: "white", padding: "20px" }}

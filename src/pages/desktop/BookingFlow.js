@@ -80,6 +80,8 @@ const styles = {
 
 export default function BookingFlow(props) {
   const theme = useTheme();
+  const navigate = useNavigate();
+  const date = useLocation();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   const [packages, setPackages] = useState("dailyPackages");
@@ -98,29 +100,20 @@ export default function BookingFlow(props) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const date = useLocation();
+  const handleNavigate = () => {
+    navigate("/BookNowPage", {
+      state: { selected_startDate: startDate, selected_endDate: endDate },
+    });
+  };
 
   useEffect(() => {
     const initial_StartDate = dayjs(date.state.selected_startDate.$d);
     const initial_EndDate = dayjs(date.state.selected_endDate.$d);
-    const initial_CityName = date.state.selected_cityName;
-    console.log(initial_StartDate);
-    console.log(initial_EndDate);
-    console.log(initial_CityName);
+    // console.log(initial_EndDate);
+    // console.log(initial_StartDate);
     setStartDate(initial_StartDate);
     setEndDate(initial_EndDate);
-    setName(initial_CityName);
   }, []);
-
-  const navigate = useNavigate();
-  const handleNavigate = () => {
-    navigate("/BookNowPage", {
-      state: {
-        selected_startDate: startDate,
-        selected_endDate: endDate,
-      },
-    });
-  };
 
   return (
     <>
@@ -145,6 +138,7 @@ export default function BookingFlow(props) {
                     />
                   </LocalizationProvider>
                 </Grid>
+
                 <Grid item xs={12} sm={4}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DateTimePicker
@@ -722,6 +716,8 @@ export default function BookingFlow(props) {
                   </div>
                 </Box>
               </Grid>
+
+              {/* display all the Available vehicle part starts here  */}
               <Grid item xs={12} sm={9}>
                 {packages === "dailyPackages" && (
                   <Grid container spacing={2}>
@@ -771,15 +767,12 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
-                                ":hover": {
-                                  backgroundColor: "#4cbb17",
-                                },
+                                ":hover": { backgroundColor: "#4cbb17" },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -844,7 +837,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -852,7 +845,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -921,7 +913,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -929,7 +921,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -994,7 +985,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1002,7 +993,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1071,7 +1061,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1079,7 +1069,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1144,7 +1133,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1152,7 +1141,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1221,7 +1209,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1229,7 +1217,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1294,7 +1281,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1302,7 +1289,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1371,7 +1357,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1379,7 +1365,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1448,7 +1433,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1456,7 +1441,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1525,7 +1509,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1533,7 +1517,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1602,7 +1585,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1610,7 +1593,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1679,7 +1661,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1687,7 +1669,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>
@@ -1756,7 +1737,7 @@ export default function BookingFlow(props) {
                           </Grid>
                           <Grid item xs={12} sm={6}>
                             <Button
-                              size="small"
+                              onClick={handleNavigate}
                               variant="contained"
                               sx={{
                                 backgroundColor: "#4cbb17",
@@ -1764,7 +1745,6 @@ export default function BookingFlow(props) {
                                   backgroundColor: "#4cbb17",
                                 },
                               }}
-                              onClick={handleNavigate}
                             >
                               Book Now
                             </Button>

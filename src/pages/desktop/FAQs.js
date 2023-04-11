@@ -10,8 +10,8 @@ import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import { useLocation } from "react-router-dom";
-import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const FAQs = () => {
   const theme = useTheme();
@@ -20,7 +20,7 @@ const FAQs = () => {
   const isActive = (iHash) => hash === iHash;
   return (
     <div>
-      {isMatch ? <MobilePreLoginNavbar /> : <DynamicNavbar />}
+      {isMatch ? <DynamicMobileNavbar /> : <DynamicNavbar />}
       {isMatch ? (
         <MobileFAQ />
       ) : (

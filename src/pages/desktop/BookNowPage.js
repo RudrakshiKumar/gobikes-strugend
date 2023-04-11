@@ -121,6 +121,8 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function BookNowPage() {
   const theme = useTheme();
+  const date = useLocation();
+  const navigate = useNavigate();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   const [open, setOpen] = useState(false);
@@ -157,11 +159,18 @@ export default function BookNowPage() {
     setChange(!change);
   };
 
-  const navigate = useNavigate();
+  
   const handleRentNowSummary = () => {
     navigate("/RentNow");
   };
 
+  useEffect(() => {
+    const initial_StartDate = dayjs(date.state.selected_startDate.$d)
+    const initial_EndDate = dayjs(date.state.selected_endDate.$d)
+    setStartDate(initial_StartDate);
+    setEndDate(initial_EndDate)
+    
+  }, [])
   return (
     <>
       {isMatch ? (

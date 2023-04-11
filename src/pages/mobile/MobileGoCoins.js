@@ -6,11 +6,12 @@ import MobilePostLoginNavbar from "../../layouts/mobile/MobilePostLoginNavbar";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import { Link } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const MobileGoCoins = () => {
   return (
     <div>
-      <MobilePostLoginNavbar />
+      <DynamicMobileNavbar />
       <Box
         sx={{
           width: "100%",

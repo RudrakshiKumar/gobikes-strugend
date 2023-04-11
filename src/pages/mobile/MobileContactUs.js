@@ -11,6 +11,7 @@ import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const MobileContactUs = () => {
   const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
@@ -46,7 +47,7 @@ const MobileContactUs = () => {
 
   return (
     <div>
-      <MobilePreLoginNavbar />
+      <DynamicMobileNavbar />
       <Box>
         <Box sx={{ textAlign: "center", my: 3 }}>
           <Typography

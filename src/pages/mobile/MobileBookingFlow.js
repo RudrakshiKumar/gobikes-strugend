@@ -1730,10 +1730,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
 import HondaSP from "../../assets/images/HondaSP.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -1763,6 +1763,7 @@ import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
+import dayjs from "dayjs";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -1792,6 +1793,8 @@ const styles = {
 };
 
 export default function MobileBookingFlow(props) {
+  const date = useLocation();
+const navigate=useNavigate()
   const [packages, setPackages] = useState("dailyPackages");
 
   const [open, setOpen] = useState(false);
@@ -1985,6 +1988,19 @@ export default function MobileBookingFlow(props) {
     </Grid>
   );
 
+  
+
+  const handleNavigate = () => {
+    navigate("/BookNowPage", { state:{selected_startDate:startDate,selected_endDate:endDate} });
+  };
+
+  useEffect(() => {
+    const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+    const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+    setStartDate(initial_StartDate);
+    setEndDate(initial_EndDate)
+
+  }, [])
   return (
     <>
       <DynamicNavbar />
@@ -2675,7 +2691,7 @@ export default function MobileBookingFlow(props) {
                         <Typography variant="p">100 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button
+                        <Button onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2683,8 +2699,6 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
                         >
                           Book Now
                         </Button>
@@ -2742,7 +2756,7 @@ export default function MobileBookingFlow(props) {
                         <Typography variant="p">240 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button
+                        <Button  onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2750,8 +2764,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                    
                         >
                           Book Now
                         </Button>
@@ -2817,7 +2830,7 @@ export default function MobileBookingFlow(props) {
                         <Typography variant="p">1000 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button
+                        <Button  onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2825,8 +2838,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+            
                         >
                           Book Now
                         </Button>
@@ -2884,7 +2896,7 @@ export default function MobileBookingFlow(props) {
                         <Typography variant="p">2400 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button
+                        <Button onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2892,8 +2904,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                 
                         >
                           Book Now
                         </Button>
@@ -2959,7 +2970,7 @@ export default function MobileBookingFlow(props) {
                         <Typography variant="p">2000 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button
+                        <Button  onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -2967,8 +2978,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                     
                         >
                           Book Now
                         </Button>
@@ -3034,8 +3044,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                          onClick={handleNavigate}
                         >
                           Book Now
                         </Button>
@@ -3109,8 +3118,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                          onClick={handleNavigate}
                         >
                           Book Now
                         </Button>
@@ -3176,8 +3184,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                          onClick={handleNavigate}
                         >
                           Book Now
                         </Button>
@@ -3247,8 +3254,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                          onClick={handleNavigate}
                         >
                           Book Now
                         </Button>
@@ -3322,8 +3328,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                          onClick={handleNavigate}
                         >
                           Book Now
                         </Button>
@@ -3393,8 +3398,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                          onClick={handleNavigate}
                         >
                           Book Now
                         </Button>
@@ -3468,8 +3472,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                          onClick={handleNavigate}
                         >
                           Book Now
                         </Button>
@@ -3535,7 +3538,7 @@ export default function MobileBookingFlow(props) {
                         <Typography variant="p">100 Km limit</Typography>
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <Button
+                        <Button onClick={handleNavigate}
                           variant="contained"
                           sx={{
                             backgroundColor: "#4cbb17",
@@ -3543,8 +3546,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                  
                         >
                           Book Now
                         </Button>
@@ -3614,8 +3616,7 @@ export default function MobileBookingFlow(props) {
                               backgroundColor: "#4cbb17",
                             },
                           }}
-                          component={Link}
-                          to="/BookNowPage"
+                          onClick={handleNavigate}
                         >
                           Book Now
                         </Button>
