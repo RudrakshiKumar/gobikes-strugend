@@ -34,6 +34,9 @@ import MobileRentNow from "./pages/mobile/MobileRentNow";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 import MobileBookNowPage from "./pages/mobile/MobileBookNowPage";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import OTPVerified from "./components/desktop/OTPVerified";
+import MobileOTPVerified from "./pages/mobile/MobileOTPVerified";
+import MobileOTP from "./pages/mobile/MobileOTP";
 
 const theme = createTheme({
   typography: {
@@ -72,10 +75,10 @@ function App() {
             <Route path="/BookingFlow" element={<BookingFlow />} />
             <Route path="/BookNowPage" element={<BookNowPage />} />
             <Route path="/RentNow" element={<RentNow />} />
-            
 
             {/* Test Routes */}
             <Route path="/OTP" element={<OTP />} />
+            <Route path="/OTPVerified" element={<OTPVerified />} />
             <Route path="/PersonalDetails" element={<PersonalDetails />} />
             <Route path="/Trial" element={<Trial />} />
             <Route path="/RentNow" element={<RentNow />} />
@@ -92,6 +95,8 @@ function App() {
             <Route path="/MobileProfile" element={<MobileProfile />} />
             <Route path="/MobileBookings" element={<MobileBookings />} />
             <Route path="/MobileGoCoins" element={<MobileGoCoins />} />
+            <Route path="/MobileOTP" element={<MobileOTP />} />
+            <Route path="/MobileOTPVerified" element={<MobileOTPVerified />} />
           </Routes>
         </Router>
       </ThemeProvider>

@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import logo from "../assets/images/logo.png";
-import star from "../assets/images/star.png";
-import loginPopup from "../assets/images/loginPopup.webp";
+import logo from "../../assets/images/logo.png";
+import star from "../../assets/images/star.png";
+import loginPopup from "../../assets/images/loginPopup.webp";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const OTPVerified = () => {

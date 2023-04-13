@@ -47,7 +47,7 @@ const MobileLogin = () => {
   return (
     <>
       <DynamicMobileNavbar />
-      <Box sx={{ textAlign: "center" }}>
+      <Box sx={{ textAlign: "center", px: 2 }}>
         <Box
           sx={{
             display: "flex",

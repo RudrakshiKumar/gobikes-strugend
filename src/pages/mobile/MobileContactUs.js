@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/system";
-import { Typography, Button, TextareaAutosize } from "@mui/material";
+import {
+  Typography,
+  Button,
+  TextareaAutosize,
+  Grid,
+  Stack,
+} from "@mui/material";
 import TextField from "@mui/material/TextField";
 import contactcompany from "../../assets/images/contactcompany.svg";
 import contactlocation from "../../assets/images/contactlocation.svg";
@@ -83,7 +89,7 @@ const MobileContactUs = () => {
             m: "auto",
             // boxSizing: "border-box",
             boxShadow: "0 0 6px",
-            width: "90%",
+            width: "85%",
           }}
         >
           <Box>
@@ -96,83 +102,83 @@ const MobileContactUs = () => {
             </Typography>
 
             {/* ContactUs form starts here  */}
-            <Box
+            <Grid
               component="form"
-              noValidate
-              autoComplete="off"
-              sx={{
-                "& > :not(style)": { m: 1, width: "20em" },
-              }}
+              container
+              spacing={3}
+              sx={{ mt: 1, mx: "auto" }}
             >
-              <TextField
-                name="name"
-                type="text"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                required
-                id="outlined-basic"
-                label="Name"
-                variant="outlined"
-                sx={{
-                  height: "7vh",
-                  p: "2px",
-                  position: "relative",
-                  margin: "auto",
-                }}
-              />
-              <br /> <br />
-              <TextField
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                required
-                id="outlined-basic"
-                label="Email"
-                variant="outlined"
-                sx={{
-                  height: "7vh",
-                  width: 10,
-                  p: "2px",
-                }}
-              />
-              <br /> <br />
-              <TextField
-                name="mobile"
-                type="number"
-                value={formData.mobile}
-                onChange={(e) =>
-                  setFormData({ ...formData, mobile: e.target.value })
-                }
-                required
-                id="outlined-basic"
-                label="Mobile"
-                variant="outlined"
-                sx={{
-                  height: "7vh",
-                  width: 10,
-                  p: "2px",
-                }}
-              />
-              <br /> <br />
-              <TextareaAutosize
-                name="message"
-                type="text"
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                required
-                id="outlined-basic"
-                placeholder="Message*"
-                variant="outlined"
-                sx={{ mt: 3 }}
-              />
-            </Box>
+              <Grid item sx={{}}>
+                <TextField
+                  fullWidth
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  required
+                  id="outlined-basic"
+                  label="Name"
+                  variant="outlined"
+                  sx={{ width: "17em" }}
+                />
+              </Grid>
+              <Grid item>
+                <TextField
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  required
+                  id="outlined-basic"
+                  label="Email"
+                  variant="outlined"
+                  sx={{ width: "17em" }}
+                />
+              </Grid>
+              <Grid item>
+                <TextField
+                  name="mobile"
+                  type="number"
+                  value={formData.mobile}
+                  onChange={(e) =>
+                    setFormData({ ...formData, mobile: e.target.value })
+                  }
+                  required
+                  id="outlined-basic"
+                  label="Mobile Number"
+                  variant="outlined"
+                  sx={{ width: "17em" }}
+                />
+              </Grid>
+              <Grid item>
+                <Stack
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="stretch"
+                  spacing={2}
+                  sx={{ width: "17em" }}
+                >
+                  <TextareaAutosize
+                    name="message"
+                    type="text"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    required
+                    id="outlined-basic"
+                    placeholder="Message*"
+                    variant="outlined"
+                    size="large"
+                  />
+                </Stack>
+              </Grid>
+                      
+            </Grid>
 
             <Box
               sx={{
@@ -180,17 +186,15 @@ const MobileContactUs = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                m: "auto",
+
                 mt: 3,
               }}
             >
-              <div>
-                <ReCAPTCHA
-                  sitekey={key}
-                  onChange={(e) => setIsCapchaDone(true)}
-                  onErrored={(e) => setIsCapchaDone(false)}
-                />
-              </div>
+              <ReCAPTCHA
+                sitekey={key}
+                onChange={(e) => setIsCapchaDone(true)}
+                onErrored={(e) => setIsCapchaDone(false)}
+              />
             </Box>
 
             <Button
@@ -215,11 +219,12 @@ const MobileContactUs = () => {
 
         {/* CONTACT INFO */}
 
-        <Box sx={{}}>
+        <Box sx={{ mr: "5%" }}>
           <Box
             sx={{
               display: "flex",
               ml: "5%",
+
               mt: 10,
             }}
           >
@@ -296,6 +301,7 @@ const MobileContactUs = () => {
                   variant="h7"
                   fontWeight={"bold"}
                   sx={{ color: "#59CE8F" }}
+                  fontSize={"14px"}
                 >
                   Support :
                 </Typography>
@@ -309,6 +315,7 @@ const MobileContactUs = () => {
                   variant="h7"
                   fontWeight={"bold"}
                   sx={{ color: "#59CE8F" }}
+                  fontSize={"14px"}
                 >
                   Contact Us :{}
                 </Typography>

@@ -51,17 +51,33 @@ const MobileHome = () => {
 
       <Box>
         <Box sx={{ position: "relative" }}>
-          {/* <Box
+          <Box
             component="img"
             src={rightSectionNew}
             alt="Header"
             className=""
             sx={{
               width: "100%",
-              height: "100%",
+              height: "60%",
               position: "absolute",
               top: 0,
               left: 0,
+            }}
+          />
+
+          {/* <Box
+            // component="img"
+            // src={rightSectionNew}
+            alt="Header"
+            className=""
+            sx={{
+              width: "100%",
+              height: "50%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              // bgcolor: "#000000",
+              bgcolor: "#59CE8F",
             }}
           /> */}
 
@@ -70,8 +86,9 @@ const MobileHome = () => {
               mx: 2,
               position: "relative",
               zIndex: 100,
+              top: 200,
               // top: 350,
-              top: 50,
+              // top: 50,
               bgcolor: "#ffffff",
               mb: 50,
             }}
@@ -125,7 +142,7 @@ const MobileHome = () => {
         </Box>
 
         {/* <Features /> */}
-        <Box sx={{ marginTop: "15%", ml: 2 }}>
+        <Box sx={{ marginTop: "15%", ml: 2, mr: 3 }}>
           <Typography variant="h6" sx={{ fontWeight: "bold" }}>
             Why choose GoBikes?
           </Typography>
@@ -206,7 +223,7 @@ const MobileHome = () => {
               </Typography>
               <Typography
                 variant="p"
-                sx={{ marginTop: "5px", fontSize: "20px" }}
+                sx={{ marginTop: "5px", fontSize: "19px" }}
               >
                 Facing an issue while booking/pick up? We initiate instant
                 refund.
