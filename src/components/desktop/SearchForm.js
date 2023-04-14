@@ -1,40 +1,16 @@
-import {
-  Box,
-  Button,
-  Grid,
-  InputAdornment,
-  Modal,
-  TextField,
-  Typography,
-} from "@mui/material";
 import React, { useEffect, useState } from "react";
-import PlaceIcon from "@mui/icons-material/Place";
-import Bangalore from "../../assets/images/Bangalore.jpg";
-import Chandigarh from "../../assets/images/Chandigarh.jpg";
-import Chennai from "../../assets/images/Chennai.jpg";
-import Dehradun from "../../assets/images/Dehradun.webp";
-import Delhi from "../../assets/images/Delhi.webp";
-import Ghaziabad from "../../assets/images/Ghaziabad.jpg";
-import Goa from "../../assets/images/Goa.jpg";
-import Hyderabad from "../../assets/images/Hyderabad.jpg";
-import Kolkata from "../../assets/images/Kolkata.jpg";
-import Manali from "../../assets/images/Manali.jpg";
-import Mumbai from "../../assets/images/Mumbai.webp";
-import Pune from "../../assets/images/Pune.jpg";
-import Gurgaon from "../../assets/images/Gurgaon.jpg";
-import Guwahati from "../../assets/images/Guwahati.jpg";
-import Jaipur from "../../assets/images/Jaipur.jpg";
-import Leh from "../../assets/images/Leh.jpg";
-import Noida from "../../assets/images/Noida.jpg";
-import Udaipur from "../../assets/images/Udaipur.jpg";
-import bikeleft from "../../assets/images/bikeleft.png";
+import { Box, Button, Grid, InputAdornment, Modal, TextField, Typography, } from "@mui/material";
 
+// importing all the necessary image in a single line to make make code presentable
+import { Bangalore, Chandigarh, Chennai, Dehradun, Delhi, Ghaziabad, Goa, Hyderabad, Kolkata, Manali, Mumbai,
+   Pune, Gurgaon, Guwahati, Jaipur, Leh, Noida, Udaipur, bikeleft } from '../../Constants';
+
+import PlaceIcon from "@mui/icons-material/Place";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { useNavigate } from "react-router-dom";
-// import BookOnlineIcon from "@mui/icons-material/BookOnline";
 
 const style = {
   position: "absolute",
@@ -48,17 +24,34 @@ const style = {
   p: 4,
 };
 
+// a array list of citys and their image 
+const CityList = [
+  { name: 'Bangalore', image: Bangalore }, { name: 'Chandigarh', image: Chandigarh }, { name: 'Chennai', image: Chennai },
+  { name: 'Dehradun', image: Dehradun }, { name: 'Delhi', image: Delhi }, { name: 'Ghaziabad', image: Ghaziabad }, { name: 'Goa', image: Goa },
+  { name: 'Hyderabad', image: Hyderabad }, { name: 'Kolkata', image: Kolkata }, { name: 'Manali', image: Manali }, { name: 'Mumbai', image: Mumbai },
+  { name: 'Pune', image: Pune }, { name: 'Gurgaon', image: Gurgaon }, { name: 'Guwahati', image: Guwahati }, { name: 'Jaipur', image: Jaipur },
+  { name: 'Leh', image: Leh }, { name: 'Noida', image: Noida }, { name: 'Udaipur', image: Udaipur }
+];
+
+const StyledCardOfCity = {
+  width: "125px",
+  height: "125px",
+  borderRadius: "5px",
+}
+
 const SearchForm = () => {
+
+  const [diableSearchBtn, setDiableSearchBtn] = useState(true);
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const [image, setImage] = useState("");
   const [name, setName] = useState(null);
-
+  const [image, setImage] = useState("");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-
+  const [changeStart, setChangeStart] = useState(true);
+  const [changeEnd, setChangeEnd] = useState(false);
+  
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/BookingFlow", {
@@ -69,10 +62,6 @@ const SearchForm = () => {
       },
     });
   };
-
-  const [changeStart, setChangeStart] = useState(true);
-  const [changeEnd, setChangeEnd] = useState(false);
-
   useEffect(() => {
     setChangeStart(!changeStart);
     setChangeEnd(!changeEnd);
@@ -117,11 +106,16 @@ const SearchForm = () => {
           <Typography variant="h6" sx={{ marginTop: "2px" }}>
             Scooter/Scooty/Bike on Rent in Delhi
           </Typography>
+
+
           <TextField
             fullWidth
             placeholder="Search City"
             value={image}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+             
+            }}
             sx={{ marginTop: "5%" }}
             InputProps={{
               endAdornment: (
@@ -155,348 +149,24 @@ const SearchForm = () => {
                 <CloseIcon />
               </IconButton>
               <Grid container spacing={2} sx={{ marginTop: "5px" }}>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Bangalore}
-                    alt="Bangalore"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Bangalore");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Bangalore
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Chandigarh}
-                    alt="Chandigarh"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Chandigarh");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Chandigarh
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Chennai}
-                    alt="Chennai"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Chennai");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Chennai
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Dehradun}
-                    alt="Dehradun"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Dehradun");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Dehradun
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Delhi}
-                    alt="Delhi"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Delhi");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Delhi
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Ghaziabad}
-                    alt="Ghaziabad"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Ghaziabad");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Ghaziabad
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Goa}
-                    alt="Goa"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Goa");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Goa
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Hyderabad}
-                    alt="Hyderabad"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Hyderabad");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Hyderabad
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Kolkata}
-                    alt="Kolkata"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Kolkata");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Kolkata
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Manali}
-                    alt="Manali"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Manali");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Manali
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Mumbai}
-                    alt="Mumbai"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Mumbai");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Mumbai
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Pune}
-                    alt="Pune"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Pune");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Pune
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Gurgaon}
-                    alt="Gurgaon"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Gurgaon");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Gurgaon
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Guwahati}
-                    alt="Guwahati"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Guwahati");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Guwahati
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Jaipur}
-                    alt="Jaipur"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Jaipur");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Jaipur
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Leh}
-                    alt="Leh"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Leh");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Leh
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Noida}
-                    alt="Noida"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Noida");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Noida
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                  <img
-                    className="image"
-                    src={Udaipur}
-                    alt="Udaipur"
-                    style={{
-                      width: "125px",
-                      height: "125px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      setImage("Udaipur");
-                      setOpen(false);
-                    }}
-                  />
-                  <Typography variant="h6" align="center">
-                    Udaipur
-                  </Typography>
-                </Grid>
+                {/* maping over citylist  */}
+                {CityList.map((city, index) => (
+                  <Grid item xs={6} sm={2} key={index}>
+                    <img className="image" style={StyledCardOfCity} src={city.image}alt={city.name}
+                      onClick={() => {
+                        setImage(city.name);
+                        setOpen(false);
+                        // checking enddate is selected or not : if selected will enable Search button 
+                        if (endDate !==null) {
+                          setDiableSearchBtn(false)
+                        }
+                      }}
+                    />
+                    <Typography variant="h6" align="center">
+                      {city.name}
+                    </Typography>
+                  </Grid>
+                ))}
               </Grid>
             </Box>
           </Modal>
@@ -518,24 +188,19 @@ const SearchForm = () => {
               label="Dropoff Date"
               // disablePast
               value={endDate}
-              onChange={(newValue) => setEndDate(newValue)}
+              onChange={(newValue) => {
+                setEndDate(newValue);
+                 // checking CityName is selected or not : if selected will enable Search button 
+                if (image !== '') {
+                  setDiableSearchBtn(false)
+                }
+              }}
               sx={{ marginTop: "5%" }}
               fullWidth
               disabled={changeEnd}
             />
           </LocalizationProvider>
-          {/* <TextField
-                fullWidth
-                placeholder="Book Now"
-                sx={{ marginTop: "2%" }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end" sx={{ color: "blue" }}>
-                      <BookOnlineIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              /> */}
+        
           <Typography variant="p" sx={{ marginTop: "2%" }}>
             Duration: {Math.floor((endDate - startDate) / (1000 * 3600 * 24))}{" "}
             Day
@@ -549,7 +214,7 @@ const SearchForm = () => {
               ":hover": {
                 backgroundColor: "#59CE8F",
               },
-            }}
+            }} disabled={diableSearchBtn}
             onClick={handleNavigate}
           >
             Search
