@@ -16,6 +16,7 @@ import React, { useState } from "react";
 import HondaActiva from "../../assets/images/HeroDestini.png";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -49,6 +50,7 @@ export default function MobileRentNow() {
 
   return (
     <>
+      <DynamicMobileNavbar />
       <Container sx={{ marginTop: "10%", marginBottom: "10%" }}>
         <Typography variant="h6">Summary</Typography>
         <Grid container sx={{}}>

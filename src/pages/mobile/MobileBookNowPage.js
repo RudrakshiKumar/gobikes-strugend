@@ -5,13 +5,17 @@ import {
   Button,
   Checkbox,
   Container,
+  FormControl,
   FormControlLabel,
   Grid,
   IconButton,
+  InputLabel,
+  MenuItem,
   Modal,
   Paper,
   Radio,
   RadioGroup,
+  Select,
   Table,
   TableBody,
   TableCell,
@@ -53,6 +57,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
+import SearchCityModal from "../../components/desktop/SearchCityModal";
 
 const style = {
   position: "absolute",
@@ -134,25 +139,60 @@ export default function MobileBookNowPage() {
   const handleChange = () => {
     setChange(!change);
   };
+  const [name, setName] = useState("Location");
+  const [setEditName] = useState("Bangalore");
 
   useEffect(() => {
-    const initial_StartDate = dayjs(date.state.selected_startDate.$d)
-    const initial_EndDate = dayjs(date.state.selected_endDate.$d)
+    const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+    const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+    const initial_CityName = date.state.selected_cityName;
+    console.log(initial_StartDate);
+    console.log(initial_EndDate);
+    console.log(initial_CityName);
     setStartDate(initial_StartDate);
-    setEndDate(initial_EndDate)
-    
-  }, [])
+    setEndDate(initial_EndDate);
+    setName(initial_CityName);
+  }, []);
+
+  const handleNavigate = () => {
+    navigate("/RentNow", {
+      state: {
+        selected_startDate: startDate,
+        selected_endDate: endDate,
+        selected_cityName: name,
+      },
+    });
+  };
 
   return (
     <>
       <DynamicMobileNavbar />
+
       <AppBar
         position="sticky"
         sx={{ backgroundColor: "white", padding: "20px" }}
       >
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <FormControl
+            sx={{ width: "90%", display: "flex", justifyContent: "center" }}
+          >
+            {/* <InputLabel id="demo-simple-select-label">Age</InputLabel> */}
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              // value={age}
+              // label="Age"
+              onChange={handleChange}
+            >
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
         <Container>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={2}>
+            {/* <Grid item xs={12} sm={2}>
               <TextField
                 fullWidth
                 label="Go Hub Location"
@@ -161,7 +201,7 @@ export default function MobileBookNowPage() {
                   readOnly: true,
                 }}
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12} sm={4}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
@@ -181,6 +221,9 @@ export default function MobileBookNowPage() {
                   sx={{ width: "100%" }}
                 />
               </LocalizationProvider>
+            </Grid>
+            <Grid item xs={12} sm={2}>
+              <SearchCityModal />
             </Grid>
             <Grid item xs={12} sm={2}>
               <Button
@@ -909,7 +952,7 @@ export default function MobileBookNowPage() {
                 latitude: 37.8,
                 zoom: 14,
               }}
-              style={{ width: 600, height: 400 }}
+              style={{ width: 100, height: 400 }}
               mapStyle="mapbox://styles/mapbox/streets-v9"
             />
             {/* <img src={location} alt="location" /> */}
@@ -990,7 +1033,7 @@ export default function MobileBookNowPage() {
               </Grid>
               <Grid item sx={{ marginLeft: "25px" }}>
                 <Button
-                  onClick={handlePayNowOpen}
+                  onClick={handleNavigate}
                   variant="contained"
                   color="success"
                   size="medium"

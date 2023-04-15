@@ -109,7 +109,7 @@ export default function Dashboard() {
                   }}
                   onClick={() => setActive("goCoins")}
                 >
-                  Go Coins
+                  Bro Coins
                 </Button>
               </Grid>
               <Grid item xs={12} sm={8}>

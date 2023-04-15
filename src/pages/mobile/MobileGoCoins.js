@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
 import React from "react";
 import GoCoins from "../../components/desktop/GoCoins";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
@@ -38,7 +38,7 @@ const MobileGoCoins = () => {
           <hr style={{ marginTop: "2%" }} />
           <div style={{ marginTop: "10%" }}>
             <Typography variant="h5" sx={{ fontWeight: "regular" }}>
-              Go-Coins
+              Bro-Coins
             </Typography>
             <Typography variant="p" sx={{ fontSize: "18px" }}>
               Quick and convienient way to pay and refund
@@ -73,6 +73,22 @@ const MobileGoCoins = () => {
               </div>
             </div>
           </Box>
+          <Button
+            sx={{
+              width: "100%",
+              py: 2,
+              color: "#ffffff",
+              bgcolor: "#59CE8F",
+              textAlign: "center",
+              m: "auto",
+              ":hover": { bgcolor: "#36b671" },
+              mt: 4,
+              fontSize: 20,
+            }}
+          >
+            {" "}
+            Add Money to Wallet
+          </Button>
           <div className="mt-10 mx-5">
             <Typography sx={{ fontWeight: "bold", fontSize: "18px", mb: 3 }}>
               Please Note
@@ -80,7 +96,8 @@ const MobileGoCoins = () => {
 
             <ul>
               <li>
-                Go-Coins can not be cancelled or transferred to another account.
+                Bro-Coins can not be cancelled or transferred to another
+                account.
               </li>
               <li>
                 It can not be withdrawn in the form of cash or transferred to
@@ -89,7 +106,7 @@ const MobileGoCoins = () => {
               <li>It can not be used to purchase Gift Cards.</li>
               <li>
                 Net-banking and credit/debit cards issued in India can be used
-                for Go-Coins Topup
+                for Bro-Coins Topup
               </li>
               <li>Credits have an expiry. Check FAQs for more details.</li>
             </ul>

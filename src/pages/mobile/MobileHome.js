@@ -89,8 +89,8 @@ const MobileHome = () => {
               top: 200,
               // top: 350,
               // top: 50,
-              bgcolor: "#ffffff",
-              mb: 50,
+
+              mb: 30,
             }}
           >
             {" "}
@@ -98,7 +98,7 @@ const MobileHome = () => {
           </Box>
         </Box>
         <Box>
-          <Typography variant="h6" sx={{ fontWeight: "bold", pt: 2, ml: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: "bold", ml: 2 }}>
             Offers for you
           </Typography>
           <OfferCarousal />
