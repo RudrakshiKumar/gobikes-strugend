@@ -20,6 +20,7 @@ import {
   TableRow,
   TextField,
   Typography,
+  tableCellClasses,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
@@ -58,8 +59,8 @@ const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "50%",
+  transform: "translate(-68%, -25%)",
+  width: "70%",
   bgcolor: "background.paper",
   borderRadius: "5px",
   boxShadow: 24,
@@ -136,12 +137,11 @@ export default function MobileBookNowPage() {
   };
 
   useEffect(() => {
-    const initial_StartDate = dayjs(date.state.selected_startDate.$d)
-    const initial_EndDate = dayjs(date.state.selected_endDate.$d)
+    const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+    const initial_EndDate = dayjs(date.state.selected_endDate.$d);
     setStartDate(initial_StartDate);
-    setEndDate(initial_EndDate)
-    
-  }, [])
+    setEndDate(initial_EndDate);
+  }, []);
 
   return (
     <>
@@ -467,6 +467,7 @@ export default function MobileBookNowPage() {
                     variant="h6"
                     component="h2"
                     align="center"
+                    sx={{ fontWeight: "bold" }}
                   >
                     Cancellation Policy
                   </Typography>
@@ -484,14 +485,34 @@ export default function MobileBookNowPage() {
                   </IconButton>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     <TableContainer>
-                      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                      <Table sx={{ minWidth: 100 }} aria-label="simple table">
                         <TableHead>
-                          <TableRow>
-                            <TableCell>Time of Cancellation</TableCell>
-                            <TableCell align="right">
+                          <TableRow
+                            sx={{
+                              backgroundColor: "#4cbb17",
+                              border: "2px solid black",
+                            }}
+                          >
+                            <TableCell
+                              sx={{
+                                color: "white",
+                                border: "2px solid black",
+                              }}
+                            >
+                              Time of Cancellation
+                            </TableCell>
+                            <TableCell
+                              align="right"
+                              sx={{
+                                color: "white",
+                                border: "2px solid black",
+                              }}
+                            >
                               Refund Percentage
                             </TableCell>
-                            <TableCell align="right">Refund Amount</TableCell>
+                            <TableCell align="right" sx={{ color: "white" }}>
+                              Refund Amount
+                            </TableCell>
                           </TableRow>
                         </TableHead>
                         <TableBody>
@@ -499,18 +520,28 @@ export default function MobileBookNowPage() {
                             <TableRow
                               key={row.TimeOfCancellation}
                               sx={{
-                                "&:last-child td, &:last-child th": {
-                                  border: 0,
+                                [`& .${tableCellClasses.root}`]: {
+                                  borderBottom: "2px solid black",
                                 },
                               }}
                             >
-                              <TableCell component="th" scope="row">
+                              <TableCell
+                                component="th"
+                                scope="row"
+                                sx={{ border: "2px solid black" }}
+                              >
                                 {row.TimeOfCancellation}
                               </TableCell>
-                              <TableCell align="right">
+                              <TableCell
+                                align="right"
+                                sx={{ border: "2px solid black" }}
+                              >
                                 {row.RefundPercentage}
                               </TableCell>
-                              <TableCell align="right">
+                              <TableCell
+                                align="right"
+                                sx={{ border: "2px solid black" }}
+                              >
                                 {row.RefundAmount}
                               </TableCell>
                             </TableRow>
