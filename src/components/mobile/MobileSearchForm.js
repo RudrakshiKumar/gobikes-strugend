@@ -38,6 +38,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import PreLoginFooter from "../../layouts/desktop/PreLoginFooter";
 import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
 import { useNavigate } from "react-router-dom";
+import dayjs from "dayjs";
 
 const MobileSearchForm = () => {
   const style = {
@@ -56,15 +57,19 @@ const MobileSearchForm = () => {
   const handleClose = () => setOpen(false);
 
   const [image, setImage] = useState("");
-  const [setName] = useState("Bangalore");
+  const [setName] = useState(null);
 
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(dayjs(new Date()));
+  const [endDate, setEndDate] = useState(dayjs("2023-04-17T12:00"));
 
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/BookingFlow", {
-      state: { selected_startDate: startDate, selected_endDate: endDate },
+      state: {
+        selected_startDate: startDate,
+        selected_endDate: endDate,
+        selected_cityName: image,
+      },
     });
   };
 
@@ -536,20 +541,40 @@ const MobileSearchForm = () => {
       <Typography variant="p" sx={{ marginTop: "2%" }}>
         Duration: {Math.floor((endDate - startDate) / (1000 * 3600 * 24))} Day
       </Typography>
-      <Button
-        variant="contained"
-        sx={{
-          marginTop: "2%",
-          width: "25%",
-          backgroundColor: "#59CE8F",
-          ":hover": {
-            backgroundColor: "#59CE8F",
-          },
-        }}
-        onClick={handleNavigate}
-      >
-        Search
-      </Button>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={2}>
+          <Button
+            variant="contained"
+            size="small"
+            sx={{
+              marginTop: "2%",
+              width: "25%",
+              backgroundColor: "#59CE8F",
+              ":hover": {
+                backgroundColor: "#59CE8F",
+              },
+            }}
+            onClick={handleNavigate}
+          >
+            Search
+          </Button>
+          <Button
+            variant="contained"
+            size="small"
+            sx={{
+              marginTop: "2%",
+              width: "35%",
+              marginLeft: "40%",
+              backgroundColor: "#59CE8F",
+              ":hover": {
+                backgroundColor: "#59CE8F",
+              },
+            }}
+          >
+            Instant Booking
+          </Button>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
