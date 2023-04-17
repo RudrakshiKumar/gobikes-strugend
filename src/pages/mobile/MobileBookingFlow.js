@@ -1810,7 +1810,7 @@ export default function MobileBookingFlow(props) {
   const [endDate, setEndDate] = useState(null);
 
   const [name, setName] = useState("Location");
-  const [setEditName] = useState("Bangalore");
+  const [setEditName] = useState(null);
 
   const [state, setState] = React.useState({
     top: false,
@@ -1998,8 +1998,10 @@ export default function MobileBookingFlow(props) {
   useEffect(() => {
     const initial_StartDate = dayjs(date.state.selected_startDate.$d);
     const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+    const initial_CityName = date.state.selected_cityName;
     setStartDate(initial_StartDate);
     setEndDate(initial_EndDate);
+    setName(initial_CityName);
   }, []);
   return (
     <>
