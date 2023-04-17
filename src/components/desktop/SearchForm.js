@@ -540,20 +540,36 @@ const SearchForm = () => {
             Duration: {Math.floor((endDate - startDate) / (1000 * 3600 * 24))}{" "}
             Day
           </Typography>
-          <Button
-            variant="contained"
-            sx={{
-              marginTop: "2%",
-              width: "25%",
-              backgroundColor: "#59CE8F",
-              ":hover": {
+          <div style={{ display: "flex" }}>
+            <Button
+              variant="contained"
+              sx={{
+                marginTop: "2%",
+                width: "25%",
                 backgroundColor: "#59CE8F",
-              },
-            }}
-            onClick={handleNavigate}
-          >
-            Search
-          </Button>
+                ":hover": {
+                  backgroundColor: "#59CE8F",
+                },
+              }}
+              onClick={handleNavigate}
+            >
+              Search
+            </Button>
+            <Button
+              variant="contained"
+              sx={{
+                marginTop: "2%",
+                marginLeft: "50%",
+                width: "25%",
+                backgroundColor: "#59CE8F",
+                ":hover": {
+                  backgroundColor: "#59CE8F",
+                },
+              }}
+            >
+              Booking
+            </Button>
+          </div>
         </Box>
       </Box>
     </>
