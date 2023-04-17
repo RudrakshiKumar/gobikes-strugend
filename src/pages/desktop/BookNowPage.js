@@ -20,6 +20,7 @@ import {
   TableRow,
   TextField,
   Typography,
+  tableCellClasses,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
@@ -504,6 +505,7 @@ export default function BookNowPage() {
                         variant="h6"
                         component="h2"
                         align="center"
+                        sx={{ fontWeight: "bold" }}
                       >
                         Cancellation Policy
                       </Typography>
@@ -526,12 +528,33 @@ export default function BookNowPage() {
                             aria-label="simple table"
                           >
                             <TableHead>
-                              <TableRow>
-                                <TableCell>Time of Cancellation</TableCell>
-                                <TableCell align="right">
+                              <TableRow
+                                sx={{
+                                  backgroundColor: "#4cbb17",
+                                  border: "2px solid black",
+                                }}
+                              >
+                                <TableCell
+                                  sx={{
+                                    color: "white",
+                                    border: "2px solid black",
+                                  }}
+                                >
+                                  Time of Cancellation
+                                </TableCell>
+                                <TableCell
+                                  align="right"
+                                  sx={{
+                                    color: "white",
+                                    border: "2px solid black",
+                                  }}
+                                >
                                   Refund Percentage
                                 </TableCell>
-                                <TableCell align="right">
+                                <TableCell
+                                  align="right"
+                                  sx={{ color: "white" }}
+                                >
                                   Refund Amount
                                 </TableCell>
                               </TableRow>
@@ -541,18 +564,28 @@ export default function BookNowPage() {
                                 <TableRow
                                   key={row.TimeOfCancellation}
                                   sx={{
-                                    "&:last-child td, &:last-child th": {
-                                      border: 0,
+                                    [`& .${tableCellClasses.root}`]: {
+                                      borderBottom: "2px solid black",
                                     },
                                   }}
                                 >
-                                  <TableCell component="th" scope="row">
+                                  <TableCell
+                                    component="th"
+                                    scope="row"
+                                    sx={{ border: "2px solid black" }}
+                                  >
                                     {row.TimeOfCancellation}
                                   </TableCell>
-                                  <TableCell align="right">
+                                  <TableCell
+                                    align="right"
+                                    sx={{ border: "2px solid black" }}
+                                  >
                                     {row.RefundPercentage}
                                   </TableCell>
-                                  <TableCell align="right">
+                                  <TableCell
+                                    align="right"
+                                    sx={{ border: "2px solid black" }}
+                                  >
                                     {row.RefundAmount}
                                   </TableCell>
                                 </TableRow>
