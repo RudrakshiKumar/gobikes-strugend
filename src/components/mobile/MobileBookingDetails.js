@@ -47,9 +47,9 @@ export default function MobileBookingDetails() {
               variant="text"
               sx={{
                 color: "#4cbb17",
-                fontSize: "15px",
-                fontWeight: "medium",
-                marginLeft: "150px",
+                fontSize: "13px",
+                fontWeight: "large",
+                marginLeft: "122px",
                 outline: "none",
               }}
               onClick={() => setActive("viewDetails")}
