@@ -60,7 +60,7 @@ const MobileSearchForm = () => {
   const [setName] = useState(null);
 
   const [startDate, setStartDate] = useState(dayjs(new Date()));
-  const [endDate, setEndDate] = useState(dayjs("2023-04-17T12:00"));
+  const [endDate, setEndDate] = useState(dayjs(new Date()));
 
   const navigate = useNavigate();
   const handleNavigate = () => {
@@ -542,7 +542,7 @@ const MobileSearchForm = () => {
         Duration: {Math.floor((endDate - startDate) / (1000 * 3600 * 24))} Day
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={2}>
+        <Grid item xs={12} sm={6}>
           <Button
             variant="contained"
             size="small"
@@ -563,8 +563,8 @@ const MobileSearchForm = () => {
             size="small"
             sx={{
               marginTop: "2%",
-              width: "35%",
-              marginLeft: "40%",
+              width: "45%",
+              marginLeft: "30%",
               backgroundColor: "#59CE8F",
               ":hover": {
                 backgroundColor: "#59CE8F",
