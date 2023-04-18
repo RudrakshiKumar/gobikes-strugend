@@ -59,12 +59,12 @@ const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
-  transform: "translate(-68%, -25%)",
-  width: "70%",
+  transform: "translate(-84%, -15%)",
+  width: "auto",
   bgcolor: "background.paper",
   borderRadius: "5px",
   boxShadow: 24,
-  p: 4,
+  p: 2,
 };
 
 const styles = {
@@ -485,7 +485,7 @@ export default function MobileBookNowPage() {
                   </IconButton>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     <TableContainer>
-                      <Table sx={{ minWidth: 100 }} aria-label="simple table">
+                      <Table sx={{ minWidth: 10 }} aria-label="simple table">
                         <TableHead>
                           <TableRow
                             sx={{
