@@ -24,6 +24,10 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
+import HondaSP from "../../assets/images/HondaSP.png";
+import Ninja from "../../assets/images/bike2.webp";
+import Duet from "../../assets/images/bike3.webp";
+import HondaActiva from "../../assets/images/HondaActiva.png";
 import SocialDistanceRoundedIcon from "@mui/icons-material/SocialDistanceRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import EngineeringRoundedIcon from "@mui/icons-material/EngineeringRounded";
@@ -93,6 +97,18 @@ const styled = {
   borderRadius: 3,
 };
 
+const stylling = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-76%, -15%)",
+  width: "62%",
+  bgcolor: "background.paper",
+  borderRadius: "5px",
+  boxShadow: 24,
+  p: 2,
+};
+
 function createData(TimeOfCancellation, RefundPercentage, RefundAmount) {
   return { TimeOfCancellation, RefundPercentage, RefundAmount };
 }
@@ -135,6 +151,12 @@ export default function MobileBookNowPage() {
   const handleChange = () => {
     setChange(!change);
   };
+
+  const [bike, setBike] = useState(false);
+  const handleBikeModel = () => setBike(true);
+  const handleBikeModelClose = () => setBike(false);
+
+  const [image, setImage] = useState("HeroDestini");
 
   useEffect(() => {
     const initial_StartDate = dayjs(date.state.selected_startDate.$d);
@@ -260,11 +282,227 @@ export default function MobileBookNowPage() {
               >
                 Only 1 Bike Available
               </Box>
-              <img
-                src={HeroDestini}
-                alt="Hero Destini"
-                style={{ width: "50%", padding: "30px", marginLeft: "100px" }}
-              />
+              {image === "HeroDestini" && (
+                <img
+                  src={HeroDestini}
+                  alt="Hero Destini"
+                  style={{
+                    width: "50%",
+                    padding: "30px",
+                    marginLeft: "100px",
+                  }}
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                  onClick={handleBikeModel}
+                />
+              )}
+              {image === "Duet" && (
+                <img
+                  src={Duet}
+                  alt="Duet"
+                  style={{
+                    width: "50%",
+                    padding: "30px",
+                    marginLeft: "100px",
+                  }}
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                  onClick={handleBikeModel}
+                />
+              )}
+              {image === "HondaSP" && (
+                <img
+                  src={HondaSP}
+                  alt="Honda SP"
+                  style={{
+                    width: "50%",
+                    padding: "30px",
+                    marginLeft: "100px",
+                  }}
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                  onClick={handleBikeModel}
+                />
+              )}
+              {image === "Ninja" && (
+                <img
+                  src={Ninja}
+                  alt="Ninja"
+                  style={{
+                    width: "50%",
+                    padding: "30px",
+                    marginLeft: "100px",
+                  }}
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                  onClick={handleBikeModel}
+                />
+              )}
+              {image === "HondaActiva" && (
+                <img
+                  src={HondaActiva}
+                  alt="HondaActiva"
+                  style={{
+                    width: "50%",
+                    padding: "30px",
+                    marginLeft: "100px",
+                  }}
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                  onClick={handleBikeModel}
+                />
+              )}
+              <Modal
+                open={bike}
+                onClose={handleBikeModelClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={stylling}>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    Bike Model
+                  </Typography>
+                  <IconButton
+                    aria-label="close"
+                    onClick={() => setBike(false)}
+                    sx={{
+                      position: "absolute",
+                      right: 8,
+                      top: 8,
+                      color: (theme) => theme.palette.grey[800],
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                  <Grid container spacing={2} sx={{ marginTop: "5px" }}>
+                    <Grid item xs={12} sm={2}>
+                      <img
+                        className="image"
+                        src={Duet}
+                        alt="Duet"
+                        style={{
+                          width: "150px",
+                          borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Duet");
+                          setBike(false);
+                        }}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          padding: "5px",
+                          marginLeft: "45px",
+                        }}
+                      >
+                        Duet
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={2}>
+                      <img
+                        className="image"
+                        src={HondaSP}
+                        alt="HondaSP"
+                        style={{
+                          width: "150px",
+                          borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("HondaSP");
+                          setBike(false);
+                        }}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          padding: "5px",
+                          marginLeft: "25px",
+                        }}
+                      >
+                        Honda SP
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={2}>
+                      <img
+                        className="image"
+                        src={Ninja}
+                        alt="Ninja"
+                        style={{
+                          width: "150px",
+                          borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("Ninja");
+                          setBike(false);
+                        }}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          padding: "5px",
+                          marginLeft: "55px",
+                        }}
+                      >
+                        Ninja
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={2}>
+                      <img
+                        className="image"
+                        src={HondaActiva}
+                        alt="HondaActiva"
+                        style={{
+                          width: "150px",
+                          borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("HondaActiva");
+                          setBike(false);
+                        }}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          padding: "5px",
+                          marginLeft: "25px",
+                        }}
+                      >
+                        Honda Activa
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={2}>
+                      <img
+                        className="image"
+                        src={HeroDestini}
+                        alt="HeroDestini"
+                        style={{
+                          width: "150px",
+                          borderRadius: "5px",
+                        }}
+                        onClick={() => {
+                          setImage("HeroDestini");
+                          setBike(false);
+                        }}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          padding: "5px",
+                          marginLeft: "25px",
+                        }}
+                      >
+                        Hero Destini
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Modal>
               <br />
               <Typography
                 variant="p"
