@@ -96,7 +96,7 @@ export default function MobileBookingFlow(props) {
   const [endDate, setEndDate] = useState(null);
 
   const [name, setName] = useState("Location");
-  const [setEditName] = useState("Bangalore");
+  const [setEditName] = useState(null);
 
   const [state, setState] = React.useState({
     top: false,
