@@ -65,17 +65,19 @@ import dayjs from "dayjs";
 import SearchCityModal from "../../components/desktop/SearchCityModal";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-84%, -15%)",
-  width: "auto",
-  bgcolor: "background.paper",
-  borderRadius: "5px",
-  boxShadow: 24,
-  p: 2,
-};
+// const style = {
+//   position: "absolute",
+//   // top: "50%",
+//   // left: "50%",
+//   // transform: "translate(-84%, -15%)",
+//   width: "97%",
+//   bgcolor: "background.paper",
+//   borderRadius: "5px",
+//   boxShadow: 24,
+//   p: 2,
+//   // justifyContent: "center",
+//   // mx: "auto",
+// };
 
 const styles = {
   position: "absolute",
@@ -785,7 +787,7 @@ export default function MobileBookNowPage() {
                     sm={10}
                     sx={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    <div style={{ paddingTop: "7px" }}>
+                    <div style={{ paddingTop: "8px" }}>
                       <Typography variant="p" sx={{ fontSize: "12px" }}>
                         Cancellation Policy
                       </Typography>
@@ -801,8 +803,23 @@ export default function MobileBookNowPage() {
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  // my: "auto",
+                }}
               >
-                <Box sx={style}>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bgcolor: "background.paper",
+                    p: 1,
+                    boxShadow: 24,
+                    borderRadius: "5px",
+                    width: "96%",
+                  }}
+                >
                   <Typography
                     id="modal-modal-title"
                     variant="h6"
@@ -894,6 +911,7 @@ export default function MobileBookNowPage() {
                 </Box>
               </Modal>
             </div>
+
             <Box
               sx={{
                 border: "1px solid lightGray",

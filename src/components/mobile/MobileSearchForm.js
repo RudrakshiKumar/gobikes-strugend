@@ -542,45 +542,47 @@ const MobileSearchForm = () => {
       <Typography variant="p" sx={{ marginTop: "2%" }}>
         Duration: {Math.floor((endDate - startDate) / (1000 * 3600 * 24))} Day
       </Typography>
-      {/* <Button
-        // variant="contained"
+      <Box
         sx={{
-          color: "#ffffff",
-          marginTop: "2%",
-          width: "25%",
-          backgroundColor: "#59CE8F",
-          ":hover": {
-            backgroundColor: "#59CE8F",
-          },
+          display: "inline-flex",
+          justifyContent: "space-between",
+          mt: 3,
         }}
-        onClick={handleNavigate}
       >
-        Search
-      </Button> */}
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
+        <Box>
           <Button
             // variant="contained"
-            size="small"
             sx={{
-              marginTop: "2%",
-              width: "25%",
+              color: "#ffffff",
+              fontSize: "15px",
+              // marginTop: "2%",
+              // width: "25%",
               backgroundColor: "#59CE8F",
               ":hover": {
-                backgroundColor: "#59CE8F",
+                backgroundColor: "#36b671",
               },
             }}
             onClick={handleNavigate}
           >
             Search
           </Button>
+        </Box>
+        <Box
+          sx={{
+            // marginTop: "2%",
+            // marginLeft: "35%",
+            // width: "40%",
+            textAlign: "center",
+          }}
+        >
           <Button
-            variant="contained"
-            size="small"
+            // variant="contained"
             sx={{
-              marginTop: "2%",
-              width: "45%",
-              marginLeft: "30%",
+              color: "#ffffff",
+              fontSize: "15px",
+              // marginTop: "2%",
+              // marginLeft: "35%",
+
               backgroundColor: "#59CE8F",
               ":hover": {
                 backgroundColor: "#59CE8F",
@@ -588,9 +590,10 @@ const MobileSearchForm = () => {
             }}
           >
             Instant Booking
-          </Button>
-        </Grid>
-      </Grid>
+          </Button>{" "}
+          <Typography fontSize={"12px"}>Coming Soon</Typography>
+        </Box>
+      </Box>
     </Box>
   );
 };

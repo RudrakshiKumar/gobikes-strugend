@@ -540,37 +540,58 @@ const SearchForm = () => {
             Duration: {Math.floor((endDate - startDate) / (1000 * 3600 * 24))}{" "}
             Day
           </Typography>
-          <div style={{ display: "flex" }}>
-            <Button
-              // variant="contained"
-              sx={{
-                color: "#ffffff",
-                marginTop: "2%",
-                width: "25%",
-                backgroundColor: "#59CE8F",
-                ":hover": {
-                  backgroundColor: "#36b671",
-                },
-              }}
-              onClick={handleNavigate}
-            >
-              Search
-            </Button>
-            <Button
-              variant="contained"
-              sx={{
-                marginTop: "2%",
-                marginLeft: "50%",
-                width: "25%",
-                backgroundColor: "#59CE8F",
-                ":hover": {
+          <Box
+            sx={{
+              display: "inline-flex",
+              justifyContent: "space-between",
+              mt: 3,
+            }}
+          >
+            <Box>
+              <Button
+                // variant="contained"
+                sx={{
+                  color: "#ffffff",
+                  fontSize: "15px",
+                  // marginTop: "2%",
+                  // width: "25%",
                   backgroundColor: "#59CE8F",
-                },
+                  ":hover": {
+                    backgroundColor: "#36b671",
+                  },
+                }}
+                onClick={handleNavigate}
+              >
+                Search
+              </Button>
+            </Box>
+            <Box
+              sx={{
+                // marginTop: "2%",
+                // marginLeft: "35%",
+                // width: "40%",
+                textAlign: "center",
               }}
             >
-              Booking
-            </Button>
-          </div>
+              <Button
+                // variant="contained"
+                sx={{
+                  color: "#ffffff",
+                  fontSize: "15px",
+                  // marginTop: "2%",
+                  // marginLeft: "35%",
+
+                  backgroundColor: "#59CE8F",
+                  ":hover": {
+                    backgroundColor: "#59CE8F",
+                  },
+                }}
+              >
+                Instant Booking
+              </Button>{" "}
+              <Typography fontSize={"12px"}>Coming Soon</Typography>
+            </Box>
+          </Box>
         </Box>
       </Box>
     </>
