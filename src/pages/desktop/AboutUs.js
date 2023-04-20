@@ -1,7 +1,5 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
-import Navbar from "../../layouts/desktop/PreLoginNavbar";
 import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import { useTheme } from "@mui/material/styles";

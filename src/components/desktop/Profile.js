@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Grid,
-  IconButton,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Grid, IconButton, TextField, Typography, } from "@mui/material";
 import React, { useState } from "react";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
@@ -335,13 +328,8 @@ export default function Profile() {
                     variant="text"
                     size="small"
                     sx={{
-                      fontSize: "15px",
-                      backgroundColor: "#4cbb17",
-                      ":hover": {
-                        backgroundColor: "#4cbb17",
-                      },
-                      color: "white",
-                      marginTop: "5px",
+                      fontSize: "15px", color: "white", marginTop: "5px", backgroundColor: "#4cbb17",
+                      ":hover": { backgroundColor: "#4cbb17" },
                     }}
                     onClick={handleAddressSave}
                   >
@@ -353,13 +341,9 @@ export default function Profile() {
             <Grid item xs={12} sm={5}>
               <Box
                 sx={{
-                  border: "1px solid lightGrey",
-                  borderRadius: "8px",
-                  marginTop: "10px",
-                  marginRight: "10px",
-                  width: "100%",
-                }}
-              >
+                  border: "1px solid lightGrey", borderRadius: "8px", marginTop: "10px",
+                  marginRight: "10px", width: "100%",
+                }}>
                 <div style={{ padding: "4%" }}>
                   <IconButton>
                     <LockRoundedIcon fontSize="large" />

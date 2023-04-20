@@ -1,19 +1,13 @@
-import { Typography, TextField, Button } from "@mui/material";
-import { Box } from "@mui/system";
+import { Typography, TextField, Button,Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/images/logo.png";
-import star from "../../assets/images/star.png";
-import loginPopup from "../../assets/images/loginPopup.webp";
+import{logo,star,loginPopup} from '../../Constants'
+
 
 const PersonalDetails = () => {
 
   const [formData, setFormData] = useState({ firstName: '',lastName: '', email: '', mobile: '' })
-
-  const [showSubmit, setShowSubmit] =useState(true)
-
-
+  const [showSubmit, setShowSubmit] =useState(true);
  useEffect(() => {
-    
     if (formData.firstName.length > 1 && formData.email.length > 6 && formData.mobile.length > 9 && formData.lastName.length > 1) {
       setShowSubmit(false)
     }

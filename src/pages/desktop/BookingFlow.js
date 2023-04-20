@@ -1,48 +1,15 @@
 import {
-  AppBar,
-  Box,
-  Button,
-  CardContent,
-  Checkbox,
-  Container,
-  FormControlLabel,
-  Grid,
-  IconButton,
-  Modal,
-  Radio,
-  RadioGroup,
-  TextField,
-  Typography,
+  AppBar, Box, Button, CardContent, Checkbox, Container, FormControlLabel, Grid, IconButton, Input, Modal, Radio, RadioGroup, Skeleton, TextField, Typography
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import HeroDestini from "../../assets/images/HeroDestini.png";
-import HondaSP from "../../assets/images/HondaSP.png";
-import { Link, useNavigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PostLoginNavbar from "../../layouts/desktop/PostLoginNavbar";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import Bangalore from "../../assets/images/Bangalore.jpg";
-import Chandigarh from "../../assets/images/Chandigarh.jpg";
-import Chennai from "../../assets/images/Chennai.jpg";
-import Dehradun from "../../assets/images/Dehradun.webp";
-import Delhi from "../../assets/images/Delhi.webp";
-import Ghaziabad from "../../assets/images/Ghaziabad.jpg";
-import Goa from "../../assets/images/Goa.jpg";
-import Hyderabad from "../../assets/images/Hyderabad.jpg";
-import Kolkata from "../../assets/images/Kolkata.jpg";
-import Manali from "../../assets/images/Manali.jpg";
-import Mumbai from "../../assets/images/Mumbai.webp";
-import Pune from "../../assets/images/Pune.jpg";
-import Gurgaon from "../../assets/images/Gurgaon.jpg";
-import Guwahati from "../../assets/images/Guwahati.jpg";
-import Jaipur from "../../assets/images/Jaipur.jpg";
-import Leh from "../../assets/images/Leh.jpg";
-import Noida from "../../assets/images/Noida.jpg";
-import Udaipur from "../../assets/images/Udaipur.jpg";
-import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import { HeroDestini, HondaSP, CityList } from '../../Constants'
 import { useLocation } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -52,6 +19,22 @@ import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import dayjs from "dayjs";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
+const DailyPackageBikeList = [
+  { model: ' Hero Destini 125', image: HeroDestini, location: 'Tikiapara Railway Station', price: '₹449', limit: '100 Km limit' },
+  { model: '  Honda SP 125', image: HondaSP, location: 'Baghajatin', price: '₹719', limit: ' 240 Km limit' },
+]
+const WeeklyPackageBikeList = [
+  { model: ' Hero Destini 125', image: HeroDestini, location: 'Tikiapara Railway Station', price: '₹4049', limit: '1000 Km limit' },
+  { model: '  Honda SP 125', image: HondaSP, location: 'Baghajatin', price: '₹7019', limit: ' 2400 Km limit' },
+]
+const halfMonthlyPackageBikeList = [
+  { model: ' Hero Destini 125', image: HeroDestini, location: 'Tikiapara Railway Station', price: '₹7000', limit: '2000 Km limit' },
+  { model: '  Honda SP 125', image: HondaSP, location: 'Baghajatin', price: '₹9000', limit: ' 3000 Km limit' },
+]
+const MonthlyPackageBikeList = [
+  { model: ' Hero Destini 125', image: HeroDestini, location: 'Tikiapara Railway Station', price: '₹15299', limit: '4500 Km limit' },
+  { model: '  Honda SP 125', image: HondaSP, location: 'Baghajatin', price: '₹16300', limit: ' 5500 Km limit' },
+]
 
 const style = {
   position: "absolute",
@@ -78,12 +61,19 @@ const styles = {
   p: 4,
 };
 
+const StyledCityCard = {
+  width: "125px",
+  height: "125px",
+  borderRadius: "5px",
+}
+
 export default function BookingFlow(props) {
+  const navigate = useNavigate();
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   const [packages, setPackages] = useState("dailyPackages");
-
+  const [isLoading, setIsLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -104,15 +94,11 @@ export default function BookingFlow(props) {
     const initial_StartDate = dayjs(date.state.selected_startDate.$d);
     const initial_EndDate = dayjs(date.state.selected_endDate.$d);
     const initial_CityName = date.state.selected_cityName;
-    console.log(initial_StartDate);
-    console.log(initial_EndDate);
-    console.log(initial_CityName);
     setStartDate(initial_StartDate);
     setEndDate(initial_EndDate);
     setName(initial_CityName);
+    console.log(initial_StartDate.$D);
   }, []);
-
-  const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/BookNowPage", {
       state: {
@@ -127,7 +113,7 @@ export default function BookingFlow(props) {
       {isMatch ? (
         <MobileBookingFlow />
       ) : (
-        <Box>
+        <Box textAlign={'center'}>
           <DynamicNavbar />
           <AppBar
             position="sticky"
@@ -200,348 +186,25 @@ export default function BookingFlow(props) {
                       <CloseIcon />
                     </IconButton>
                     <Grid container spacing={2} sx={{ marginTop: "5px" }}>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Bangalore}
-                          alt="Bangalore"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Bangalore");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Bangalore
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Chandigarh}
-                          alt="Chandigarh"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Chandigarh");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Chandigarh
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Chennai}
-                          alt="Chennai"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Chennai");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Chennai
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Dehradun}
-                          alt="Dehradun"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Dehradun");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Dehradun
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Delhi}
-                          alt="Delhi"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Delhi");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Delhi
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Ghaziabad}
-                          alt="Ghaziabad"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Ghaziabad");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Ghaziabad
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Goa}
-                          alt="Goa"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Goa");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Goa
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Hyderabad}
-                          alt="Hyderabad"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Hyderabad");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Hyderabad
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Kolkata}
-                          alt="Kolkata"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Kolkata");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Kolkata
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Manali}
-                          alt="Manali"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Manali");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Manali
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Mumbai}
-                          alt="Mumbai"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Mumbai");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Mumbai
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Pune}
-                          alt="Pune"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Pune");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Pune
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Gurgaon}
-                          alt="Gurgaon"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Gurgaon");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Gurgaon
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Guwahati}
-                          alt="Guwahati"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Guwahati");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Guwahati
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Jaipur}
-                          alt="Jaipur"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Jaipur");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Jaipur
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Leh}
-                          alt="Leh"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Leh");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Leh
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Noida}
-                          alt="Noida"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Noida");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Noida
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={2}>
-                        <img
-                          className="image"
-                          src={Udaipur}
-                          alt="Udaipur"
-                          style={{
-                            width: "125px",
-                            height: "125px",
-                            borderRadius: "5px",
-                          }}
-                          onClick={() => {
-                            setName("Udaipur");
-                            setLocation(false);
-                          }}
-                        />
-                        <Typography variant="h6" align="center">
-                          Udaipur
-                        </Typography>
-                      </Grid>
+                      {
+                        CityList.map((city, index) => (
+                          <Grid item key={index} xs={12} sm={2}>
+                            <img
+                              className="image"
+                              src={city.image}
+                              alt={city.name}
+                              style={StyledCityCard}
+                              onClick={() => {
+                                setName(city.name);
+                                setLocation(false);
+                              }}
+                            />
+                            <Typography variant="h6" align="center">
+                              {city.name}
+                            </Typography>
+                          </Grid>
+                        ))
+                      }
                     </Grid>
                   </Box>
                 </Modal>
@@ -566,6 +229,11 @@ export default function BookingFlow(props) {
               </Grid>
             </Container>
           </AppBar>
+          <Box sx={{ pt: 3, }}>
+            <TextField variant={'outlined'} type="text" placeholder="search..." sx={{ width: '40vw', borderRadius: 4 }} />
+            <Button variant="contained" sx={{ mx: 4 }} >Search</Button>
+          </Box>
+          <Typography pt={3} variant='h6' component={'h4'} color={'red'}>Available till 10 pm</Typography>
           <Container sx={{ marginTop: "2%" }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={3}>
@@ -723,1068 +391,799 @@ export default function BookingFlow(props) {
                 </Box>
               </Grid>
               <Grid item xs={12} sm={9}>
-                {packages === "dailyPackages" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          Hero Destini 125
-                        </Typography>
-                        <img
-                          src={HeroDestini}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "100%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Tikiapara Railway Station"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
+                {isLoading ? <Grid container spacing={1} height={'100%'} width={"100%"} mx={'auto'} >
+                  {[1, 2, 3, 4].map((item) => (<Grid item xs={6} sm={4} key={item}>
+                    {/* <Box border={'0.4px dotted grey'}   display={'flex'} flexDirection={'column'}  > */}
+                    {/* 
+                <Skeleton width={'60%'} height={30} sx={{ alignSelf: 'center' }} /> */}
+                    <Skeleton sx={{ color: 'black', p: 0, m: 0 }} height={'300px'} />
+                    {/* <Skeleton sx={{ height: 80, width: 70, borderRadius: '50%', alignSelf: 'end', mr: 1 }} />
+                <Skeleton width={'90%'} height={70} /> */}
+                    {/* </Box> */}
+                  </Grid>))}
+
+                </Grid> : <Box>
+                  {packages === "dailyPackages" && (
+                    <Grid container spacing={2}>
+
+                      {DailyPackageBikeList.map(({ model, image, price, location, limit }, index) => (
+                        <Grid item xs={12} sm={4} key={index}>
+                          <CardContent
+                            sx={{
+                              border: "1px solid lightGray",
+                              borderRadius: "5px",
+                            }}
+                          >
                             <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              variant="h6"
+                              align="center"
+                              sx={{ fontWeight: "bold" }}
                             >
-                              ₹449
+                              {model}
                             </Typography>
-                            <br />
-                            <Typography variant="p">100 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
-                                  backgroundColor: "#4cbb17",
-                                },
+                            <img
+                              src={image}
+                              alt={model}
+                              style={{
+                                height: "100%",
+                                width: "100%",
+                                padding: "7px",
                               }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
-                          </Grid>
+                            />
+                            <TextField
+                              fullWidth
+                              label="Available at"
+                              defaultValue={location}
+                              sx={{ marginTop: "5%" }}
+                              InputProps={{
+                                readOnly: true,
+                              }}
+                              size="small"
+                            />
+                            <Grid container spacing={2} sx={{ padding: "5px" }}>
+                              <Grid item xs={12} sm={6}>
+                                <Typography
+                                  variant="p"
+                                  sx={{ color: "#4cbb17", fontSize: "25px" }}
+                                >
+                                  {price}
+                                </Typography>
+                                <br />
+                                <Typography variant="p">{limit}</Typography>
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <Button
+                                  size="small"
+                                  variant="contained"
+                                  sx={{
+                                    backgroundColor: "#4cbb17",
+                                    ":hover": {
+                                      backgroundColor: "#4cbb17",
+                                    },
+                                  }}
+                                  onClick={handleNavigate}
+                                >
+                                  Book Now
+                                </Button>
+                              </Grid>
+                            </Grid>
+                            <hr />
+                            <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                              <Grid item xs={12} sm={6}>
+                                <Typography variant="p">Deposit : ₹2000</Typography>
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <Typography variant="p">
+                                  Make Year : 2020
+                                </Typography>
+                              </Grid>
+                            </Grid>
+                          </CardContent>
                         </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                      ))}
                     </Grid>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          Honda SP 125
-                        </Typography>
-                        <img
-                          src={HondaSP}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "81%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Baghajatin"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
+
+                  )}
+                  {packages === "weeklyPackages" && (
+                    <Grid container spacing={2}>
+                      {WeeklyPackageBikeList.map(({ model, image, price, location, limit }, index) => (
+                        <Grid item xs={12} sm={4} key={index}>
+                          <CardContent
+                            sx={{
+                              border: "1px solid lightGray",
+                              borderRadius: "5px",
+                            }}
+                          >
                             <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              variant="h6"
+                              align="center"
+                              sx={{ fontWeight: "bold" }}
                             >
-                              ₹719
+                              {model}
                             </Typography>
-                            <br />
-                            <Typography variant="p">240 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
-                                  backgroundColor: "#4cbb17",
-                                },
+                            <img
+                              src={image}
+                              alt={model}
+                              style={{
+                                height: "100%",
+                                width: "100%",
+                                padding: "7px",
                               }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
-                          </Grid>
+                            />
+                            <TextField
+                              fullWidth
+                              label="Available at"
+                              defaultValue={location}
+                              sx={{ marginTop: "5%" }}
+                              InputProps={{
+                                readOnly: true,
+                              }}
+                              size="small"
+                            />
+                            <Grid container spacing={2} sx={{ padding: "5px" }}>
+                              <Grid item xs={12} sm={6}>
+                                <Typography
+                                  variant="p"
+                                  sx={{ color: "#4cbb17", fontSize: "25px" }}
+                                >
+                                  {price}
+                                </Typography>
+                                <br />
+                                <Typography variant="p">{limit}</Typography>
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <Button
+                                  size="small"
+                                  variant="contained"
+                                  sx={{
+                                    backgroundColor: "#4cbb17",
+                                    ":hover": {
+                                      backgroundColor: "#4cbb17",
+                                    },
+                                  }}
+                                  onClick={handleNavigate}
+                                >
+                                  Book Now
+                                </Button>
+                              </Grid>
+                            </Grid>
+                            <hr />
+                            <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                              <Grid item xs={12} sm={6}>
+                                <Typography variant="p">Deposit : ₹2000</Typography>
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <Typography variant="p">
+                                  Make Year : 2020
+                                </Typography>
+                              </Grid>
+                            </Grid>
+                          </CardContent>
                         </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                      ))}
                     </Grid>
-                  </Grid>
-                )}
-                {packages === "weeklyPackages" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          Hero Destini 125
-                        </Typography>
-                        <img
-                          src={HeroDestini}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "100%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Tikiapara Railway Station"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
+                  )}
+                  {packages === "15daysPackages" && (
+                    <Grid container spacing={2}>
+                      {halfMonthlyPackageBikeList.map(({ model, image, price, location, limit }, index) => (
+                        <Grid item xs={12} sm={4} key={index}>
+                          <CardContent
+                            sx={{
+                              border: "1px solid lightGray",
+                              borderRadius: "5px",
+                            }}
+                          >
                             <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              variant="h6"
+                              align="center"
+                              sx={{ fontWeight: "bold" }}
                             >
-                              ₹4049
+                              {model}
                             </Typography>
-                            <br />
-                            <Typography variant="p">1000 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
-                                  backgroundColor: "#4cbb17",
-                                },
+                            <img
+                              src={image}
+                              alt={model}
+                              style={{
+                                height: "100%",
+                                width: "100%",
+                                padding: "7px",
                               }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
-                          </Grid>
+                            />
+                            <TextField
+                              fullWidth
+                              label="Available at"
+                              defaultValue={location}
+                              sx={{ marginTop: "5%" }}
+                              InputProps={{
+                                readOnly: true,
+                              }}
+                              size="small"
+                            />
+                            <Grid container spacing={2} sx={{ padding: "5px" }}>
+                              <Grid item xs={12} sm={6}>
+                                <Typography
+                                  variant="p"
+                                  sx={{ color: "#4cbb17", fontSize: "25px" }}
+                                >
+                                  {price}
+                                </Typography>
+                                <br />
+                                <Typography variant="p">{limit}</Typography>
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <Button
+                                  size="small"
+                                  variant="contained"
+                                  sx={{
+                                    backgroundColor: "#4cbb17",
+                                    ":hover": {
+                                      backgroundColor: "#4cbb17",
+                                    },
+                                  }}
+                                  onClick={handleNavigate}
+                                >
+                                  Book Now
+                                </Button>
+                              </Grid>
+                            </Grid>
+                            <hr />
+                            <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                              <Grid item xs={12} sm={6}>
+                                <Typography variant="p">Deposit : ₹2000</Typography>
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <Typography variant="p">
+                                  Make Year : 2020
+                                </Typography>
+                              </Grid>
+                            </Grid>
+                          </CardContent>
                         </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                      ))}
                     </Grid>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          Honda SP 125
-                        </Typography>
-                        <img
-                          src={HondaSP}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "81%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Baghajatin"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
+                  )}
+                  {packages === "monthlyPackages" && (
+                    <Grid container spacing={2}>
+                      {MonthlyPackageBikeList.map(({ model, image, price, location, limit }, index) => (
+                        <Grid item xs={12} sm={4} key={index}>
+                          <CardContent
+                            sx={{
+                              border: "1px solid lightGray",
+                              borderRadius: "5px",
+                            }}
+                          >
                             <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              variant="h6"
+                              align="center"
+                              sx={{ fontWeight: "bold" }}
                             >
-                              ₹7019
+                              {model}
                             </Typography>
-                            <br />
-                            <Typography variant="p">2400 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
-                                  backgroundColor: "#4cbb17",
-                                },
+                            <img
+                              src={image}
+                              alt={model}
+                              style={{
+                                height: "100%",
+                                width: "100%",
+                                padding: "7px",
                               }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
-                          </Grid>
+                            />
+                            <TextField
+                              fullWidth
+                              label="Available at"
+                              defaultValue={location}
+                              sx={{ marginTop: "5%" }}
+                              InputProps={{
+                                readOnly: true,
+                              }}
+                              size="small"
+                            />
+                            <Grid container spacing={2} sx={{ padding: "5px" }}>
+                              <Grid item xs={12} sm={6}>
+                                <Typography
+                                  variant="p"
+                                  sx={{ color: "#4cbb17", fontSize: "25px" }}
+                                >
+                                  {price}
+                                </Typography>
+                                <br />
+                                <Typography variant="p">{limit}</Typography>
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <Button
+                                  size="small"
+                                  variant="contained"
+                                  sx={{
+                                    backgroundColor: "#4cbb17",
+                                    ":hover": {
+                                      backgroundColor: "#4cbb17",
+                                    },
+                                  }}
+                                  onClick={handleNavigate}
+                                >
+                                  Book Now
+                                </Button>
+                              </Grid>
+                            </Grid>
+                            <hr />
+                            <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                              <Grid item xs={12} sm={6}>
+                                <Typography variant="p">Deposit : ₹2000</Typography>
+                              </Grid>
+                              <Grid item xs={12} sm={6}>
+                                <Typography variant="p">
+                                  Make Year : 2020
+                                </Typography>
+                              </Grid>
+                            </Grid>
+                          </CardContent>
                         </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                      ))}
                     </Grid>
-                  </Grid>
-                )}
-                {packages === "15daysPackages" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
+                  )}
+                  {packages === "gear" && (
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={4}>
+                        <CardContent
+                          sx={{
+                            border: "1px solid lightGray",
+                            borderRadius: "5px",
+                          }}
                         >
-                          Hero Destini 125
-                        </Typography>
-                        <img
-                          src={HeroDestini}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "100%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Tikiapara Railway Station"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹8099
-                            </Typography>
-                            <br />
-                            <Typography variant="p">2000 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
+                          <Typography
+                            variant="h6"
+                            align="center"
+                            sx={{ fontWeight: "bold" }}
+                          >
+                            Honda SP 125
+                          </Typography>
+                          <img
+                            src={HondaSP}
+                            alt="HeroDestini"
+                            style={{
+                              height: "100%",
+                              width: "81%",
+                              padding: "7px",
+                            }}
+                          />
+                          <TextField
+                            fullWidth
+                            label="Available at"
+                            defaultValue="Baghajatin"
+                            sx={{ marginTop: "5%" }}
+                            InputProps={{
+                              readOnly: true,
+                            }}
+                            size="small"
+                          />
+                          <Grid container spacing={2} sx={{ padding: "5px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography
+                                variant="p"
+                                sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              >
+                                ₹719
+                              </Typography>
+                              <br />
+                              <Typography variant="p">240 Km limit</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Button
+                                size="small"
+                                variant="contained"
+                                sx={{
                                   backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
+                                  ":hover": {
+                                    backgroundColor: "#4cbb17",
+                                  },
+                                }}
+                                onClick={handleNavigate}
+                              >
+                                Book Now
+                              </Button>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
+                          <hr />
+                          <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">Deposit : ₹2000</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">
+                                Make Year : 2020
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                        </CardContent>
+                      </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
+                  )}
+                  {packages === "gearLess" && (
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={4}>
+                        <CardContent
+                          sx={{
+                            border: "1px solid lightGray",
+                            borderRadius: "5px",
+                          }}
                         >
-                          Honda SP 125
-                        </Typography>
-                        <img
-                          src={HondaSP}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "81%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Baghajatin"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹9099
-                            </Typography>
-                            <br />
-                            <Typography variant="p">3000 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
+                          <Typography
+                            variant="h6"
+                            align="center"
+                            sx={{ fontWeight: "bold" }}
+                          >
+                            Hero Destini 125
+                          </Typography>
+                          <img
+                            src={HeroDestini}
+                            alt="HeroDestini"
+                            style={{
+                              height: "100%",
+                              width: "100%",
+                              padding: "7px",
+                            }}
+                          />
+                          <TextField
+                            fullWidth
+                            label="Available at"
+                            defaultValue="Tikiapara Railway Station"
+                            sx={{ marginTop: "5%" }}
+                            InputProps={{
+                              readOnly: true,
+                            }}
+                            size="small"
+                          />
+                          <Grid container spacing={2} sx={{ padding: "5px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography
+                                variant="p"
+                                sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              >
+                                ₹449
+                              </Typography>
+                              <br />
+                              <Typography variant="p">100 Km limit</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Button
+                                size="small"
+                                variant="contained"
+                                sx={{
                                   backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
+                                  ":hover": {
+                                    backgroundColor: "#4cbb17",
+                                  },
+                                }}
+                                onClick={handleNavigate}
+                              >
+                                Book Now
+                              </Button>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
+                          <hr />
+                          <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">Deposit : ₹2000</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">
+                                Make Year : 2020
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                        </CardContent>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                )}
-                {packages === "monthlyPackages" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
+                  )}
+                  {packages === "baghajatin" && (
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={4}>
+                        <CardContent
+                          sx={{
+                            border: "1px solid lightGray",
+                            borderRadius: "5px",
+                          }}
                         >
-                          Hero Destini 125
-                        </Typography>
-                        <img
-                          src={HeroDestini}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "100%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Tikiapara Railway Station"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹15299
-                            </Typography>
-                            <br />
-                            <Typography variant="p">4500 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
+                          <Typography
+                            variant="h6"
+                            align="center"
+                            sx={{ fontWeight: "bold" }}
+                          >
+                            Honda SP 125
+                          </Typography>
+                          <img
+                            src={HondaSP}
+                            alt="HeroDestini"
+                            style={{
+                              height: "100%",
+                              width: "81%",
+                              padding: "7px",
+                            }}
+                          />
+                          <TextField
+                            fullWidth
+                            label="Available at"
+                            defaultValue="Baghajatin"
+                            sx={{ marginTop: "5%" }}
+                            InputProps={{
+                              readOnly: true,
+                            }}
+                            size="small"
+                          />
+                          <Grid container spacing={2} sx={{ padding: "5px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography
+                                variant="p"
+                                sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              >
+                                ₹719
+                              </Typography>
+                              <br />
+                              <Typography variant="p">240 Km limit</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Button
+                                size="small"
+                                variant="contained"
+                                sx={{
                                   backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
+                                  ":hover": {
+                                    backgroundColor: "#4cbb17",
+                                  },
+                                }}
+                                onClick={handleNavigate}
+                              >
+                                Book Now
+                              </Button>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
+                          <hr />
+                          <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">Deposit : ₹2000</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">
+                                Make Year : 2020
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                        </CardContent>
+                      </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
+                  )}
+                  {packages === "tikiaparaRailwayStation" && (
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={4}>
+                        <CardContent
+                          sx={{
+                            border: "1px solid lightGray",
+                            borderRadius: "5px",
+                          }}
                         >
-                          Honda SP 125
-                        </Typography>
-                        <img
-                          src={HondaSP}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "81%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Baghajatin"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹16300
-                            </Typography>
-                            <br />
-                            <Typography variant="p">5500 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
+                          <Typography
+                            variant="h6"
+                            align="center"
+                            sx={{ fontWeight: "bold" }}
+                          >
+                            Hero Destini 125
+                          </Typography>
+                          <img
+                            src={HeroDestini}
+                            alt="HeroDestini"
+                            style={{
+                              height: "100%",
+                              width: "100%",
+                              padding: "7px",
+                            }}
+                          />
+                          <TextField
+                            fullWidth
+                            label="Available at"
+                            defaultValue="Tikiapara Railway Station"
+                            sx={{ marginTop: "5%" }}
+                            InputProps={{
+                              readOnly: true,
+                            }}
+                            size="small"
+                          />
+                          <Grid container spacing={2} sx={{ padding: "5px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography
+                                variant="p"
+                                sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              >
+                                ₹449
+                              </Typography>
+                              <br />
+                              <Typography variant="p">100 Km limit</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Button
+                                size="small"
+                                variant="contained"
+                                sx={{
                                   backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
+                                  ":hover": {
+                                    backgroundColor: "#4cbb17",
+                                  },
+                                }}
+                                onClick={handleNavigate}
+                              >
+                                Book Now
+                              </Button>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
+                          <hr />
+                          <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">Deposit : ₹2000</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">
+                                Make Year : 2020
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                        </CardContent>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                )}
-                {packages === "gear" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
+                  )}
+                  {packages === "hero" && (
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={4}>
+                        <CardContent
+                          sx={{
+                            border: "1px solid lightGray",
+                            borderRadius: "5px",
+                          }}
                         >
-                          Honda SP 125
-                        </Typography>
-                        <img
-                          src={HondaSP}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "81%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Baghajatin"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹719
-                            </Typography>
-                            <br />
-                            <Typography variant="p">240 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
+                          <Typography
+                            variant="h6"
+                            align="center"
+                            sx={{ fontWeight: "bold" }}
+                          >
+                            Hero Destini 125
+                          </Typography>
+                          <img
+                            src={HeroDestini}
+                            alt="HeroDestini"
+                            style={{
+                              height: "100%",
+                              width: "100%",
+                              padding: "7px",
+                            }}
+                          />
+                          <TextField
+                            fullWidth
+                            label="Available at"
+                            defaultValue="Tikiapara Railway Station"
+                            sx={{ marginTop: "5%" }}
+                            InputProps={{
+                              readOnly: true,
+                            }}
+                            size="small"
+                          />
+                          <Grid container spacing={2} sx={{ padding: "5px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography
+                                variant="p"
+                                sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              >
+                                ₹449
+                              </Typography>
+                              <br />
+                              <Typography variant="p">100 Km limit</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Button
+                                size="small"
+                                variant="contained"
+                                sx={{
                                   backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
+                                  ":hover": {
+                                    backgroundColor: "#4cbb17",
+                                  },
+                                }}
+                                onClick={handleNavigate}
+                              >
+                                Book Now
+                              </Button>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
+                          <hr />
+                          <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">Deposit : ₹2000</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">
+                                Make Year : 2020
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                        </CardContent>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                )}
-                {packages === "gearLess" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
+                  )}
+                  {packages === "honda" && (
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={4}>
+                        <CardContent
+                          sx={{
+                            border: "1px solid lightGray",
+                            borderRadius: "5px",
+                          }}
                         >
-                          Hero Destini 125
-                        </Typography>
-                        <img
-                          src={HeroDestini}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "100%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Tikiapara Railway Station"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹449
-                            </Typography>
-                            <br />
-                            <Typography variant="p">100 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
+                          <Typography
+                            variant="h6"
+                            align="center"
+                            sx={{ fontWeight: "bold" }}
+                          >
+                            Honda SP 125
+                          </Typography>
+                          <img
+                            src={HondaSP}
+                            alt="HeroDestini"
+                            style={{
+                              height: "100%",
+                              width: "81%",
+                              padding: "7px",
+                            }}
+                          />
+                          <TextField
+                            fullWidth
+                            label="Available at"
+                            defaultValue="Baghajatin"
+                            sx={{ marginTop: "5%" }}
+                            InputProps={{
+                              readOnly: true,
+                            }}
+                            size="small"
+                          />
+                          <Grid container spacing={2} sx={{ padding: "5px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography
+                                variant="p"
+                                sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              >
+                                ₹719
+                              </Typography>
+                              <br />
+                              <Typography variant="p">240 Km limit</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Button
+                                size="small"
+                                variant="contained"
+                                sx={{
                                   backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
+                                  ":hover": {
+                                    backgroundColor: "#4cbb17",
+                                  },
+                                }}
+                                onClick={handleNavigate}
+                              >
+                                Book Now
+                              </Button>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
+                          <hr />
+                          <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">Deposit : ₹2000</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="p">
+                                Make Year : 2020
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
+                        </CardContent>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                )}
-                {packages === "baghajatin" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          Honda SP 125
-                        </Typography>
-                        <img
-                          src={HondaSP}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "81%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Baghajatin"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹719
-                            </Typography>
-                            <br />
-                            <Typography variant="p">240 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
-                                  backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
-                          </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
-                    </Grid>
-                  </Grid>
-                )}
-                {packages === "tikiaparaRailwayStation" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          Hero Destini 125
-                        </Typography>
-                        <img
-                          src={HeroDestini}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "100%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Tikiapara Railway Station"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹449
-                            </Typography>
-                            <br />
-                            <Typography variant="p">100 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
-                                  backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
-                          </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
-                    </Grid>
-                  </Grid>
-                )}
-                {packages === "hero" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          Hero Destini 125
-                        </Typography>
-                        <img
-                          src={HeroDestini}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "100%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Tikiapara Railway Station"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹449
-                            </Typography>
-                            <br />
-                            <Typography variant="p">100 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
-                                  backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
-                          </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
-                    </Grid>
-                  </Grid>
-                )}
-                {packages === "honda" && (
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4}>
-                      <CardContent
-                        sx={{
-                          border: "1px solid lightGray",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          align="center"
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          Honda SP 125
-                        </Typography>
-                        <img
-                          src={HondaSP}
-                          alt="HeroDestini"
-                          style={{
-                            height: "100%",
-                            width: "81%",
-                            padding: "7px",
-                          }}
-                        />
-                        <TextField
-                          fullWidth
-                          label="Available at"
-                          defaultValue="Baghajatin"
-                          sx={{ marginTop: "5%" }}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                          size="small"
-                        />
-                        <Grid container spacing={2} sx={{ padding: "5px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography
-                              variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
-                            >
-                              ₹719
-                            </Typography>
-                            <br />
-                            <Typography variant="p">240 Km limit</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Button
-                              size="small"
-                              variant="contained"
-                              sx={{
-                                backgroundColor: "#4cbb17",
-                                ":hover": {
-                                  backgroundColor: "#4cbb17",
-                                },
-                              }}
-                              onClick={handleNavigate}
-                            >
-                              Book Now
-                            </Button>
-                          </Grid>
-                        </Grid>
-                        <hr />
-                        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">Deposit : ₹2000</Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="p">
-                              Make Year : 2020
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
-                    </Grid>
-                  </Grid>
-                )}
+                  )}
+                </Box>}
               </Grid>
             </Grid>
           </Container>

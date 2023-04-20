@@ -148,8 +148,6 @@ export default function BookNowPage() {
   useEffect(() => {
     const initial_StartDate = dayjs(date.state.selected_startDate.$d);
     const initial_EndDate = dayjs(date.state.selected_endDate.$d);
-    console.log(initial_StartDate);
-    console.log(initial_EndDate);
     setStartDate(initial_StartDate);
     setEndDate(initial_EndDate);
   }, []);

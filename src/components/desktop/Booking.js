@@ -1,6 +1,6 @@
 import { Box, Typography, Tabs, Tab } from "@mui/material";
 import React, { useState } from "react";
-import emptyBookings from "../../assets/images/emptyBookings.png";
+import {emptyBookings} from '../../Constants'
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -66,12 +66,7 @@ export default function Booking() {
         </div>
       )}
       <Box
-        sx={{
-          width: { md: "100%", xs: "90%" },
-          m: "auto",
-          borderRadius: "8px",
-          boxShadow: "2",
-        }}
+        sx={{ width: { md: "100%", xs: "90%" }, m: "auto", borderRadius: "8px", boxShadow: "2",}}
       >
         <Tabs value={value} onChange={handleChange}>
           <Tab label="Confirmed" />
@@ -80,13 +75,8 @@ export default function Booking() {
         </Tabs>
         <TabPanel value={value} index={0} align="center">
           <Box
-            sx={{
-              width: "25%",
-              borderRadius: "8px",
-              padding: "3px",
-              backgroundColor: "#fff3cd",
-            }}
-          >
+            sx={{ width: "25%",borderRadius: "8px",
+              padding: "3px", backgroundColor: "#fff3cd", }} >
             No orders found!
           </Box>
           <img
@@ -100,12 +90,8 @@ export default function Booking() {
         </TabPanel>
         <TabPanel value={value} index={2} align="center">
           <Box
-            sx={{
-              width: "25%",
-              borderRadius: "8px",
-              padding: "3px",
-              backgroundColor: "#fff3cd",
-            }}
+            sx={{width: "25%",borderRadius: "8px",
+              padding: "3px",backgroundColor: "#fff3cd",}}
           >
             No orders found!
           </Box>

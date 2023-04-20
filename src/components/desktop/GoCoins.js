@@ -6,11 +6,7 @@ export default function Booking() {
   return (
     <>
       <Box
-        sx={{
-          width: "100%",
-          borderRadius: "8px",
-          boxShadow: "2",
-        }}
+        sx={{width: "100%",borderRadius: "8px", boxShadow: "2" }}
       >
         <div style={{ padding: "3%" }}>
           <Typography variant="h5" sx={{ fontWeight: "regular" }}>
@@ -30,16 +26,9 @@ export default function Booking() {
           </div>
           <Box
             sx={{
-              width: "100%",
-              boxShadow: "2",
-              alignItems: "center",
-              justifyContent: "spaceBetween",
-              marginTop: "20px",
-              borderRadius: "8px",
-              border: "1px solid #fafafa",
-              backgroundColor: "#f3f3f4",
-            }}
-          >
+              width: "100%", boxShadow: "2", alignItems: "center", justifyContent: "spaceBetween",
+              marginTop: "20px", borderRadius: "8px",  border: "1px solid #fafafa", backgroundColor: "#f3f3f4",
+            }} >
             <div style={{ padding: "36px" }}>
               <Typography variant="p" sx={{ fontWeight: "medium" }}>
                 Total Balance Available

@@ -1,11 +1,6 @@
 import React from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import Money from "../../assets/images/Money.png";
-import Bike from "../../assets/images/Bike.png";
-import Rent from "../../assets/images/Rent.png";
-import open24hours from "../../assets/images/open24hours.png";
-import payLater from "../../assets/images/payLater.png";
-import instantRefund from "../../assets/images/instantRefund.png";
+import {Money,Bike,Rent,open24hours,payLater,instantRefund} from '../../Constants'
 
 export default function Features() {
   return (

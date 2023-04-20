@@ -4,10 +4,7 @@ import Box from "@mui/material/Box";
 // import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import logo from "../../assets/images/logo.png";
-import star from "../../assets/images/star.png";
-import loginPopup from "../../assets/images/loginPopup.webp";
-import googleLogo from "../../assets/images/googleLogo.png";
+import {star,loginPopup,googleLogo,logo} from '../../Constants'
 import { useTheme } from "@mui/material/styles";
 // import useMediaQuery from "@mui/material/useMediaQuery";
 // import MobileNavbar from "./MobileNavbar";

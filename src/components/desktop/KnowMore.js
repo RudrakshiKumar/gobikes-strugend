@@ -37,14 +37,10 @@ export default function KnowMore() {
             <Button
               // variant="contained"
               sx={{
-                color: "#ffffff",
-                bgcolor: "#59CE8F",
-                textAlign: "center",
-                m: "auto",
+                color: "#ffffff",bgcolor: "#59CE8F", 
+                textAlign: "center", m: "auto",mt: "10%",
                 ":hover": { bgcolor: "#36b671" },
-                mt: "10%",
-              }}
-            >
+              }} >
               Know More
             </Button>
           </Link>

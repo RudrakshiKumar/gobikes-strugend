@@ -1,9 +1,6 @@
-import { Typography, TextField, Button } from "@mui/material";
-import { Box } from "@mui/system";
+import { Typography, TextField, Button,Box } from "@mui/material";
 import React from "react";
-import logo from "../../assets/images/logo.png";
-import star from "../../assets/images/star.png";
-import loginPopup from "../../assets/images/loginPopup.webp";
+import{logo,star,loginPopup} from '../../Constants'
 
 const OTP = () => {
   return (

@@ -1,11 +1,7 @@
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Typography,Box } from "@mui/material";
 import React, { useState } from "react";
+import {listvehiclestep1icon,listvehiclestep2icon,listvehiclestep3icon,listvehiclestep4icon} from '../../Constants'
 
-import listvehiclestep1icon from "../../assets/images/listvehiclestep1icon.svg";
-import listvehiclestep2icon from "../../assets/images/listvehiclestep2icon.svg";
-import listvehiclestep3icon from "../../assets/images/listvehiclestep3icon.svg";
-import listvehiclestep4icon from "../../assets/images/listvehiclestep4icon.svg";
 
 const Day = ({ active, count, onClick }) => {
   return (

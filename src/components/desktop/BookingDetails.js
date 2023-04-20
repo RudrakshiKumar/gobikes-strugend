@@ -1,6 +1,6 @@
 import { Box, Typography, Grid, IconButton, Button } from "@mui/material";
 import React, { useState } from "react";
-import HondaActiva from "../../assets/images/HondaActiva.png";
+import { HondaActiva } from '../../Constants'
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -14,26 +14,17 @@ export default function BookingDetails() {
       {active === "" && (
         <Box
           sx={{
-            width: "100%",
-            borderRadius: "8px",
-            padding: "3px",
-            backgroundColor: "#eeeeee",
-          }}
-        >
+            width: "100%", borderRadius: "8px",
+            padding: "3px", backgroundColor: "#eeeeee",
+          }}>
           <div style={{ padding: "10px", display: "flex" }}>
             <img
               src={HondaActiva}
               alt="HondaActiva"
               style={{
-                width: "auto",
-                height: "70px",
-                border: "1px solid gray",
-                borderRadius: "5px",
-                padding: "15px",
-                backgroundColor: "white",
-                marginTop: "28px",
-              }}
-            />
+                width: "auto", height: "70px", border: "1px solid gray",
+                borderRadius: "5px", padding: "15px", backgroundColor: "white", marginTop: "28px",
+              }} />
             <div style={{ padding: "15px" }}>
               <Typography variant="p" sx={{ fontWeight: "medium" }}>
                 <span>Honda Activa 125</span>
@@ -41,11 +32,8 @@ export default function BookingDetails() {
                   <Button
                     variant="text"
                     sx={{
-                      color: "#4cbb17",
-                      fontSize: "15px",
-                      fontWeight: "medium",
-                      marginLeft: "318px",
-                      outline: "none",
+                      color: "#4cbb17", fontSize: "15px", fontWeight: "medium",
+                      marginLeft: "318px", outline: "none",
                     }}
                     onClick={() => setActive("viewDetails")}
                   >

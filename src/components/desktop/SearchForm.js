@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Button, Grid, InputAdornment, Modal, TextField, Typography, } from "@mui/material";
 
 // importing all the necessary image in a single line to make make code presentable
-import { Bangalore, Chandigarh, Chennai, Dehradun, Delhi, Ghaziabad, Goa, Hyderabad, Kolkata, Manali, Mumbai,
-   Pune, Gurgaon, Guwahati, Jaipur, Leh, Noida, Udaipur, bikeleft } from '../../Constants';
+import {CityList, bikeleft } from '../../Constants';
 
 import PlaceIcon from "@mui/icons-material/Place";
 import IconButton from "@mui/material/IconButton";
@@ -25,13 +24,7 @@ const style = {
 };
 
 // a array list of citys and their image 
-const CityList = [
-  { name: 'Bangalore', image: Bangalore }, { name: 'Chandigarh', image: Chandigarh }, { name: 'Chennai', image: Chennai },
-  { name: 'Dehradun', image: Dehradun }, { name: 'Delhi', image: Delhi }, { name: 'Ghaziabad', image: Ghaziabad }, { name: 'Goa', image: Goa },
-  { name: 'Hyderabad', image: Hyderabad }, { name: 'Kolkata', image: Kolkata }, { name: 'Manali', image: Manali }, { name: 'Mumbai', image: Mumbai },
-  { name: 'Pune', image: Pune }, { name: 'Gurgaon', image: Gurgaon }, { name: 'Guwahati', image: Guwahati }, { name: 'Jaipur', image: Jaipur },
-  { name: 'Leh', image: Leh }, { name: 'Noida', image: Noida }, { name: 'Udaipur', image: Udaipur }
-];
+
 
 const StyledCardOfCity = {
   width: "125px",
