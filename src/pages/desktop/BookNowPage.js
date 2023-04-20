@@ -995,7 +995,7 @@ export default function BookNowPage() {
               </Grid>
             </Grid>
             <Container sx={{ marginTop: "3%" }}>
-              <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                 Offers for you
               </Typography>
               <OfferCarousal />

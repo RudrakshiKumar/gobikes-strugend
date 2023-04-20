@@ -58,6 +58,7 @@ import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import SearchCityModal from "../../components/desktop/SearchCityModal";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 const style = {
   position: "absolute",
@@ -86,9 +87,11 @@ const styles = {
 
 const styled = {
   position: "absolute",
-  top: "15%",
-  right: "-7%",
-  transform: "translate(-50%, -50%)",
+
+  top: "40%",
+  left: "15%",
+  // right: "-7%",
+  // transform: "translate(-50%, -50%)",
   width: 300,
   bgcolor: "red",
   color: "white",
@@ -170,18 +173,39 @@ export default function MobileBookNowPage() {
 
       <AppBar
         position="sticky"
+        sx={{
+          backgroundColor: "white",
+          padding: "20px",
+          color: "#000000",
+          top: 55,
+        }}
+      >
+        Add from BookingFlow page{" "}
+      </AppBar>
+
+      {/* <AppBar
+        position="sticky"
         sx={{ backgroundColor: "white", padding: "20px" }}
       >
+        <Box sx={{ display: "flex", textAlign: "center" }}>
+          <Box sx={{ border: "#000000" }}>
+            <Typography sx={{ color: "#000000", textAlign: "center" }}>
+              Location - Date & Time
+            </Typography>
+          </Box>
+          <ArrowDownwardIcon sx={{ color: "#59CE8F" }} />
+        </Box>
+
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <FormControl
             sx={{ width: "90%", display: "flex", justifyContent: "center" }}
           >
-            {/* <InputLabel id="demo-simple-select-label">Age</InputLabel> */}
+            <InputLabel id="demo-simple-select-label">Age</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              // value={age}
-              // label="Age"
+              value={age}
+              label="Age"
               onChange={handleChange}
             >
               <MenuItem value={10}>Ten</MenuItem>
@@ -192,7 +216,7 @@ export default function MobileBookNowPage() {
         </Box>
         <Container>
           <Grid container spacing={2}>
-            {/* <Grid item xs={12} sm={2}>
+            <Grid item xs={12} sm={2}>
               <TextField
                 fullWidth
                 label="Go Hub Location"
@@ -201,7 +225,7 @@ export default function MobileBookNowPage() {
                   readOnly: true,
                 }}
               />
-            </Grid> */}
+            </Grid>
             <Grid item xs={12} sm={4}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
@@ -280,7 +304,7 @@ export default function MobileBookNowPage() {
             </Grid>
           </Grid>
         </Container>
-      </AppBar>
+      </AppBar> */}
       <Container sx={{ marginTop: "2%" }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={7}>
@@ -299,6 +323,7 @@ export default function MobileBookNowPage() {
                   padding: "10px",
                   color: "#721c24",
                   width: "30%",
+                  fontSize: "12px",
                 }}
               >
                 Only 1 Bike Available
@@ -309,23 +334,28 @@ export default function MobileBookNowPage() {
                 style={{ width: "50%", padding: "30px", marginLeft: "100px" }}
               />
               <br />
-              <Typography
-                variant="p"
-                sx={{ fontSize: "12px", marginLeft: "25%" }}
-              >
-                *Images are for representation purposes only.
-              </Typography>
+              <Box sx={{ textAlign: "center" }}>
+                {" "}
+                <Typography
+                  variant="p"
+                  sx={{ fontSize: "10px", textAlign: "center" }}
+                >
+                  *Images are for representation purposes only.
+                </Typography>{" "}
+              </Box>
+
               <Grid container spacing={2} sx={{ marginTop: "2%" }}>
                 <Grid item xs={12} sm={4}>
                   <div style={{ display: "flex" }}>
                     <IconButton sx={{ color: "#4cbb17" }}>
-                      <SocialDistanceRoundedIcon fontSize="large" />
+                      <SocialDistanceRoundedIcon fontSize="medium" />
                     </IconButton>
                     <div
                       style={{
                         display: "flex",
                         flexDirection: "column",
                         padding: "3px",
+                        fontSize: "12px",
                       }}
                     >
                       <Typography variant="p">Kms Driven</Typography>
@@ -338,13 +368,14 @@ export default function MobileBookNowPage() {
                 <Grid item xs={12} sm={4}>
                   <div style={{ display: "flex" }}>
                     <IconButton sx={{ color: "#4cbb17" }}>
-                      <SettingsRoundedIcon fontSize="large" />
+                      <SettingsRoundedIcon fontSize="medium" />
                     </IconButton>
                     <div
                       style={{
                         display: "flex",
                         flexDirection: "column",
                         padding: "3px",
+                        fontSize: "12px",
                       }}
                     >
                       <Typography variant="p">Last Serviced</Typography>
@@ -357,13 +388,14 @@ export default function MobileBookNowPage() {
                 <Grid item xs={12} sm={4}>
                   <div style={{ display: "flex" }}>
                     <IconButton sx={{ color: "#4cbb17" }}>
-                      <EngineeringRoundedIcon fontSize="large" />
+                      <EngineeringRoundedIcon fontSize="medium" />
                     </IconButton>
                     <div
                       style={{
                         display: "flex",
                         flexDirection: "column",
                         padding: "3px",
+                        fontSize: "12px",
                       }}
                     >
                       <Typography variant="p">Make Year</Typography>
@@ -378,55 +410,74 @@ export default function MobileBookNowPage() {
           </Grid>
           <Grid item xs={12} sm={5}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={10}>
-                <Typography variant="p" fontWeight="bold">
+              <Grid item xs={12} sm={10} sx={{ display: "flex" }}>
+                <Typography variant="p" fontWeight="bold" sx={{ pr: 2 }}>
                   Hero Destini 125
                 </Typography>
-              </Grid>
-              <Grid item xs={12} sm={2}>
                 <Box
                   sx={{
                     borderRadius: "3px",
                     color: "#856404",
                     background: "#ffeeba",
                     padding: "5px",
+                    fontSize: "12px",
                   }}
                 >
                   10% off
                 </Box>
               </Grid>
+              <Grid item xs={12} sm={2}></Grid>
             </Grid>
-            <div style={{ marginTop: "10px" }}>
-              <Typography variant="p" sx={{ fontWeight: "medium" }}>
-                Payment Option
-              </Typography>
-              <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                name="radio-buttons-group"
-              >
-                {payment === "PayNow" && (
-                  <FormControlLabel
-                    value="PayNow"
-                    control={<Radio color="success" />}
-                    label="Pay Now  (Pay full amount now)"
-                    onClick={() => {
-                      setPayment("PayNow");
-                      handlePayNowOpen();
-                    }}
-                  />
-                )}
-                {partialPayment === "PartialPayment" && (
-                  <FormControlLabel
-                    value="PartialPayment"
-                    control={<Radio color="success" />}
-                    label="Partial Payment  (Pay partial amount now and rest at the time of pickup)"
-                    onClick={() => {
-                      setPartialPayment("PartialPayment");
-                      handlePayNowOpen();
-                    }}
-                  />
-                )}
-              </RadioGroup>
+            <div style={{}}>
+              <Box sx={{ mb: 2 }}>
+                <Typography
+                  variant="p"
+                  sx={{ fontWeight: "medium", fontSize: "15px" }}
+                >
+                  Payment Option
+                </Typography>{" "}
+              </Box>
+
+              <Box sx={{ mb: 3 }}>
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  name="radio-buttons-group"
+                >
+                  {payment === "PayNow" && (
+                    <FormControlLabel
+                      value="PayNow"
+                      control={<Radio color="success" />}
+                      label={
+                        <Typography sx={{ fontSize: "12px" }}>
+                          Pay Now (Pay full amount now)
+                        </Typography>
+                      }
+                      onClick={() => {
+                        setPayment("PayNow");
+                        handlePayNowOpen();
+                        // componentsProps = { typography: { variant: "h3" } };
+                      }}
+                    />
+                  )}
+                  {partialPayment === "PartialPayment" && (
+                    <FormControlLabel
+                      value="PartialPayment"
+                      control={<Radio color="success" />}
+                      label={
+                        <Typography sx={{ fontSize: "12px" }}>
+                          Partial Payment (Pay partial amount now and rest at
+                          the time of pickup){" "}
+                        </Typography>
+                      }
+                      onClick={() => {
+                        setPartialPayment("PartialPayment");
+                        handlePayNowOpen();
+                      }}
+                    />
+                  )}
+                </RadioGroup>
+              </Box>
+
               <Modal
                 open={payNow}
                 onClose={handlePayNowClose}
@@ -478,7 +529,7 @@ export default function MobileBookNowPage() {
                 </Typography>
               </div>
             </Box>
-            <div style={{ marginTop: "10px", paddingBottom: "10px" }}>
+            <div style={{ marginTop: "20px", paddingBottom: "10px" }}>
               <Button
                 variant="outlined"
                 onClick={handleOpen}
@@ -486,12 +537,17 @@ export default function MobileBookNowPage() {
                 sx={{ width: "100%" }}
               >
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={10}>
-                    <div style={{ paddingTop: "7px", paddingRight: "50%" }}>
-                      <Typography variant="p">Cancellation Policy</Typography>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={10}
+                    sx={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <div style={{ paddingTop: "7px" }}>
+                      <Typography variant="p" sx={{ fontSize: "12px" }}>
+                        Cancellation Policy
+                      </Typography>
                     </div>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
                     <IconButton>
                       <ChevronRightIcon sx={{ color: "blue" }} />
                     </IconButton>
@@ -527,7 +583,7 @@ export default function MobileBookNowPage() {
                   </IconButton>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     <TableContainer>
-                      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                      <Table sx={{ minWidth: 100 }} aria-label="simple table">
                         <TableHead>
                           <TableRow>
                             <TableCell>Time of Cancellation</TableCell>
@@ -565,10 +621,22 @@ export default function MobileBookNowPage() {
                 </Box>
               </Modal>
             </div>
-            <Box sx={{ border: "1px solid lightGray", borderRadius: "5px" }}>
+            <Box
+              sx={{
+                border: "1px solid lightGray",
+                borderRadius: "5px",
+                mt: 3,
+              }}
+            >
               <div style={{ padding: "10px" }}>
-                <Typography variant="h6">Terms & Conditions</Typography>
-                <ul>
+                <Box sx={{ mb: 3 }}>
+                  {" "}
+                  <Typography variant="h7" fontWeight={"bold"}>
+                    Terms & Conditions
+                  </Typography>
+                </Box>
+
+                <ul style={{ fontSize: "12px", mt: 2 }}>
                   <li>
                     Documents Required:- Aadhar Card, Driving License and
                     Student/Employee ID Card.
@@ -598,76 +666,174 @@ export default function MobileBookNowPage() {
             </Box>
           </Grid>
         </Grid>
-        <Box sx={{ marginTop: "3%" }}>
-          <Typography variant="h6" fontWeight="bold">
+        <Box sx={{ marginTop: "10%" }}>
+          <Typography variant="h6" fontWeight="bold" fontSize={"18px"}>
             Things To Remember
           </Typography>
           <Box
             sx={{
               border: "1px solid lightGray",
               borderRadius: "5px",
-              marginTop: "15px",
+              mt: 5,
             }}
           >
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={3}>
-                <div style={{ padding: "24px" }}>
-                  <img
-                    src={instantRefund}
-                    alt="instantRefund"
-                    style={{
-                      width: "auto",
-                      height: "55px",
-                      padding: "10px",
-                      marginLeft: "30px",
-                    }}
-                  />
-                  <br />
+            <Box
+              sx={{ display: "flex", justifyContent: "space-between", m: 3 }}
+            >
+              <Box sx={{ textAlign: "center" }}>
+                <Box
+                  id="logo"
+                  component="img"
+                  sx={{
+                    height: 30,
+                    m: "auto",
+                  }}
+                  alt="instantRefund"
+                  src={instantRefund}
+                />
+                {/* <img
+                  src={instantRefund}
+                  alt="instantRefund"
+                  style={{
+                    width: 30,
+                    m: "auto",
+                    // height: "50px",
+                    // padding: "10px",
+                    // marginLeft: "30px",
+                  }} */}
+                <Box sx={{}}>
                   <Typography
                     variant="p"
-                    sx={{ fontWeight: "bold", fontSize: "17px" }}
+                    sx={{ fontWeight: "bold", fontSize: "12px" }}
                   >
-                    Security Deposite
-                    <IconButton>
-                      <InfoOutlinedIcon sx={{ color: "#4cbb17" }} />
-                    </IconButton>
+                    Security Deposit
                   </Typography>
-                  <Typography
-                    variant="h5"
-                    sx={{ marginLeft: "30px", color: "#4cbb17" }}
-                  >
-                    ₹2000
-                  </Typography>
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={3}>
-                <div style={{ padding: "24px" }}>
-                  <img
-                    src={distanceIcon}
-                    alt="distanceIcon"
-                    style={{
-                      width: "auto",
-                      height: "55px",
-                      padding: "10px",
-                      marginLeft: "30px",
-                    }}
-                  />
-                  <br />
+                  {/* <IconButton>
+                    <InfoOutlinedIcon sx={{ color: "#4cbb17", width: 20 }} />
+                  </IconButton> */}
+                </Box>
+
+                <Typography
+                  variant="h5"
+                  sx={{
+                    // marginLeft: "30px",
+                    color: "#4cbb17",
+                    fontSize: "12px",
+                  }}
+                >
+                  ₹2000
+                </Typography>
+              </Box>
+              <Box sx={{ textAlign: "center" }}>
+                <Box
+                  id="logo"
+                  component="img"
+                  sx={{
+                    height: 30,
+                    m: "auto",
+                  }}
+                  alt="distanceIcon"
+                  src={distanceIcon}
+                />
+
+                <Box sx={{}}>
                   <Typography
                     variant="p"
-                    sx={{ fontWeight: "bold", fontSize: "17px" }}
+                    sx={{ fontWeight: "bold", fontSize: "12px" }}
                   >
                     Distance Limit
-                    <IconButton>
-                      <InfoOutlinedIcon sx={{ color: "#4cbb17" }} />
-                    </IconButton>
                   </Typography>
-                  <Typography variant="h5" sx={{ color: "#4cbb17" }}>
-                    No Distance Limit
+                  {/* <IconButton>
+                    <InfoOutlinedIcon sx={{ color: "#4cbb17", width: 20 }} />
+                  </IconButton> */}
+                </Box>
+
+                <Typography
+                  variant="h5"
+                  sx={{
+                    // marginLeft: "30px",
+                    color: "#4cbb17",
+                    fontSize: "12px",
+                  }}
+                >
+                  No Distance Limit
+                </Typography>
+              </Box>
+            </Box>
+            <Box
+              sx={{ display: "flex", justifyContent: "space-between", m: 3 }}
+            >
+              <Box sx={{ textAlign: "center" }}>
+                <Box
+                  id="logo"
+                  component="img"
+                  sx={{
+                    height: 30,
+                    m: "auto",
+                  }}
+                  alt="excessChargeIcon"
+                  src={excessChargeIcon}
+                />
+
+                <Box sx={{}}>
+                  <Typography
+                    variant="p"
+                    sx={{ fontWeight: "bold", fontSize: "12px" }}
+                  >
+                    Excess Charge
                   </Typography>
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={3}>
+                  {/* <IconButton>
+                    <InfoOutlinedIcon sx={{ color: "#4cbb17", width: 20 }} />
+                  </IconButton> */}
+                </Box>
+
+                <Typography
+                  variant="h5"
+                  sx={{
+                    // marginLeft: "30px",
+                    color: "#4cbb17",
+                    fontSize: "12px",
+                  }}
+                >
+                  ₹4 per km{" "}
+                </Typography>
+              </Box>
+              <Box sx={{ textAlign: "center" }}>
+                <Box
+                  id="logo"
+                  component="img"
+                  sx={{
+                    height: 30,
+                    m: "auto",
+                  }}
+                  alt="latePenaltyIcon"
+                  src={latePenaltyIcon}
+                />
+
+                <Box sx={{}}>
+                  <Typography
+                    variant="p"
+                    sx={{ fontWeight: "bold", fontSize: "12px" }}
+                  >
+                    Late Penalty
+                  </Typography>
+                  {/* <IconButton>
+                    <InfoOutlinedIcon sx={{ color: "#4cbb17", width: 20 }} />
+                  </IconButton> */}
+                </Box>
+
+                <Typography
+                  variant="h5"
+                  sx={{
+                    // marginLeft: "30px",
+                    color: "#4cbb17",
+                    fontSize: "12px",
+                  }}
+                >
+                  ₹100 per hour
+                </Typography>
+              </Box>
+              {/* <Box>
                 <div style={{ padding: "24px" }}>
                   <img
                     src={excessChargeIcon}
@@ -693,8 +859,8 @@ export default function MobileBookNowPage() {
                     ₹4 per km
                   </Typography>
                 </div>
-              </Grid>
-              <Grid item xs={12} sm={3}>
+              </Box>
+              <Box>
                 <div style={{ padding: "24px" }}>
                   <img
                     src={latePenaltyIcon}
@@ -720,231 +886,267 @@ export default function MobileBookNowPage() {
                     ₹100 per hour
                   </Typography>
                 </div>
-              </Grid>
-            </Grid>
+              </Box> */}
+            </Box>
           </Box>
         </Box>
-        <Box sx={{ marginTop: "3%" }}>
-          <Typography variant="h6" fontWeight="bold">
+        <Box sx={{ marginTop: "10%" }}>
+          <Typography
+            variant="h6"
+            fontWeight="bold"
+            fontSize={"18px"}
+            sx={{ mb: 5 }}
+          >
             Bike Features
           </Typography>
           <div style={{ marginTop: "2%" }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={2}>
-                <div style={{ display: "flex" }}>
-                  <IconButton>
-                    <AssistantDirectionRoundedIcon
-                      fontSize="large"
-                      sx={{ color: "#4cbb17" }}
-                    />
-                  </IconButton>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: "3px",
-                    }}
-                  >
-                    <Typography
-                      variant="p"
-                      sx={{ fontSize: "16px", fontWeight: "bold" }}
-                    >
-                      Displacement
-                    </Typography>
-                    <Typography
-                      variant="p"
-                      sx={{
-                        fontSize: "16px",
-                        color: "#4cbb17",
-                        fontWeight: "bold",
+            <Box sx={{}}>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <Box xs={12} sm={2}>
+                  <div style={{ display: "flex" }}>
+                    <IconButton>
+                      <AssistantDirectionRoundedIcon
+                        fontSize="medium"
+                        sx={{ color: "#4cbb17" }}
+                      />
+                    </IconButton>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: "3px",
                       }}
                     >
-                      124cc
-                    </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{ fontSize: "15px", fontWeight: "bold" }}
+                      >
+                        Displacement
+                      </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#4cbb17",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        124cc
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <div style={{ display: "flex" }}>
-                  <IconButton>
-                    <SpeedRoundedIcon
-                      fontSize="large"
-                      sx={{ color: "#4cbb17" }}
-                    />
-                  </IconButton>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: "3px",
-                    }}
-                  >
-                    <Typography
-                      variant="p"
-                      sx={{ fontSize: "16px", fontWeight: "bold" }}
-                    >
-                      Top Speed
-                    </Typography>
-                    <Typography
-                      variant="p"
-                      sx={{
-                        fontSize: "16px",
-                        color: "#4cbb17",
-                        fontWeight: "bold",
+                </Box>
+                <Box xs={12} sm={2}>
+                  <div style={{ display: "flex" }}>
+                    <IconButton>
+                      <SpeedRoundedIcon
+                        fontSize="medium"
+                        sx={{ color: "#4cbb17" }}
+                      />
+                    </IconButton>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: "3px",
                       }}
                     >
-                      100 kmph
-                    </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{ fontSize: "15px", fontWeight: "bold" }}
+                      >
+                        Top Speed
+                      </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#4cbb17",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        100 kmph
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <div style={{ display: "flex" }}>
-                  <IconButton>
-                    <LocalGasStationRoundedIcon
-                      fontSize="large"
-                      sx={{ color: "#4cbb17" }}
-                    />
-                  </IconButton>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: "3px",
-                    }}
-                  >
-                    <Typography
-                      variant="p"
-                      sx={{ fontSize: "16px", fontWeight: "bold" }}
-                    >
-                      Fuel Capacity
-                    </Typography>
-                    <Typography
-                      variant="p"
-                      sx={{
-                        fontSize: "16px",
-                        color: "#4cbb17",
-                        fontWeight: "bold",
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  pr: 2,
+                  mt: 3,
+                }}
+              >
+                <Box>
+                  <div style={{ display: "flex" }}>
+                    <IconButton>
+                      <LocalGasStationRoundedIcon
+                        fontSize="medium"
+                        sx={{ color: "#4cbb17" }}
+                      />
+                    </IconButton>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: "3px",
                       }}
                     >
-                      11L
-                    </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{ fontSize: "15px", fontWeight: "bold" }}
+                      >
+                        Fuel Capacity
+                      </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#4cbb17",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        11L
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <div style={{ display: "flex" }}>
-                  <IconButton>
-                    <AirlineSeatReclineNormalRoundedIcon
-                      fontSize="large"
-                      sx={{ color: "#4cbb17" }}
-                    />
-                  </IconButton>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: "3px",
-                    }}
-                  >
-                    <Typography
-                      variant="p"
-                      sx={{ fontSize: "16px", fontWeight: "bold" }}
-                    >
-                      Seats
-                    </Typography>
-                    <Typography
-                      variant="p"
-                      sx={{
-                        fontSize: "16px",
-                        color: "#4cbb17",
-                        fontWeight: "bold",
+                </Box>
+                <Box>
+                  <div style={{ display: "flex" }}>
+                    <IconButton>
+                      <AirlineSeatReclineNormalRoundedIcon
+                        fontSize="medium"
+                        sx={{ color: "#4cbb17" }}
+                      />
+                    </IconButton>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: "3px",
                       }}
                     >
-                      2 Seater
-                    </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{ fontSize: "15px", fontWeight: "bold" }}
+                      >
+                        Seats
+                      </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#4cbb17",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        2 Seater
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <div style={{ display: "flex" }}>
-                  <IconButton>
-                    <SettingsAccessibilityRoundedIcon
-                      fontSize="large"
-                      sx={{ color: "#4cbb17" }}
-                    />
-                  </IconButton>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: "3px",
-                    }}
-                  >
-                    <Typography
-                      variant="p"
-                      sx={{ fontSize: "16px", fontWeight: "bold" }}
-                    >
-                      Kerb Weight
-                    </Typography>
-                    <Typography
-                      variant="p"
-                      sx={{
-                        fontSize: "16px",
-                        color: "#4cbb17",
-                        fontWeight: "bold",
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  pr: 2,
+                  mt: 3,
+                }}
+              >
+                <Box>
+                  <div style={{ display: "flex" }}>
+                    <IconButton>
+                      <SettingsAccessibilityRoundedIcon
+                        fontSize="medium"
+                        sx={{ color: "#4cbb17" }}
+                      />
+                    </IconButton>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: "3px",
                       }}
                     >
-                      116 Kg
-                    </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{ fontSize: "15px", fontWeight: "bold" }}
+                      >
+                        Kerb Weight
+                      </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#4cbb17",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        116 Kg
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <div style={{ display: "flex" }}>
-                  <IconButton>
-                    <SpeedRoundedIcon
-                      fontSize="large"
-                      sx={{ color: "#4cbb17" }}
-                    />
-                  </IconButton>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: "3px",
-                    }}
-                  >
-                    <Typography
-                      variant="p"
-                      sx={{ fontSize: "16px", fontWeight: "bold" }}
-                    >
-                      Mileage
-                    </Typography>
-                    <Typography
-                      variant="p"
-                      sx={{
-                        fontSize: "16px",
-                        color: "#4cbb17",
-                        fontWeight: "bold",
+                </Box>
+                <Box>
+                  <div style={{ display: "flex" }}>
+                    <IconButton>
+                      <SpeedRoundedIcon
+                        fontSize="medium"
+                        sx={{ color: "#4cbb17" }}
+                      />
+                    </IconButton>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        padding: "3px",
                       }}
                     >
-                      65 Kmpl
-                    </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{ fontSize: "15px", fontWeight: "bold" }}
+                      >
+                        Mileage
+                      </Typography>
+                      <Typography
+                        variant="p"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#4cbb17",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        65 Kmpl
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-              </Grid>
-            </Grid>
+                </Box>
+              </Box>
+            </Box>
           </div>
         </Box>
-        <Grid container spacing={2} sx={{ marginTop: "3%" }}>
+        <Grid container spacing={2} sx={{ marginTop: "10%" }}>
           <Grid item xs={12} sm={7}>
-            <Typography variant="h6">Pickup Location</Typography>
-            <Typography variant="h6" sx={{ color: "#4cbb17", padding: "5px" }}>
+            <Typography variant="h6" fontSize={"15px"}>
+              Pickup Location
+            </Typography>
+            <Typography
+              variant="h6"
+              fontSize={"15px"}
+              sx={{ color: "#4cbb17" }}
+            >
               Baghajatin
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={5}>
+          <Grid
+            item
+            xs={12}
+            sm={5}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
             <Map
               mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACESS_TOKEN}
               initialViewState={{
@@ -952,18 +1154,22 @@ export default function MobileBookNowPage() {
                 latitude: 37.8,
                 zoom: 14,
               }}
-              style={{ width: 100, height: 400 }}
+              style={{ width: 340, height: 200 }}
               mapStyle="mapbox://styles/mapbox/streets-v9"
             />
             {/* <img src={location} alt="location" /> */}
           </Grid>
         </Grid>
-        <Container sx={{ marginTop: "3%" }}>
-          <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+        <Box sx={{ marginTop: "10%" }}>
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: "bold" }}
+            fontSize={"18px"}
+          >
             Offers for you
           </Typography>
           <OfferCarousal />
-        </Container>
+        </Box>
         <Faq />
       </Container>
       <Paper
@@ -977,9 +1183,21 @@ export default function MobileBookNowPage() {
         }}
       >
         <Container>
-          <BottomNavigation size="large" sx={{ height: "5%" }}>
-            <Grid container spacing={1} sx={{ padding: "10px" }}>
-              <Grid item>
+          <BottomNavigation
+            size="small"
+            sx={{
+              height: "2%",
+            }}
+          >
+            <Grid
+              container
+              spacing={1}
+              sx={{ display: "flex", justifyContent: "space-between" }}
+            >
+              <Grid item sx={{ display: "inline-flex" }}>
+                <Typography sx={{ my: "auto", fontSize: "12px" }}>
+                  Age 18 +{" "}
+                </Typography>
                 <Checkbox
                   {...label}
                   color="success"
@@ -989,35 +1207,35 @@ export default function MobileBookNowPage() {
                   onClick={handleChange}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              {/* <Grid item xs={12} sm={6}>
                 <Typography
-                  variant="p"
-                  sx={{ fontSize: "14px", fontWeight: "bold" }}
+                  // variant="p"
+                  sx={{ fontSize: "9px", fontWeight: "bold" }}
                 >
                   You are just one step away from confirming your booking.
                   Confirm that you are above 18 and you are good to go!
                 </Typography>
-              </Grid>
+              </Grid> */}
               <Grid item sx={{ marginLeft: "10px" }}>
                 <Typography
                   variant="p"
-                  sx={{ fontSize: "14px", fontWeight: "bold" }}
+                  sx={{ fontSize: "12px", fontWeight: "bold" }}
                 >
                   Payable Amount
                 </Typography>
                 <Typography
                   variant="h6"
-                  sx={{ fontSize: "22px", fontWeight: "bold" }}
+                  sx={{ fontSize: "20px", fontWeight: "bold" }}
                 >
-                  ₹
+                  ₹ 500
                 </Typography>
               </Grid>
-              <Grid item>
+              {/* <Grid item>
                 <IconButton>
                   <AddIcon />
                 </IconButton>
-              </Grid>
-              <Grid item>
+              </Grid> */}
+              {/* <Grid item>
                 <Typography
                   variant="p"
                   sx={{ fontSize: "14px", fontWeight: "bold" }}
@@ -1030,7 +1248,7 @@ export default function MobileBookNowPage() {
                 >
                   ₹ 2000
                 </Typography>
-              </Grid>
+              </Grid> */}
               <Grid item sx={{ marginLeft: "25px" }}>
                 <Button
                   onClick={handleNavigate}

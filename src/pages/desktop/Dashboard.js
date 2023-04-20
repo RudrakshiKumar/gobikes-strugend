@@ -66,9 +66,9 @@ export default function Dashboard() {
                     marginTop: "5%",
                     padding: "10px",
                     fontSize: "17px",
-                    backgroundColor: "#4cbb17",
+                    backgroundColor: "#59CE8F",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36b671",
                     },
                   }}
                   onClick={() => setActive("profile")}
@@ -84,9 +84,9 @@ export default function Dashboard() {
                     marginTop: "3%",
                     padding: "10px",
                     fontSize: "17px",
-                    backgroundColor: "#4cbb17",
+                    backgroundColor: "#59CE8F",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36b671",
                     },
                   }}
                   onClick={() => setActive("booking")}
@@ -102,9 +102,9 @@ export default function Dashboard() {
                     marginTop: "3%",
                     padding: "10px",
                     fontSize: "17px",
-                    backgroundColor: "#4cbb17",
+                    backgroundColor: "#59CE8F",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36b671",
                     },
                   }}
                   onClick={() => setActive("goCoins")}

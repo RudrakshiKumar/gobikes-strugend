@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
 import PersonPinRoundedIcon from "@mui/icons-material/PersonPinRounded";
+import AutorenewIcon from "@mui/icons-material/Autorenew";
 
 export default function Profile() {
   const [name, setName] = useState("");
@@ -104,9 +105,9 @@ export default function Profile() {
                       size="small"
                       sx={{
                         fontSize: "15px",
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#59CE8F",
                         ":hover": {
-                          backgroundColor: "#4cbb17",
+                          backgroundColor: "#36b671",
                         },
                         color: "white",
                       }}
@@ -123,9 +124,9 @@ export default function Profile() {
                       size="small"
                       sx={{
                         fontSize: "15px",
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#59CE8F",
                         ":hover": {
-                          backgroundColor: "#4cbb17",
+                          backgroundColor: "#36b671",
                         },
                         color: "white",
                       }}
@@ -161,9 +162,9 @@ export default function Profile() {
                     size="small"
                     sx={{
                       fontSize: "15px",
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#59CE8F",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36b671",
                       },
                       color: "white",
                       marginTop: "5px",
@@ -188,9 +189,9 @@ export default function Profile() {
                       size="small"
                       sx={{
                         fontSize: "15px",
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#59CE8F",
                         ":hover": {
-                          backgroundColor: "#4cbb17",
+                          backgroundColor: "#36b671",
                         },
                         color: "white",
                       }}
@@ -207,9 +208,9 @@ export default function Profile() {
                       size="small"
                       sx={{
                         fontSize: "15px",
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#59CE8F",
                         ":hover": {
-                          backgroundColor: "#4cbb17",
+                          backgroundColor: "#36b671",
                         },
                         color: "white",
                       }}
@@ -243,9 +244,9 @@ export default function Profile() {
                     size="small"
                     sx={{
                       fontSize: "15px",
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#59CE8F",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36b671",
                       },
                       color: "white",
                       marginTop: "5px",
@@ -282,9 +283,9 @@ export default function Profile() {
                       size="small"
                       sx={{
                         fontSize: "15px",
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#59CE8F",
                         ":hover": {
-                          backgroundColor: "#4cbb17",
+                          backgroundColor: "#36b671",
                         },
                         color: "white",
                       }}
@@ -301,9 +302,9 @@ export default function Profile() {
                       size="small"
                       sx={{
                         fontSize: "15px",
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#59CE8F",
                         ":hover": {
-                          backgroundColor: "#4cbb17",
+                          backgroundColor: "#36b671",
                         },
                         color: "white",
                       }}
@@ -336,9 +337,9 @@ export default function Profile() {
                     size="small"
                     sx={{
                       fontSize: "15px",
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#59CE8F",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36b671",
                       },
                       color: "white",
                       marginTop: "5px",
@@ -349,7 +350,147 @@ export default function Profile() {
                   </Button>
                 </div>
               )}
+              {/* Aadhaar Card  */}
+              <hr style={{ marginTop: "5%" }} />
+
+              <Grid container sx={{ marginTop: "5%" }}>
+                <Grid item xs={12} sm={10}>
+                  <Typography variant="h5" sx={{ fontWeight: "regular" }}>
+                    Aadhaar Card
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={2}>
+                  {!editAddress ? (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
+                        backgroundColor: "#59CE8F",
+                        ":hover": {
+                          backgroundColor: "#36b671",
+                        },
+                        color: "white",
+                      }}
+                      // onClick={() => {
+                      //   setEditAddress(!editAddress);
+                      //   setAddress("Address");
+                      // }}
+                    >
+                      Upload
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
+                        backgroundColor: "#59CE8F",
+                        ":hover": {
+                          backgroundColor: "#36b671",
+                        },
+                        color: "white",
+                      }}
+                      onClick={handleCancelEditAddress}
+                    >
+                      Cancel
+                    </Button>
+                  )}
+                </Grid>
+              </Grid>
+              {/*  Driving Licence  */}
+              <hr style={{ marginTop: "5%" }} />
+
+              <Grid container sx={{ marginTop: "5%" }}>
+                <Grid item xs={12} sm={10}>
+                  <Typography variant="h5" sx={{ fontWeight: "regular" }}>
+                    Driving Licence
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={2}>
+                  {!editAddress ? (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
+                        backgroundColor: "#59CE8F",
+                        ":hover": {
+                          backgroundColor: "#36b671",
+                        },
+                        color: "white",
+                      }}
+                      // onClick={() => {
+                      //   setEditAddress(!editAddress);
+                      //   setAddress("Address");
+                      // }}
+                    >
+                      Upload
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="text"
+                      size="small"
+                      sx={{
+                        fontSize: "15px",
+                        backgroundColor: "#59CE8F",
+                        ":hover": {
+                          backgroundColor: "#36b671",
+                        },
+                        color: "white",
+                      }}
+                      onClick={handleCancelEditAddress}
+                    >
+                      Cancel
+                    </Button>
+                  )}
+                </Grid>
+              </Grid>
+              {/*  KYC  */}
+              <hr style={{ marginTop: "5%" }} />
+
+              <div className="my-5">
+                <Typography variant="h5" sx={{ fontWeight: "regular" }}>
+                  KYC{" "}
+                </Typography>
+                <Box sx={{ display: "inline-flex" }}>
+                  <Typography
+                    variant="p"
+                    sx={{
+                      fontSize: "20px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignContent: "center",
+                      my: "auto",
+                    }}
+                  >
+                    Verified
+                  </Typography>
+                  <IconButton sx={{ marginLeft: "2%", color: "green" }}>
+                    <VerifiedRoundedIcon fontSize="small" />
+                  </IconButton>
+                </Box>{" "}
+                <br />
+                <Box sx={{}}>
+                  <Typography
+                    variant="p"
+                    sx={{
+                      fontSize: "20px",
+                      // display: "flex",
+                      // justifyContent: "center",
+                      // alignContent: "center",
+                      my: "auto",
+                    }}
+                  >
+                    Verification Pending
+                  </Typography>
+                  <IconButton sx={{ marginLeft: "2%", color: "green" }}>
+                    <AutorenewIcon fontSize="small" />
+                  </IconButton>
+                </Box>
+              </div>
             </Grid>
+
             <Grid item xs={12} sm={5}>
               <Box
                 sx={{

@@ -542,8 +542,9 @@ const MobileSearchForm = () => {
         Duration: {Math.floor((endDate - startDate) / (1000 * 3600 * 24))} Day
       </Typography>
       <Button
-        variant="contained"
+        // variant="contained"
         sx={{
+          color: "#ffffff",
           marginTop: "2%",
           width: "25%",
           backgroundColor: "#59CE8F",

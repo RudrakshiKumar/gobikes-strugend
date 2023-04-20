@@ -41,7 +41,7 @@ export default function BookingDetails() {
                   <Button
                     variant="text"
                     sx={{
-                      color: "#4cbb17",
+                      color: "#59CE8F",
                       fontSize: "15px",
                       fontWeight: "medium",
                       marginLeft: "318px",
@@ -246,7 +246,7 @@ export default function BookingDetails() {
                 <Typography variant="p">Gohub Discount</Typography>
               </Grid>
               <Grid item xs={12} sm={2}>
-                <Typography variant="p" color="#4cbb17">
+                <Typography variant="p" color="#59CE8F">
                   - <span>&#8377;</span>49.90
                 </Typography>
               </Grid>
