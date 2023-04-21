@@ -1,14 +1,4 @@
-import {
-  Box,
-  Button,
-  Grid,
-  InputAdornment,
-  Modal,
-  TextField,
-  Typography,
-} from "@mui/material";
 import React, { useEffect, useState } from "react";
-import PlaceIcon from "@mui/icons-material/Place";
 import Bangalore from "../../assets/images/Bangalore.jpg";
 import Chandigarh from "../../assets/images/Chandigarh.jpg";
 import Chennai from "../../assets/images/Chennai.jpg";
@@ -27,127 +17,83 @@ import Jaipur from "../../assets/images/Jaipur.jpg";
 import Leh from "../../assets/images/Leh.jpg";
 import Noida from "../../assets/images/Noida.jpg";
 import Udaipur from "../../assets/images/Udaipur.jpg";
-import bikeleft from "../../assets/images/bikeleft.png";
-
-import RightSection from "../../components/desktop/RightSection";
-import rightSectionNew from "../../assets/images/rightSectionNew.jpg";
-import IconButton from "@mui/material/IconButton";
+import PostLoginFooter from "../../layouts/desktop/PostLoginFooter";
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  Modal,
+  Typography,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import PreLoginFooter from "../../layouts/desktop/PreLoginFooter";
-import PreLoginNavbar from "../../layouts/desktop/PreLoginNavbar";
-import { useNavigate } from "react-router-dom";
-import dayjs from "dayjs";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { useLocation } from "react-router-dom";
 
-const MobileSearchForm = () => {
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: "50%",
-    bgcolor: "background.paper",
-    borderRadius: "5px",
-    boxShadow: 24,
-    p: 4,
-  };
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const styles = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "50%",
+  bgcolor: "background.paper",
+  borderRadius: "5px",
+  boxShadow: 24,
+  p: 4,
+};
 
-  const [image, setImage] = useState("");
-  const [setName] = useState(null);
+const SearchCityModal = () => {
+  const [location, setLocation] = useState(false);
+  const handleLocationClose = () => setLocation(false);
+  const handleLocationOpen = () => setLocation(true);
 
-  const [startDate, setStartDate] = useState(dayjs(new Date()));
-  const [endDate, setEndDate] = useState(dayjs(new Date()));
-
-  const navigate = useNavigate();
-  const handleNavigate = () => {
-    navigate("/BookingFlow", {
-      state: {
-        selected_startDate: startDate,
-        selected_endDate: endDate,
-        selected_cityName: image,
-      },
-    });
-  };
-
-  const [change, setChange] = useState(false);
-  const handleChange = () => {
-    setChange(!change);
-    console.log(!change);
-  };
-
-  //Disabling Pickup & Dropoff Date Selection
-
-  const [changeStart, setChangeStart] = useState(true);
-  const [changeEnd, setChangeEnd] = useState(false);
+  const [name, setName] = useState("Location");
+  const [setEditName] = useState(null);
+  const date = useLocation();
 
   useEffect(() => {
-    setChangeStart(!changeStart);
-    setChangeEnd(!changeEnd);
-  }, [startDate]);
+    // const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+    // const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+    const initial_CityName = date.state.selected_cityName;
+    // console.log(initial_StartDate);
+    // console.log(initial_EndDate);
+    // console.log(initial_CityName);
+    // setStartDate(initial_StartDate);
+    // setEndDate(initial_EndDate);
+    setName(initial_CityName);
+  }, []);
 
   return (
-    <Box
-      className=""
-      sx={{
-        // marginTop: 10,
-        // ml: "12%",
-        padding: 3,
-        boxShadow: 3,
-        borderRadius: 2,
-        bgcolor: "#ffffff",
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        // position: "relative",
-      }}
-    >
-      <Typography variant="h6" fontWeight={"bold"}>
-        Commuting Made <span style={{ color: "#59CE8F" }}>Easy</span>,
-        <br />
-      </Typography>
-      <Typography
-        variant="h6"
-        fontWeight={"bold"}
-        sx={{ marginTop: "5px", font: "bold" }}
+    <div>
+      <Button
+        onClick={handleLocationOpen}
+        sx={{ marginTop: "5px", marginLeft: "12px" }}
       >
-        <span style={{ color: "#59CE8F" }}>Affordable</span> and{" "}
-        <span style={{ color: "#59CE8F" }}>Quick</span>
-      </Typography>
-      <Typography variant="h7" sx={{ marginTop: "2px" }}>
-        Scooter/Scooty/Bike on Rent in Delhi
-      </Typography>
-      <TextField
-        fullWidth
-        placeholder="Search City"
-        value={image}
-        onChange={(e) => setName(e.target.value)}
-        sx={{ marginTop: "5%" }}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end" sx={{ color: "#59CE8F" }}>
-              <PlaceIcon />
-            </InputAdornment>
-          ),
-        }}
-        onClick={handleOpen}
-      />
+        <LocationOnIcon sx={{ color: "#59CE8F", fontSize: 30 }} />
+        <Typography
+          sx={{ color: "#000000" }}
+          value={name}
+          onChange={(e) => {
+            setEditName(e.target.value);
+            setName(e.target.value);
+          }}
+        >
+          {name}
+        </Typography>
+      </Button>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={location}
+        onClose={handleLocationClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={styles}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Choose your preferred city
           </Typography>
           <IconButton
             aria-label="close"
-            onClick={() => setOpen(false)}
+            onClick={() => setLocation(false)}
             sx={{
               position: "absolute",
               right: 8,
@@ -169,8 +115,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Bangalore");
-                  setOpen(false);
+                  setName("Bangalore");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -188,8 +134,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Chandigarh");
-                  setOpen(false);
+                  setName("Chandigarh");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -207,8 +153,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Chennai");
-                  setOpen(false);
+                  setName("Chennai");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -226,8 +172,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Dehradun");
-                  setOpen(false);
+                  setName("Dehradun");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -245,8 +191,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Delhi");
-                  setOpen(false);
+                  setName("Delhi");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -264,8 +210,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Ghaziabad");
-                  setOpen(false);
+                  setName("Ghaziabad");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -283,8 +229,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Goa");
-                  setOpen(false);
+                  setName("Goa");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -302,8 +248,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Hyderabad");
-                  setOpen(false);
+                  setName("Hyderabad");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -321,8 +267,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Kolkata");
-                  setOpen(false);
+                  setName("Kolkata");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -340,8 +286,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Manali");
-                  setOpen(false);
+                  setName("Manali");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -359,8 +305,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Mumbai");
-                  setOpen(false);
+                  setName("Mumbai");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -378,8 +324,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Pune");
-                  setOpen(false);
+                  setName("Pune");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -397,8 +343,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Gurgaon");
-                  setOpen(false);
+                  setName("Gurgaon");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -416,8 +362,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Guwahati");
-                  setOpen(false);
+                  setName("Guwahati");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -435,8 +381,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Jaipur");
-                  setOpen(false);
+                  setName("Jaipur");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -454,8 +400,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Leh");
-                  setOpen(false);
+                  setName("Leh");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -473,8 +419,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Noida");
-                  setOpen(false);
+                  setName("Noida");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -492,8 +438,8 @@ const MobileSearchForm = () => {
                   borderRadius: "5px",
                 }}
                 onClick={() => {
-                  setImage("Udaipur");
-                  setOpen(false);
+                  setName("Udaipur");
+                  setLocation(false);
                 }}
               />
               <Typography variant="h6" align="center">
@@ -503,99 +449,8 @@ const MobileSearchForm = () => {
           </Grid>
         </Box>
       </Modal>
-
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DateTimePicker
-          label="Pickup Date"
-          fullWidth
-          // disablePast
-          value={startDate}
-          onChange={(newValue) => setStartDate(newValue)}
-          sx={{ marginTop: "5%" }}
-          disabled={changeStart}
-        />
-      </LocalizationProvider>
-
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DateTimePicker
-          label="Dropoff Date"
-          // disablePast
-          value={endDate}
-          onChange={(newValue) => setEndDate(newValue)}
-          sx={{ marginTop: "5%" }}
-          fullWidth
-          disabled={changeEnd}
-        />
-      </LocalizationProvider>
-      {/* <TextField
-      fullWidth
-      placeholder="Book Now"
-      sx={{ marginTop: "2%" }}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end" sx={{ color: "blue" }}>
-            <BookOnlineIcon />
-          </InputAdornment>
-        ),
-      }}
-    /> */}
-      <Typography variant="p" sx={{ marginTop: "2%" }}>
-        Duration: {Math.floor((endDate - startDate) / (1000 * 3600 * 24))} Day
-      </Typography>
-      <Box
-        sx={{
-          display: "inline-flex",
-          justifyContent: "space-between",
-          mt: 3,
-        }}
-      >
-        <Box>
-          <Button
-            // variant="contained"
-            sx={{
-              color: "#ffffff",
-              fontSize: "15px",
-              // marginTop: "2%",
-              // width: "25%",
-              backgroundColor: "#59CE8F",
-              ":hover": {
-                backgroundColor: "#36b671",
-              },
-            }}
-            onClick={handleNavigate}
-          >
-            Search
-          </Button>
-        </Box>
-        <Box
-          sx={{
-            // marginTop: "2%",
-            // marginLeft: "35%",
-            // width: "40%",
-            textAlign: "center",
-          }}
-        >
-          <Button
-            // variant="contained"
-            sx={{
-              color: "#ffffff",
-              fontSize: "15px",
-              // marginTop: "2%",
-              // marginLeft: "35%",
-
-              backgroundColor: "#59CE8F",
-              ":hover": {
-                backgroundColor: "#59CE8F",
-              },
-            }}
-          >
-            Instant Booking
-          </Button>{" "}
-          <Typography fontSize={"12px"}>Coming Soon</Typography>
-        </Box>
-      </Box>
-    </Box>
+    </div>
   );
 };
 
-export default MobileSearchForm;
+export default SearchCityModal;

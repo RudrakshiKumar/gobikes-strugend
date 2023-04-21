@@ -42,11 +42,12 @@ import { green } from "@mui/material/colors";
 import { Avatar } from "@mui/material";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
 import { Link } from "react-router-dom";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const MobileHome = () => {
   return (
     <>
-      <MobilePreLoginNavbar />
+      <DynamicMobileNavbar />
 
       <Box>
         <Box sx={{ position: "relative" }}>
@@ -54,24 +55,42 @@ const MobileHome = () => {
             component="img"
             src={rightSectionNew}
             alt="Header"
-            classname=""
+            className=""
             sx={{
               width: "100%",
-              height: "100%",
+              height: "60%",
               position: "absolute",
               top: 0,
               left: 0,
             }}
           />
 
+          {/* <Box
+            // component="img"
+            // src={rightSectionNew}
+            alt="Header"
+            className=""
+            sx={{
+              width: "100%",
+              height: "50%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              // bgcolor: "#000000",
+              bgcolor: "#59CE8F",
+            }}
+          /> */}
+
           <Box
             sx={{
-              mx: 1,
+              mx: 2,
               position: "relative",
               zIndex: 100,
-              top: 350,
-              bgcolor: "#ffffff",
-              mb: 50,
+              top: 200,
+              // top: 350,
+              // top: 50,
+
+              mb: 30,
             }}
           >
             {" "}
@@ -79,7 +98,7 @@ const MobileHome = () => {
           </Box>
         </Box>
         <Box>
-          <Typography variant="h6" sx={{ fontWeight: "bold", pt: 2, ml: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: "bold", ml: 2 }}>
             Offers for you
           </Typography>
           <OfferCarousal />
@@ -123,7 +142,7 @@ const MobileHome = () => {
         </Box>
 
         {/* <Features /> */}
-        <Box sx={{ marginTop: "15%", ml: 2 }}>
+        <Box sx={{ marginTop: "15%", ml: 2, mr: 3 }}>
           <Typography variant="h6" sx={{ fontWeight: "bold" }}>
             Why choose GoBikes?
           </Typography>
@@ -204,7 +223,7 @@ const MobileHome = () => {
               </Typography>
               <Typography
                 variant="p"
-                sx={{ marginTop: "5px", fontSize: "20px" }}
+                sx={{ marginTop: "5px", fontSize: "19px" }}
               >
                 Facing an issue while booking/pick up? We initiate instant
                 refund.

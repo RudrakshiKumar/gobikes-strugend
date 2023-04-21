@@ -15,6 +15,7 @@ import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { auth, provider } from "../../utilities/FirebaseConfig";
 import { signInWithPopup } from "firebase/auth";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const MobileLogin = () => {
   const nevigate = useNavigate();
@@ -37,7 +38,6 @@ const MobileLogin = () => {
           email: res.user.email,
           accessToken: res.user.accessToken,
         };
-
         localStorage.setItem("user", JSON.stringify(credentials));
         nevigate("/");
       })
@@ -46,8 +46,8 @@ const MobileLogin = () => {
 
   return (
     <>
-      <MobilePreLoginNavbar />
-      <Box sx={{ textAlign: "center" }}>
+      <DynamicMobileNavbar />
+      <Box sx={{ textAlign: "center", px: 2 }}>
         <Box
           sx={{
             display: "flex",

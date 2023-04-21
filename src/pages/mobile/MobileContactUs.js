@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/system";
-import { Typography, Button, TextareaAutosize } from "@mui/material";
+import {
+  Typography,
+  Button,
+  TextareaAutosize,
+  Grid,
+  Stack,
+} from "@mui/material";
 import TextField from "@mui/material/TextField";
 import contactcompany from "../../assets/images/contactcompany.svg";
 import contactlocation from "../../assets/images/contactlocation.svg";
@@ -11,6 +17,7 @@ import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const MobileContactUs = () => {
   const key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
@@ -46,7 +53,7 @@ const MobileContactUs = () => {
 
   return (
     <div>
-      <MobilePreLoginNavbar />
+      <DynamicMobileNavbar />
       <Box>
         <Box sx={{ textAlign: "center", my: 3 }}>
           <Typography
@@ -82,7 +89,7 @@ const MobileContactUs = () => {
             m: "auto",
             // boxSizing: "border-box",
             boxShadow: "0 0 6px",
-            width: "90%",
+            width: "85%",
           }}
         >
           <Box>
@@ -95,83 +102,78 @@ const MobileContactUs = () => {
             </Typography>
 
             {/* ContactUs form starts here  */}
-            <Box
-              component="form"
-              noValidate
-              autoComplete="off"
-              sx={{
-                "& > :not(style)": { m: 1, width: "20em" },
-              }}
-            >
-              <TextField
-                name="name"
-                type="text"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                required
-                id="outlined-basic"
-                label="Name"
-                variant="outlined"
+            <Grid component="form" container spacing={3} sx={{ mt: 1 }}>
+              <Grid item sx={{ mx: "auto" }}>
+                <TextField
+                  fullWidth
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  required
+                  id="outlined-basic"
+                  label="Name"
+                  variant="outlined"
+                  sx={{ width: "17em" }}
+                />
+              </Grid>
+              <Grid item sx={{ mx: "auto" }}>
+                <TextField
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  required
+                  id="outlined-basic"
+                  label="Email"
+                  variant="outlined"
+                  sx={{ width: "17em" }}
+                />
+              </Grid>
+              <Grid item sx={{ mx: "auto" }}>
+                <TextField
+                  name="mobile"
+                  type="number"
+                  value={formData.mobile}
+                  onChange={(e) =>
+                    setFormData({ ...formData, mobile: e.target.value })
+                  }
+                  required
+                  id="outlined-basic"
+                  label="Mobile Number"
+                  variant="outlined"
+                  sx={{ width: "17em" }}
+                />
+              </Grid>
+              <Grid
+                item
+                container
                 sx={{
-                  height: "7vh",
-                  p: "2px",
-                  position: "relative",
-                  margin: "auto",
+                  mx: "auto",
                 }}
-              />
-              <br /> <br />
-              <TextField
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                required
-                id="outlined-basic"
-                label="Email"
-                variant="outlined"
-                sx={{
-                  height: "7vh",
-                  width: 10,
-                  p: "2px",
-                }}
-              />
-              <br /> <br />
-              <TextField
-                name="mobile"
-                type="number"
-                value={formData.mobile}
-                onChange={(e) =>
-                  setFormData({ ...formData, mobile: e.target.value })
-                }
-                required
-                id="outlined-basic"
-                label="Mobile"
-                variant="outlined"
-                sx={{
-                  height: "7vh",
-                  width: 10,
-                  p: "2px",
-                }}
-              />
-              <br /> <br />
-              <TextareaAutosize
-                name="message"
-                type="text"
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                required
-                id="outlined-basic"
-                placeholder="Message*"
-                variant="outlined"
-                sx={{ mt: 3 }}
-              />
-            </Box>
+              >
+                {" "}
+                <Stack sx={{ width: "17em", mx: "auto" }}>
+                  <TextareaAutosize
+                    name="message"
+                    type="text"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    required
+                    id="outlined-basic"
+                    placeholder="Message*"
+                    variant="outlined"
+                    sx={{ mx: "auto" }}
+                  />
+                </Stack>
+              </Grid>
+            </Grid>
 
             <Box
               sx={{
@@ -179,17 +181,15 @@ const MobileContactUs = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                m: "auto",
+
                 mt: 3,
               }}
             >
-              <div>
-                <ReCAPTCHA
-                  sitekey={key}
-                  onChange={(e) => setIsCapchaDone(true)}
-                  onErrored={(e) => setIsCapchaDone(false)}
-                />
-              </div>
+              <ReCAPTCHA
+                sitekey={key}
+                onChange={(e) => setIsCapchaDone(true)}
+                onErrored={(e) => setIsCapchaDone(false)}
+              />
             </Box>
 
             <Button
@@ -197,7 +197,7 @@ const MobileContactUs = () => {
               variant="contained"
               disabled={showSubmit}
               sx={{
-                bgcolor: "#99CC33",
+                bgcolor: "#59CE8F",
                 // p: "7px",
                 display: "flex",
                 alignItems: "center",
@@ -214,11 +214,12 @@ const MobileContactUs = () => {
 
         {/* CONTACT INFO */}
 
-        <Box sx={{}}>
+        <Box sx={{ mx: 5 }}>
           <Box
             sx={{
               display: "flex",
-              ml: "5%",
+              // ml: "5%",
+
               mt: 10,
             }}
           >
@@ -228,13 +229,14 @@ const MobileContactUs = () => {
             <Box sx={{ ml: 3 }}>
               <Typography
                 variant="h7"
+                fontSize={"13px"}
                 fontWeight={"bold"}
                 sx={{ color: "#59CE8F" }}
               >
                 Registered Company
               </Typography>{" "}
               <br />
-              <Typography variant="h7" fontWeight={"bold"}>
+              <Typography variant="h7" fontWeight={"bold"} fontSize={"13px"}>
                 GoBikes Automotive Private Limited
               </Typography>
             </Box>
@@ -244,7 +246,7 @@ const MobileContactUs = () => {
             sx={{
               display: "flex",
               // justifyContent: "center",
-              ml: "5%",
+              // ml: "5%",
             }}
           >
             <Box>
@@ -253,39 +255,41 @@ const MobileContactUs = () => {
             <Box sx={{ ml: 4 }}>
               <Typography
                 variant="h7"
+                fontSize={"13px"}
                 fontWeight={"bold"}
                 sx={{ color: "#59CE8F" }}
               >
                 Registered Address{" "}
               </Typography>{" "}
               <br />
-              <Typography variant="h7" fontWeight={"bold"} fontSize={"15px"}>
+              <Typography variant="h7" fontWeight={"bold"} fontSize={"13px"}>
                 5th Floor, Seminar Building, Incubation Center IIIT Delhi, New
                 Delhi, Delhi 110020{" "}
               </Typography>
             </Box>
           </Box>{" "}
           <br />
-          <Box sx={{ display: "flex", ml: "5%" }}>
+          <Box sx={{ display: "flex" }}>
             <Box>
               <img className="w-8" src={contactphone} alt="Extra Income" />
             </Box>
             <Box sx={{ ml: 3 }}>
               <Typography
                 variant="h7"
+                fontSize={"13px"}
                 fontWeight={"bold"}
                 sx={{ color: "#59CE8F" }}
               >
                 Mobile Number{" "}
               </Typography>{" "}
               <br />
-              <Typography variant="h7" fontWeight={"bold"}>
+              <Typography variant="h7" fontWeight={"bold"} fontSize={"13px"}>
                 +91-8448444897{" "}
               </Typography>
             </Box>
           </Box>{" "}
           <br />
-          <Box sx={{ display: "inline-flex", ml: "5%" }}>
+          <Box sx={{ display: "inline-flex" }}>
             <Box>
               <img className="w-8" src={contactemail} alt="Extra Income" />
             </Box>
@@ -295,10 +299,11 @@ const MobileContactUs = () => {
                   variant="h7"
                   fontWeight={"bold"}
                   sx={{ color: "#59CE8F" }}
+                  fontSize={"13px"}
                 >
                   Support :
                 </Typography>
-                <Typography variant="h7" fontSize={"14px"} fontWeight={"bold"}>
+                <Typography variant="h7" fontSize={"13px"} fontWeight={"bold"}>
                   &nbsp; contact-us@gobikes.co.in
                 </Typography>
               </Box>{" "}
@@ -308,10 +313,11 @@ const MobileContactUs = () => {
                   variant="h7"
                   fontWeight={"bold"}
                   sx={{ color: "#59CE8F" }}
+                  fontSize={"12px"}
                 >
                   Contact Us :{}
                 </Typography>
-                <Typography variant="h7" fontSize={"14px"} fontWeight={"bold"}>
+                <Typography variant="h7" fontSize={"12px"} fontWeight={"bold"}>
                   &nbsp; contact-us@gobikes.co.in{" "}
                 </Typography>
               </Box>

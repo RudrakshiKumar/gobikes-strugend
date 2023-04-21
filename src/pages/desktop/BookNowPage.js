@@ -20,9 +20,14 @@ import {
   TableRow,
   TextField,
   Typography,
+  tableCellClasses,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
+import HondaSP from "../../assets/images/HondaSP.png";
+import Ninja from "../../assets/images/bike2.webp";
+import Duet from "../../assets/images/bike3.webp";
+import HondaActiva from "../../assets/images/HondaActiva.png";
 import SocialDistanceRoundedIcon from "@mui/icons-material/SocialDistanceRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import EngineeringRoundedIcon from "@mui/icons-material/EngineeringRounded";
@@ -56,10 +61,14 @@ import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileBookNowPage from "../../pages/mobile/MobileBookNowPage";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 /* eslint-disable import/no-webpack-loader-syntax */
 import mapboxgl from "mapbox-gl";
+import dayjs from "dayjs";
+import SearchCityModal from "../../components/desktop/SearchCityModal";
 // @ts-ignore
 mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
@@ -102,6 +111,18 @@ const styled = {
   borderRadius: 3,
 };
 
+const stylling = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "50%",
+  bgcolor: "background.paper",
+  borderRadius: "5px",
+  boxShadow: 24,
+  p: 3,
+};
+
 function createData(TimeOfCancellation, RefundPercentage, RefundAmount) {
   return { TimeOfCancellation, RefundPercentage, RefundAmount };
 }
@@ -120,15 +141,13 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function BookNowPage() {
   const theme = useTheme();
+
+  // const navigate = useNavigate();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const [search, setSearch] = useState(false);
-  const handleSearchOpen = () => setSearch(true);
-  const handleSearchClose = () => setSearch(false);
 
   const [payment, setPayment] = useState("PayNow");
   const [partialPayment, setPartialPayment] = useState("PartialPayment");
@@ -139,15 +158,70 @@ export default function BookNowPage() {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const date = useLocation();
+
+  const [search, setSearch] = useState(false);
+  const handleSearchOpen = () => setSearch(true);
+  const handleSearchClose = () => setSearch(false);
+
+  // useEffect(() => {
+  //   const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+  //   const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+  //   console.log(initial_StartDate);
+  //   console.log(initial_EndDate);
+  //   setStartDate(initial_StartDate);
+  //   setEndDate(initial_EndDate);
+  // }, []);
 
   const [change, setChange] = useState(true);
   const handleChange = () => {
     setChange(!change);
   };
 
-  const navigate = useNavigate();
+  // const handleRentNowSummary = () => {
+  //   navigate("/RentNow");
+  // };
+
+  // useEffect(() => {
+  //   const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+  //   const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+  //   setStartDate(initial_StartDate);
+  //   setEndDate(initial_EndDate);
+  // }, []);
+
+  const [name, setName] = useState("Location");
+  const [setEditName] = useState(null);
+  const [bike, setBike] = useState(false);
+  const handleBikeModel = () => setBike(true);
+  const handleBikeModelClose = () => setBike(false);
+
+  const [image, setImage] = useState("HeroDestini");
+
   const handleRentNowSummary = () => {
     navigate("/RentNow");
+  };
+
+  useEffect(() => {
+    const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+    const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+    const initial_CityName = date.state.selected_cityName;
+    console.log(initial_StartDate);
+    console.log(initial_EndDate);
+    console.log(initial_CityName);
+    setStartDate(initial_StartDate);
+    setEndDate(initial_EndDate);
+    setName(initial_CityName);
+  }, []);
+
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/RentNow", {
+      state: {
+        selected_startDate: startDate,
+        selected_endDate: endDate,
+        selected_cityName: name,
+      },
+    });
   };
 
   return (
@@ -163,7 +237,7 @@ export default function BookNowPage() {
           >
             <Container>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={2}>
+                {/* <Grid item xs={12} sm={2}>
                   <TextField
                     fullWidth
                     label="Go Hub Location"
@@ -172,7 +246,7 @@ export default function BookNowPage() {
                       readOnly: true,
                     }}
                   />
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12} sm={4}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DateTimePicker
@@ -192,6 +266,9 @@ export default function BookNowPage() {
                       sx={{ width: "100%" }}
                     />
                   </LocalizationProvider>
+                </Grid>
+                <Grid item xs={12} sm={2}>
+                  <SearchCityModal />
                 </Grid>
                 <Grid item xs={12} sm={2}>
                   <Button
@@ -271,15 +348,232 @@ export default function BookNowPage() {
                   >
                     Only 1 Bike Available
                   </Box>
-                  <img
-                    src={HeroDestini}
-                    alt="Hero Destini"
-                    style={{
-                      width: "50%",
-                      padding: "30px",
-                      marginLeft: "100px",
-                    }}
-                  />
+                  {image === "HeroDestini" && (
+                    <img
+                      src={HeroDestini}
+                      alt="Hero Destini"
+                      style={{
+                        width: "50%",
+                        padding: "30px",
+                        marginLeft: "100px",
+                      }}
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
+                      onClick={handleBikeModel}
+                    />
+                  )}
+                  {image === "Duet" && (
+                    <img
+                      src={Duet}
+                      alt="Duet"
+                      style={{
+                        width: "50%",
+                        padding: "30px",
+                        marginLeft: "100px",
+                      }}
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
+                      onClick={handleBikeModel}
+                    />
+                  )}
+                  {image === "HondaSP" && (
+                    <img
+                      src={HondaSP}
+                      alt="Honda SP"
+                      style={{
+                        width: "50%",
+                        padding: "30px",
+                        marginLeft: "100px",
+                      }}
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
+                      onClick={handleBikeModel}
+                    />
+                  )}
+                  {image === "Ninja" && (
+                    <img
+                      src={Ninja}
+                      alt="Ninja"
+                      style={{
+                        width: "50%",
+                        padding: "30px",
+                        marginLeft: "100px",
+                      }}
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
+                      onClick={handleBikeModel}
+                    />
+                  )}
+                  {image === "HondaActiva" && (
+                    <img
+                      src={HondaActiva}
+                      alt="HondaActiva"
+                      style={{
+                        width: "50%",
+                        padding: "30px",
+                        marginLeft: "100px",
+                      }}
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
+                      onClick={handleBikeModel}
+                    />
+                  )}
+                  <Modal
+                    open={bike}
+                    onClose={handleBikeModelClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box sx={stylling}>
+                      <Typography
+                        id="modal-modal-title"
+                        variant="h6"
+                        component="h2"
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        Bike Model
+                      </Typography>
+                      <IconButton
+                        aria-label="close"
+                        onClick={() => setBike(false)}
+                        sx={{
+                          position: "absolute",
+                          right: 8,
+                          top: 8,
+                          color: (theme) => theme.palette.grey[800],
+                        }}
+                      >
+                        <CloseIcon />
+                      </IconButton>
+                      <Grid container spacing={2} sx={{ marginTop: "5px" }}>
+                        <Grid item xs={12} sm={3}>
+                          <img
+                            className="image"
+                            src={Duet}
+                            alt="Duet"
+                            style={{
+                              width: "170px",
+                              height: "120px",
+                              borderRadius: "5px",
+                            }}
+                            onClick={() => {
+                              setImage("Duet");
+                              setBike(false);
+                            }}
+                          />
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              padding: "5px",
+                              marginLeft: "25px",
+                            }}
+                          >
+                            Duet
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                          <img
+                            className="image"
+                            src={HondaSP}
+                            alt="HondaSP"
+                            style={{
+                              width: "170px",
+                              height: "120px",
+                              borderRadius: "5px",
+                            }}
+                            onClick={() => {
+                              setImage("HondaSP");
+                              setBike(false);
+                            }}
+                          />
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              padding: "5px",
+                              marginLeft: "25px",
+                            }}
+                          >
+                            Honda SP
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                          <img
+                            className="image"
+                            src={Ninja}
+                            alt="Ninja"
+                            style={{
+                              width: "170px",
+                              height: "120px",
+                              borderRadius: "5px",
+                            }}
+                            onClick={() => {
+                              setImage("Ninja");
+                              setBike(false);
+                            }}
+                          />
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              padding: "5px",
+                              marginLeft: "55px",
+                            }}
+                          >
+                            Ninja
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                          <img
+                            className="image"
+                            src={HondaActiva}
+                            alt="HondaActiva"
+                            style={{
+                              width: "170px",
+                              height: "120px",
+                              borderRadius: "5px",
+                            }}
+                            onClick={() => {
+                              setImage("HondaActiva");
+                              setBike(false);
+                            }}
+                          />
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              padding: "5px",
+                              marginLeft: "25px",
+                            }}
+                          >
+                            Honda Activa
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={3}>
+                          <img
+                            className="image"
+                            src={HeroDestini}
+                            alt="HeroDestini"
+                            style={{
+                              width: "170px",
+                              height: "120px",
+                              borderRadius: "5px",
+                            }}
+                            onClick={() => {
+                              setImage("HeroDestini");
+                              setBike(false);
+                            }}
+                          />
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              padding: "5px",
+                              marginLeft: "25px",
+                            }}
+                          >
+                            Hero Destini
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Box>
+                  </Modal>
                   <br />
                   <Typography
                     variant="p"
@@ -485,6 +779,7 @@ export default function BookNowPage() {
                         variant="h6"
                         component="h2"
                         align="center"
+                        sx={{ fontWeight: "bold" }}
                       >
                         Cancellation Policy
                       </Typography>
@@ -507,12 +802,33 @@ export default function BookNowPage() {
                             aria-label="simple table"
                           >
                             <TableHead>
-                              <TableRow>
-                                <TableCell>Time of Cancellation</TableCell>
-                                <TableCell align="right">
+                              <TableRow
+                                sx={{
+                                  backgroundColor: "#4cbb17",
+                                  border: "2px solid black",
+                                }}
+                              >
+                                <TableCell
+                                  sx={{
+                                    color: "white",
+                                    border: "2px solid black",
+                                  }}
+                                >
+                                  Time of Cancellation
+                                </TableCell>
+                                <TableCell
+                                  align="right"
+                                  sx={{
+                                    color: "white",
+                                    border: "2px solid black",
+                                  }}
+                                >
                                   Refund Percentage
                                 </TableCell>
-                                <TableCell align="right">
+                                <TableCell
+                                  align="right"
+                                  sx={{ color: "white" }}
+                                >
                                   Refund Amount
                                 </TableCell>
                               </TableRow>
@@ -522,18 +838,28 @@ export default function BookNowPage() {
                                 <TableRow
                                   key={row.TimeOfCancellation}
                                   sx={{
-                                    "&:last-child td, &:last-child th": {
-                                      border: 0,
+                                    [`& .${tableCellClasses.root}`]: {
+                                      borderBottom: "2px solid black",
                                     },
                                   }}
                                 >
-                                  <TableCell component="th" scope="row">
+                                  <TableCell
+                                    component="th"
+                                    scope="row"
+                                    sx={{ border: "2px solid black" }}
+                                  >
                                     {row.TimeOfCancellation}
                                   </TableCell>
-                                  <TableCell align="right">
+                                  <TableCell
+                                    align="right"
+                                    sx={{ border: "2px solid black" }}
+                                  >
                                     {row.RefundPercentage}
                                   </TableCell>
-                                  <TableCell align="right">
+                                  <TableCell
+                                    align="right"
+                                    sx={{ border: "2px solid black" }}
+                                  >
                                     {row.RefundAmount}
                                   </TableCell>
                                 </TableRow>
@@ -944,7 +1270,7 @@ export default function BookNowPage() {
               </Grid>
             </Grid>
             <Container sx={{ marginTop: "3%" }}>
-              <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                 Offers for you
               </Typography>
               <OfferCarousal />
@@ -1018,7 +1344,7 @@ export default function BookNowPage() {
                   </Grid>
                   <Grid item sx={{ marginLeft: "25px" }}>
                     <Button
-                      onClick={handlePayNowOpen}
+                      onClick={handleNavigate}
                       variant="contained"
                       color="success"
                       size="medium"

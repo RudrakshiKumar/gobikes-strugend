@@ -7,13 +7,14 @@ import DynamicFooter from "../../layouts/desktop/DynamicFooter";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const PrivacyPolicy = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
-      <DynamicNavbar />
+      {isMatch ? <DynamicMobileNavbar /> : <DynamicNavbar />}
       <Box sx={{ px: { md: "50px", xs: "15px" }, mt: 5 }}>
         <Typography variant="h4" textAlign={"center"} sx={{ px: "5px", mb: 3 }}>
           Privacy Policy

@@ -23,11 +23,12 @@ import listvehicleflexibility from "../../assets/images/listvehicleflexibility.s
 import StartEarning from "../../components/desktop/StartEarning";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
 import MobilePreLoginNavbar from "../../layouts/mobile/MobilePreLoginNavbar";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const MobileListYourVehicle = () => {
   return (
     <div>
-      <MobilePreLoginNavbar />
+      <DynamicMobileNavbar />
       <Box>
         <Box textAlign={"center"}>
           <Typography variant="h5" sx={{ py: 4 }}>
@@ -199,7 +200,7 @@ const MobileListYourVehicle = () => {
           </Grid>
         </Box>
       </Box>
-      <Box>
+      <Box sx={{ mx: 3 }}>
         <Typography variant="h5" sx={{ fontWeight: "bold", mb: 2 }}>
           Have Questions? We got you.
         </Typography>
@@ -368,7 +369,7 @@ const MobileListYourVehicle = () => {
           </Accordion>
         </div>
       </Box>
-      <Box sx={{ py: 5 }}>
+      <Box sx={{ py: 5, mx: 3 }}>
         <Box
           sx={{
             width: "100%",

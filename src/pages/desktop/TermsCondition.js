@@ -8,20 +8,21 @@ import DynamicNavbar from "../../layouts/desktop/DynamicNavbar";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
+import DynamicMobileNavbar from "../../layouts/mobile/DynamicMobileNavbar";
 
 const TermsCondition = () => {
   const theme = useTheme();
-  const isMatchFooter = useMediaQuery(theme.breakpoints.down("md"));
-  const isMatch = useMediaQuery(theme.breakpoints.up("md"));
+  const isMatchDown = useMediaQuery(theme.breakpoints.down("md"));
+  const isMatchUp = useMediaQuery(theme.breakpoints.up("md"));
   const { hash } = useLocation();
   const isActive = (iHash) => hash === iHash;
   return (
     <>
-      <DynamicNavbar />
+      {isMatchDown ? <DynamicMobileNavbar /> : <DynamicNavbar />}
 
       <div className="tc_container1 mb-80">
         <div className="tc_container2">
-          {isMatch && (
+          {isMatchUp && (
             <div className="tc_container3 mb-10">
               <ol>
                 <NavHashLink
@@ -1651,7 +1652,7 @@ const TermsCondition = () => {
           </Box>
         </div>
       </div>
-      {isMatchFooter ? <MobileFooter /> : <DynamicFooter />}
+      {isMatchDown ? <MobileFooter /> : <DynamicFooter />}
     </>
   );
 };

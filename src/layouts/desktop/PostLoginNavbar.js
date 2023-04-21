@@ -21,7 +21,7 @@ import Divider from "@mui/material/Divider";
 // import FileCopyIcon from "@mui/icons-material/FileCopy";
 // import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //Navbar
 // const style = {
@@ -90,7 +90,7 @@ const PostLoginNavbar = ({ userDetails }) => {
   //Responsivenness
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-
+const navigate=useNavigate()
   //Dropdown Menu
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -104,6 +104,7 @@ const PostLoginNavbar = ({ userDetails }) => {
   const handelSignOut = () => {
     setAnchorEl(null);
     localStorage.clear();
+    navigate('/')
   };
 
   return (

@@ -21,6 +21,8 @@ import BikeScooterIcon from "@mui/icons-material/BikeScooter";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import { Link } from "react-router-dom";
+import SearchCityModal from "../../components/desktop/SearchCityModal";
+import { Button } from "@mui/material";
 
 // import "../App.css";
 
@@ -104,6 +106,7 @@ export default function MobilePreLoginNavbar() {
           >
             <MenuIcon />
           </IconButton>
+
           <Link to="/">
             <Box
               id="logo"
@@ -190,7 +193,7 @@ export default function MobilePreLoginNavbar() {
           </Link>
 
           <Divider variant="inset" />
-          <Link to="/MobileFAQs">
+          <Link to="/FAQs">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>

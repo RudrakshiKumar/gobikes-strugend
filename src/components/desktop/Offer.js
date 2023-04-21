@@ -82,7 +82,6 @@ export default function Offer() {
               COPY
             </button>
           </Box>
-
           <Typography variant="p">Coupon Code</Typography>
         </Box>
       </Box> */}
@@ -120,7 +119,7 @@ export default function Offer() {
                 </Grid>
               </Grid>
               <Typography variant="p">
-                Receive GoCoins worth 10% of the booking amount which you can
+                Receive BroCoins worth 10% of the booking amount which you can
                 redeem in your next booking
               </Typography>
               {/* <Box
@@ -174,13 +173,13 @@ export default function Offer() {
                     }}
                   >
                     <Typography
-                      sx={{ p: 1, py: "20%" }}
+                      sx={{ p: 1, py: "18%" }}
                       style={{
                         fontSize: "20px",
                         color: "#59CE8F",
                       }}
                     >
-                      GOCOINS
+                      BROCOINS
                     </Typography>
                   </Box>
 
