@@ -213,7 +213,7 @@ export default function Profile() {
                         },
                         color: "white",
                       }}
-                      onClick={handleCancelEditEmail}
+                      onClick={handleCancelEditEmail} 
                     >
                       Cancel
                     </Button>
