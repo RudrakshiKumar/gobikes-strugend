@@ -91,7 +91,8 @@ export default function MobileBookingDetails() {
                 <CalendarMonthIcon fontSize="small" />
               </IconButton>
               <Typography variant="p">
-                Feb 23,2023 1:00PM Paid: <span>&#8377;</span>
+                Feb 23,2023 1:00PM Paid:{" "}
+                <span style={{ marginLeft: "10px" }}>&#8377;</span>
                 112.28
               </Typography>
             </Grid>
@@ -104,25 +105,28 @@ export default function MobileBookingDetails() {
         </Box>
       )}
       {active === "viewDetails" && (
-        <div>
+        <div style={{ fontWeight: "bold" }}>
           <Box
             sx={{
               width: "100%",
               borderRadius: "8px",
-              padding: "10px",
+              padding: "12px",
               backgroundColor: "#eeeeee",
             }}
           >
-            <Grid container spacing={5}>
+            <Grid container spacing={2}>
               <Grid item xs={12} sm={9}>
                 <IconButton onClick={() => setActive("")}>
                   <ArrowBackIosIcon fontSize="small" />
                 </IconButton>
                 <Typography variant="p">
-                  BookingID: #20659 | Booking Date: Feb 22, 2023 12:35 PM
+                  BookingID: #20659 | Booking{" "}
+                  <span style={{ marginLeft: "14%" }}>
+                    Date: Feb 22, 2023 12:35 PM
+                  </span>
                 </Typography>
               </Grid>
-              <Grid item xs={12} sm={3}>
+              <Grid item xs={12} sm={3} sx={{ marginLeft: "10%" }}>
                 <Button
                   variant="contained"
                   size="small"
@@ -174,13 +178,14 @@ export default function MobileBookingDetails() {
                   <span>Honda Activa 125</span>
                   <br />
                   <span>Quantity: 1</span>
-                  <br />
-                  <span>
-                    Rent Amount: <span>&#8377;</span>499 | Refundable Deposit:{" "}
-                    <span>&#8377;</span>2000
-                  </span>
                 </Typography>
               </div>
+            </div>
+            <div style={{ padding: "2px 0px 5px 10px" }}>
+              <Typography variant="p" sx={{ fontWeight: "medium" }}>
+                Rent Amount: <span>&#8377;</span>499 | Refundable Deposit:{" "}
+                <span>&#8377;</span>2000
+              </Typography>
             </div>
             <hr
               style={{
@@ -190,20 +195,20 @@ export default function MobileBookingDetails() {
                 paddingBottom: "5px",
               }}
             />
-            <Grid container spacing={40}>
+            <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <Typography variant="p" sx={{ marginLeft: "10px" }}>
-                  Pickup Date and Time
+                  Pickup Date and Time:
                 </Typography>
                 <IconButton sx={{ color: "black" }}>
                   <CalendarMonthIcon fontSize="small" />
                 </IconButton>
-                <Typography variant="p">Feb 23,2023 1:00PM</Typography>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Typography variant="p" sx={{ marginRight: "10px" }}>
-                  Dropoff Date and Time
+                <Typography variant="p">
+                  Feb <span style={{ marginLeft: "10px" }}>23,2023 1:00PM</span>
                 </Typography>
+              </Grid>
+              <Grid item xs={12} sm={6} sx={{ marginLeft: "10px" }}>
+                <Typography variant="p">Dropoff Date and Time:</Typography>
                 <IconButton sx={{ color: "black" }}>
                   <CalendarMonthIcon fontSize="small" />
                 </IconButton>
@@ -227,12 +232,10 @@ export default function MobileBookingDetails() {
               backgroundColor: "#eeeeee",
             }}
           >
-            <Grid container spacing={5} sx={{ padding: "3px" }}>
-              <Grid item xs={12} sm={10}>
-                <Typography variant="p">Rent Now</Typography>
-              </Grid>
+            <Grid container spacing={2} sx={{ padding: "3px" }}>
               <Grid item xs={12} sm={2}>
-                <Typography variant="p">
+                <Typography variant="p">Rent Now</Typography>
+                <Typography variant="p" sx={{ marginLeft: "45%" }}>
                   <span>&#8377;</span>499.00
                 </Typography>
               </Grid>
@@ -244,11 +247,12 @@ export default function MobileBookingDetails() {
             >
               <Grid item xs={12} sm={3}>
                 <Typography variant="p" fontSize="13px">
-                  Daily Packages
+                  Daily Packages:
                 </Typography>
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                <Typography variant="p" fontSize="13px">
+                <Typography
+                  variant="p"
+                  sx={{ fontSize: "13px", marginLeft: "3px" }}
+                >
                   1Day + <span>&#8377;</span>499.00 = <span>&#8377;</span>
                   499.00
                 </Typography>
@@ -256,14 +260,16 @@ export default function MobileBookingDetails() {
             </Grid>
             <Grid
               container
-              spacing={5}
+              spacing={2}
               sx={{ padding: "3px", paddingBottom: "7px" }}
             >
               <Grid item xs={12} sm={10}>
                 <Typography variant="p">Gohub Discount</Typography>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <Typography variant="p" color="#4cbb17">
+                <Typography
+                  variant="p"
+                  color="#4cbb17"
+                  sx={{ marginLeft: "23%" }}
+                >
                   - <span>&#8377;</span>49.90
                 </Typography>
               </Grid>
@@ -277,14 +283,12 @@ export default function MobileBookingDetails() {
             />
             <Grid
               container
-              spacing={6}
+              spacing={2}
               sx={{ padding: "3px", paddingBottom: "7px" }}
             >
               <Grid item xs={12} sm={10}>
                 <Typography variant="p">Total</Typography>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <Typography variant="p">
+                <Typography variant="p" sx={{ marginLeft: "60%" }}>
                   <span>&#8377;</span>449.10
                 </Typography>
               </Grid>
@@ -298,14 +302,15 @@ export default function MobileBookingDetails() {
                 <Typography variant="p" fontSize="13px">
                   Remaining Rent
                 </Typography>
+                <Typography
+                  variant="p"
+                  sx={{ fontSize: "13px", marginLeft: "30%" }}
+                >
+                  <span>&#8377;</span>336.83
+                </Typography>
                 <br />
                 <Typography variant="p" fontSize="13px">
                   (To be paid at the time of pickUp)
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <Typography variant="p" fontSize="13px">
-                  <span>&#8377;</span>336.83
                 </Typography>
               </Grid>
             </Grid>
@@ -322,9 +327,10 @@ export default function MobileBookingDetails() {
                 <Typography variant="p" fontSize="13px">
                   Advanced Payment
                 </Typography>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <Typography variant="p" fontSize="13px">
+                <Typography
+                  variant="p"
+                  sx={{ fontSize: "13px", marginLeft: "23%" }}
+                >
                   <span>&#8377;</span>112.28
                 </Typography>
               </Grid>
@@ -336,32 +342,28 @@ export default function MobileBookingDetails() {
                 height: "3px",
               }}
             />
-            <Grid container spacing={6} sx={{ padding: "3px" }}>
+            <Grid container spacing={2} sx={{ padding: "3px" }}>
               <Grid item xs={12} sm={10}>
                 <Typography variant="p">Amount Paid</Typography>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <Typography variant="p">
+                <Typography variant="p" sx={{ marginLeft: "38%" }}>
                   <span>&#8377;</span>112.28
                 </Typography>
               </Grid>
             </Grid>
             <Grid
               container
-              spacing={6}
+              spacing={2}
               sx={{ padding: "3px", paddingBottom: "7px" }}
             >
               <Grid item xs={12} sm={10}>
                 <Typography variant="p">Refundable Deposit</Typography>
+                <Typography variant="p" sx={{ marginLeft: "18%" }}>
+                  <span>&#8377;</span>2000
+                </Typography>
                 <br />
                 <Typography variant="p" fontSize="13px">
                   (To be paid at the time of pickUp and will refunded after the
                   drop)
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={2}>
-                <Typography variant="p">
-                  <span>&#8377;</span>2000
                 </Typography>
               </Grid>
             </Grid>
