@@ -105,7 +105,14 @@ const PostLoginFooter = () => {
           </Box>
         </Box>
 
-        <Box sx={{ p: 2, display: "flex", justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            p: 2,
+            display: "flex",
+            justifyContent: "space-between",
+            bgcolor: "#ffffff",
+          }}
+        >
           <Typography sx={{ pl: 10 }}>
             {" "}
             © STRUGEND. All rights reserved.

@@ -264,7 +264,9 @@ const ListYourVehicle = () => {
               </Box>
             </Box>
           </Box>
-          <Faq />
+          <Box sx={{ mx: 10 }}>
+            <Faq />
+          </Box>
 
           <Box
             style={styles.paperContainer}

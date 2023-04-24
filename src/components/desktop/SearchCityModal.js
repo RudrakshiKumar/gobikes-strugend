@@ -67,7 +67,7 @@ const SearchCityModal = () => {
     <div>
       <Button
         onClick={handleLocationOpen}
-        sx={{ marginTop: "5px", marginLeft: "12px" }}
+        // sx={{ marginTop: "5px", marginLeft: "12px" }}
       >
         <LocationOnIcon sx={{ color: "#59CE8F", fontSize: 30 }} />
         <Typography

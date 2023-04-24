@@ -1,4 +1,7 @@
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   AppBar,
   Box,
   Button,
@@ -6,16 +9,22 @@ import {
   Checkbox,
   Container,
   Fab,
+  FormControl,
   FormControlLabel,
   Grid,
   IconButton,
+  InputAdornment,
+  InputLabel,
+  ListSubheader,
+  MenuItem,
   Modal,
   Radio,
   RadioGroup,
+  Select,
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import HeroDestini from "../../assets/images/HeroDestini.png";
 import HondaSP from "../../assets/images/HondaSP.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -51,6 +60,8 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import dayjs from "dayjs";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
 import SearchCityModal from "../../components/desktop/SearchCityModal";
+import SearchIcon from "@mui/icons-material/Search";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -79,7 +90,24 @@ const styles = {
   p: 4,
 };
 
+//Search Models
+
+const containsText = (text, searchText) =>
+  text.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
+
+const allOptions = ["Model One", "Model Two", "Model Three", "Model Four"];
+
 export default function MobileBookingFlow(props) {
+  //Search Models
+
+  const [selectedOption, setSelectedOption] = useState(allOptions[0]);
+
+  const [searchText, setSearchText] = useState("");
+  const displayedOptions = useMemo(
+    () => allOptions.filter((option) => containsText(option, searchText)),
+    [searchText]
+  );
+
   const date = useLocation();
   const navigate = useNavigate();
   const [packages, setPackages] = useState("dailyPackages");
@@ -306,14 +334,89 @@ export default function MobileBookingFlow(props) {
   return (
     <>
       <DynamicNavbar />
-      <AppBar
-        position="sticky"
-        sx={{ backgroundColor: "white", padding: "20px" }}
-      >
-        {/* <div>
-          {[ 'bottom'].map((anchor) => (
+      {/* Collapsable Location, Date and Search */}
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography
+            sx={{ color: "#000000" }}
+            value={name}
+            onChange={(e) => {
+              setEditName(e.target.value);
+              setName(e.target.value);
+            }}
+          >
+            {name}
+          </Typography>
+          {/* <Typography
+            sx={{ color: "#000000" }}
+            value={endDate}
+            onChange={(newValue) => setStartDate(newValue)}
+          >
+            {endDate}
+          </Typography> */}
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box sx={{ textAlign: "center", mb: 2 }}>
+            <SearchCityModal />
+          </Box>
+
+          <Box sx={{ mb: 3 }}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateTimePicker
+                label="Pickup Date & Time"
+                value={startDate}
+                onChange={(newValue) => setStartDate(newValue)}
+                sx={{ width: "100%" }}
+              />
+            </LocalizationProvider>
+          </Box>
+
+          <Box sx={{ mb: 3 }}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateTimePicker
+                label="Dropoff Date & Time"
+                value={endDate}
+                onChange={(newValue) => setEndDate(newValue)}
+                sx={{ width: "100%" }}
+              />
+            </LocalizationProvider>
+          </Box>
+
+          <Button
+            variant="contained"
+            fullWidth
+            // size="medium"
+            sx={{
+              backgroundColor: "#59ce8f",
+              padding: "10px",
+              marginTop: "5px",
+              marginRight: "12px",
+              ":hover": {
+                backgroundColor: "#59ce8f",
+              },
+            }}
+            onClick={handleOpen}
+          >
+            Search
+          </Button>
+        </AccordionDetails>
+      </Accordion>
+
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <div className="filter">
+          {["bottom"].map((anchor) => (
             <React.Fragment key={anchor}>
-              <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+              <Button
+                onClick={toggleDrawer(anchor, true)}
+                style={{ color: "white" }}
+              >
+                <FilterAltOutlinedIcon />
+                Filter
+              </Button>
               <SwipeableDrawer
                 anchor={anchor}
                 open={state[anchor]}
@@ -324,455 +427,65 @@ export default function MobileBookingFlow(props) {
               </SwipeableDrawer>
             </React.Fragment>
           ))}
-        </div> */}
-        {/* <div className="float">
-          <Fab style={{narginbottom :20}} color='green' size='large'>
-            Filter
-          </Fab>
-        </div> */}
+        </div>
+      </Box>
 
-        <Container>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={4}>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateTimePicker
-                  label="Pickup Date & Time"
-                  value={startDate}
-                  onChange={(newValue) => setStartDate(newValue)}
-                  sx={{ width: "100%" }}
-                />
-              </LocalizationProvider>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateTimePicker
-                  label="Dropoff Date & Time"
-                  value={endDate}
-                  onChange={(newValue) => setEndDate(newValue)}
-                  sx={{ width: "100%" }}
-                />
-              </LocalizationProvider>
-            </Grid>
-            <Grid item xs={12} sm={2}>
-              <SearchCityModal />
-            </Grid>
-            {/* <Modal
-              open={location}
-              onClose={handleLocationClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={styles}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                  Choose your preferred city
-                </Typography>
-                <IconButton
-                  aria-label="close"
-                  onClick={() => setLocation(false)}
-                  sx={{
-                    position: "absolute",
-                    right: 8,
-                    top: 8,
-                    color: (theme) => theme.palette.grey[600],
-                  }}
-                >
-                  <CloseIcon />
-                </IconButton>
-                <Grid container spacing={2} sx={{ marginTop: "5px" }}>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Bangalore}
-                      alt="Bangalore"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Bangalore");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Bangalore
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Chandigarh}
-                      alt="Chandigarh"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Chandigarh");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Chandigarh
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Chennai}
-                      alt="Chennai"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Chennai");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Chennai
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Dehradun}
-                      alt="Dehradun"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Dehradun");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Dehradun
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Delhi}
-                      alt="Delhi"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Delhi");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Delhi
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Ghaziabad}
-                      alt="Ghaziabad"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Ghaziabad");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Ghaziabad
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Goa}
-                      alt="Goa"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Goa");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Goa
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Hyderabad}
-                      alt="Hyderabad"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Hyderabad");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Hyderabad
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Kolkata}
-                      alt="Kolkata"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Kolkata");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Kolkata
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Manali}
-                      alt="Manali"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Manali");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Manali
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Mumbai}
-                      alt="Mumbai"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Mumbai");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Mumbai
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Pune}
-                      alt="Pune"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Pune");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Pune
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Gurgaon}
-                      alt="Gurgaon"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Gurgaon");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Gurgaon
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Guwahati}
-                      alt="Guwahati"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Guwahati");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Guwahati
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Jaipur}
-                      alt="Jaipur"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Jaipur");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Jaipur
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Leh}
-                      alt="Leh"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Leh");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Leh
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Noida}
-                      alt="Noida"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Noida");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Noida
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={2}>
-                    <img
-                      className="image"
-                      src={Udaipur}
-                      alt="Udaipur"
-                      style={{
-                        width: "125px",
-                        height: "125px",
-                        borderRadius: "5px",
-                      }}
-                      onClick={() => {
-                        setName("Udaipur");
-                        setLocation(false);
-                      }}
-                    />
-                    <Typography variant="h6" align="center">
-                      Udaipur
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Box>
-            </Modal> */}
-            <Grid item xs={12} sm={2}>
-              <Button
-                variant="contained"
-                size="medium"
-                sx={{
-                  backgroundColor: "#4cbb17",
-                  padding: "10px",
-                  marginTop: "5px",
-                  marginRight: "12px",
-                  ":hover": {
-                    backgroundColor: "#4cbb17",
-                  },
-                }}
-                onClick={handleOpen}
-              >
-                Search
-              </Button>
-            </Grid>
-          </Grid>
-        </Container>
-      </AppBar>
-
-      <div className="filter">
-        {["bottom"].map((anchor) => (
-          <React.Fragment key={anchor}>
-            <Button
-              onClick={toggleDrawer(anchor, true)}
-              style={{ color: "white" }}
-            >
-              <FilterAltOutlinedIcon />
-              FIlter
-            </Button>
-            <SwipeableDrawer
-              anchor={anchor}
-              open={state[anchor]}
-              onClose={toggleDrawer(anchor, false)}
-              onOpen={toggleDrawer(anchor, true)}
-            >
-              {list(anchor)}
-            </SwipeableDrawer>
-          </React.Fragment>
-        ))}
-      </div>
       {/* <div className="float">
           <Fab variant='extended' style={{padding: "7px", bottom: "-100px"}} color='green' size='large'>
             Filter
           </Fab>
         </div> */}
-
+      {/* Search Models */}
+      <Box sx={{ my: 5, mx: 2 }}>
+        <FormControl fullWidth>
+          <InputLabel id="search-select-label">Bike Models</InputLabel>
+          <Select
+            // Disables auto focus on MenuItems and allows TextField to be in focus
+            MenuProps={{ autoFocus: false }}
+            labelId="search-select-label"
+            id="search-select"
+            value={selectedOption}
+            label="Bike Models"
+            onChange={(e) => setSelectedOption(e.target.value)}
+            onClose={() => setSearchText("")}
+            // This prevents rendering empty string in Select's value
+            // if search text would exclude currently selected option.
+            renderValue={() => selectedOption}
+          >
+            {/* TextField is put into ListSubheader so that it doesn't
+              act as a selectable item in the menu
+              i.e. we can click the TextField without triggering any selection.*/}
+            <ListSubheader>
+              <TextField
+                size="small"
+                // Autofocus on textfield
+                autoFocus
+                placeholder="Type to search..."
+                fullWidth
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                onChange={(e) => setSearchText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key !== "Escape") {
+                    // Prevents autoselecting item while typing (default Select behaviour)
+                    e.stopPropagation();
+                  }
+                }}
+              />
+            </ListSubheader>
+            {displayedOptions.map((option, i) => (
+              <MenuItem key={i} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
       <Container sx={{ marginTop: "2%" }}>
         <Grid container spacing={2}>
           {/* GG */}
