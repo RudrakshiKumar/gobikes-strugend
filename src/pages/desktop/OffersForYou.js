@@ -1,6 +1,6 @@
 import {
   Box,
-  Button,
+  Button, 
   Grid,
   IconButton,
   Modal,
@@ -172,6 +172,8 @@ const OffersForYou = () => {
           </Grid>
           <div style={{ marginTop: "5%", marginLeft: "5%" }}></div>
         </Box>
+
+
         <Box
           sx={{
             marginTop: "4%",
@@ -292,6 +294,8 @@ const OffersForYou = () => {
           </Grid>
           <div style={{ marginTop: "5%", marginLeft: "5%" }}></div>
         </Box>
+
+        
         <Box
           sx={{
             marginTop: "4%",

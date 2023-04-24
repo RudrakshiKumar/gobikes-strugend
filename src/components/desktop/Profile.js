@@ -73,6 +73,15 @@ export default function Profile() {
     setAddress("");
   };
 
+
+  // Adding aadhar-card & Driving Licence functionality --
+  const [pdfFile, setPdfFile] = useState(null);
+  const handleAddAdharCard = (e) => {
+    // setPdfFile()
+    let selectedFile = e.target.files[0];
+    console.log(selectedFile)
+  }
+
   return (
     <>
       <Box
@@ -214,7 +223,7 @@ export default function Profile() {
                         },
                         color: "white",
                       }}
-                      onClick={handleCancelEditEmail} 
+                      onClick={handleCancelEditEmail}
                     >
                       Cancel
                     </Button>
@@ -353,7 +362,7 @@ export default function Profile() {
               {/* Aadhaar Card  */}
               <hr style={{ marginTop: "5%" }} />
 
-              <Grid container sx={{ marginTop: "5%" }}>
+              <Grid container sx={{ marginTop: "5%", display: "flex", flexDirection: "column" }}>
                 <Grid item xs={12} sm={10}>
                   <Typography variant="h5" sx={{ fontWeight: "regular" }}>
                     Aadhaar Card
@@ -361,24 +370,30 @@ export default function Profile() {
                 </Grid>
                 <Grid item xs={12} sm={2}>
                   {!editAddress ? (
-                    <Button
-                      variant="text"
-                      size="small"
-                      sx={{
-                        fontSize: "15px",
-                        backgroundColor: "#59CE8F",
-                        ":hover": {
-                          backgroundColor: "#36b671",
-                        },
-                        color: "white",
-                      }}
-                      // onClick={() => {
-                      //   setEditAddress(!editAddress);
-                      //   setAddress("Address");
-                      // }}
-                    >
-                      Upload
-                    </Button>
+                    // <Button
+                    //   variant="text"
+                    //   size="small"
+                    //   sx={{
+                    //     fontSize: "15px",
+                    //     backgroundColor: "#59CE8F",
+                    //     ":hover": {
+                    //       backgroundColor: "#36b671",
+                    //     },
+                    //     color: "white",
+                    //   }}
+                    //   // onClick={() => {
+                    //   //   setEditAddress(!editAddress);
+                    //   //   setAddress("Address");
+                    //   // }}
+                    // >
+                    //   Upload
+                    // </Button>
+
+                    <input
+                      style={{ fontSize: "15px", backgroundColor: "#59CE8F", ":hover": { backgroundColor: "#59CE8F", }, color: "white", }}
+                      type="file"
+                      onChange={handleAddAdharCard}
+                    />
                   ) : (
                     <Button
                       variant="text"
@@ -401,7 +416,7 @@ export default function Profile() {
               {/*  Driving Licence  */}
               <hr style={{ marginTop: "5%" }} />
 
-              <Grid container sx={{ marginTop: "5%" }}>
+              <Grid container sx={{ marginTop: "5%", display: "flex", flexDirection: "column" }}>
                 <Grid item xs={12} sm={10}>
                   <Typography variant="h5" sx={{ fontWeight: "regular" }}>
                     Driving Licence
@@ -409,24 +424,30 @@ export default function Profile() {
                 </Grid>
                 <Grid item xs={12} sm={2}>
                   {!editAddress ? (
-                    <Button
-                      variant="text"
-                      size="small"
-                      sx={{
-                        fontSize: "15px",
-                        backgroundColor: "#59CE8F",
-                        ":hover": {
-                          backgroundColor: "#36b671",
-                        },
-                        color: "white",
-                      }}
-                      // onClick={() => {
-                      //   setEditAddress(!editAddress);
-                      //   setAddress("Address");
-                      // }}
-                    >
-                      Upload
-                    </Button>
+                    // <Button
+                    //   variant="text"
+                    //   size="small"
+                    //   sx={{
+                    //     fontSize: "15px",
+                    //     backgroundColor: "#59CE8F",
+                    //     ":hover": {
+                    //       backgroundColor: "#36b671",
+                    //     },
+                    //     color: "white",
+                    //   }}
+                    // // onClick={() => {
+                    // //   setEditAddress(!editAddress);
+                    // //   setAddress("Address");
+                    // // }}
+                    // >
+                    //   Upload
+                    // </Button>
+
+                    <input
+                      style={{ fontSize: "15px", backgroundColor: "#59CE8F", ":hover": { backgroundColor: "#59CE8F", }, color: "white", }}
+                      type="file"
+                      onChange={handleAddAdharCard}
+                    />
                   ) : (
                     <Button
                       variant="text"
