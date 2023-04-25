@@ -62,6 +62,8 @@ import MobileFooter from "../../layouts/mobile/MobileFooter";
 import SearchCityModal from "../../components/desktop/SearchCityModal";
 import SearchIcon from "@mui/icons-material/Search";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CollapsibleSearch from "../../components/mobile/CollapsibleSearch";
+import BookingFlowCard from "../../components/mobile/BookingFlowCard";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -95,16 +97,23 @@ const styles = {
 const containsText = (text, searchText) =>
   text.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
 
-const allOptions = ["Model One", "Model Two", "Model Three", "Model Four"];
+const modelOptions = ["Model One", "Model Two", "Model Three", "Model Four"];
+const locationOptions = [
+  "Location One",
+  "Location Two",
+  "Location Three",
+  "Location Four",
+];
 
 export default function MobileBookingFlow(props) {
   //Search Models
 
-  const [selectedOption, setSelectedOption] = useState(allOptions[0]);
+  const [selectedModel, setSelectedModel] = useState(modelOptions[0]);
+  const [selectedLocation, setSelectedLocation] = useState(locationOptions[0]);
 
   const [searchText, setSearchText] = useState("");
   const displayedOptions = useMemo(
-    () => allOptions.filter((option) => containsText(option, searchText)),
+    () => modelOptions.filter((option) => containsText(option, searchText)),
     [searchText]
   );
 
@@ -334,77 +343,18 @@ export default function MobileBookingFlow(props) {
   return (
     <>
       <DynamicNavbar />
-      {/* Collapsable Location, Date and Search */}
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography
-            sx={{ color: "#000000" }}
-            value={name}
-            onChange={(e) => {
-              setEditName(e.target.value);
-              setName(e.target.value);
-            }}
-          >
-            {name}
-          </Typography>
-          {/* <Typography
-            sx={{ color: "#000000" }}
-            value={endDate}
-            onChange={(newValue) => setStartDate(newValue)}
-          >
-            {endDate}
-          </Typography> */}
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box sx={{ textAlign: "center", mb: 2 }}>
-            <SearchCityModal />
-          </Box>
-
-          <Box sx={{ mb: 3 }}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateTimePicker
-                label="Pickup Date & Time"
-                value={startDate}
-                onChange={(newValue) => setStartDate(newValue)}
-                sx={{ width: "100%" }}
-              />
-            </LocalizationProvider>
-          </Box>
-
-          <Box sx={{ mb: 3 }}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateTimePicker
-                label="Dropoff Date & Time"
-                value={endDate}
-                onChange={(newValue) => setEndDate(newValue)}
-                sx={{ width: "100%" }}
-              />
-            </LocalizationProvider>
-          </Box>
-
-          <Button
-            variant="contained"
-            fullWidth
-            // size="medium"
-            sx={{
-              backgroundColor: "#59ce8f",
-              padding: "10px",
-              marginTop: "5px",
-              marginRight: "12px",
-              ":hover": {
-                backgroundColor: "#59ce8f",
-              },
-            }}
-            onClick={handleOpen}
-          >
-            Search
-          </Button>
-        </AccordionDetails>
-      </Accordion>
+      {/* Collapsible Location, Date and Search */}
+      <AppBar
+        position="sticky"
+        sx={{
+          backgroundColor: "white",
+          // padding: "10px",
+          color: "#000000",
+          top: 55,
+        }}
+      >
+        <CollapsibleSearch />
+      </AppBar>
 
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <div className="filter">
@@ -444,13 +394,13 @@ export default function MobileBookingFlow(props) {
             MenuProps={{ autoFocus: false }}
             labelId="search-select-label"
             id="search-select"
-            value={selectedOption}
+            value={selectedModel}
             label="Bike Models"
-            onChange={(e) => setSelectedOption(e.target.value)}
+            onChange={(e) => setSelectedModel(e.target.value)}
             onClose={() => setSearchText("")}
             // This prevents rendering empty string in Select's value
             // if search text would exclude currently selected option.
-            renderValue={() => selectedOption}
+            renderValue={() => selectedModel}
           >
             {/* TextField is put into ListSubheader so that it doesn't
               act as a selectable item in the menu
@@ -486,6 +436,19 @@ export default function MobileBookingFlow(props) {
           </Select>
         </FormControl>
       </Box>
+
+      {/* New Card UI */}
+
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box sx={{ width: "45%", mx: 1 }}>
+          <BookingFlowCard />
+        </Box>
+
+        <Box sx={{ width: "45%", mx: 1 }}>
+          <BookingFlowCard />
+        </Box>
+      </Box>
+
       <Container sx={{ marginTop: "2%" }}>
         <Grid container spacing={2}>
           {/* GG */}
