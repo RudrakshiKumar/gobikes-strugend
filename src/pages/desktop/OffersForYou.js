@@ -1,6 +1,6 @@
 import {
   Box,
-  Button, 
+  Button,
   Grid,
   IconButton,
   Modal,
@@ -44,22 +44,28 @@ const OffersForYou = () => {
   return (
     <div>
       {isMatch ? <DynamicMobileNavbar /> : <DynamicNavbar />}
-      <Box sx={{ marginLeft: "5%", pt: 10 }}>
+      <Box sx={{ marginLeft: "", pt: 10, padding: "20px" }}>
         <Typography
           variant="h4"
           textAlign={"center"}
-          // sx={{ fontWeight: "bold" }}
+        // sx={{ fontWeight: "bold" }}
         >
           Offers for you
         </Typography>
       </Box>
 
-      <Box sx={{ display: { md: "flex" }, justifyContent: "center" }}>
+      <Box sx={{
+        width: "100%", display: "flex", justifyContent: "space-evenly", flexWrap: "wrap",
+        '@media (max-width: 500px)': {
+          justifyContent: "center", flexDirection: "column",
+        },
+      }}>
         <Box
           sx={{
             marginTop: "4%",
             width: { md: "30%", xs: "94%" },
-            pr: { md: 5, xs: 2 },
+            pr: { md: 5, },
+            padding: { xs: "auto" },
           }}
         >
           <Grid container spacing={2}>
@@ -73,21 +79,32 @@ const OffersForYou = () => {
                   width: "100%",
                 }}
               >
-                <Grid container>
-                  <Grid item xs={12} sm={10}>
-                    <Typography variant="h5" color="#9c3">
+                <Grid container sx={{ width: "100%" }}>
+                  <Grid item xs={10} sm={10} >
+                    <Typography variant="h5" color="rgb(132 204 22)" sx={{
+                      '@media (max-width: 500px)': {
+                        fontSize: "25px",
+                        fontWeight: 600,
+                      },
+                    }}>
                       Get 10% as gocoins
                     </Typography>
                   </Grid>
-                  <Grid item xs={12} sm={2}>
+                  <Grid item xs={2} sm={2}>
                     <img
                       src={goImage}
                       alt="goImage"
-                      style={{ width: "61px", height: "41px" }}
+                      style={{ width: "60px", height: "41px" }}
                     />
                   </Grid>
                 </Grid>
-                <Typography variant="p">
+                <Typography variant="p" sx={{
+                  color: "rgb(156 163 175)",
+                  '@media (max-width: 500px)': {
+                    fontSize: "20px",
+                    fontWeight: 600,
+                  },
+                }}>
                   Receive GoCoins worth 10% of the booking amount which you can
                   redeem in your next booking
                 </Typography>
@@ -178,7 +195,8 @@ const OffersForYou = () => {
           sx={{
             marginTop: "4%",
             width: { md: "30%", xs: "94%" },
-            pr: { md: 5, xs: 2 },
+            pr: { md: 5, },
+            padding: { xs: "auto" }
           }}
         >
           <Grid container spacing={2}>
@@ -193,12 +211,17 @@ const OffersForYou = () => {
                 }}
               >
                 <Grid container>
-                  <Grid item xs={12} sm={10}>
-                    <Typography variant="h5" color="#9c3">
+                  <Grid item xs={10} sm={10}>
+                    <Typography variant="h5" color="rgb(132 204 22)" sx={{
+                      '@media (max-width: 500px)': {
+                        fontSize: "25px",
+                        fontWeight: 600,
+                      },
+                    }}>
                       Get Flat Rs. 50 OFF
                     </Typography>
                   </Grid>
-                  <Grid item xs={12} sm={2}>
+                  <Grid item xs={2} sm={2}>
                     <img
                       src={goImage}
                       alt="goImage"
@@ -206,7 +229,13 @@ const OffersForYou = () => {
                     />
                   </Grid>
                 </Grid>
-                <Typography variant="p">
+                <Typography variant="p" sx={{
+                  color: "rgb(156 163 175)",
+                  '@media (max-width: 500px)': {
+                    fontSize: "20px",
+                    fontWeight: 600,
+                  },
+                }}>
                   Get Flat Rs. 50 off on orders above Rs. 1,000
                 </Typography>
                 <img
@@ -295,12 +324,13 @@ const OffersForYou = () => {
           <div style={{ marginTop: "5%", marginLeft: "5%" }}></div>
         </Box>
 
-        
+
         <Box
           sx={{
             marginTop: "4%",
             width: { md: "30%", xs: "94%" },
-            pr: { md: 5, xs: 2 },
+            pr: { md: 5, },
+            padding: { xs: "auto" }
           }}
         >
           <Grid container spacing={2}>
@@ -315,12 +345,17 @@ const OffersForYou = () => {
                 }}
               >
                 <Grid container>
-                  <Grid item xs={12} sm={10}>
-                    <Typography variant="h5" color="#9c3">
+                  <Grid item xs={10} sm={10}>
+                    <Typography variant="h5" color="rgb(132 204 22)" sx={{
+                      '@media (max-width: 500px)': {
+                        fontSize: "25px",
+                        fontWeight: 600,
+                      },
+                    }}>
                       Get Flat Rs. 100 OFF
                     </Typography>
                   </Grid>
-                  <Grid item xs={12} sm={2}>
+                  <Grid item xs={2} sm={2}>
                     <img
                       src={goImage}
                       alt="goImage"
@@ -328,7 +363,13 @@ const OffersForYou = () => {
                     />
                   </Grid>
                 </Grid>
-                <Typography variant="p">
+                <Typography variant="p" sx={{
+                  color: "rgb(156 163 175)",
+                  '@media (max-width: 500px)': {
+                    fontSize: "20px",
+                    fontWeight: 600,
+                  },
+                }}>
                   Get Flat Rs. 100 off on orders above Rs. 2,000
                 </Typography>
                 <img
