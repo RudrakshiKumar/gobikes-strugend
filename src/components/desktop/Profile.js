@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
 import PersonPinRoundedIcon from "@mui/icons-material/PersonPinRounded";
@@ -75,11 +75,16 @@ export default function Profile() {
 
 
   // Adding aadhar-card & Driving Licence functionality --
-  const [pdfFile, setPdfFile] = useState(null);
+  const inputRef = useRef();
+  const [aadharCard, setAadharCard] = useState(null);
+  const [drivingLicence, setDrivingLicence] = useState(null);
   const handleAddAdharCard = (e) => {
-    // setPdfFile()
-    let selectedFile = e.target.files[0];
-    console.log(selectedFile)
+    setAadharCard(e.target.files);
+    console.log(aadharCard);
+  }
+  const handleDrivingLicence = (e) => {
+    setDrivingLicence(e.target.files);
+    console.log(drivingLicence);
   }
 
   return (
@@ -362,7 +367,7 @@ export default function Profile() {
               {/* Aadhaar Card  */}
               <hr style={{ marginTop: "5%" }} />
 
-              <Grid container sx={{ marginTop: "5%", display: "flex", flexDirection: "column" }}>
+              <Grid container sx={{ marginTop: "5%", display: "flex", }}>
                 <Grid item xs={12} sm={10}>
                   <Typography variant="h5" sx={{ fontWeight: "regular" }}>
                     Aadhaar Card
@@ -389,11 +394,32 @@ export default function Profile() {
                     //   Upload
                     // </Button>
 
-                    <input
-                      style={{ fontSize: "15px", backgroundColor: "#59CE8F", ":hover": { backgroundColor: "#59CE8F", }, color: "white", }}
-                      type="file"
-                      onChange={handleAddAdharCard}
-                    />
+                    <div>
+                      <div>
+                        <input
+                          type="file"
+                          hidden
+                          multiple
+                          ref={inputRef}
+                          accept="image/*,.pdf"
+                          onChange={handleAddAdharCard}
+                        />
+
+                        <button
+                          onClick={() => inputRef.current.click()}
+                          className="px-3 py-1 mr-10 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                        >
+                          Upload
+                        </button>
+                      </div>
+
+                      {/* {
+                      aadharCard
+                        ? <p className="w-full p-5 text-lg text-black border-2 rounded-md" >{aadharCard.name} </p>
+                        : null
+                    } */}
+                    </div>
+
                   ) : (
                     <Button
                       variant="text"
@@ -416,7 +442,7 @@ export default function Profile() {
               {/*  Driving Licence  */}
               <hr style={{ marginTop: "5%" }} />
 
-              <Grid container sx={{ marginTop: "5%", display: "flex", flexDirection: "column" }}>
+              <Grid container sx={{ marginTop: "5%", display: "flex", }}>
                 <Grid item xs={12} sm={10}>
                   <Typography variant="h5" sx={{ fontWeight: "regular" }}>
                     Driving Licence
@@ -443,11 +469,32 @@ export default function Profile() {
                     //   Upload
                     // </Button>
 
-                    <input
-                      style={{ fontSize: "15px", backgroundColor: "#59CE8F", ":hover": { backgroundColor: "#59CE8F", }, color: "white", }}
-                      type="file"
-                      onChange={handleAddAdharCard}
-                    />
+                    <div>
+                      <div>
+                        <input
+                          type="file"
+                          hidden
+                          multiple
+                          ref={inputRef}
+                          accept="image/*,.pdf"
+                          onChange={handleDrivingLicence}
+                        />
+
+                        <button
+                          onClick={() => inputRef.current.click()}
+                          className="px-3 py-1 mr-10 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                        >
+                          Upload
+                        </button>
+                      </div>
+
+                      {/* {
+                        drivingLicence
+                          ? <p className="w-full p-5 text-lg text-black border-2 rounded-md" >{drivingLicence.name} </p>
+                          : null
+                      } */}
+                    </div>
+
                   ) : (
                     <Button
                       variant="text"
