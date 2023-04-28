@@ -80,21 +80,23 @@ export default function RentNow() {
   const handleCoupons = (event) => {
     setCoupons(event.target.value);
   };
-  
+
   const [disable, setDisable] = useState(true);
   const handleDisable = () => {
     setDisable(!disable);
   };
-  
+
   const [couponsArray, setCouponsArray] = useState(dynamicCoupons);
-  
-  useEffect(() => {}, [couponsArray]);
-  
+
+  useEffect(() => {
+    setCoupons("");
+  }, [couponsArray]);
+
   const handleApply = (e) => {
     let arr = couponsArray;
     var btnId = e.currentTarget.id;
     var currId = btnId[5];
-    
+
     console.log("Button Clicked!");
     if (arr[currId - 1].text === "APPLY") arr[currId - 1].text = "REMOVE";
     else {
@@ -106,7 +108,7 @@ export default function RentNow() {
     setCouponsArray(arr);
   };
   console.log(coupons);
-  
+
   return (
     <>
       <DynamicNavbar />
@@ -311,33 +313,51 @@ export default function RentNow() {
             </Grid>
 
             <Grid item xs={12} sm={5}>
-
               {/* apply coupon section starts here  */}
               <Box>
                 <FormControl sx={{ minWidth: 470 }}>
-                  <Select inputProps={{ "aria-label": "Without label" }} size="small" displayEmpty
-                    value={coupons} onChange={handleCoupons} >
+                  <Select
+                    inputProps={{ "aria-label": "Without label" }}
+                    size="small"
+                    displayEmpty
+                    value={coupons}
+                    onChange={handleCoupons}
+                  >
                     <MenuItem value="">
                       <em>Apply Coupons</em>
                     </MenuItem>
                     {couponsArray.map((coup) => (
-
                       <MenuItem value={coup.value} key={coup.value}>
                         <div style={{ display: "flex" }}>
-                          <Button variant="contained" size="small"
-                            sx={{ color: "black",  backgroundColor: "#eeeeee",
-                              ":hover": { backgroundColor: "#eeeeee", }
-                            }} >
-
+                          <Button
+                            variant="contained"
+                            size="small"
+                            sx={{
+                              color: "black",
+                              backgroundColor: "#eeeeee",
+                              ":hover": { backgroundColor: "#eeeeee" },
+                            }}
+                          >
                             {coup.sideBtnText}
                           </Button>
-                          <Typography variant="p"
-                            sx={{ fontSize: "14px", color: "#4cbb17", marginLeft: "5px", }} >
+                          <Typography
+                            variant="p"
+                            sx={{
+                              fontSize: "14px",
+                              color: "#4cbb17",
+                              marginLeft: "5px",
+                            }}
+                          >
                             {coup.couponText}
                           </Typography>
 
-                          <Button variant="text" size="small" sx={{ color: coup.color }}
-                            id={coup.id} onClick={handleApply}  >
+                          <Button
+                            variant="text"
+                            size="small"
+                            sx={{ color: coup.color }}
+                            id={coup.id}
+                            onClick={handleApply}
+                          >
                             {coup.text}
                           </Button>
                         </div>
