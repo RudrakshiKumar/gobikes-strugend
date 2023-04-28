@@ -5,6 +5,9 @@ import "react-multi-carousel/lib/styles.css";
 
 import React from "react";
 import Offer from "./Offer";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import MobileOffer from "../mobile/MobileOffer";
 // import ButtonGroup from "./ButtonGroup";
 
 const responsive = {
@@ -26,20 +29,37 @@ const responsive = {
 };
 
 const OfferCarousal = () => {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div>
-      <Carousel
-        responsive={responsive}
+      {isMatch ? (
+        <Carousel
+          responsive={responsive}
 
-        // arrows={false}
-        // renderButtonGroupOutside={true}
-        // customButtonGroup={<ButtonGroup />}
-      >
-        <Offer />
-        <Offer />
-        <Offer />
-        <Offer />
-      </Carousel>
+          // arrows={false}
+          // renderButtonGroupOutside={true}
+          // customButtonGroup={<ButtonGroup />}
+        >
+          <MobileOffer />
+          <MobileOffer />
+          <MobileOffer />
+          <MobileOffer />
+        </Carousel>
+      ) : (
+        <Carousel
+          responsive={responsive}
+
+          // arrows={false}
+          // renderButtonGroupOutside={true}
+          // customButtonGroup={<ButtonGroup />}
+        >
+          <Offer />
+          <Offer />
+          <Offer />
+          <Offer />
+        </Carousel>
+      )}
 
       {/* <Box className="" sx={{ display: "flex" }}>
         <button

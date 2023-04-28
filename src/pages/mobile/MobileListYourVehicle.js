@@ -200,7 +200,7 @@ const MobileListYourVehicle = () => {
           </Grid>
         </Box>
       </Box>
-      <Box>
+      <Box sx={{ mx: 3 }}>
         <Typography variant="h5" sx={{ fontWeight: "bold", mb: 2 }}>
           Have Questions? We got you.
         </Typography>
@@ -369,7 +369,7 @@ const MobileListYourVehicle = () => {
           </Accordion>
         </div>
       </Box>
-      <Box sx={{ py: 5 }}>
+      <Box sx={{ py: 5, mx: 3 }}>
         <Box
           sx={{
             width: "100%",

@@ -11,7 +11,13 @@ import DialogContent from "@mui/material/DialogContent";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box } from "@mui/system";
 
-import { Typography, TextField } from "@mui/material";
+import {
+  Typography,
+  TextField,
+  Grid,
+  Stack,
+  TextareaAutosize,
+} from "@mui/material";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function StartEarning() {
@@ -117,7 +123,7 @@ export default function StartEarning() {
       </Button>{" "}
       <Dialog
         sx={{}}
-        PaperProps={{ sx: { width: "35%" } }}
+        PaperProps={{ sx: { width: { md: "35%", xs: "100%" } } }}
         // fullScreen={fullScreen}
         // maxWidth="lg"
         open={open}
@@ -125,7 +131,7 @@ export default function StartEarning() {
         aria-labelledby="responsive-dialog-title"
       >
         {/* earning popup div started here  */}
-        <Box sx={{ bgcolor: "#EAEAEA" }}>
+        <Box sx={{}}>
           <DialogActions>
             <Button
               size="small"
@@ -138,128 +144,174 @@ export default function StartEarning() {
           </DialogActions>
 
           <DialogContent>
-            <Typography variant="h5" sx={{ pb: 3 }}>
+            <Typography textAlign={"center"} variant="h5" sx={{ pb: 3 }}>
               List Your Vehicle{" "}
             </Typography>
 
             {/* earning form started here */}
-            <Box
-              component="form"
-              sx={{
-                textAlign: "center",
-                mb: 2,
-                "& > :not(style)": { m: 1, width: "45ch" },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="outlined-basic"
-                name="name"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                required
-                type="text"
-                placeholder="Name*"
-                variant="outlined"
-                bgcolor="#ffffff"
-              />
-              <br />
-              <TextField
-                id="outlined-basic"
-                name="email"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                type="email"
-                placeholder="Email*"
-                required
-                variant="outlined"
-              />
-              <br />
-              <TextField
-                id="outlined-basic"
-                name="MobileNo"
-                value={formData.MobileNo}
-                onChange={(e) =>
-                  setFormData({ ...formData, MobileNo: e.target.value })
-                }
-                type="number"
-                placeholder="Mobile Number*"
-                required
-                variant="outlined"
-              />
-              <TextField
-                id="outlined-basic"
-                name="city"
-                value={formData.city}
-                onChange={(e) =>
-                  setFormData({ ...formData, city: e.target.value })
-                }
-                placeholder="City*"
-                required
-                variant="outlined"
-              />
-              <br />
-              <TextField
-                id="outlined-basic"
-                name="bikesQuantity"
-                value={formData.bikesQuantity}
-                onChange={(e) =>
-                  setFormData({ ...formData, bikesQuantity: e.target.value })
-                }
-                type="number"
-                placeholder="Number of Bikes*"
-                required
-                variant="outlined"
-              />
-              <br />
-              <TextField
-                id="outlined-basic"
-                name="message"
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                placeholder="Message*"
-                required
-                className="message"
-                variant="outlined"
-                multiline
-                rows={4}
-              />{" "}
-              <br />
-              <Box sx={{ display: "flex", justifyContent: "center", my: 4 }}>
-                <div>
-                  <ReCAPTCHA
-                    sitekey={key}
-                    onChange={(e) => setIsCapchaDone(true)}
-                    onErrored={(e) => setIsCapchaDone(false)}
-                  />
-                </div>
-              </Box>
-              <Button
-                variant="contained"
-                type="submit"
-                disabled={showSubmit} //this will toggle submit button display and blur
+            <Grid container spacing={3} sx={{}}>
+              <Grid item sx={{ mx: "auto" }}>
+                <TextField
+                  id="outlined-basic"
+                  name="name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  required
+                  type="text"
+                  placeholder="Name*"
+                  variant="outlined"
+                  sx={{ width: { md: "45ch", xs: "25ch" } }}
+                />
+              </Grid>
+              <Grid item sx={{ mx: "auto" }}>
+                <TextField
+                  id="outlined-basic"
+                  name="email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  type="email"
+                  placeholder="Email*"
+                  required
+                  variant="outlined"
+                  sx={{ width: { md: "45ch", xs: "25ch" } }}
+                />
+              </Grid>
+              <Grid item sx={{ mx: "auto" }}>
+                <TextField
+                  id="outlined-basic"
+                  name="MobileNo"
+                  value={formData.MobileNo}
+                  onChange={(e) =>
+                    setFormData({ ...formData, MobileNo: e.target.value })
+                  }
+                  type="number"
+                  placeholder="Mobile Number*"
+                  required
+                  variant="outlined"
+                  sx={{ width: { md: "45ch", xs: "25ch" } }}
+                />
+              </Grid>
+              <Grid item sx={{ mx: "auto" }}>
+                <TextField
+                  id="outlined-basic"
+                  name="city"
+                  value={formData.city}
+                  onChange={(e) =>
+                    setFormData({ ...formData, city: e.target.value })
+                  }
+                  placeholder="City*"
+                  required
+                  variant="outlined"
+                  sx={{ width: { md: "45ch", xs: "25ch" } }}
+                />
+              </Grid>
+              <Grid item sx={{ mx: "auto" }}>
+                <TextField
+                  id="outlined-basic"
+                  name="bikesQuantity"
+                  value={formData.bikesQuantity}
+                  onChange={(e) =>
+                    setFormData({ ...formData, bikesQuantity: e.target.value })
+                  }
+                  type="number"
+                  placeholder="Number of Bikes*"
+                  required
+                  variant="outlined"
+                  sx={{ width: { md: "45ch", xs: "25ch" } }}
+                />
+              </Grid>
+              <Grid
+                item
+                container
                 sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "94%",
-                  color: "#ffffff",
-                  bgcolor: "#59CE8F",
-                  textAlign: "center",
-                  m: "auto",
-                  py: 1.4,
+                  mx: "auto",
                 }}
               >
-                Submit
-              </Button>
+                {" "}
+                <Stack
+                  sx={{
+                    width: { md: "45ch", xs: "25ch" },
+                    mx: "auto",
+                  }}
+                >
+                  <TextareaAutosize
+                    name="message"
+                    type="text"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    required
+                    id="outlined-basic"
+                    placeholder="Message*"
+                    variant="outlined"
+                    sx={{ mx: "auto" }}
+                  />
+                </Stack>
+              </Grid>
+            </Grid>
+
+            <Box
+              className="g-recaptcha"
+              sx={{
+                mx: "auto",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <ReCAPTCHA
+                sitekey={key}
+                size="10px"
+                onChange={(e) => setIsCapchaDone(true)}
+                onErrored={(e) => setIsCapchaDone(false)}
+              />
             </Box>
+            <div
+              class="captcha"
+              style={{
+                transform: "scale(0.85)",
+                transformOrigin: "0 0",
+                mx: "auto",
+              }}
+            ></div>
+            {/* <Box
+              sx={{
+                display: "flex",
+
+                justifyContent: "center",
+
+                my: 3,
+              }}
+            > */}
+            {/* <ReCAPTCHA
+              sitekey={key}
+              onChange={(e) => setIsCapchaDone(true)}
+              onErrored={(e) => setIsCapchaDone(false)}
+            /> */}
+            {/* </Box> */}
+
+            <Button
+              variant="contained"
+              type="submit"
+              disabled={showSubmit} //this will toggle submit button display and blur
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: { md: "94%", xs: "100%" },
+                color: "#ffffff",
+                bgcolor: "#59CE8F",
+                mx: "auto",
+                py: 1.4,
+                mt: 5,
+              }}
+            >
+              Submit
+            </Button>
           </DialogContent>
         </Box>
       </Dialog>

@@ -105,7 +105,7 @@ export default function MobileDashboard() {
               }}
               onClick={() => setActive("goCoins")}
             >
-              Go Coins
+              Bro Coins
             </Button>
           </Link>
         </Box>

@@ -18,7 +18,7 @@ import OTP from "./components/desktop/OTP";
 
 import ScrollToTop from "./components/ScrollToTop";
 import MyRides from "./components/desktop/MyRides";
-import Trial from "./components/desktop/Process";
+import Trial from "./pages/mobile/Trial";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import RentNow from "./pages/desktop/RentNow";
 import MobileLogin from "./pages/mobile/MobileLogin";

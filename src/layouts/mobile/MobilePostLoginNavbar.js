@@ -190,7 +190,7 @@ export default function MobilePostLoginNavbar({ userDetails }) {
                 <ListItemIcon>
                   <AccountBalanceWalletIcon sx={{ color: "#59ce8f" }} />
                 </ListItemIcon>
-                <ListItemText primary="GoCoins" font="poppins" />
+                <ListItemText primary="BroCoins" font="poppins" />
               </ListItemButton>
             </ListItem>
           </Link>

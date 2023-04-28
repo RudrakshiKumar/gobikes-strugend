@@ -63,9 +63,12 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import MobileBookNowPage from "../../pages/mobile/MobileBookNowPage";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+
 /* eslint-disable import/no-webpack-loader-syntax */
 import mapboxgl from "mapbox-gl";
 import dayjs from "dayjs";
+import SearchCityModal from "../../components/desktop/SearchCityModal";
 // @ts-ignore
 mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
@@ -138,17 +141,13 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function BookNowPage() {
   const theme = useTheme();
-  const date = useLocation();
-  const navigate = useNavigate();
+
+  // const navigate = useNavigate();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const [search, setSearch] = useState(false);
-  const handleSearchOpen = () => setSearch(true);
-  const handleSearchClose = () => setSearch(false);
 
   const [payment, setPayment] = useState("PayNow");
   const [partialPayment, setPartialPayment] = useState("PartialPayment");
@@ -159,23 +158,39 @@ export default function BookNowPage() {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const date = useLocation();
 
-  // const date = useLocation();
+  const [search, setSearch] = useState(false);
+  const handleSearchOpen = () => setSearch(true);
+  const handleSearchClose = () => setSearch(false);
 
-  useEffect(() => {
-    const initial_StartDate = dayjs(date.state.selected_startDate.$d);
-    const initial_EndDate = dayjs(date.state.selected_endDate.$d);
-    console.log(initial_StartDate);
-    console.log(initial_EndDate);
-    setStartDate(initial_StartDate);
-    setEndDate(initial_EndDate);
-  }, []);
+  // useEffect(() => {
+  //   const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+  //   const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+  //   console.log(initial_StartDate);
+  //   console.log(initial_EndDate);
+  //   setStartDate(initial_StartDate);
+  //   setEndDate(initial_EndDate);
+  // }, []);
 
   const [change, setChange] = useState(true);
   const handleChange = () => {
     setChange(!change);
   };
 
+  // const handleRentNowSummary = () => {
+  //   navigate("/RentNow");
+  // };
+
+  // useEffect(() => {
+  //   const initial_StartDate = dayjs(date.state.selected_startDate.$d);
+  //   const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+  //   setStartDate(initial_StartDate);
+  //   setEndDate(initial_EndDate);
+  // }, []);
+
+  const [name, setName] = useState("Location");
+  const [setEditName] = useState(null);
   const [bike, setBike] = useState(false);
   const handleBikeModel = () => setBike(true);
   const handleBikeModelClose = () => setBike(false);
@@ -189,9 +204,26 @@ export default function BookNowPage() {
   useEffect(() => {
     const initial_StartDate = dayjs(date.state.selected_startDate.$d);
     const initial_EndDate = dayjs(date.state.selected_endDate.$d);
+    const initial_CityName = date.state.selected_cityName;
+    console.log(initial_StartDate);
+    console.log(initial_EndDate);
+    console.log(initial_CityName);
     setStartDate(initial_StartDate);
     setEndDate(initial_EndDate);
+    setName(initial_CityName);
   }, []);
+
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/RentNow", {
+      state: {
+        selected_startDate: startDate,
+        selected_endDate: endDate,
+        selected_cityName: name,
+      },
+    });
+  };
+
   return (
     <>
       {isMatch ? (
@@ -205,7 +237,7 @@ export default function BookNowPage() {
           >
             <Container>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={2}>
+                {/* <Grid item xs={12} sm={2}>
                   <TextField
                     fullWidth
                     label="Go Hub Location"
@@ -214,7 +246,7 @@ export default function BookNowPage() {
                       readOnly: true,
                     }}
                   />
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12} sm={4}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DateTimePicker
@@ -234,6 +266,9 @@ export default function BookNowPage() {
                       sx={{ width: "100%" }}
                     />
                   </LocalizationProvider>
+                </Grid>
+                <Grid item xs={12} sm={2}>
+                  <SearchCityModal />
                 </Grid>
                 <Grid item xs={12} sm={2}>
                   <Button
@@ -1235,7 +1270,7 @@ export default function BookNowPage() {
               </Grid>
             </Grid>
             <Container sx={{ marginTop: "3%" }}>
-              <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                 Offers for you
               </Typography>
               <OfferCarousal />
@@ -1309,7 +1344,7 @@ export default function BookNowPage() {
                   </Grid>
                   <Grid item sx={{ marginLeft: "25px" }}>
                     <Button
-                      onClick={handlePayNowOpen}
+                      onClick={handleNavigate}
                       variant="contained"
                       color="success"
                       size="medium"

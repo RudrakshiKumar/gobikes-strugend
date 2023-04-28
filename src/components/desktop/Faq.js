@@ -2,6 +2,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Box,
   Container,
   Typography,
 } from "@mui/material";
@@ -11,12 +12,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 export default function Faq() {
   return (
     <>
-      <Container sx={{ marginTop: "7%" }}>
-        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+      <Box sx={{ marginTop: "7%" }}>
+        <Typography variant="h6" sx={{ fontWeight: "bold" }} fontSize={"18px"}>
           Have Questions? We got you.
         </Typography>{" "}
         <br />
-        <Typography variant="p" sx={{ fontSize: "20px" }}>
+        <Typography variant="p" sx={{ fontSize: "15px" }}>
           Contact us on +91-8448444897 WhatsApp/Call in case of any other query.
         </Typography>
         <div style={{ marginTop: "7%" }}>
@@ -150,7 +151,7 @@ export default function Faq() {
             </AccordionDetails>
           </Accordion>
         </div>
-      </Container>
+      </Box>
     </>
   );
 }

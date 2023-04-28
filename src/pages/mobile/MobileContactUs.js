@@ -102,13 +102,8 @@ const MobileContactUs = () => {
             </Typography>
 
             {/* ContactUs form starts here  */}
-            <Grid
-              component="form"
-              container
-              spacing={3}
-              sx={{ mt: 1, mx: "auto" }}
-            >
-              <Grid item sx={{}}>
+            <Grid component="form" container spacing={3} sx={{ mt: 1 }}>
+              <Grid item sx={{ mx: "auto" }}>
                 <TextField
                   fullWidth
                   name="name"
@@ -124,7 +119,7 @@ const MobileContactUs = () => {
                   sx={{ width: "17em" }}
                 />
               </Grid>
-              <Grid item>
+              <Grid item sx={{ mx: "auto" }}>
                 <TextField
                   name="email"
                   type="email"
@@ -139,7 +134,7 @@ const MobileContactUs = () => {
                   sx={{ width: "17em" }}
                 />
               </Grid>
-              <Grid item>
+              <Grid item sx={{ mx: "auto" }}>
                 <TextField
                   name="mobile"
                   type="number"
@@ -154,14 +149,15 @@ const MobileContactUs = () => {
                   sx={{ width: "17em" }}
                 />
               </Grid>
-              <Grid item>
-                <Stack
-                  direction="column"
-                  justifyContent="center"
-                  alignItems="stretch"
-                  spacing={2}
-                  sx={{ width: "17em" }}
-                >
+              <Grid
+                item
+                container
+                sx={{
+                  mx: "auto",
+                }}
+              >
+                {" "}
+                <Stack sx={{ width: "17em", mx: "auto" }}>
                   <TextareaAutosize
                     name="message"
                     type="text"
@@ -173,11 +169,10 @@ const MobileContactUs = () => {
                     id="outlined-basic"
                     placeholder="Message*"
                     variant="outlined"
-                    size="large"
+                    sx={{ mx: "auto" }}
                   />
                 </Stack>
               </Grid>
-                      
             </Grid>
 
             <Box
@@ -202,7 +197,7 @@ const MobileContactUs = () => {
               variant="contained"
               disabled={showSubmit}
               sx={{
-                bgcolor: "#99CC33",
+                bgcolor: "#59CE8F",
                 // p: "7px",
                 display: "flex",
                 alignItems: "center",
@@ -219,11 +214,11 @@ const MobileContactUs = () => {
 
         {/* CONTACT INFO */}
 
-        <Box sx={{ mr: "5%" }}>
+        <Box sx={{ mx: 5 }}>
           <Box
             sx={{
               display: "flex",
-              ml: "5%",
+              // ml: "5%",
 
               mt: 10,
             }}
@@ -234,13 +229,14 @@ const MobileContactUs = () => {
             <Box sx={{ ml: 3 }}>
               <Typography
                 variant="h7"
+                fontSize={"13px"}
                 fontWeight={"bold"}
                 sx={{ color: "#59CE8F" }}
               >
                 Registered Company
               </Typography>{" "}
               <br />
-              <Typography variant="h7" fontWeight={"bold"}>
+              <Typography variant="h7" fontWeight={"bold"} fontSize={"13px"}>
                 GoBikes Automotive Private Limited
               </Typography>
             </Box>
@@ -250,7 +246,7 @@ const MobileContactUs = () => {
             sx={{
               display: "flex",
               // justifyContent: "center",
-              ml: "5%",
+              // ml: "5%",
             }}
           >
             <Box>
@@ -259,39 +255,41 @@ const MobileContactUs = () => {
             <Box sx={{ ml: 4 }}>
               <Typography
                 variant="h7"
+                fontSize={"13px"}
                 fontWeight={"bold"}
                 sx={{ color: "#59CE8F" }}
               >
                 Registered Address{" "}
               </Typography>{" "}
               <br />
-              <Typography variant="h7" fontWeight={"bold"} fontSize={"15px"}>
+              <Typography variant="h7" fontWeight={"bold"} fontSize={"13px"}>
                 5th Floor, Seminar Building, Incubation Center IIIT Delhi, New
                 Delhi, Delhi 110020{" "}
               </Typography>
             </Box>
           </Box>{" "}
           <br />
-          <Box sx={{ display: "flex", ml: "5%" }}>
+          <Box sx={{ display: "flex" }}>
             <Box>
               <img className="w-8" src={contactphone} alt="Extra Income" />
             </Box>
             <Box sx={{ ml: 3 }}>
               <Typography
                 variant="h7"
+                fontSize={"13px"}
                 fontWeight={"bold"}
                 sx={{ color: "#59CE8F" }}
               >
                 Mobile Number{" "}
               </Typography>{" "}
               <br />
-              <Typography variant="h7" fontWeight={"bold"}>
+              <Typography variant="h7" fontWeight={"bold"} fontSize={"13px"}>
                 +91-8448444897{" "}
               </Typography>
             </Box>
           </Box>{" "}
           <br />
-          <Box sx={{ display: "inline-flex", ml: "5%" }}>
+          <Box sx={{ display: "inline-flex" }}>
             <Box>
               <img className="w-8" src={contactemail} alt="Extra Income" />
             </Box>
@@ -301,11 +299,11 @@ const MobileContactUs = () => {
                   variant="h7"
                   fontWeight={"bold"}
                   sx={{ color: "#59CE8F" }}
-                  fontSize={"14px"}
+                  fontSize={"13px"}
                 >
                   Support :
                 </Typography>
-                <Typography variant="h7" fontSize={"14px"} fontWeight={"bold"}>
+                <Typography variant="h7" fontSize={"13px"} fontWeight={"bold"}>
                   &nbsp; contact-us@gobikes.co.in
                 </Typography>
               </Box>{" "}
@@ -315,11 +313,11 @@ const MobileContactUs = () => {
                   variant="h7"
                   fontWeight={"bold"}
                   sx={{ color: "#59CE8F" }}
-                  fontSize={"14px"}
+                  fontSize={"12px"}
                 >
                   Contact Us :{}
                 </Typography>
-                <Typography variant="h7" fontSize={"14px"} fontWeight={"bold"}>
+                <Typography variant="h7" fontSize={"12px"} fontWeight={"bold"}>
                   &nbsp; contact-us@gobikes.co.in{" "}
                 </Typography>
               </Box>
