@@ -80,17 +80,23 @@ const MobileProfile = () => {
   };
 
   // Adding aadhar-card & Driving Licence functionality --
-  const inputRef = useRef();
+  const aadharRef = useRef();
+  const drivingRef = useRef();
   const [aadharCard, setAadharCard] = useState(null);
   const [drivingLicence, setDrivingLicence] = useState(null);
+
   const handleAddAdharCard = (e) => {
-    setAadharCard(e.target.files);
-    console.log(aadharCard);
+    const selectedFiles = e.target.files;
+    const selectedFilesArray = Array.from(selectedFiles);
+    setAadharCard(selectedFilesArray);
   }
   const handleDrivingLicence = (e) => {
-    setDrivingLicence(e.target.files);
-    console.log(drivingLicence);
+    const selectedFiles = e.target.files;
+    const selectedFilesArray = Array.from(selectedFiles);
+    setDrivingLicence(selectedFilesArray);
   }
+
+
   return (
     <div>
       <DynamicMobileNavbar />
@@ -405,7 +411,7 @@ const MobileProfile = () => {
 
                 <hr style={{ marginTop: "10%" }} />
 
-                <Grid container sx={{ marginTop: "10%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                <Grid container sx={{ marginTop: "10%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                   {/* Aadhaar Card  */}
                   <Grid item xs={12} sm={10}>
                     <Typography variant="h5" sx={{ fontWeight: "regular" }}>
@@ -414,51 +420,24 @@ const MobileProfile = () => {
                   </Grid>
                   <Grid item xs={12} sm={2} sx={{ my: 3 }}>
                     {!editAddress ? (
-                      // <Button
-                      //   variant="text"
-                      //   size="small"
-                      //   sx={{
-                      //     fontSize: "15px",
-                      //     backgroundColor: "#59CE8F",
-                      //     ":hover": {
-                      //       backgroundColor: "#59CE8F",
-                      //     },
-                      //     color: "white",
-                      //   }}
-                      //   // onClick={() => {
-                      //   //   setEditAddress(!editAddress);
-                      //   //   setAddress("Address");
-                      //   // }}
-                      // onClick={handleAddAdharCard}
-
-                      // >
-                      //   Upload Aadhaar Card
-                      // </Button>
-
-                      <div>
-                        <div>
+                      <div className="flex flex-col w-full">
+                        <label className="">
                           <input
                             type="file"
-                            hidden
+                            name="aadhar images"
                             multiple
-                            ref={inputRef}
-                            accept="image/*,.pdf"
+                            hidden
+                            ref={aadharRef}
                             onChange={handleAddAdharCard}
                           />
 
                           <button
-                            onClick={() => inputRef.current.click()}
-                            className="px-3 py-1 mr-10 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                            onClick={() => aadharRef.current.click()}
+                            className="px-3 py-1.5 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
                           >
-                            Upload
+                            UPLOAD
                           </button>
-                        </div>
-
-                        {/* {
-                      aadharCard
-                        ? <p className="w-full p-5 text-lg text-black border-2 rounded-md" >{aadharCard.name} </p>
-                        : null
-                    } */}
+                        </label>
                       </div>
                     ) : (
                       <Button
@@ -478,6 +457,18 @@ const MobileProfile = () => {
                       </Button>
                     )}
                   </Grid>
+
+                  <div className="w-full">
+                    {
+                      (aadharCard)
+                        ? <div className="w-full p-2 pl-4 mt-5 text-lg flex flex-col items-start text-black border-2 border-red-400 rounded-md" >
+                          {
+                            aadharCard.map((file, index) => <li key={index} className="text-sm font-semibold ">{file.name} </li>)
+                          }
+                        </div>
+                        : null
+                    }
+                  </div>
                 </Grid>
 
 
@@ -496,49 +487,24 @@ const MobileProfile = () => {
                   </Grid>
                   <Grid item xs={12} sm={2} sx={{ my: 3 }}>
                     {!editAddress ? (
-                      // <Button
-                      //   variant="text"
-                      //   size="small"
-                      //   sx={{
-                      //     fontSize: "15px",
-                      //     backgroundColor: "#59CE8F",
-                      //     ":hover": {
-                      //       backgroundColor: "#59CE8F",
-                      //     },
-                      //     color: "white",
-                      //   }}
-                      //   // onClick={() => {
-                      //   //   setEditAddress(!editAddress);
-                      //   //   setAddress("Address");
-                      //   // }}
-                      // >
-                      //   Upload Driving Licence
-                      // </Button>
-
-                      <div>
-                        <div>
+                      <div className="flex flex-col w-full">
+                        <label className="">
                           <input
                             type="file"
-                            hidden
+                            name="aadhar images"
                             multiple
-                            ref={inputRef}
-                            accept="image/*,.pdf"
+                            hidden
+                            ref={drivingRef}
                             onChange={handleDrivingLicence}
                           />
 
                           <button
-                            onClick={() => inputRef.current.click()}
-                            className="px-3 py-1 mr-10 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                            onClick={() => drivingRef.current.click()}
+                            className="px-3 py-1.5 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
                           >
-                            Upload
+                            UPLOAD
                           </button>
-                        </div>
-
-                        {/* {
-                        drivingLicence
-                          ? <p className="w-full p-5 text-lg text-black border-2 rounded-md" >{drivingLicence.name} </p>
-                          : null
-                      } */}
+                        </label>
                       </div>
                     ) : (
                       <Button
@@ -558,6 +524,18 @@ const MobileProfile = () => {
                       </Button>
                     )}
                   </Grid>
+
+                  <div className="w-full">
+                    {
+                      (drivingLicence)
+                        ? <div className="w-full p-2 pl-4 mt-5 text-lg flex flex-col items-start text-black border-2 border-red-400 rounded-md" >
+                          {
+                            drivingLicence.map((file, index) => <li key={index} className="text-sm font-semibold ">{file.name} </li>)
+                          }
+                        </div>
+                        : null
+                    }
+                  </div>
                 </Grid>
                 {/*  KYC  */}
                 <hr style={{ marginTop: "5%" }} />

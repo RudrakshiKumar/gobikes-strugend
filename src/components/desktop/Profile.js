@@ -75,16 +75,20 @@ export default function Profile() {
 
 
   // Adding aadhar-card & Driving Licence functionality --
-  const inputRef = useRef();
+  const aadharRef = useRef();
+  const drivingRef = useRef();
   const [aadharCard, setAadharCard] = useState(null);
   const [drivingLicence, setDrivingLicence] = useState(null);
+
   const handleAddAdharCard = (e) => {
-    setAadharCard(e.target.files);
-    console.log(aadharCard);
+    const selectedFiles = e.target.files;
+    const selectedFilesArray = Array.from(selectedFiles);
+    setAadharCard(selectedFilesArray);
   }
   const handleDrivingLicence = (e) => {
-    setDrivingLicence(e.target.files);
-    console.log(drivingLicence);
+    const selectedFiles = e.target.files;
+    const selectedFilesArray = Array.from(selectedFiles);
+    setDrivingLicence(selectedFilesArray);
   }
 
   return (
@@ -367,63 +371,38 @@ export default function Profile() {
               {/* Aadhaar Card  */}
               <hr style={{ marginTop: "5%" }} />
 
-              <Grid container sx={{ marginTop: "5%", display: "flex", }}>
-                <Grid item xs={12} sm={10}>
+              <Grid container sx={{ marginTop: "5%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <Grid item  >
                   <Typography variant="h5" sx={{ fontWeight: "regular" }}>
                     Aadhaar Card
                   </Typography>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item >
                   {!editAddress ? (
-                    // <Button
-                    //   variant="text"
-                    //   size="small"
-                    //   sx={{
-                    //     fontSize: "15px",
-                    //     backgroundColor: "#59CE8F",
-                    //     ":hover": {
-                    //       backgroundColor: "#36b671",
-                    //     },
-                    //     color: "white",
-                    //   }}
-                    //   // onClick={() => {
-                    //   //   setEditAddress(!editAddress);
-                    //   //   setAddress("Address");
-                    //   // }}
-                    // >
-                    //   Upload
-                    // </Button>
-
-                    <div>
-                      <div>
+                    <div className="flex flex-col w-full">
+                      <label className="">
                         <input
                           type="file"
-                          hidden
+                          name="aadhar images"
                           multiple
-                          ref={inputRef}
-                          accept="image/*,.pdf"
+                          hidden
+                          ref={aadharRef}
                           onChange={handleAddAdharCard}
                         />
 
                         <button
-                          onClick={() => inputRef.current.click()}
-                          className="px-3 py-1 mr-10 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                          onClick={() => aadharRef.current.click()}
+                          className="px-3 py-1.5 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
                         >
-                          Upload
+                          UPLOAD
                         </button>
-                      </div>
-
-                      {/* {
-                      aadharCard
-                        ? <p className="w-full p-5 text-lg text-black border-2 rounded-md" >{aadharCard.name} </p>
-                        : null
-                    } */}
+                      </label>
                     </div>
 
                   ) : (
                     <Button
                       variant="text"
-                      size="small"
+                      size="small" f
                       sx={{
                         fontSize: "15px",
                         backgroundColor: "#59CE8F",
@@ -438,61 +417,51 @@ export default function Profile() {
                     </Button>
                   )}
                 </Grid>
+
+                <div className="w-full">
+                  {
+                    (aadharCard)
+                      ? <div className="w-full p-2 pl-4 mt-5 text-lg text-black border-2 border-red-400 rounded-md" >
+                        {
+                          aadharCard.map((file, index) => <li key={index} className="text-sm font-semibold ">{file.name} </li>)
+                        }
+                      </div>
+                      : null
+                  }
+                </div>
               </Grid>
+
+
               {/*  Driving Licence  */}
               <hr style={{ marginTop: "5%" }} />
 
-              <Grid container sx={{ marginTop: "5%", display: "flex", }}>
-                <Grid item xs={12} sm={10}>
+              <Grid container sx={{ marginTop: "5%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <Grid item >
                   <Typography variant="h5" sx={{ fontWeight: "regular" }}>
                     Driving Licence
                   </Typography>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item >
                   {!editAddress ? (
-                    // <Button
-                    //   variant="text"
-                    //   size="small"
-                    //   sx={{
-                    //     fontSize: "15px",
-                    //     backgroundColor: "#59CE8F",
-                    //     ":hover": {
-                    //       backgroundColor: "#36b671",
-                    //     },
-                    //     color: "white",
-                    //   }}
-                    // // onClick={() => {
-                    // //   setEditAddress(!editAddress);
-                    // //   setAddress("Address");
-                    // // }}
-                    // >
-                    //   Upload
-                    // </Button>
 
-                    <div>
-                      <div>
+                    <div className="flex flex-col w-full">
+                      <label className="">
                         <input
                           type="file"
-                          hidden
+                          name="aadhar images"
                           multiple
-                          ref={inputRef}
-                          accept="image/*,.pdf"
+                          hidden
+                          ref={drivingRef}
                           onChange={handleDrivingLicence}
                         />
 
                         <button
-                          onClick={() => inputRef.current.click()}
-                          className="px-3 py-1 mr-10 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                          onClick={() => drivingRef.current.click()}
+                          className="px-3 py-1.5 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
                         >
-                          Upload
+                          UPLOAD
                         </button>
-                      </div>
-
-                      {/* {
-                        drivingLicence
-                          ? <p className="w-full p-5 text-lg text-black border-2 rounded-md" >{drivingLicence.name} </p>
-                          : null
-                      } */}
+                      </label>
                     </div>
 
                   ) : (
@@ -513,6 +482,18 @@ export default function Profile() {
                     </Button>
                   )}
                 </Grid>
+
+                <div className="w-full">
+                  {
+                    (drivingLicence)
+                      ? <div className="w-full p-2 pl-4 mt-5 text-lg text-black border-2 border-red-400 rounded-md" >
+                        {
+                          drivingLicence.map((file, index) => <li key={index} className="text-sm font-semibold ">{file.name} </li>)
+                        }
+                      </div>
+                      : null
+                  }
+                </div>
               </Grid>
               {/*  KYC  */}
               <hr style={{ marginTop: "5%" }} />
