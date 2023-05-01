@@ -105,7 +105,7 @@ export default function ButtonAppBar() {
                   </Button>
                   <Dialog
                     sx={{}}
-                    PaperProps={{ sx: { width: "70%", height: "80%" } }}
+                    PaperProps={{ sx: { width: "60%" } }}
                     // fullScreen={fullScreen}
                     maxWidth="lg"
                     open={open}

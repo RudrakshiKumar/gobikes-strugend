@@ -28,7 +28,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const styles = {
   position: "absolute",
@@ -67,7 +67,7 @@ const SearchCityModal = () => {
     <div>
       <Button
         onClick={handleLocationOpen}
-        sx={{ marginTop: "5px", marginLeft: "12px" }}
+        // sx={{ marginTop: "5px", marginLeft: "12px" }}
       >
         <LocationOnIcon sx={{ color: "#59CE8F", fontSize: 30 }} />
         <Typography

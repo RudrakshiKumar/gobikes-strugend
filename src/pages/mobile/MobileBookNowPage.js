@@ -64,6 +64,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import SearchCityModal from "../../components/desktop/SearchCityModal";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import CollapsibleSearch from "../../components/mobile/CollapsibleSearch";
 
 // const style = {
 //   position: "absolute",
@@ -198,17 +199,17 @@ export default function MobileBookNowPage() {
   return (
     <>
       <DynamicMobileNavbar />
-
+      {/* Collapsible Location, Date and Search */}
       <AppBar
         position="sticky"
         sx={{
           backgroundColor: "white",
-          padding: "20px",
+          // padding: "10px",
           color: "#000000",
           top: 55,
         }}
       >
-        Add from BookingFlow page{" "}
+        <CollapsibleSearch />
       </AppBar>
 
       {/* <AppBar

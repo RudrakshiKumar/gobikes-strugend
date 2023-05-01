@@ -219,6 +219,30 @@ const LoginModal = () => {
             <br />
             <Divider sx={{ mt: 1, color: "text.disabled" }}>OR</Divider>
 
+            <Button
+              onClick={googleSignInHandler}
+              className=""
+              variant="outlined"
+              sx={{
+                textTransform: "none",
+                mt: 3,
+                color: "#4CBB17",
+                fontWeight: "bold",
+                borderColor: "#4CBB17",
+              }}
+            >
+              <Box
+                component="img"
+                alt="Your logo."
+                src={googleLogo}
+                sx={{
+                  height: 20,
+                  pr: 2,
+                }}
+              />
+              Sign in with Google
+            </Button>
+            {/* 
             <Box
               min-width="85%"
               m="20px auto"
@@ -235,7 +259,7 @@ const LoginModal = () => {
                 />
                 <Typography mx="3%">Sign in with Google</Typography>
               </Button>
-            </Box>
+            </Box> */}
           </Box>
         </Box>
       )}

@@ -49,6 +49,10 @@ const style = {
 };
 
 const SearchForm = () => {
+  // Disable Search Button
+
+  const [diableSearchBtn, setDiableSearchBtn] = useState(true);
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -518,7 +522,14 @@ const SearchForm = () => {
               label="Dropoff Date"
               // disablePast
               value={endDate}
-              onChange={(newValue) => setEndDate(newValue)}
+              // onChange={(newValue) => setEndDate(newValue)}
+              onChange={(newValue) => {
+                setEndDate(newValue);
+                // checking CityName is selected or not : if selected will enable Search button
+                if (image !== "") {
+                  setDiableSearchBtn(false);
+                }
+              }}
               sx={{ marginTop: "5%" }}
               fullWidth
               disabled={changeEnd}
@@ -560,6 +571,7 @@ const SearchForm = () => {
                     backgroundColor: "#36b671",
                   },
                 }}
+                // disabled={diableSearchBtn}
                 onClick={handleNavigate}
               >
                 Search

@@ -259,7 +259,7 @@ export default function BookingFlow(props) {
                   <hr />
                   <div style={{ padding: "7px", marginTop: "8px" }}>
                     <Typography variant="p" sx={{ fontWeight: "medium" }}>
-                      GO HUBS
+                      FUEL TYPE
                     </Typography>
                     <div>
                       <Checkbox
@@ -272,7 +272,7 @@ export default function BookingFlow(props) {
                           handleOpen();
                         }}
                       />
-                      Baghajatin
+                      Electric
                     </div>
                     <div>
                       <Checkbox
@@ -285,7 +285,7 @@ export default function BookingFlow(props) {
                           handleOpen();
                         }}
                       />
-                      Tikiapara Railway Station
+                      Non-electric
                     </div>
                   </div>
                   <hr />
