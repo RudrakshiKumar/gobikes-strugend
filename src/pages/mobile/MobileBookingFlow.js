@@ -343,7 +343,7 @@ export default function MobileBookingFlow(props) {
   //   setEndDate(initial_EndDate);
   // }, []);
 
-  // handeling "useState" & "useeffect" for skeleton
+  // ---  handeling "useState" & "useeffect" for skeleton
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -975,7 +975,7 @@ export default function MobileBookingFlow(props) {
                         height: "100%",
                         width: "100%",
                         padding: "7px",
-                      }}
+                      }} 
                     />
                     <TextField
                       fullWidth
