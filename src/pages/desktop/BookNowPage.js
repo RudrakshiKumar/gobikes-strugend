@@ -28,6 +28,9 @@ import HondaSP from "../../assets/images/HondaSP.png";
 import Ninja from "../../assets/images/bike2.webp";
 import Duet from "../../assets/images/bike3.webp";
 import HondaActiva from "../../assets/images/HondaActiva.png";
+
+
+import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 import SocialDistanceRoundedIcon from "@mui/icons-material/SocialDistanceRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import EngineeringRoundedIcon from "@mui/icons-material/EngineeringRounded";
@@ -224,6 +227,38 @@ export default function BookNowPage() {
     });
   };
 
+
+  // --  handle Popup-images
+  const imageArray = [HeroDestini, HondaSP, Ninja, Duet, HondaActiva];
+  const [currentImageUrl, setCurrentImageUrl] = useState(HeroDestini)
+  const [currentNum, setCurrentNum] = useState(0)
+  let arrayLength = imageArray.length; // 5
+  // let currentImageUrl = HeroDestini;
+  // let currentNum = 0;
+
+  const handleImageForwardButton = () => {
+    if (currentNum === arrayLength-1) {
+      setCurrentNum(0)
+    }
+    else {
+      setCurrentNum(currentNum + 1)
+    }
+    // currentImageUrl = imageArray[currentNum];
+    setCurrentImageUrl(imageArray[currentNum])
+  }
+  const handleImageBackwordButton = () => {
+    if (currentNum === 0) {
+      setCurrentNum(arrayLength - 1)
+    }
+    else {
+      setCurrentNum(currentNum - 1)
+    }
+    // currentImageUrl = imageArray[currentNum];
+    setCurrentImageUrl(imageArray[currentNum])
+  }
+
+  console.log("currentNum -> ", currentNum);
+
   return (
     <>
       {isMatch ? (
@@ -356,6 +391,7 @@ export default function BookNowPage() {
                         width: "50%",
                         padding: "30px",
                         marginLeft: "100px",
+                        border: "2px solid black"
                       }}
                       value={image}
                       onChange={(e) => setImage(e.target.value)}
@@ -418,7 +454,8 @@ export default function BookNowPage() {
                       onClick={handleBikeModel}
                     />
                   )}
-                  <Modal
+
+                  {/* <Modal
                     open={bike}
                     onClose={handleBikeModelClose}
                     aria-labelledby="modal-modal-title"
@@ -573,7 +610,62 @@ export default function BookNowPage() {
                         </Grid>
                       </Grid>
                     </Box>
+                  </Modal> */}
+
+
+
+
+
+                  {/* --- current-Model */}
+                  <Modal
+                    open={bike}
+                    onClose={handleBikeModelClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  // sx={{width: "80%", height: "80%"}}
+                  >
+                    <Box sx={stylling}>
+                      <Typography
+                        id="modal-modal-title"
+                        variant="h6"
+                        component="h2"
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        Bike Model
+                      </Typography>
+                      <IconButton
+                        aria-label="close"
+                        onClick={() => setBike(false)}
+                        sx={{
+                          position: "absolute",
+                          right: 8,
+                          top: 8,
+                          color: (theme) => theme.palette.grey[800],
+                        }}
+                      >
+                        <CloseIcon />
+                      </IconButton>
+                      <Grid container spacing={0} sx={{ marginTop: "5px" }}>
+
+                        <div className="w-full flex items-center justify-between">
+                          <div className="w-[5%] ">
+                            <MdArrowBackIos onClick={handleImageBackwordButton} className="text-4xl cursor-pointer" />
+                          </div>
+
+                          <div className="w-[90%]">
+                            <img src={currentImageUrl} alt="carousel" className="w-full h-[450px]" />
+                          </div>
+
+                          <div className="w-[5%] ">
+                            <MdArrowForwardIos onClick={handleImageForwardButton} className="text-4xl cursor-pointer" />
+                          </div>
+                        </div>
+                      </Grid>
+                    </Box>
                   </Modal>
+
+
+
                   <br />
                   <Typography
                     variant="p"
@@ -642,6 +734,10 @@ export default function BookNowPage() {
                   </Grid>
                 </Box>
               </Grid>
+
+
+
+
               <Grid item xs={12} sm={5}>
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={10}>
