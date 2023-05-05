@@ -257,7 +257,7 @@ export default function BookNowPage() {
     setCurrentImageUrl(imageArray[currentNum])
   }
 
-  console.log("currentNum -> ", currentNum);
+  // console.log("currentNum -> ", currentNum);
 
   return (
     <>
