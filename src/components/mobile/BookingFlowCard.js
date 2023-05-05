@@ -118,15 +118,15 @@ const BookingFlowCard = () => {
           }}
         />
         {/* <TextField
-      fullWidth
-      label="Available at"
-      defaultValue="Tikiapara Railway Station"
-      sx={{ marginTop: "5%" }}
-      InputProps={{
-        readOnly: true,
-      }}
-      size="small"
-    /> */}
+          fullWidth
+          label="Available at"
+          defaultValue="Tikiapara Railway Station"
+          sx={{ marginTop: "5%" }}
+          InputProps={{
+            readOnly: true,
+          }}
+          size="small"
+        /> */}
         {/* <Box sx={{ my: 5, mx: 2 }}> */}
         <FormControl sx={{ display: "flex", justifyContent: "center", my: 2 }}>
           <InputLabel id="search-select-label">Available at</InputLabel>
@@ -144,8 +144,8 @@ const BookingFlowCard = () => {
             renderValue={() => selectedLocation}
           >
             {/* TextField is put into ListSubheader so that it doesn't
-act as a selectable item in the menu
-i.e. we can click the TextField without triggering any selection.*/}
+    act as a selectable item in the menu
+    i.e. we can click the TextField without triggering any selection.*/}
             <ListSubheader>
               <TextField
                 size="small"
@@ -208,14 +208,14 @@ i.e. we can click the TextField without triggering any selection.*/}
           Book Now
         </Button>
         {/* <hr />
-    <Grid container spacing={2} sx={{ fontSize: "15px" }}>
-      <Grid item xs={6} sm={6}>
-        <Typography variant="p">Deposit : ₹2000</Typography>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <Typography variant="p">Make Year : 2020</Typography>
-      </Grid>
-    </Grid> */}
+        <Grid container spacing={2} sx={{ fontSize: "15px" }}>
+          <Grid item xs={6} sm={6}>
+            <Typography variant="p">Deposit : ₹2000</Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="p">Make Year : 2020</Typography>
+          </Grid>
+        </Grid> */}
       </CardContent>
     </Grid>
   );
