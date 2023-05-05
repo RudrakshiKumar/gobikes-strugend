@@ -56,7 +56,7 @@ const CollapsibleSearch = () => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography
+        {/* <Typography
           sx={{ color: "#000000" }}
           value={name}
           onChange={(e) => {
@@ -66,14 +66,30 @@ const CollapsibleSearch = () => {
         >
           {name}
         </Typography>
-
-        {/* <Typography
-            sx={{ color: "#000000" }}
-            value={endDate}
-            onChange={(newValue) => setStartDate(newValue)}
+        <br /> */}
+        <div style={{ display: "flex" }}>
+          {startDate && (
+            <Typography sx={{ color: "#000000" }}>
+              {startDate.toString()}
+            </Typography>
+          )}
+          <p
+            style={{
+              paddingRight: "10px",
+              paddingLeft: "5px",
+              fontWeight: "bold",
+              fontSize: "27px",
+            }}
           >
-            {endDate}
-          </Typography> */}
+            {" "}
+            -{" "}
+          </p>
+          {endDate && (
+            <Typography sx={{ color: "#000000" }}>
+              {endDate.toString()}
+            </Typography>
+          )}
+        </div>
       </AccordionSummary>
 
       <AccordionDetails>
@@ -90,12 +106,11 @@ const CollapsibleSearch = () => {
               //   format="DD/MM/YYYY hh:mm"
               label="Pickup Date & Time"
               value={startDate}
-              onChange={(newValue) => setStartDate(newValue)}
+              onChange={(date) => setStartDate(date)}
               // onChange={(event) => this.handle(event)}
               // selected={this.state.inputValue}
               sx={{ width: "100%" }}
             />
-            {/* <Typography>{startDate}</Typography> */}
           </LocalizationProvider>
         </Box>
 
