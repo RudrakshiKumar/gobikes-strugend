@@ -338,7 +338,7 @@ export default function MobileBookingFlow(props) {
   //   setEndDate(initial_EndDate);
   // }, []);
 
-  // handeling "useState" & "useeffect" for skeleton
+  // ---  handeling "useState" & "useeffect" for skeleton
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -1928,7 +1928,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     style={{
                       width: "82%",
                       padding: "7px",
-                    }}
+                    }} 
                   />
                   {/* <TextField
       fullWidth

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Profile from "../../components/desktop/Profile";
 import MobileFooter from "../../layouts/mobile/MobileFooter";
 import {
@@ -80,12 +80,22 @@ const MobileProfile = () => {
   };
 
   // Adding aadhar-card & Driving Licence functionality --
-  const [pdfFile, setPdfFile] = useState(null);
+  const aadharRef = useRef();
+  const drivingRef = useRef();
+  const [aadharCard, setAadharCard] = useState(null);
+  const [drivingLicence, setDrivingLicence] = useState(null);
+
   const handleAddAdharCard = (e) => {
-    // setPdfFile()
-    let selectedFile = e.target.files[0];
-    console.log(selectedFile)
+    const selectedFiles = e.target.files;
+    const selectedFilesArray = Array.from(selectedFiles);
+    setAadharCard(selectedFilesArray);
   }
+  const handleDrivingLicence = (e) => {
+    const selectedFiles = e.target.files;
+    const selectedFilesArray = Array.from(selectedFiles);
+    setDrivingLicence(selectedFilesArray);
+  }
+
 
   return (
     <div>
@@ -401,7 +411,7 @@ const MobileProfile = () => {
 
                 <hr style={{ marginTop: "10%" }} />
 
-                <Grid container sx={{ marginTop: "10%" }}>
+                <Grid container sx={{ marginTop: "10%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                   {/* Aadhaar Card  */}
                   <Grid item xs={12} sm={10}>
                     <Typography variant="h5" sx={{ fontWeight: "regular" }}>
@@ -410,32 +420,25 @@ const MobileProfile = () => {
                   </Grid>
                   <Grid item xs={12} sm={2} sx={{ my: 3 }}>
                     {!editAddress ? (
-                      // <Button
-                      //   variant="text"
-                      //   size="small"
-                      //   sx={{
-                      //     fontSize: "15px",
-                      //     backgroundColor: "#59CE8F",
-                      //     ":hover": {
-                      //       backgroundColor: "#59CE8F",
-                      //     },
-                      //     color: "white",
-                      //   }}
-                      //   // onClick={() => {
-                      //   //   setEditAddress(!editAddress);
-                      //   //   setAddress("Address");
-                      //   // }}
-                      // onClick={handleAddAdharCard}
+                      <div className="flex flex-col w-full">
+                        <label className="">
+                          <input
+                            type="file"
+                            name="aadhar images"
+                            multiple
+                            hidden
+                            ref={aadharRef}
+                            onChange={handleAddAdharCard}
+                          />
 
-                      // >
-                      //   Upload Aadhaar Card
-                      // </Button>
-
-                      <input
-                        style={{ fontSize: "15px", backgroundColor: "#59CE8F", ":hover": { backgroundColor: "#59CE8F", }, color: "white", }}
-                        type="file"
-                        onChange={handleAddAdharCard}
-                      />
+                          <button
+                            onClick={() => aadharRef.current.click()}
+                            className="px-3 py-1.5 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                          >
+                            UPLOAD
+                          </button>
+                        </label>
+                      </div>
                     ) : (
                       <Button
                         variant="text"
@@ -454,6 +457,18 @@ const MobileProfile = () => {
                       </Button>
                     )}
                   </Grid>
+
+                  <div className="w-full">
+                    {
+                      (aadharCard)
+                        ? <div className="w-full p-2 pl-4 mt-5 text-lg flex flex-col items-start text-black border-2 border-red-400 rounded-md" >
+                          {
+                            aadharCard.map((file, index) => <li key={index} className="text-sm font-semibold ">{file.name} </li>)
+                          }
+                        </div>
+                        : null
+                    }
+                  </div>
                 </Grid>
 
 
@@ -472,30 +487,25 @@ const MobileProfile = () => {
                   </Grid>
                   <Grid item xs={12} sm={2} sx={{ my: 3 }}>
                     {!editAddress ? (
-                      // <Button
-                      //   variant="text"
-                      //   size="small"
-                      //   sx={{
-                      //     fontSize: "15px",
-                      //     backgroundColor: "#59CE8F",
-                      //     ":hover": {
-                      //       backgroundColor: "#59CE8F",
-                      //     },
-                      //     color: "white",
-                      //   }}
-                      //   // onClick={() => {
-                      //   //   setEditAddress(!editAddress);
-                      //   //   setAddress("Address");
-                      //   // }}
-                      // >
-                      //   Upload Driving Licence
-                      // </Button>
+                      <div className="flex flex-col w-full">
+                        <label className="">
+                          <input
+                            type="file"
+                            name="aadhar images"
+                            multiple
+                            hidden
+                            ref={drivingRef}
+                            onChange={handleDrivingLicence}
+                          />
 
-                      <input
-                        style={{ fontSize: "15px", backgroundColor: "#59CE8F", ":hover": { backgroundColor: "#59CE8F", }, color: "white", }}
-                        type="file"
-                        onChange={handleAddAdharCard}
-                      />
+                          <button
+                            onClick={() => drivingRef.current.click()}
+                            className="px-3 py-1.5 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                          >
+                            UPLOAD
+                          </button>
+                        </label>
+                      </div>
                     ) : (
                       <Button
                         variant="text"
@@ -514,6 +524,18 @@ const MobileProfile = () => {
                       </Button>
                     )}
                   </Grid>
+
+                  <div className="w-full">
+                    {
+                      (drivingLicence)
+                        ? <div className="w-full p-2 pl-4 mt-5 text-lg flex flex-col items-start text-black border-2 border-red-400 rounded-md" >
+                          {
+                            drivingLicence.map((file, index) => <li key={index} className="text-sm font-semibold ">{file.name} </li>)
+                          }
+                        </div>
+                        : null
+                    }
+                  </div>
                 </Grid>
                 {/*  KYC  */}
                 <hr style={{ marginTop: "5%" }} />

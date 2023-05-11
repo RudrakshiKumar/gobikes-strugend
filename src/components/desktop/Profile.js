@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import VerifiedRoundedIcon from "@mui/icons-material/VerifiedRounded";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
 import PersonPinRoundedIcon from "@mui/icons-material/PersonPinRounded";
@@ -75,11 +75,20 @@ export default function Profile() {
 
 
   // Adding aadhar-card & Driving Licence functionality --
-  const [pdfFile, setPdfFile] = useState(null);
+  const aadharRef = useRef();
+  const drivingRef = useRef();
+  const [aadharCard, setAadharCard] = useState(null);
+  const [drivingLicence, setDrivingLicence] = useState(null);
+
   const handleAddAdharCard = (e) => {
-    // setPdfFile()
-    let selectedFile = e.target.files[0];
-    console.log(selectedFile)
+    const selectedFiles = e.target.files;
+    const selectedFilesArray = Array.from(selectedFiles);
+    setAadharCard(selectedFilesArray);
+  }
+  const handleDrivingLicence = (e) => {
+    const selectedFiles = e.target.files;
+    const selectedFilesArray = Array.from(selectedFiles);
+    setDrivingLicence(selectedFilesArray);
   }
 
   return (
@@ -362,42 +371,38 @@ export default function Profile() {
               {/* Aadhaar Card  */}
               <hr style={{ marginTop: "5%" }} />
 
-              <Grid container sx={{ marginTop: "5%", display: "flex", flexDirection: "column" }}>
-                <Grid item xs={12} sm={10}>
+              <Grid container sx={{ marginTop: "5%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <Grid item  >
                   <Typography variant="h5" sx={{ fontWeight: "regular" }}>
                     Aadhaar Card
                   </Typography>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item >
                   {!editAddress ? (
-                    // <Button
-                    //   variant="text"
-                    //   size="small"
-                    //   sx={{
-                    //     fontSize: "15px",
-                    //     backgroundColor: "#59CE8F",
-                    //     ":hover": {
-                    //       backgroundColor: "#36b671",
-                    //     },
-                    //     color: "white",
-                    //   }}
-                    //   // onClick={() => {
-                    //   //   setEditAddress(!editAddress);
-                    //   //   setAddress("Address");
-                    //   // }}
-                    // >
-                    //   Upload
-                    // </Button>
+                    <div className="flex flex-col w-full">
+                      <label className="">
+                        <input
+                          type="file"
+                          name="aadhar images"
+                          multiple
+                          hidden
+                          ref={aadharRef}
+                          onChange={handleAddAdharCard}
+                        />
 
-                    <input
-                      style={{ fontSize: "15px", backgroundColor: "#59CE8F", ":hover": { backgroundColor: "#59CE8F", }, color: "white", }}
-                      type="file"
-                      onChange={handleAddAdharCard}
-                    />
+                        <button
+                          onClick={() => aadharRef.current.click()}
+                          className="px-3 py-1.5 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                        >
+                          UPLOAD
+                        </button>
+                      </label>
+                    </div>
+
                   ) : (
                     <Button
                       variant="text"
-                      size="small"
+                      size="small" f
                       sx={{
                         fontSize: "15px",
                         backgroundColor: "#59CE8F",
@@ -412,42 +417,53 @@ export default function Profile() {
                     </Button>
                   )}
                 </Grid>
+
+                <div className="w-full">
+                  {
+                    (aadharCard)
+                      ? <div className="w-full p-2 pl-4 mt-5 text-lg text-black border-2 border-red-400 rounded-md" >
+                        {
+                          aadharCard.map((file, index) => <li key={index} className="text-sm font-semibold ">{file.name} </li>)
+                        }
+                      </div>
+                      : null
+                  }
+                </div>
               </Grid>
+
+
               {/*  Driving Licence  */}
               <hr style={{ marginTop: "5%" }} />
 
-              <Grid container sx={{ marginTop: "5%", display: "flex", flexDirection: "column" }}>
-                <Grid item xs={12} sm={10}>
+              <Grid container sx={{ marginTop: "5%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <Grid item >
                   <Typography variant="h5" sx={{ fontWeight: "regular" }}>
                     Driving Licence
                   </Typography>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item >
                   {!editAddress ? (
-                    // <Button
-                    //   variant="text"
-                    //   size="small"
-                    //   sx={{
-                    //     fontSize: "15px",
-                    //     backgroundColor: "#59CE8F",
-                    //     ":hover": {
-                    //       backgroundColor: "#36b671",
-                    //     },
-                    //     color: "white",
-                    //   }}
-                    // // onClick={() => {
-                    // //   setEditAddress(!editAddress);
-                    // //   setAddress("Address");
-                    // // }}
-                    // >
-                    //   Upload
-                    // </Button>
 
-                    <input
-                      style={{ fontSize: "15px", backgroundColor: "#59CE8F", ":hover": { backgroundColor: "#59CE8F", }, color: "white", }}
-                      type="file"
-                      onChange={handleAddAdharCard}
-                    />
+                    <div className="flex flex-col w-full">
+                      <label className="">
+                        <input
+                          type="file"
+                          name="aadhar images"
+                          multiple
+                          hidden
+                          ref={drivingRef}
+                          onChange={handleDrivingLicence}
+                        />
+
+                        <button
+                          onClick={() => drivingRef.current.click()}
+                          className="px-3 py-1.5 bg-[#59CE8F] text-xs text-white font-semibold border-0 rounded-sm hover:bg-[#36b671] "
+                        >
+                          UPLOAD
+                        </button>
+                      </label>
+                    </div>
+
                   ) : (
                     <Button
                       variant="text"
@@ -466,6 +482,18 @@ export default function Profile() {
                     </Button>
                   )}
                 </Grid>
+
+                <div className="w-full">
+                  {
+                    (drivingLicence)
+                      ? <div className="w-full p-2 pl-4 mt-5 text-lg text-black border-2 border-red-400 rounded-md" >
+                        {
+                          drivingLicence.map((file, index) => <li key={index} className="text-sm font-semibold ">{file.name} </li>)
+                        }
+                      </div>
+                      : null
+                  }
+                </div>
               </Grid>
               {/*  KYC  */}
               <hr style={{ marginTop: "5%" }} />

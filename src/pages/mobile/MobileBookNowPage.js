@@ -32,6 +32,7 @@ import HondaSP from "../../assets/images/HondaSP.png";
 import Ninja from "../../assets/images/bike2.webp";
 import Duet from "../../assets/images/bike3.webp";
 import HondaActiva from "../../assets/images/HondaActiva.png";
+import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 import SocialDistanceRoundedIcon from "@mui/icons-material/SocialDistanceRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import EngineeringRoundedIcon from "@mui/icons-material/EngineeringRounded";
@@ -110,10 +111,11 @@ const styled = {
 
 const stylling = {
   position: "absolute",
-  top: "50%",
-  left: "50%",
+  top: "40%",
+  left: "70%",
   transform: "translate(-76%, -15%)",
-  width: "62%",
+  width: "80%",
+  height: "40%",
   bgcolor: "background.paper",
   borderRadius: "5px",
   boxShadow: 24,
@@ -196,6 +198,38 @@ export default function MobileBookNowPage() {
   //   setEndDate(initial_EndDate);
   // }, []);
 
+
+  // --  handle Popup-images
+  const imageArray = [HeroDestini, HondaSP, Ninja, Duet, HondaActiva];
+  const [currentImageUrl, setCurrentImageUrl] = useState(HeroDestini)
+  const [currentNum, setCurrentNum] = useState(0)
+  let arrayLength = imageArray.length; // 5
+  // let currentImageUrl = HeroDestini;
+  // let currentNum = 0;
+
+  const handleImageForwardButton = () => {
+    if (currentNum === arrayLength - 1) {
+      setCurrentNum(0)
+    }
+    else {
+      setCurrentNum(currentNum + 1)
+    }
+    // currentImageUrl = imageArray[currentNum];
+    setCurrentImageUrl(imageArray[currentNum])
+  }
+  const handleImageBackwordButton = () => {
+    if (currentNum === 0) {
+      setCurrentNum(arrayLength - 1)
+    }
+    else {
+      setCurrentNum(currentNum - 1)
+    }
+    // currentImageUrl = imageArray[currentNum];
+    setCurrentImageUrl(imageArray[currentNum])
+  }
+
+  // console.log("currentNum -> ", currentNum);
+
   return (
     <>
       <DynamicMobileNavbar />
@@ -212,7 +246,7 @@ export default function MobileBookNowPage() {
         <CollapsibleSearch />
       </AppBar>
 
-      {/* <AppBar
+      {/* <AppBar 
         position="sticky"
         sx={{ backgroundColor: "white", padding: "20px" }}
       >
@@ -427,7 +461,7 @@ export default function MobileBookNowPage() {
                   onClick={handleBikeModel}
                 />
               )}
-              <Modal
+              {/* <Modal  
                 open={bike}
                 onClose={handleBikeModelClose}
                 aria-labelledby="modal-modal-title"
@@ -577,7 +611,57 @@ export default function MobileBookNowPage() {
                     </Grid>
                   </Grid>
                 </Box>
+              </Modal> */}
+
+
+              {/* --- current-Model */}
+              <Modal
+                open={bike}
+                onClose={handleBikeModelClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              // sx={{width: "80%", height: "80%"}}
+              >
+                <Box sx={stylling}>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    Bike Model
+                  </Typography>
+                  <IconButton
+                    aria-label="close"
+                    onClick={() => setBike(false)}
+                    sx={{
+                      position: "absolute",
+                      right: 8,
+                      top: 8,
+                      color: (theme) => theme.palette.grey[800],
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                  <Grid container spacing={0} sx={{ marginTop: "5px" }}>
+
+                    <div className="w-full flex items-center justify-between">
+                      <div className="w-[5%] ">
+                        <MdArrowBackIos onClick={handleImageBackwordButton} className="text-2xl cursor-pointer" />
+                      </div>
+
+                      <div className="w-[90%] h-full">
+                        <img src={currentImageUrl} alt="carousel" className="w-full h-[220px]" />
+                      </div>
+
+                      <div className="w-[5%] ">
+                        <MdArrowForwardIos onClick={handleImageForwardButton} className="text-2xl cursor-pointer" />
+                      </div>
+                    </div>
+                  </Grid>
+                </Box>
               </Modal>
+
               <br />
               <Box sx={{ textAlign: "center" }}>
                 {" "}
