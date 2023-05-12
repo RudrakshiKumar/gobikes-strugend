@@ -27,7 +27,7 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const dynamicCoupons = [
   {
     id: "apply1",
-    color: "#4cbb17",
+    color: "#59ce8f",
     text: "APPLY",
     sideBtnText: "GOBIKES",
     couponText: "Receive GoCoins worth 10% of the booking amount",
@@ -35,7 +35,7 @@ const dynamicCoupons = [
   },
   {
     id: "apply2",
-    color: "#4cbb17",
+    color: "#59ce8f",
     text: "APPLY",
     sideBtnText: "GOBIKES",
     couponText: "Get Flat Rs.50 Off on orders above Rs.1000.",
@@ -43,7 +43,7 @@ const dynamicCoupons = [
   },
   {
     id: "apply3",
-    color: "#4cbb17",
+    color: "#59ce8f",
     text: "APPLY",
     sideBtnText: "GOBIKES",
     couponText: "Get Flat Rs.100 Off on orders above Rs.2000.",
@@ -103,8 +103,8 @@ export default function RentNow() {
       arr[currId - 1].text = "APPLY";
       setCoupons("");
     }
-    if (arr[currId - 1].color === "#4cbb17") arr[currId - 1].color = "red";
-    else arr[currId - 1].color = "#4cbb17";
+    if (arr[currId - 1].color === "#59ce8f") arr[currId - 1].color = "red";
+    else arr[currId - 1].color = "#59ce8f";
     setCouponsArray(arr);
   };
   console.log(coupons);
@@ -201,7 +201,7 @@ export default function RentNow() {
                 <div style={{ marginTop: "3%" }}>
                   <Typography
                     variant="p"
-                    sx={{ fontSize: "16px", color: "#4cbb17" }}
+                    sx={{ fontSize: "16px", color: "#59ce8f" }}
                   >
                     Pickup and Drop Date
                   </Typography>
@@ -234,7 +234,7 @@ export default function RentNow() {
                   </div>
                   <Typography
                     variant="p"
-                    sx={{ fontSize: "16px", color: "#4cbb17" }}
+                    sx={{ fontSize: "16px", color: "#59ce8f" }}
                   >
                     Pickup and Drop Location
                   </Typography>
@@ -344,7 +344,7 @@ export default function RentNow() {
                             variant="p"
                             sx={{
                               fontSize: "14px",
-                              color: "#4cbb17",
+                              color: "#59ce8f",
                               marginLeft: "5px",
                             }}
                           >
@@ -401,7 +401,7 @@ export default function RentNow() {
                   </Grid>
                   <Grid item xs={12} sm={3}>
                     <Typography variant="p" fontSize="15px">
-                      <span style={{ color: "#4cbb17" }}>-₹49.00</span>
+                      <span style={{ color: "#59ce8f" }}>-₹49.00</span>
                     </Typography>
                   </Grid>
                 </Grid>
@@ -505,9 +505,9 @@ export default function RentNow() {
                       sx={{
                         marginLeft: "68%",
                         marginTop: "2%",
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#59ce8f",
                         ":hover": {
-                          backgroundColor: "#4cbb17",
+                          backgroundColor: "#59ce8f",
                         },
                       }}
                       onClick={handleClose}
@@ -533,9 +533,9 @@ export default function RentNow() {
                 disabled={disable}
                 sx={{
                   width: "100%",
-                  backgroundColor: "#4cbb17",
+                  backgroundColor: "#59ce8f",
                   ":hover": {
-                    backgroundColor: "#4cbb17",
+                    backgroundColor: "#59ce8f",
                   },
                 }}
               >

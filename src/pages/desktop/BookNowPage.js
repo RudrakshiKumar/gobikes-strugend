@@ -311,11 +311,11 @@ export default function BookNowPage() {
                     variant="contained"
                     size="large"
                     sx={{
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#59ce8f",
                       padding: "10px",
                       margin: "5px",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                     }}
                   >
@@ -676,7 +676,7 @@ export default function BookNowPage() {
                   <Grid container spacing={2} sx={{ marginTop: "2%" }}>
                     <Grid item xs={12} sm={4}>
                       <div style={{ display: "flex" }}>
-                        <IconButton sx={{ color: "#4cbb17" }}>
+                        <IconButton sx={{ color: "#59ce8f" }}>
                           <SocialDistanceRoundedIcon fontSize="large" />
                         </IconButton>
                         <div
@@ -687,7 +687,7 @@ export default function BookNowPage() {
                           }}
                         >
                           <Typography variant="p">Kms Driven</Typography>
-                          <Typography variant="p" color="#4cbb17">
+                          <Typography variant="p" color="#59ce8f">
                             900 Kms
                           </Typography>
                         </div>
@@ -695,7 +695,7 @@ export default function BookNowPage() {
                     </Grid>
                     <Grid item xs={12} sm={4}>
                       <div style={{ display: "flex" }}>
-                        <IconButton sx={{ color: "#4cbb17" }}>
+                        <IconButton sx={{ color: "#59ce8f" }}>
                           <SettingsRoundedIcon fontSize="large" />
                         </IconButton>
                         <div
@@ -706,7 +706,7 @@ export default function BookNowPage() {
                           }}
                         >
                           <Typography variant="p">Last Serviced</Typography>
-                          <Typography variant="p" color="#4cbb17">
+                          <Typography variant="p" color="#59ce8f">
                             Aug 15, 2022
                           </Typography>
                         </div>
@@ -714,7 +714,7 @@ export default function BookNowPage() {
                     </Grid>
                     <Grid item xs={12} sm={4}>
                       <div style={{ display: "flex" }}>
-                        <IconButton sx={{ color: "#4cbb17" }}>
+                        <IconButton sx={{ color: "#59ce8f" }}>
                           <EngineeringRoundedIcon fontSize="large" />
                         </IconButton>
                         <div
@@ -725,7 +725,7 @@ export default function BookNowPage() {
                           }}
                         >
                           <Typography variant="p">Make Year</Typography>
-                          <Typography variant="p" color="#4cbb17">
+                          <Typography variant="p" color="#59ce8f">
                             2020
                           </Typography>
                         </div>
@@ -900,7 +900,7 @@ export default function BookNowPage() {
                             <TableHead>
                               <TableRow
                                 sx={{
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#59ce8f",
                                   border: "2px solid black",
                                 }}
                               >
@@ -1033,12 +1033,12 @@ export default function BookNowPage() {
                       >
                         Security Deposite
                         <IconButton>
-                          <InfoOutlinedIcon sx={{ color: "#4cbb17" }} />
+                          <InfoOutlinedIcon sx={{ color: "#59ce8f" }} />
                         </IconButton>
                       </Typography>
                       <Typography
                         variant="h5"
-                        sx={{ marginLeft: "30px", color: "#4cbb17" }}
+                        sx={{ marginLeft: "30px", color: "#59ce8f" }}
                       >
                         ₹2000
                       </Typography>
@@ -1063,10 +1063,10 @@ export default function BookNowPage() {
                       >
                         Distance Limit
                         <IconButton>
-                          <InfoOutlinedIcon sx={{ color: "#4cbb17" }} />
+                          <InfoOutlinedIcon sx={{ color: "#59ce8f" }} />
                         </IconButton>
                       </Typography>
-                      <Typography variant="h5" sx={{ color: "#4cbb17" }}>
+                      <Typography variant="h5" sx={{ color: "#59ce8f" }}>
                         No Distance Limit
                       </Typography>
                     </div>
@@ -1090,10 +1090,10 @@ export default function BookNowPage() {
                       >
                         Excess Charge
                         <IconButton>
-                          <InfoOutlinedIcon sx={{ color: "#4cbb17" }} />
+                          <InfoOutlinedIcon sx={{ color: "#59ce8f" }} />
                         </IconButton>
                       </Typography>
-                      <Typography variant="h5" sx={{ color: "#4cbb17" }}>
+                      <Typography variant="h5" sx={{ color: "#59ce8f" }}>
                         ₹4 per km
                       </Typography>
                     </div>
@@ -1117,10 +1117,10 @@ export default function BookNowPage() {
                       >
                         Late Penalty
                         <IconButton>
-                          <InfoOutlinedIcon sx={{ color: "#4cbb17" }} />
+                          <InfoOutlinedIcon sx={{ color: "#59ce8f" }} />
                         </IconButton>
                       </Typography>
-                      <Typography variant="h5" sx={{ color: "#4cbb17" }}>
+                      <Typography variant="h5" sx={{ color: "#59ce8f" }}>
                         ₹100 per hour
                       </Typography>
                     </div>
@@ -1139,7 +1139,7 @@ export default function BookNowPage() {
                       <IconButton>
                         <AssistantDirectionRoundedIcon
                           fontSize="large"
-                          sx={{ color: "#4cbb17" }}
+                          sx={{ color: "#59ce8f" }}
                         />
                       </IconButton>
                       <div
@@ -1159,7 +1159,7 @@ export default function BookNowPage() {
                           variant="p"
                           sx={{
                             fontSize: "16px",
-                            color: "#4cbb17",
+                            color: "#59ce8f",
                             fontWeight: "bold",
                           }}
                         >
@@ -1173,7 +1173,7 @@ export default function BookNowPage() {
                       <IconButton>
                         <SpeedRoundedIcon
                           fontSize="large"
-                          sx={{ color: "#4cbb17" }}
+                          sx={{ color: "#59ce8f" }}
                         />
                       </IconButton>
                       <div
@@ -1193,7 +1193,7 @@ export default function BookNowPage() {
                           variant="p"
                           sx={{
                             fontSize: "16px",
-                            color: "#4cbb17",
+                            color: "#59ce8f",
                             fontWeight: "bold",
                           }}
                         >
@@ -1207,7 +1207,7 @@ export default function BookNowPage() {
                       <IconButton>
                         <LocalGasStationRoundedIcon
                           fontSize="large"
-                          sx={{ color: "#4cbb17" }}
+                          sx={{ color: "#59ce8f" }}
                         />
                       </IconButton>
                       <div
@@ -1227,7 +1227,7 @@ export default function BookNowPage() {
                           variant="p"
                           sx={{
                             fontSize: "16px",
-                            color: "#4cbb17",
+                            color: "#59ce8f",
                             fontWeight: "bold",
                           }}
                         >
@@ -1241,7 +1241,7 @@ export default function BookNowPage() {
                       <IconButton>
                         <AirlineSeatReclineNormalRoundedIcon
                           fontSize="large"
-                          sx={{ color: "#4cbb17" }}
+                          sx={{ color: "#59ce8f" }}
                         />
                       </IconButton>
                       <div
@@ -1261,7 +1261,7 @@ export default function BookNowPage() {
                           variant="p"
                           sx={{
                             fontSize: "16px",
-                            color: "#4cbb17",
+                            color: "#59ce8f",
                             fontWeight: "bold",
                           }}
                         >
@@ -1275,7 +1275,7 @@ export default function BookNowPage() {
                       <IconButton>
                         <SettingsAccessibilityRoundedIcon
                           fontSize="large"
-                          sx={{ color: "#4cbb17" }}
+                          sx={{ color: "#59ce8f" }}
                         />
                       </IconButton>
                       <div
@@ -1295,7 +1295,7 @@ export default function BookNowPage() {
                           variant="p"
                           sx={{
                             fontSize: "16px",
-                            color: "#4cbb17",
+                            color: "#59ce8f",
                             fontWeight: "bold",
                           }}
                         >
@@ -1309,7 +1309,7 @@ export default function BookNowPage() {
                       <IconButton>
                         <SpeedRoundedIcon
                           fontSize="large"
-                          sx={{ color: "#4cbb17" }}
+                          sx={{ color: "#59ce8f" }}
                         />
                       </IconButton>
                       <div
@@ -1329,7 +1329,7 @@ export default function BookNowPage() {
                           variant="p"
                           sx={{
                             fontSize: "16px",
-                            color: "#4cbb17",
+                            color: "#59ce8f",
                             fontWeight: "bold",
                           }}
                         >
@@ -1346,7 +1346,7 @@ export default function BookNowPage() {
                 <Typography variant="h6">Pickup Location</Typography>
                 <Typography
                   variant="h6"
-                  sx={{ color: "#4cbb17", padding: "5px" }}
+                  sx={{ color: "#59ce8f", padding: "5px" }}
                 >
                   Baghajatin
                 </Typography>

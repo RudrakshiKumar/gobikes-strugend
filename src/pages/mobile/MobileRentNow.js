@@ -211,7 +211,7 @@ export default function MobileRentNow() {
                   sx={{
                     fontSize: "20px",
                     fontWeight: "600",
-                    color: "#4cbb17",
+                    color: "#59ce8f",
                     marginBottom: "10px",
                   }}
                 >
@@ -241,7 +241,7 @@ export default function MobileRentNow() {
 
                 <Typography
                   variant="p"
-                  sx={{ fontSize: "20px", fontWeight: "600", color: "#4cbb17" }}
+                  sx={{ fontSize: "20px", fontWeight: "600", color: "#59ce8f" }}
                 >
                   Pickup and Drop Location
                 </Typography>
@@ -396,7 +396,7 @@ export default function MobileRentNow() {
                       >
                         <Typography
                           variant="p"
-                          sx={{ fontSize: "14px", color: "#4cbb17" }}
+                          sx={{ fontSize: "14px", color: "#59ce8f" }}
                         >
                           Receive GoCoins worth 10% of the booking amount which
                           you can redeem in your next booking.
@@ -412,7 +412,7 @@ export default function MobileRentNow() {
                         <Button
                           variant="text"
                           size="small"
-                          sx={{ color: "#4cbb17" }}
+                          sx={{ color: "#59ce8f" }}
                         >
                           APPLY
                         </Button>
@@ -461,7 +461,7 @@ export default function MobileRentNow() {
                       >
                         <Typography
                           variant="p"
-                          sx={{ fontSize: "14px", color: "#4cbb17" }}
+                          sx={{ fontSize: "14px", color: "#59ce8f" }}
                         >
                           Get Flat Rs.50 Off on orders above Rs.1000.
                         </Typography>
@@ -476,7 +476,7 @@ export default function MobileRentNow() {
                         <Button
                           variant="text"
                           size="small"
-                          sx={{ color: "#4cbb17" }}
+                          sx={{ color: "#59ce8f" }}
                         >
                           APPLY
                         </Button>
@@ -525,7 +525,7 @@ export default function MobileRentNow() {
                       >
                         <Typography
                           variant="p"
-                          sx={{ fontSize: "14px", color: "#4cbb17" }}
+                          sx={{ fontSize: "14px", color: "#59ce8f" }}
                         >
                           Get Flat Rs.100 Off on orders above Rs.2000.
                         </Typography>
@@ -540,7 +540,7 @@ export default function MobileRentNow() {
                         <Button
                           variant="text"
                           size="small"
-                          sx={{ color: "#4cbb17" }}
+                          sx={{ color: "#59ce8f" }}
                         >
                           APPLY
                         </Button>
@@ -758,9 +758,9 @@ export default function MobileRentNow() {
                     sx={{
                       marginLeft: "68%",
                       marginTop: "2%",
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#59ce8f",
                       },
                     }}
                     onClick={handleClose}
@@ -786,9 +786,9 @@ export default function MobileRentNow() {
               disabled={disable}
               sx={{
                 width: "100%",
-                backgroundColor: "#4cbb17",
+                backgroundColor: "#59ce8f",
                 ":hover": {
-                  backgroundColor: "#4cbb17",
+                  backgroundColor: "#59ce8f",
                 },
               }}
             >

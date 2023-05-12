@@ -106,7 +106,7 @@ export default function Offer() {
             >
               <Grid container>
                 <Grid item xs={12} sm={10}>
-                  <Typography variant="h5" color="#9c3">
+                  <Typography variant="h5" color="#59ce8f">
                     Get Flat Rs. 100 OFF
                   </Typography>
                 </Grid>

@@ -440,6 +440,7 @@ export default function MobileBookingFlow(props) {
           </Select>
         </FormControl>
       </Box>
+
       {/* New Card UI */}
       {selectedModel === "None" && (
         <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -570,7 +571,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -715,7 +716,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -860,7 +861,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -1005,7 +1006,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -1150,7 +1151,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -1295,7 +1296,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -1440,7 +1441,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -1585,7 +1586,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -1732,7 +1733,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -1876,7 +1877,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -1928,7 +1929,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     style={{
                       width: "82%",
                       padding: "7px",
-                    }} 
+                    }}
                   />
                   {/* <TextField
       fullWidth
@@ -2020,7 +2021,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -2164,7 +2165,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -2308,7 +2309,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -2452,7 +2453,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -2596,7 +2597,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -2740,7 +2741,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -2891,7 +2892,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -3036,7 +3037,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -3181,7 +3182,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -3326,7 +3327,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -3471,7 +3472,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -3616,7 +3617,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -3761,7 +3762,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -3906,7 +3907,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                     sx={{
                       backgroundColor: "#59ce8f",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                       width: "100%",
                     }}
@@ -4053,7 +4054,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                   sx={{
                     backgroundColor: "#59ce8f",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36B671",
                     },
                     width: "100%",
                   }}
@@ -4195,7 +4196,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                   sx={{
                     backgroundColor: "#59ce8f",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36B671",
                     },
                     width: "100%",
                   }}
@@ -4337,7 +4338,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                   sx={{
                     backgroundColor: "#59ce8f",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36B671",
                     },
                     width: "100%",
                   }}
@@ -4479,7 +4480,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                   sx={{
                     backgroundColor: "#59ce8f",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36B671",
                     },
                     width: "100%",
                   }}
@@ -4621,7 +4622,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                   sx={{
                     backgroundColor: "#59ce8f",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36B671",
                     },
                     width: "100%",
                   }}
@@ -4763,7 +4764,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                   sx={{
                     backgroundColor: "#59ce8f",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36B671",
                     },
                     width: "100%",
                   }}
@@ -4905,7 +4906,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                   sx={{
                     backgroundColor: "#59ce8f",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36B671",
                     },
                     width: "100%",
                   }}
@@ -5047,7 +5048,7 @@ i.e. we can click the TextField without triggering any selection.*/}
                   sx={{
                     backgroundColor: "#59ce8f",
                     ":hover": {
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#36B671",
                     },
                     width: "100%",
                   }}

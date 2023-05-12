@@ -70,7 +70,7 @@ const ContactUs = () => {
                   variant="h5"
                   fontSize={"30px"}
                   fontWeight={"bold"}
-                  sx={{ color: "#99CC33" }}
+                  sx={{ color: "#59ce8f" }}
                 >
                   Contact Us
                 </Typography>{" "}
@@ -292,7 +292,7 @@ const ContactUs = () => {
                   variant="contained"
                   disabled={showSubmit}
                   sx={{
-                    bgcolor: "#99CC33",
+                    bgcolor: "#59ce8f",
                     p: "7px",
                     display: "flex",
                     alignItems: "center",

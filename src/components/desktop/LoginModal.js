@@ -175,16 +175,16 @@ const LoginModal = () => {
                 font: "poppins",
               }}
             >
-              Welcome to <span className="text-[#4CBB17]"> GoBikes </span>
+              Welcome to <span className="text-[#59ce8f]"> GoBikes </span>
             </Typography>
 
             <Typography
               id="modal-modal-description"
               sx={{ pb: 1, color: "text.secondary" }}
             >
-              Commuting Made <span className="text-[#4CBB17]">Easy</span>,{" "}
-              <span className="text-[#4CBB17]">Affordable </span>
-              and <span className="text-[#4CBB17]">Quick</span>
+              Commuting Made <span className="text-[#59ce8f]">Easy</span>,{" "}
+              <span className="text-[#59ce8f]">Affordable </span>
+              and <span className="text-[#59ce8f]">Quick</span>
             </Typography>
             <MuiTelInput
               sx={{
@@ -210,7 +210,7 @@ const LoginModal = () => {
                 width: "85% ",
                 fontSize: 18,
                 fontWeight: 400,
-                // bgcolor: "#4CBB17",
+                // bgcolor: "#59ce8f",
                 bgcolor: "text.disabled",
               }}
             >
@@ -226,9 +226,9 @@ const LoginModal = () => {
               sx={{
                 textTransform: "none",
                 mt: 3,
-                color: "#4CBB17",
+                color: "#59ce8f",
                 fontWeight: "bold",
-                borderColor: "#4CBB17",
+                borderColor: "#59ce8f",
               }}
             >
               <Box

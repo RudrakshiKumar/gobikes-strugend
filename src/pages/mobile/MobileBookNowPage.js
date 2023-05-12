@@ -676,7 +676,7 @@ export default function MobileBookNowPage() {
               <Grid container spacing={2} sx={{ marginTop: "2%" }}>
                 <Grid item xs={12} sm={4}>
                   <div style={{ display: "flex" }}>
-                    <IconButton sx={{ color: "#4cbb17" }}>
+                    <IconButton sx={{ color: "#59ce8f" }}>
                       <SocialDistanceRoundedIcon fontSize="medium" />
                     </IconButton>
                     <div
@@ -688,7 +688,7 @@ export default function MobileBookNowPage() {
                       }}
                     >
                       <Typography variant="p">Kms Driven</Typography>
-                      <Typography variant="p" color="#4cbb17">
+                      <Typography variant="p" color="#59ce8f">
                         900 Kms
                       </Typography>
                     </div>
@@ -696,7 +696,7 @@ export default function MobileBookNowPage() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <div style={{ display: "flex" }}>
-                    <IconButton sx={{ color: "#4cbb17" }}>
+                    <IconButton sx={{ color: "#59ce8f" }}>
                       <SettingsRoundedIcon fontSize="medium" />
                     </IconButton>
                     <div
@@ -708,7 +708,7 @@ export default function MobileBookNowPage() {
                       }}
                     >
                       <Typography variant="p">Last Serviced</Typography>
-                      <Typography variant="p" color="#4cbb17">
+                      <Typography variant="p" color="#59ce8f">
                         Aug 15, 2022
                       </Typography>
                     </div>
@@ -716,7 +716,7 @@ export default function MobileBookNowPage() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <div style={{ display: "flex" }}>
-                    <IconButton sx={{ color: "#4cbb17" }}>
+                    <IconButton sx={{ color: "#59ce8f" }}>
                       <EngineeringRoundedIcon fontSize="medium" />
                     </IconButton>
                     <div
@@ -728,7 +728,7 @@ export default function MobileBookNowPage() {
                       }}
                     >
                       <Typography variant="p">Make Year</Typography>
-                      <Typography variant="p" color="#4cbb17">
+                      <Typography variant="p" color="#59ce8f">
                         2020
                       </Typography>
                     </div>
@@ -932,7 +932,7 @@ export default function MobileBookNowPage() {
                         <TableHead>
                           <TableRow
                             sx={{
-                              backgroundColor: "#4cbb17",
+                              backgroundColor: "#59ce8f",
                               border: "2px solid black",
                             }}
                           >
@@ -1085,7 +1085,7 @@ export default function MobileBookNowPage() {
                     Security Deposit
                   </Typography>
                   {/* <IconButton>
-                    <InfoOutlinedIcon sx={{ color: "#4cbb17", width: 20 }} />
+                    <InfoOutlinedIcon sx={{ color: "#59ce8f", width: 20 }} />
                   </IconButton> */}
                 </Box>
 
@@ -1093,7 +1093,7 @@ export default function MobileBookNowPage() {
                   variant="h5"
                   sx={{
                     // marginLeft: "30px",
-                    color: "#4cbb17",
+                    color: "#59ce8f",
                     fontSize: "12px",
                   }}
                 >
@@ -1120,7 +1120,7 @@ export default function MobileBookNowPage() {
                     Distance Limit
                   </Typography>
                   {/* <IconButton>
-                    <InfoOutlinedIcon sx={{ color: "#4cbb17", width: 20 }} />
+                    <InfoOutlinedIcon sx={{ color: "#59ce8f", width: 20 }} />
                   </IconButton> */}
                 </Box>
 
@@ -1128,7 +1128,7 @@ export default function MobileBookNowPage() {
                   variant="h5"
                   sx={{
                     // marginLeft: "30px",
-                    color: "#4cbb17",
+                    color: "#59ce8f",
                     fontSize: "12px",
                   }}
                 >
@@ -1167,7 +1167,7 @@ export default function MobileBookNowPage() {
                   variant="h5"
                   sx={{
                     // marginLeft: "30px",
-                    color: "#4cbb17",
+                    color: "#59ce8f",
                     fontSize: "12px",
                   }}
                 >
@@ -1202,7 +1202,7 @@ export default function MobileBookNowPage() {
                   variant="h5"
                   sx={{
                     // marginLeft: "30px",
-                    color: "#4cbb17",
+                    color: "#59ce8f",
                     fontSize: "12px",
                   }}
                 >
@@ -1283,7 +1283,7 @@ export default function MobileBookNowPage() {
                     <IconButton>
                       <AssistantDirectionRoundedIcon
                         fontSize="medium"
-                        sx={{ color: "#4cbb17" }}
+                        sx={{ color: "#59ce8f" }}
                       />
                     </IconButton>
                     <div
@@ -1303,7 +1303,7 @@ export default function MobileBookNowPage() {
                         variant="p"
                         sx={{
                           fontSize: "14px",
-                          color: "#4cbb17",
+                          color: "#59ce8f",
                           fontWeight: "bold",
                         }}
                       >
@@ -1317,7 +1317,7 @@ export default function MobileBookNowPage() {
                     <IconButton>
                       <SpeedRoundedIcon
                         fontSize="medium"
-                        sx={{ color: "#4cbb17" }}
+                        sx={{ color: "#59ce8f" }}
                       />
                     </IconButton>
                     <div
@@ -1337,7 +1337,7 @@ export default function MobileBookNowPage() {
                         variant="p"
                         sx={{
                           fontSize: "14px",
-                          color: "#4cbb17",
+                          color: "#59ce8f",
                           fontWeight: "bold",
                         }}
                       >
@@ -1360,7 +1360,7 @@ export default function MobileBookNowPage() {
                     <IconButton>
                       <LocalGasStationRoundedIcon
                         fontSize="medium"
-                        sx={{ color: "#4cbb17" }}
+                        sx={{ color: "#59ce8f" }}
                       />
                     </IconButton>
                     <div
@@ -1380,7 +1380,7 @@ export default function MobileBookNowPage() {
                         variant="p"
                         sx={{
                           fontSize: "14px",
-                          color: "#4cbb17",
+                          color: "#59ce8f",
                           fontWeight: "bold",
                         }}
                       >
@@ -1394,7 +1394,7 @@ export default function MobileBookNowPage() {
                     <IconButton>
                       <AirlineSeatReclineNormalRoundedIcon
                         fontSize="medium"
-                        sx={{ color: "#4cbb17" }}
+                        sx={{ color: "#59ce8f" }}
                       />
                     </IconButton>
                     <div
@@ -1414,7 +1414,7 @@ export default function MobileBookNowPage() {
                         variant="p"
                         sx={{
                           fontSize: "14px",
-                          color: "#4cbb17",
+                          color: "#59ce8f",
                           fontWeight: "bold",
                         }}
                       >
@@ -1437,7 +1437,7 @@ export default function MobileBookNowPage() {
                     <IconButton>
                       <SettingsAccessibilityRoundedIcon
                         fontSize="medium"
-                        sx={{ color: "#4cbb17" }}
+                        sx={{ color: "#59ce8f" }}
                       />
                     </IconButton>
                     <div
@@ -1457,7 +1457,7 @@ export default function MobileBookNowPage() {
                         variant="p"
                         sx={{
                           fontSize: "14px",
-                          color: "#4cbb17",
+                          color: "#59ce8f",
                           fontWeight: "bold",
                         }}
                       >
@@ -1471,7 +1471,7 @@ export default function MobileBookNowPage() {
                     <IconButton>
                       <SpeedRoundedIcon
                         fontSize="medium"
-                        sx={{ color: "#4cbb17" }}
+                        sx={{ color: "#59ce8f" }}
                       />
                     </IconButton>
                     <div
@@ -1491,7 +1491,7 @@ export default function MobileBookNowPage() {
                         variant="p"
                         sx={{
                           fontSize: "14px",
-                          color: "#4cbb17",
+                          color: "#59ce8f",
                           fontWeight: "bold",
                         }}
                       >
@@ -1512,7 +1512,7 @@ export default function MobileBookNowPage() {
             <Typography
               variant="h6"
               fontSize={"15px"}
-              sx={{ color: "#4cbb17" }}
+              sx={{ color: "#59ce8f" }}
             >
               Baghajatin
             </Typography>

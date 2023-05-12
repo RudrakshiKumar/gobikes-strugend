@@ -92,62 +92,96 @@ const BookingFlowCard = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      setLoading(false)
-    }, 3000)
-  }, [])
+      setLoading(false);
+    }, 3000);
+  }, []);
 
   return (
     <Grid item xs={12} sm={4}>
-      {
-        loading
-          ? <Stack sx={{ width: '100%', margin: '20px 0px 20px 0px', }}>
-            <Skeleton variant="rectangular" width="100%" height={250} animation="wave" />
-            {/* <Skeleton variant="rectangular" width={275} height={200} animation="wave" /> */}
+      {loading ? (
+        <Stack sx={{ width: "100%", margin: "20px 0px 20px 0px" }}>
+          <Skeleton
+            variant="rectangular"
+            width="100%"
+            height={250}
+            animation="wave"
+          />
+          {/* <Skeleton variant="rectangular" width={275} height={200} animation="wave" /> */}
 
-            <Stack sx={{ width: '100%' }}>
-              {
-                loading ?
-                  < >
-                    <Typography> <Skeleton variant="text" width="100%" height={50} animation="wave" /> </Typography>
-                    <Typography> <Skeleton variant="text" width="100%" height={40} animation="wave" /> </Typography>
-                    <Typography> <Skeleton variant="text" width="100%" height={20} animation="wave" /> </Typography>
-                    <Typography> <Skeleton variant="text" width="100%" height={20} animation="wave" /> </Typography>
-                  </>
-                  : null
-              }
-            </Stack>
+          <Stack sx={{ width: "100%" }}>
+            {loading ? (
+              <>
+                <Typography>
+                  {" "}
+                  <Skeleton
+                    variant="text"
+                    width="100%"
+                    height={50}
+                    animation="wave"
+                  />{" "}
+                </Typography>
+                <Typography>
+                  {" "}
+                  <Skeleton
+                    variant="text"
+                    width="100%"
+                    height={40}
+                    animation="wave"
+                  />{" "}
+                </Typography>
+                <Typography>
+                  {" "}
+                  <Skeleton
+                    variant="text"
+                    width="100%"
+                    height={20}
+                    animation="wave"
+                  />{" "}
+                </Typography>
+                <Typography>
+                  {" "}
+                  <Skeleton
+                    variant="text"
+                    width="100%"
+                    height={20}
+                    animation="wave"
+                  />{" "}
+                </Typography>
+              </>
+            ) : null}
           </Stack>
-
-          : <CardContent
-            sx={{
-              border: "1px solid lightGray",
-              borderRadius: "5px",
-            }}
+        </Stack>
+      ) : (
+        <CardContent
+          sx={{
+            border: "1px solid lightGray",
+            borderRadius: "5px",
+          }}
+        >
+          <Typography
+            variant="h6"
+            align="center"
+            sx={{ fontWeight: "bold", fontSize: "8px", color: "red", mb: 2 }}
           >
-            <Typography
-              variant="h6"
-              align="center"
-              sx={{ fontWeight: "bold", fontSize: "8px", color: "red", mb: 2 }}
-            >
-              Available Till 10 PM{" "}
-            </Typography>
-            <Typography
-              variant="h6"
-              align="center"
-              sx={{ fontWeight: "bold", fontSize: "12px" }}
-            >
-              Hero Destini 125
-            </Typography>
-            <img
-              src={HeroDestini}
-              alt="HeroDestini"
-              style={{
-                height: "100%",
-                width: "100%",
-                padding: "7px",
-              }}
-            />
-            {/* <TextField
+            Available Till 10 PM{" "}
+          </Typography>
+          <Typography
+            variant="h6"
+            align="center"
+            sx={{ fontWeight: "bold", fontSize: "12px" }}
+          >
+            Hero Destini 125
+          </Typography>
+          <img
+            src={HeroDestini}
+            alt="HeroDestini"
+            style={{
+              height: "100%",
+              width: "100%",
+              padding: "7px",
+            }}
+          />
+          {/* <TextField
       fullWidth
       label="Available at"
       defaultValue="Tikiapara Railway Station"
@@ -157,87 +191,89 @@ const BookingFlowCard = () => {
       }}
       size="small"
     /> */}
-            {/* <Box sx={{ my: 5, mx: 2 }}> */}
-            <FormControl sx={{ display: "flex", justifyContent: "center", my: 2 }}>
-              <InputLabel id="search-select-label">Available at</InputLabel>
-              <Select
-                // Disables auto focus on MenuItems and allows TextField to be in focus
-                MenuProps={{ autoFocus: false }}
-                labelId="search-select-label"
-                id="search-select"
-                value={selectedLocation}
-                label="Available at"
-                onChange={(e) => setSelectedLocation(e.target.value)}
-                onClose={() => setSearchText("")}
-                // This prevents rendering empty string in Select's value
-                // if search text would exclude currently selected option.
-                renderValue={() => selectedLocation}
-              >
-                {/* TextField is put into ListSubheader so that it doesn't
+          {/* <Box sx={{ my: 5, mx: 2 }}> */}
+          <FormControl
+            sx={{ display: "flex", justifyContent: "center", my: 2 }}
+          >
+            <InputLabel id="search-select-label">Available at</InputLabel>
+            <Select
+              // Disables auto focus on MenuItems and allows TextField to be in focus
+              MenuProps={{ autoFocus: false }}
+              labelId="search-select-label"
+              id="search-select"
+              value={selectedLocation}
+              label="Available at"
+              onChange={(e) => setSelectedLocation(e.target.value)}
+              onClose={() => setSearchText("")}
+              // This prevents rendering empty string in Select's value
+              // if search text would exclude currently selected option.
+              renderValue={() => selectedLocation}
+            >
+              {/* TextField is put into ListSubheader so that it doesn't
 act as a selectable item in the menu
 i.e. we can click the TextField without triggering any selection.*/}
-                <ListSubheader>
-                  <TextField
-                    size="small"
-                    // Autofocus on textfield
-                    autoFocus
-                    placeholder="Type to search..."
-                    fullWidth
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <SearchIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                    onChange={(e) => setSearchText(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key !== "Escape") {
-                        // Prevents autoselecting item while typing (default Select behaviour)
-                        e.stopPropagation();
-                      }
-                    }}
-                  />
-                </ListSubheader>
-                {displayedOptions.map((option, i) => (
-                  <MenuItem key={i} value={option}>
-                    {option}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            {/* </Box> */}
+              <ListSubheader>
+                <TextField
+                  size="small"
+                  // Autofocus on textfield
+                  autoFocus
+                  placeholder="Type to search..."
+                  fullWidth
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                  onChange={(e) => setSearchText(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key !== "Escape") {
+                      // Prevents autoselecting item while typing (default Select behaviour)
+                      e.stopPropagation();
+                    }
+                  }}
+                />
+              </ListSubheader>
+              {displayedOptions.map((option, i) => (
+                <MenuItem key={i} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          {/* </Box> */}
 
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                mb: 2,
-              }}
-            >
-              <Typography variant="p" sx={{ color: "#59ce8f", fontSize: "20px" }}>
-                ₹449
-              </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 2,
+            }}
+          >
+            <Typography variant="p" sx={{ color: "#59ce8f", fontSize: "20px" }}>
+              ₹449
+            </Typography>
 
-              <Typography variant="p" sx={{ fontSize: "12px" }}>
-                100 Km limit
-              </Typography>
-            </Box>
-            <Button
-              onClick={handleNavigate}
-              variant="contained"
-              sx={{
-                backgroundColor: "#59ce8f",
-                ":hover": {
-                  backgroundColor: "#4cbb17",
-                },
-                width: "100%",
-              }}
-            >
-              Book Now
-            </Button>
-            {/* <hr />
+            <Typography variant="p" sx={{ fontSize: "12px" }}>
+              100 Km limit
+            </Typography>
+          </Box>
+          <Button
+            onClick={handleNavigate}
+            variant="contained"
+            sx={{
+              backgroundColor: "#59ce8f",
+              ":hover": {
+                backgroundColor: "#4cbb17",
+              },
+              width: "100%",
+            }}
+          >
+            Book Now
+          </Button>
+          {/* <hr />
     <Grid container spacing={2} sx={{ fontSize: "15px" }}>
       <Grid item xs={6} sm={6}>
         <Typography variant="p">Deposit : ₹2000</Typography>
@@ -246,10 +282,8 @@ i.e. we can click the TextField without triggering any selection.*/}
         <Typography variant="p">Make Year : 2020</Typography>
       </Grid>
     </Grid> */}
-          </CardContent>
-      }
-
-
+        </CardContent>
+      )}
     </Grid>
   );
 };

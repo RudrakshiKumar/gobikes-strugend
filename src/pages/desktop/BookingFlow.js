@@ -148,12 +148,12 @@ export default function BookingFlow(props) {
                     variant="contained"
                     size="medium"
                     sx={{
-                      backgroundColor: "#4cbb17",
+                      backgroundColor: "#59ce8f",
                       padding: "10px",
                       marginTop: "5px",
                       marginRight: "12px",
                       ":hover": {
-                        backgroundColor: "#4cbb17",
+                        backgroundColor: "#36B671",
                       },
                     }}
                     onClick={handleOpen}
@@ -385,7 +385,7 @@ export default function BookingFlow(props) {
                               <Grid item xs={12} sm={6}>
                                 <Typography
                                   variant="p"
-                                  sx={{ color: "#4cbb17", fontSize: "25px" }}
+                                  sx={{ color: "#59ce8f", fontSize: "25px" }}
                                 >
                                   ₹449
                                 </Typography>
@@ -397,9 +397,9 @@ export default function BookingFlow(props) {
                                   size="small"
                                   variant="contained"
                                   sx={{
-                                    backgroundColor: "#4cbb17",
+                                    backgroundColor: "#59ce8f",
                                     ":hover": {
-                                      backgroundColor: "#4cbb17",
+                                      backgroundColor: "#36B671",
                                     },
                                   }}
                                   onClick={handleNavigate}
@@ -482,7 +482,7 @@ export default function BookingFlow(props) {
                               <Grid item xs={12} sm={6}>
                                 <Typography
                                   variant="p"
-                                  sx={{ color: "#4cbb17", fontSize: "25px" }}
+                                  sx={{ color: "#59ce8f", fontSize: "25px" }}
                                 >
                                   ₹719
                                 </Typography>
@@ -494,9 +494,9 @@ export default function BookingFlow(props) {
                                   size="small"
                                   variant="contained"
                                   sx={{
-                                    backgroundColor: "#4cbb17",
+                                    backgroundColor: "#59ce8f",
                                     ":hover": {
-                                      backgroundColor: "#4cbb17",
+                                      backgroundColor: "#36B671",
                                     },
                                   }}
                                   onClick={handleNavigate}
@@ -564,7 +564,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹4049
                             </Typography>
@@ -576,9 +576,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -637,7 +637,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹7019
                             </Typography>
@@ -649,9 +649,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -714,7 +714,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹8099
                             </Typography>
@@ -726,9 +726,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -788,7 +788,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹9099
                             </Typography>
@@ -800,9 +800,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -865,7 +865,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹15299
                             </Typography>
@@ -877,9 +877,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -938,7 +938,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹16300
                             </Typography>
@@ -950,9 +950,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -1015,7 +1015,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹719
                             </Typography>
@@ -1027,9 +1027,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -1092,7 +1092,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹449
                             </Typography>
@@ -1104,9 +1104,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#36B671",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -1169,7 +1169,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹719
                             </Typography>
@@ -1181,9 +1181,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -1246,7 +1246,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹449
                             </Typography>
@@ -1258,9 +1258,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -1323,7 +1323,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹449
                             </Typography>
@@ -1335,9 +1335,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}
@@ -1400,7 +1400,7 @@ export default function BookingFlow(props) {
                           <Grid item xs={12} sm={6}>
                             <Typography
                               variant="p"
-                              sx={{ color: "#4cbb17", fontSize: "25px" }}
+                              sx={{ color: "#59ce8f", fontSize: "25px" }}
                             >
                               ₹719
                             </Typography>
@@ -1412,9 +1412,9 @@ export default function BookingFlow(props) {
                               size="small"
                               variant="contained"
                               sx={{
-                                backgroundColor: "#4cbb17",
+                                backgroundColor: "#59ce8f",
                                 ":hover": {
-                                  backgroundColor: "#4cbb17",
+                                  backgroundColor: "#36B671",
                                 },
                               }}
                               onClick={handleNavigate}

@@ -48,7 +48,7 @@ const theme = createTheme({
     button: {
       fontWeight: "bold",
       ":hover": {
-        backgroundColor: "#36b671",
+        backgroundColor: "#36B671",
       },
     },
   },
