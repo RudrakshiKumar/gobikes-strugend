@@ -1,8 +1,7 @@
-import { Button, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Button, Typography,Box } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import {logo} from '../Constants'
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
